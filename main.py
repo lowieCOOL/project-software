@@ -4,8 +4,10 @@ import math
 from scipy.ndimage import gaussian_filter
 from airport_mapper import *
 
+
+json_file_name = "osm_data_ebaw.json"
 # Load OSM JSON data
-with open("osm_data.json", "r") as file:
+with open(json_file_name, "r") as file:
     osm_data = json.load(file)
 
 # Screen settings
@@ -63,8 +65,7 @@ pygame.display.set_caption("OSM Airport Map")
 target = pygame.transform.smoothscale(pygame.transform.rotate(pygame.image.load('target.png'),45),(20,20))
 clock = pygame.time.Clock()
 
-network = map_airport()
-print(network[2425429250])
+network = map_airport(json_file_name)
 path = calculate_route(network,all_nodes,(0, 5900058194, {'node': 5900058194, 'parent':None}), destination=2425624616)
 
 WIDTH,HEIGHT = screen.get_size()

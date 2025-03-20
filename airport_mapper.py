@@ -18,8 +18,8 @@ def read_json(file_name):
     with open(file_name, 'r') as json_file:
         return json.load(json_file)['elements']
     
-def map_airport():
-    elements = read_json('osm_data.json')
+def map_airport(file_name):
+    elements = read_json(file_name)
     network = {}
 
     for element in elements:
