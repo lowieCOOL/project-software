@@ -21,24 +21,75 @@ def read_json(file_name):
 def map_airport(file_name):
     elements = read_json(file_name)
     network = {}
+    taxi_nodes = {}
+    runways = {}
+
+    thresholds = [e for e in elements if e['type'] == 'way' and 'runway' in e['tags']]
 
     for element in elements:
-        if element['type'] != 'way' or element['tags']['aeroway'] != 'taxiway' or 'ref' not in element['tags']:
+        if element['type'] != 'way' or 'ref' not in element['tags']:
             continue
+        type = element['tags']['aeroway']
 
-        for i, node in enumerate(element['nodes']):
-            parent = element['tags']['ref']
-            if not node in network:
-                network[node] = {'next_moves': [], 'parents': [parent]}
-            if not parent in network[node]['parents']:
-                network[node]['parents'].append(parent)
+        if type == 'taxiway:':
+            print(type)
+            for i, node in enumerate(element['nodes']):
+                parent = element['tags']['ref']
+                if not node in taxi_nodes:
+                    taxi_nodes[node] = {'next_moves': [], 'parents': [parent]}
+                if not parent in taxi_nodes[node]['parents']:
+                    taxi_nodes[node]['parents'].append(parent)
 
-            if i != len(element['nodes'])-1:
-                network[node]['next_moves'].append(element['nodes'][i+1])
-            if i != 0:
-                network[node]['next_moves'].append(element['nodes'][i-1])
+                if i != len(element['nodes'])-1:
+                    taxi_nodes[node]['next_moves'].append(element['nodes'][i+1])
+                if i != 0:
+                    taxi_nodes[node]['next_moves'].append(element['nodes'][i-1])
 
+        if type == 'runway':
+            runway_name = element['tags']['ref']
+            if runway_name not in runways:
+                runways[runway_name] = element
+
+    network['runways'] = process_runways(runways, thresholds)
+    network['taxi_nodes'] = taxi_nodes
+    print(network)
     return network
+
+def process_runways(runways, thresholds):
+    processed = {}
+
+    for threshold in thresholds:
+        threshold_nodes = threshold["nodes"]
+
+        # Find a matching runway that shares a start or end node
+        for runway in runways.values():
+            runway_nodes = runway["nodes"]
+            common_nodes = set(threshold_nodes) & set([runway_nodes[0], runway_nodes[-1]])
+
+            if common_nodes:
+                common_node = list(common_nodes)[0]  # Get the common node
+
+                # Determine if the threshold needs to be reversed
+                if threshold_nodes[0] == common_node:
+                    ordered_threshold_nodes = threshold_nodes  # Already in correct order
+                else:
+                    ordered_threshold_nodes = threshold_nodes[::-1]  # Reverse it
+
+                # Merge at the correct position
+                if runway_nodes[0] == common_node:
+                    merged_nodes = ordered_threshold_nodes[::-1] + runway_nodes[1:]  # Insert at start
+                else:
+                    merged_nodes = runway_nodes[:-1] + ordered_threshold_nodes  # Insert at end
+
+                # Update the runway node list
+                runway["nodes"] = merged_nodes
+                break  # Stop after merging one threshold into a runway
+    with open("osm_data_processed.json", "w") as f:
+        json.dump(runways, f, indent=2)
+
+    return runways
+
+    
 
 def calculate_distance(all_nodes, node1,node2):
     node1 = node2metric(all_nodes[node1])

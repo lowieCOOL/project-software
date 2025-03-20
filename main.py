@@ -1,11 +1,10 @@
 import pygame
 import json
-import math
 from scipy.ndimage import gaussian_filter
 from airport_mapper import *
 
 
-json_file_name = "osm_data_ebaw.json"
+json_file_name = "osm_data.json"
 # Load OSM JSON data
 with open(json_file_name, "r") as file:
     osm_data = json.load(file)
@@ -66,7 +65,7 @@ target = pygame.transform.smoothscale(pygame.transform.rotate(pygame.image.load(
 clock = pygame.time.Clock()
 
 network = map_airport(json_file_name)
-path = calculate_route(network,all_nodes,(0, 5900058194, {'node': 5900058194, 'parent':None}), destination=2425624616)
+path = calculate_route(network['taxi_nodes'],all_nodes,(0, 5900058194, {'node': 5900058194, 'parent':None}), destination=2425624616)
 
 WIDTH,HEIGHT = screen.get_size()
 
@@ -78,8 +77,7 @@ while running:
     # Draw ways (taxiways, runways, etc.)
     for element in osm_data["elements"]:
         if element["type"] == "way" and "nodes" in element:
-            points = [latlon_to_screen(all_nodes[n][0], all_nodes[n][1], min_lat, max_lat, min_lon, max_lon, WIDTH, HEIGHT, PADDING)
-                      for n in element["nodes"] if n in all_nodes]
+            points = [latlon_to_screen(all_nodes[n][0], all_nodes[n][1], min_lat, max_lat, min_lon, max_lon, WIDTH, HEIGHT, PADDING) for n in element["nodes"] if n in all_nodes]
 
             if points:
                 if element["tags"]["aeroway"] == "terminal":
