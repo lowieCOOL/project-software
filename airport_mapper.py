@@ -1,6 +1,7 @@
 import json
 import queue
 import math
+from geopy.distance import geodesic
 
 #adjust for curvature of the earth, as the lat increases, the circumfrence decreases
 R =  6378137.0
@@ -18,9 +19,11 @@ def read_json(file_name):
         return json.load(json_file)['elements']
     
 def calculate_distance(all_nodes, node1,node2):
-    node1 = node2metric(all_nodes[node1])
-    node2 = node2metric(all_nodes[node2])
-    return math.dist(node1,node2)
+    node1 = all_nodes[node1]
+    node2 = all_nodes[node2]
+
+    distance = geodesic(node1, node2).meters
+    return distance
     
 def calculate_angle(all_nodes, node1, node2):
     node1 = node2metric(all_nodes[node1])
