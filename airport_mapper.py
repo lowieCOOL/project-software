@@ -25,12 +25,12 @@ def calculate_distance(all_nodes, node1,node2):
     distance = geodesic(node1, node2).meters
     return distance
     
-def calculate_angle(all_nodes, node1, node2):
+def calculate_angle(all_nodes, node1, node2, positive=True):
     node1 = node2metric(all_nodes[node1])
     node2 = node2metric(all_nodes[node2])
 
     angle = math.degrees(math.atan2(node2[1] - node1[1], node2[0] - node1[0]))
-    if angle < 0:
+    if positive and angle < 0:
         angle += 360
 
     return angle
@@ -55,6 +55,11 @@ def map_airport(file_name, all_nodes):
                     taxi_nodes[node] = {'next_moves': [], 'parents': [parent]}
                 if not parent in taxi_nodes[node]['parents']:
                     taxi_nodes[node]['parents'].append(parent)
+
+                node_osm = next((x for x in elements if x['type'] == 'node' and x['id'] == node), [None])
+                print(node_osm)
+                if 'tags' in node_osm and 'aeroway' in node_osm['tags'] and node_osm['tags']['aeroway'] == 'holding_position':
+                    taxi_nodes[node]['holding_position'] = True
 
                 if i != len(element['nodes'])-1:
                     taxi_nodes[node]['next_moves'].append(element['nodes'][i+1])
@@ -120,13 +125,47 @@ def process_runways(all_nodes, runways, thresholds, taxi_nodes):
 
         for node in value['nodes']:
             if node in taxi_nodes:
+                exit_name = taxi_nodes[node]['parents'][0]
+                if exit_name in value['exits']:
+                    continue
+                holding_point = find_hold_point(taxi_nodes, all_nodes, node, exit_name)
+                if holding_point == None:
+                    continue
+
                 LDA = calculate_distance(all_nodes, node, start_node)
                 TORA = calculate_distance(all_nodes, node, end_node)
-                value['exits'][taxi_nodes[node]['parents'][0]] = {'node': node, 'TORA': TORA, 'LDA': LDA}
+                angle = calculate_angle(all_nodes, node, holding_point, positive=False) - value['angle']
+                if angle < -180:
+                    angle += 360
+                    
+                if angle < 0:
+                    direction = 'left'
+                else:
+                    direction = 'right'
+
+                value['exits'][taxi_nodes[node]['parents'][0]] = {'node': node, 'TORA': TORA, 'LDA': LDA, 'direction': direction, 'angle': angle, 'holding_point': holding_point}	
 
     with open("osm_data_processed.json", "w") as f:
         json.dump(processed, f, indent=2)
     return processed
+
+def find_hold_point(taxi_nodes, all_nodes, node, ref):
+    q = queue.Queue()
+    q.put(node)
+    visited_nodes = []
+    while not q.empty():
+        node = q.get()
+        if node in visited_nodes or ref not in taxi_nodes[node]['parents']:
+            continue
+        visited_nodes.append(node)
+        print(taxi_nodes[node])
+
+        if 'holding_position' in taxi_nodes[node] and taxi_nodes[node]['holding_position']:
+            return node
+        for new_node in taxi_nodes[node]['next_moves']:
+            q.put(new_node)
+
+    return None
 
 def calculate_route (network,all_nodes, begintoestand, destination) :
     q = queue.PriorityQueue()
