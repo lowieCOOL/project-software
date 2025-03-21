@@ -64,7 +64,7 @@ pygame.display.set_caption("OSM Airport Map")
 target = pygame.transform.smoothscale(pygame.transform.rotate(pygame.image.load('target.png'),45),(20,20))
 clock = pygame.time.Clock()
 
-network = map_airport(json_file_name)
+network = map_airport(json_file_name, all_nodes)
 path = calculate_route(network['taxi_nodes'],all_nodes,(0, 5900058194, {'node': 5900058194, 'parent':None}), destination=2425624616)
 
 WIDTH,HEIGHT = screen.get_size()
