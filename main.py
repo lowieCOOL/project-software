@@ -15,7 +15,7 @@ WIDTH, HEIGHT = 1280, 800
 BG_COLOR = (30, 30, 30)  # Dark background
 
 # Function to convert lat/lon to screen coordinates
-def latlon_to_screen(lat, lon, min_lat, max_lat, min_lon, max_lon, width, height, padding):
+def latlon_to_screen(lat, lon, min_lat, max_lat, min_lon, max_lon, width, height, padding, offset_x=0, offset_y=0):
     lat, min_lat, max_lat = lat2y(lat), lat2y(min_lat), lat2y(max_lat)
     lon, min_lon, max_lon = lon2x(lon), lon2x(min_lon), lon2x(max_lon)
 
@@ -30,8 +30,8 @@ def latlon_to_screen(lat, lon, min_lat, max_lat, min_lon, max_lon, width, height
     x_offset = (scale - x_scale)* drawable_width / scale / 2  + padding
     y_offset = (scale - y_scale)* drawable_height / scale / 2  + padding
 
-    x = int((lon - min_lon) / scale + x_offset)
-    y = int(height - (((lat - min_lat) / scale) + y_offset))
+    x = int((lon + offset_x - min_lon) / scale + x_offset)
+    y = int(height - (((lat + offset_y - min_lat) / scale) + y_offset))
     return x, y
 
 def smooth_screen(screen, sigma):
@@ -97,6 +97,12 @@ while running:
             font = pygame.font.Font(None, 18)
             angle_text = font.render(f"{exit['angle']}°", True, (255, 255, 255))
             screen.blit(angle_text, points[0])
+
+    for runway in network['runways'].values():
+        n = all_nodes[runway['threshold']]
+        points = [latlon_to_screen(n[0], n[1], min_lat, max_lat, min_lon, max_lon, WIDTH, HEIGHT, PADDING), latlon_to_screen(n[0], n[1], min_lat, max_lat, min_lon, max_lon, WIDTH, HEIGHT, PADDING, runway['init_offset_from_threshold'][0], runway['init_offset_from_threshold'][1]) ]
+        if points:
+            pygame.draw.lines(screen, (0, 0, 255), False, points, 2)
 
     screen.blit(target, (WIDTH/2, HEIGHT/2))
 

@@ -2,6 +2,7 @@ import json
 import queue
 import math
 from geopy.distance import geodesic
+from geopy import units
 
 #adjust for curvature of the earth, as the lat increases, the circumfrence decreases
 R =  6378137.0
@@ -57,7 +58,7 @@ def map_airport(file_name, all_nodes):
                     taxi_nodes[node]['parents'].append(parent)
 
                 node_osm = next((x for x in elements if x['type'] == 'node' and x['id'] == node), [None])
-                print(node_osm)
+
                 if 'tags' in node_osm and 'aeroway' in node_osm['tags'] and node_osm['tags']['aeroway'] == 'holding_position':
                     taxi_nodes[node]['holding_position'] = True
 
@@ -79,6 +80,11 @@ def map_airport(file_name, all_nodes):
 def process_runways(all_nodes, runways, thresholds, taxi_nodes):
     processed = {}
 
+    # find the thresholds of the runways
+    for runway in runways.values():
+        runway['thresholds'] = runway['nodes'][::len(runway['nodes'])-1]
+
+    # merge the displaced thresholds with the runway nodes
     for threshold in thresholds:
         threshold_nodes = threshold["nodes"]
 
@@ -106,6 +112,7 @@ def process_runways(all_nodes, runways, thresholds, taxi_nodes):
                 runway["nodes"] = merged_nodes
                 break  # Stop after merging one threshold into a runway
 
+    # split the runways for each runway direction and reformat the data
     for key,value in runways.items():
         angle = calculate_angle(all_nodes, value['nodes'][0], value['nodes'][1])    
         for runway in key.split('/'):
@@ -113,11 +120,19 @@ def process_runways(all_nodes, runways, thresholds, taxi_nodes):
             processed[runway] = {'direction': direction}
             if abs(direction - angle) < 90:
                 processed[runway]['angle'] = angle
+                processed[runway]['threshold'] = value['thresholds'][0]
                 processed[runway]['nodes'] = value['nodes']
             else:
                 processed[runway]['angle'] = (angle + 180) % 360
+                processed[runway]['threshold'] = value['thresholds'][1]
                 processed[runway]['nodes'] = value['nodes'][::-1]
 
+            initial_height = 3000
+            distance_from_threshold = units.m(feet=(initial_height-50)/math.tan(math.radians(3)))
+            processed[runway]['init_offset_from_threshold'] = (distance_from_threshold*math.cos(math.radians(processed[runway]['angle']-180)), distance_from_threshold*math.sin(math.radians(processed[runway]['angle']-45)))
+            # todo fix angles
+
+    # find the exits for each runway and calculate the direction, TORA and LDA
     for key,value in processed.items():
         value['exits'] = {}
         start_node = value['nodes'][0]
@@ -158,7 +173,6 @@ def find_hold_point(taxi_nodes, all_nodes, node, ref):
         if node in visited_nodes or ref not in taxi_nodes[node]['parents']:
             continue
         visited_nodes.append(node)
-        print(taxi_nodes[node])
 
         if 'holding_position' in taxi_nodes[node] and taxi_nodes[node]['holding_position']:
             return node
