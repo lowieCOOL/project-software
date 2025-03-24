@@ -129,7 +129,7 @@ def process_runways(all_nodes, runways, thresholds, taxi_nodes):
 
             initial_height = 3000
             distance_from_threshold = units.m(feet=(initial_height-50)/math.tan(math.radians(3)))
-            processed[runway]['init_offset_from_threshold'] = (distance_from_threshold*math.cos(math.radians(processed[runway]['angle']-180)), distance_from_threshold*math.sin(math.radians(processed[runway]['angle']-45)))
+            processed[runway]['init_offset_from_threshold'] = (distance_from_threshold*math.cos(math.radians(90-processed[runway]['angle']-180)), distance_from_threshold*math.sin(90-math.radians(processed[runway]['angle']-180)))
             # todo fix angles
 
     # find the exits for each runway and calculate the direction, TORA and LDA
