@@ -3,6 +3,50 @@ import queue
 import math
 from geopy.distance import geodesic
 from geopy import units
+from geographiclib.geodesic import Geodesic as geo
+import time
+
+def calculate_initial_compass_bearing(pointA, pointB):
+    """
+    Calculates the bearing between two points.
+
+    The formulae used is the following:
+        θ = atan2(sin(Δlong).cos(lat2),
+                  cos(lat1).sin(lat2) − sin(lat1).cos(lat2).cos(Δlong))
+
+    :Parameters:
+      - `pointA: The tuple representing the latitude/longitude for the
+        first point. Latitude and longitude must be in decimal degrees
+      - `pointB: The tuple representing the latitude/longitude for the
+        second point. Latitude and longitude must be in decimal degrees
+
+    :Returns:
+      The bearing in degrees
+
+    :Returns Type:
+      float
+    """
+    if (type(pointA) != tuple) or (type(pointB) != tuple):
+        raise TypeError("Only tuples are supported as arguments")
+
+    lat1 = math.radians(pointA[0])
+    lat2 = math.radians(pointB[0])
+
+    diffLong = math.radians(pointB[1] - pointA[1])
+
+    x = math.sin(diffLong) * math.cos(lat2)
+    y = math.cos(lat1) * math.sin(lat2) - (math.sin(lat1)
+            * math.cos(lat2) * math.cos(diffLong))
+
+    initial_bearing = math.atan2(x, y)
+
+    # Now we have the initial bearing but math.atan2 return values
+    # from -180° to + 180° which is not what we want for a compass bearing
+    # The solution is to normalize the initial bearing as shown below
+    initial_bearing = math.degrees(initial_bearing)
+    compass_bearing = (initial_bearing + 360) % 360
+
+    return compass_bearing
 
 #adjust for curvature of the earth, as the lat increases, the circumfrence decreases
 R =  6378137.0
@@ -26,11 +70,11 @@ def calculate_distance(all_nodes, node1,node2):
     distance = geodesic(node1, node2).meters
     return distance
     
-def calculate_angle(all_nodes, node1, node2, positive=True):
-    node1 = node2metric(all_nodes[node1])
-    node2 = node2metric(all_nodes[node2])
+def calculate_angle(all_nodes, node1, node2, positive=False):
+    node1 = (all_nodes[node1])
+    node2 = (all_nodes[node2])
 
-    angle = math.degrees(math.atan2(node2[1] - node1[1], node2[0] - node1[0]))
+    angle = calculate_initial_compass_bearing(node1, node2)
     if positive and angle < 0:
         angle += 360
 
@@ -114,23 +158,23 @@ def process_runways(all_nodes, runways, thresholds, taxi_nodes):
 
     # split the runways for each runway direction and reformat the data
     for key,value in runways.items():
-        angle = calculate_angle(all_nodes, value['nodes'][0], value['nodes'][1])    
+        heading = calculate_angle(all_nodes, value['nodes'][0], value['nodes'][-1])    
         for runway in key.split('/'):
             direction = int(runway[:2])*10
             processed[runway] = {'direction': direction}
-            if abs(direction - angle) < 90:
-                processed[runway]['angle'] = angle
+            if abs(direction - heading) < 90:
+                processed[runway]['angle'] = heading
                 processed[runway]['threshold'] = value['thresholds'][0]
                 processed[runway]['nodes'] = value['nodes']
             else:
-                processed[runway]['angle'] = (angle + 180) % 360
+                processed[runway]['angle'] = (heading + 180) % 360
                 processed[runway]['threshold'] = value['thresholds'][1]
                 processed[runway]['nodes'] = value['nodes'][::-1]
 
             initial_height = 3000
             distance_from_threshold = units.m(feet=(initial_height-50)/math.tan(math.radians(3)))
-            processed[runway]['init_offset_from_threshold'] = (distance_from_threshold*math.cos(math.radians(90-processed[runway]['angle']-180)), distance_from_threshold*math.sin(90-math.radians(processed[runway]['angle']-180)))
-            # todo fix angles
+            angle = math.radians((90-processed[runway]['angle']-180)%360)
+            processed[runway]['init_offset_from_threshold'] = (distance_from_threshold*math.cos(angle), distance_from_threshold*math.sin(angle))
 
     # find the exits for each runway and calculate the direction, TORA and LDA
     for key,value in processed.items():
@@ -149,16 +193,18 @@ def process_runways(all_nodes, runways, thresholds, taxi_nodes):
 
                 LDA = calculate_distance(all_nodes, node, start_node)
                 TORA = calculate_distance(all_nodes, node, end_node)
-                angle = calculate_angle(all_nodes, node, holding_point, positive=False) - value['angle']
-                if angle < -180:
-                    angle += 360
+                heading = calculate_angle(all_nodes, node, holding_point, positive=False) - value['angle']
+                if heading < -180:
+                    heading += 360
+                if heading > 180:
+                    heading -= 360
                     
-                if angle < 0:
+                if heading < 0:
                     direction = 'left'
                 else:
                     direction = 'right'
 
-                value['exits'][taxi_nodes[node]['parents'][0]] = {'node': node, 'TORA': TORA, 'LDA': LDA, 'direction': direction, 'angle': angle, 'holding_point': holding_point}	
+                value['exits'][taxi_nodes[node]['parents'][0]] = {'node': node, 'TORA': TORA, 'LDA': LDA, 'direction': direction, 'angle': heading, 'holding_point': holding_point}	
 
     with open("osm_data_processed.json", "w") as f:
         json.dump(processed, f, indent=2)
@@ -181,7 +227,7 @@ def find_hold_point(taxi_nodes, all_nodes, node, ref):
 
     return None
 
-def calculate_route (network,all_nodes, begintoestand, destination) :
+def calculate_route (taxi_nodes,all_nodes, begintoestand, destination, starting_via=None, angle=None):
     q = queue.PriorityQueue()
     q.put(begintoestand)
     visited_nodes = []
@@ -194,12 +240,26 @@ def calculate_route (network,all_nodes, begintoestand, destination) :
         if node in visited_nodes:
             continue
         parent = state[-1]['parent']
-        directions = network[node]['next_moves']
+        directions = taxi_nodes[node]['next_moves']
 
         visited_nodes.append(node)
         
         for new_node in directions:
-            if new_node == destination:
+            if state[-1]['parent'] is not None:
+                prev_node = state[-1]['parent']['node']
+                angle = abs(calculate_angle(all_nodes, prev_node, node) - calculate_angle(all_nodes, new_node, node)) % 360
+                if angle <= 10:
+                    continue
+            else:
+                if starting_via != None and starting_via not in taxi_nodes[new_node]['parents']:
+                    continue
+                if angle is not None:
+                    angle = abs(calculate_angle(all_nodes, node, new_node) - angle)
+                    if angle <= 90:
+                        continue
+
+            #solution found: get path from parent nodes
+            if new_node == destination or destination in taxi_nodes[new_node]['parents']:
                 print("Oplossing gevonden! ")
                 path = [new_node]
                 while True:
@@ -210,12 +270,39 @@ def calculate_route (network,all_nodes, begintoestand, destination) :
                     node = state['node']
                     parent = state['parent']
                 print(len(path),i, path)
-                #draw path
-                return path
+                return path[::-1]
+            #no solution found: add node to queue
             else: 
-                distance = state[0] + calculate_distance(all_nodes, new_node, node)
+                added_distance = calculate_distance(all_nodes, new_node, node)
+                if starting_via != None and starting_via in taxi_nodes[new_node]['parents']:
+                    added_distance *= 0.01
+
+                distance = state[0] + added_distance
                 q.put((distance, new_node, {'node': new_node, 'parent': state[-1]}))
+    print(f"Geen oplossing gevonden: laatse via: {starting_via}")	
     return None # geen oplossing gevonden
+
+def calculate_via_route(taxi_nodes, all_nodes, start_node, destination, vias):
+    start_time = time.time()
+    route = [start_node]
+    vias.append(destination)
+    starting_state = (0, start_node, {'node': start_node, 'parent': None})
+    angle = None
+
+    for i, via in enumerate(vias):
+        #TODO it should not go back to the previous node after a via
+        #TODO it should pass the last angle so it can't go back on intself
+        path = calculate_route(taxi_nodes, all_nodes, starting_state, via, starting_via=vias[i-1] if i > 0 else None, angle=angle if angle != None else None)
+        if path == None:
+            continue
+            return None
+        route.extend(path)
+        starting_state = (0, route[-1], {'node': route[-1], 'parent': None})
+        angle = calculate_angle(all_nodes, route[-1], route[-2])
+    
+    end_time = time.time()
+    print(f"Time taken to run calculate_via_route: {end_time - start_time} seconds")
+    return route
 
 
 if __name__ == '__main__':

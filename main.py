@@ -65,7 +65,8 @@ target = pygame.transform.smoothscale(pygame.transform.rotate(pygame.image.load(
 clock = pygame.time.Clock()
 
 network = map_airport(json_file_name, all_nodes)
-path = calculate_route(network['taxi_nodes'],all_nodes,(0, 5900058194, {'node': 5900058194, 'parent':None}), destination=2425624616)
+path = calculate_via_route(network['taxi_nodes'],all_nodes,5900058194, destination=2425624616, vias=['B10', 'R1', 'OUT 7','W3',  'Y'])
+#path = calculate_via_route(network['taxi_nodes'],all_nodes,12435822847, destination=12436227961, vias=['A'])
 
 WIDTH,HEIGHT = screen.get_size()
 
@@ -74,22 +75,23 @@ while running:
     clock.tick(60)
     screen.fill(BG_COLOR)
 
-    # Draw ways (taxiways, runways, etc.)
-    for element in osm_data["elements"]:
-        if element["type"] == "way" and "nodes" in element:
-            points = [latlon_to_screen(all_nodes[n][0], all_nodes[n][1], min_lat, max_lat, min_lon, max_lon, WIDTH, HEIGHT, PADDING) for n in element["nodes"] if n in all_nodes]
+    if path != None:
+        # Draw ways (taxiways, runways, etc.)
+        for element in osm_data["elements"]:
+            if element["type"] == "way" and "nodes" in element:
+                points = [latlon_to_screen(all_nodes[n][0], all_nodes[n][1], min_lat, max_lat, min_lon, max_lon, WIDTH, HEIGHT, PADDING) for n in element["nodes"] if n in all_nodes]
 
-            if points:
-                if element["tags"]["aeroway"] == "terminal":
-                    pygame.draw.polygon(screen, (200, 200, 200), points)
-                else:
-                    pygame.draw.lines(screen, (200, 200, 200), False, points, 2)
+                if points:
+                    if element["tags"]["aeroway"] == "terminal":
+                        pygame.draw.polygon(screen, (200, 200, 200), points)
+                    else:
+                        pygame.draw.lines(screen, (200, 200, 200), False, points, 2)
 
-    points = [latlon_to_screen(all_nodes[n][0], all_nodes[n][1], min_lat, max_lat, min_lon, max_lon, WIDTH, HEIGHT, PADDING) for n in path if n in all_nodes]
-    if points:
-        pygame.draw.lines(screen, (255, 0, 0), False, points, 2)
+        points = [latlon_to_screen(all_nodes[n][0], all_nodes[n][1], min_lat, max_lat, min_lon, max_lon, WIDTH, HEIGHT, PADDING) for n in path if n in all_nodes]
+        if points:
+            pygame.draw.lines(screen, (255, 0, 0), False, points, 2)
 
-    for key,exit in network['runways']['01']['exits'].items():
+    for key,exit in network['runways']['25L']['exits'].items():
         node = exit['node']
         points = [latlon_to_screen(all_nodes[n][0], all_nodes[n][1], min_lat, max_lat, min_lon, max_lon, WIDTH, HEIGHT, PADDING) for n in [node, exit['holding_point']] if n in all_nodes]
         if points:
