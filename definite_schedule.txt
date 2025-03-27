@@ -1,0 +1,1803 @@
+day;time;aircraft; type;flight number;runway;gate;arrival or departure
+
+01;01:00;Airliner;LAX;AAL123;25R;307;departure
+01;04:00;Regional Jet;DOH;KLM916;25L;144;arrival
+01;04:15;Military;LAX;AAL286;07R;310;departure
+01;04:30;Airliner;DXB;IBE177;07R;48;arrival
+01;04:45;Private Jet;ATL;UAE377;25L;336;departure
+01;05:00;Airliner;SIN;BAW741;25R;46;arrival
+01;05:30;Private Jet;MAD;SIA902;25R;38;departure
+01;05:45;Airliner;ORD;CPA415;07L;107;arrival
+01;06:00;Private Jet;BKK;AAL959;25L;346;departure
+01;06:15;Private Jet;HKG;AAL192;25L;59;arrival
+01;06:30;Military;JFK;AAL496;07R;52;departure
+01;07:15;Airliner;LHR;QTR270;07L;344;arrival
+01;07:30;Regional Jet;SIN;UAE997;07R;270;departure
+01;08:00;Private Jet;DOH;AAL639;25R;113;arrival
+01;08:15;Cargo;SIN;CPA988;25L;119;departure
+01;08:30;Regional Jet;AMS;KLM438;25R;185;arrival
+01;08:45;Regional Jet;HKG;DLH204;25L;169;departure
+01;09:00;Regional Jet;AMS;KLM163;07R;161;arrival
+01;09:15;Military;BKK;BAW968;07R;111;departure
+01;09:30;Private Jet;JFK;QTR218;07R;92;arrival
+01;09:45;Cargo;BKK;AFR383;25R;167;departure
+01;10:00;Airliner;JFK;AFR207;25R;34;arrival
+01;10:30;Cargo;FRA;KLM337;25L;69;departure
+01;10:45;Military;LAX;BAW855;25R;138;arrival
+01;11:00;Regional Jet;FRA;QTR652;25R;198;departure
+01;11:15;Cargo;HKG;UAE223;07R;345;arrival
+01;12:45;Regional Jet;AMS;KLM938;07R;111;departure
+01;13:00;Airliner;DXB;BAW680;07L;332;arrival
+01;13:15;Airliner;DOH;CPA856;25R;48;departure
+01;13:45;Private Jet;BKK;AFR364;25R;37;arrival
+01;14:00;Private Jet;ATL;KLM994;07R;181;departure
+01;14:15;Private Jet;JFK;KLM602;07R;74;arrival
+01;15:00;Airliner;DXB;AAL790;07L;330;departure
+01;15:15;Military;DOH;THY754;25L;239;arrival
+01;15:30;Cargo;LAX;SIA310;25R;308;departure
+01;15:45;Cargo;ORD;THY979;25R;340;arrival
+01;16:15;Cargo;LAX;CPA419;07R;146;departure
+01;16:30;Regional Jet;SIN;KLM721;07R;261;arrival
+01;16:45;Private Jet;DXB;UAE623;25L;22;departure
+01;17:00;Military;CDG;QTR893;07L;121;arrival
+01;17:15;Military;SIN;BAW209;07L;267;departure
+01;17:30;Private Jet;ATL;SIA162;25L;43;arrival
+01;18:00;Airliner;DOH;AFR732;07R;53;departure
+01;18:15;Military;ATL;QTR321;07L;95;arrival
+01;18:30;Airliner;AMS;UAE172;07R;80;departure
+01;18:45;Regional Jet;HKG;SIA994;25R;52;arrival
+01;19:00;Airliner;DXB;UAE699;25R;164;departure
+01;19:15;Military;HKG;THY159;07L;21;arrival
+01;19:30;Regional Jet;SIN;THY117;07R;168;departure
+01;19:45;Military;FRA;BAW761;25R;240;arrival
+01;20:00;Regional Jet;BKK;QTR877;07R;120;departure
+01;20:30;Airliner;IST;SIA691;07R;62;arrival
+01;21:00;Private Jet;JFK;CPA862;25L;93;departure
+01;21:15;Military;DOH;CPA892;07L;132;arrival
+01;21:30;Cargo;DOH;UAE646;25R;142;departure
+01;21:45;Cargo;ATL;SIA360;25L;312;arrival
+01;22:00;Airliner;IST;KLM625;07L;71;departure
+01;22:15;Military;AMS;CPA742;07L;50;arrival
+01;23:15;Cargo;LAX;SIA942;25R;190;departure
+01;23:30;Private Jet;DXB;UAE400;07R;317;arrival
+01;23:45;Private Jet;HKG;KLM153;25R;355;departure
+02;04:00;Military;JFK;SIA264;25R;185;arrival
+02;04:15;Airliner;ATL;BAW958;07L;158;departure
+02;04:45;Private Jet;ATL;AFR700;07L;119;arrival
+02;05:00;Military;JFK;KLM784;25L;183;departure
+02;05:15;Airliner;DOH;IBE686;07L;317;arrival
+02;05:30;Airliner;DOH;AAL328;25R;64;departure
+02;06:00;Airliner;AMS;KLM644;25R;152;arrival
+02;06:15;Airliner;LHR;BAW849;07R;224;departure
+02;06:45;Private Jet;IST;CPA609;25R;42;arrival
+02;07:00;Airliner;ORD;DLH368;07L;124;departure
+02;07:15;Regional Jet;ATL;IBE288;25R;334;arrival
+02;08:15;Military;FRA;THY695;07L;67;departure
+02;08:30;Cargo;ATL;UAE473;25R;292;arrival
+02;08:45;Private Jet;MAD;IBE561;25L;46;departure
+02;09:00;Private Jet;DOH;IBE527;07L;107;arrival
+02;09:15;Airliner;ATL;QTR377;25R;359;departure
+02;09:30;Private Jet;IST;DLH808;07L;201;arrival
+02;09:45;Military;LHR;IBE571;07R;142;departure
+02;10:00;Airliner;BKK;UAE583;25L;253;arrival
+02;10:15;Cargo;AMS;IBE629;07L;67;departure
+02;10:45;Military;ORD;DLH687;25L;204;arrival
+02;11:00;Cargo;IST;AAL812;25R;233;departure
+02;11:30;Regional Jet;HKG;CPA117;25R;198;arrival
+02;11:45;Regional Jet;BKK;AAL865;07R;272;departure
+02;12:00;Airliner;BKK;KLM729;07R;88;arrival
+02;12:15;Military;DOH;AFR529;07R;157;departure
+02;12:30;Military;BKK;DLH220;25R;174;arrival
+02;12:45;Regional Jet;ATL;DLH336;07R;292;departure
+02;13:00;Cargo;CDG;QTR533;25L;256;arrival
+02;14:00;Cargo;HKG;IBE392;25L;165;departure
+02;14:15;Private Jet;IST;UAE992;25L;24;arrival
+02;14:45;Private Jet;ATL;DLH751;07L;107;departure
+02;15:00;Private Jet;CDG;KLM453;25R;357;arrival
+02;15:15;Regional Jet;LAX;DLH915;25R;119;departure
+02;15:30;Private Jet;ATL;SIA352;25L;27;arrival
+02;15:45;Regional Jet;FRA;KLM651;25R;284;departure
+02;16:00;Cargo;IST;SIA747;07L;354;arrival
+02;16:15;Airliner;LAX;KLM241;25L;236;departure
+02;16:30;Private Jet;JFK;QTR413;07L;108;arrival
+02;16:45;Military;ORD;SIA811;25R;138;departure
+02;17:15;Military;ORD;AAL359;25L;39;arrival
+02;17:30;Regional Jet;ORD;CPA287;25R;28;departure
+02;17:45;Cargo;MAD;IBE266;07L;82;arrival
+02;18:00;Airliner;FRA;BAW383;25L;40;departure
+02;18:15;Regional Jet;CDG;SIA290;07R;326;arrival
+02;18:45;Regional Jet;HKG;DLH256;25R;246;departure
+02;19:00;Airliner;ATL;AAL196;25R;46;arrival
+02;19:15;Private Jet;IST;IBE587;25R;205;departure
+02;20:00;Military;BKK;IBE109;25L;77;arrival
+02;20:15;Airliner;ATL;KLM299;25R;1;departure
+02;21:00;Airliner;CDG;IBE197;07L;282;arrival
+02;21:15;Military;HKG;QTR248;07R;52;departure
+02;21:45;Military;JFK;IBE518;25R;73;arrival
+02;22:00;Airliner;BKK;AAL836;25L;326;departure
+02;22:15;Airliner;JFK;AAL256;25L;290;arrival
+02;22:30;Military;IST;UAE269;07R;226;departure
+02;22:45;Military;LAX;AAL215;07L;156;arrival
+02;23:00;Private Jet;IST;DLH709;25R;293;departure
+02;23:30;Airliner;LHR;THY730;07L;293;arrival
+02;23:45;Military;DOH;AAL843;07L;129;departure
+03;04:00;Regional Jet;ORD;DLH695;07R;360;arrival
+03;04:45;Military;AMS;SIA480;25L;35;departure
+03;05:00;Airliner;LHR;CPA134;07R;47;arrival
+03;05:15;Military;HKG;DLH711;25L;290;departure
+03;05:45;Regional Jet;LHR;SIA649;07L;227;arrival
+03;06:00;Military;ATL;AAL769;25R;92;departure
+03;06:30;Military;ORD;KLM147;25L;294;arrival
+03;06:45;Private Jet;CDG;KLM490;25R;29;departure
+03;07:30;Regional Jet;LHR;AAL507;25R;7;arrival
+03;07:45;Airliner;ORD;DLH510;07R;256;departure
+03;08:00;Cargo;HKG;THY642;07L;154;arrival
+03;08:15;Military;CDG;BAW648;07R;211;departure
+03;08:30;Private Jet;IST;AFR627;07L;24;arrival
+03;08:45;Private Jet;LHR;KLM279;07L;359;departure
+03;09:00;Private Jet;LHR;DLH590;07R;333;arrival
+03;09:15;Military;ORD;BAW330;25L;73;departure
+03;10:00;Private Jet;ORD;THY916;07R;41;arrival
+03;10:30;Military;DOH;AAL572;07R;332;departure
+03;10:45;Private Jet;IST;AAL600;07R;221;arrival
+03;11:00;Cargo;BKK;IBE690;25L;208;departure
+03;11:15;Private Jet;FRA;AFR906;07L;41;arrival
+03;11:30;Regional Jet;IST;CPA611;25L;171;departure
+03;12:00;Airliner;IST;AAL190;25R;140;arrival
+03;12:15;Military;LAX;AFR984;07L;232;departure
+03;12:30;Regional Jet;FRA;SIA852;25L;139;arrival
+03;12:45;Private Jet;BKK;SIA564;25R;82;departure
+03;13:00;Military;LHR;CPA859;07L;160;arrival
+03;13:30;Military;FRA;CPA528;25L;218;departure
+03;14:00;Military;IST;AAL143;07L;111;arrival
+03;14:15;Airliner;FRA;AAL115;07R;58;departure
+03;14:45;Cargo;LHR;AFR697;25L;22;arrival
+03;15:00;Regional Jet;LHR;AFR204;07R;59;departure
+03;15:15;Private Jet;SIN;QTR912;25L;358;arrival
+03;15:30;Military;SIN;AFR921;25L;250;departure
+03;15:45;Regional Jet;LHR;SIA825;07L;21;arrival
+03;16:00;Private Jet;ORD;AFR421;07L;179;departure
+03;16:30;Military;DOH;AAL197;07R;81;arrival
+03;16:45;Cargo;JFK;AFR400;07R;19;departure
+03;17:15;Private Jet;HKG;DLH479;07R;16;arrival
+03;17:30;Private Jet;IST;IBE141;07R;320;departure
+03;17:45;Military;DXB;KLM832;25R;160;arrival
+03;18:00;Private Jet;DXB;AAL870;07L;145;departure
+03;18:15;Cargo;IST;THY585;07L;148;arrival
+03;18:45;Airliner;DOH;IBE662;25R;8;departure
+03;19:00;Airliner;DOH;SIA816;07R;123;arrival
+03;19:15;Cargo;DOH;AFR818;07R;135;departure
+03;19:30;Regional Jet;DXB;KLM233;07L;277;arrival
+03;20:00;Regional Jet;ORD;CPA836;25R;203;departure
+03;20:15;Military;ATL;THY106;25L;122;arrival
+03;20:30;Military;FRA;UAE135;07R;297;departure
+03;21:00;Airliner;ATL;QTR798;25R;187;arrival
+03;21:15;Cargo;SIN;THY611;07R;50;departure
+03;21:30;Airliner;LHR;CPA253;07R;143;arrival
+03;21:45;Private Jet;FRA;BAW179;25R;33;departure
+03;22:00;Airliner;CDG;CPA875;07L;122;arrival
+03;22:15;Cargo;DXB;BAW127;07L;232;departure
+03;22:30;Airliner;LAX;THY745;25R;50;arrival
+03;22:45;Cargo;IST;THY875;25L;260;departure
+03;23:00;Airliner;IST;SIA821;07L;227;arrival
+03;23:45;Military;FRA;CPA211;25R;327;departure
+04;04:15;Cargo;ORD;BAW631;25L;314;arrival
+04;04:30;Airliner;JFK;UAE217;07L;36;departure
+04;04:45;Regional Jet;JFK;QTR993;07L;118;arrival
+04;05:00;Private Jet;DXB;KLM371;25R;334;departure
+04;05:30;Cargo;ATL;THY986;07R;64;arrival
+04;05:45;Regional Jet;LAX;DLH313;25L;351;departure
+04;06:15;Airliner;SIN;CPA488;25L;144;arrival
+04;06:30;Airliner;BKK;KLM578;25L;29;departure
+04;06:45;Cargo;BKK;UAE123;07R;73;arrival
+04;07:00;Airliner;ATL;AAL123;25R;307;departure
+04;07:30;Private Jet;BKK;AFR121;07R;117;arrival
+04;07:45;Regional Jet;CDG;SIA787;07R;295;departure
+04;08:00;Military;ORD;DLH475;25R;42;arrival
+04;09:00;Airliner;ATL;AFR832;25R;360;departure
+04;09:15;Military;HKG;DLH298;25L;343;arrival
+04;09:30;Airliner;LAX;BAW994;07R;138;departure
+04;09:45;Cargo;LAX;IBE718;25R;44;arrival
+04;10:00;Military;MAD;SIA134;07R;303;departure
+04;10:30;Private Jet;BKK;DLH562;25L;164;arrival
+04;10:45;Airliner;HKG;AAL496;07L;219;departure
+04;11:00;Military;IST;QTR848;25L;320;arrival
+04;11:30;Private Jet;SIN;DLH229;07R;335;departure
+04;11:45;Private Jet;MAD;UAE341;25R;36;arrival
+04;12:00;Regional Jet;DOH;QTR569;25L;140;departure
+04;12:15;Airliner;SIN;DLH321;25R;255;arrival
+04;12:30;Airliner;AMS;KLM319;25L;48;departure
+04;12:45;Cargo;FRA;AAL107;07L;123;arrival
+04;13:15;Airliner;AMS;AAL642;25L;84;departure
+04;13:30;Private Jet;MAD;AAL653;25R;27;arrival
+04;14:15;Airliner;BKK;AFR242;25R;37;departure
+04;15:00;Cargo;IST;IBE541;25L;286;arrival
+04;15:15;Regional Jet;SIN;QTR116;07L;299;departure
+04;15:30;Military;BKK;IBE942;25L;237;arrival
+04;15:45;Airliner;BKK;UAE311;25R;23;departure
+04;16:15;Airliner;AMS;AFR273;25R;126;arrival
+04;16:30;Military;ORD;AFR298;07L;254;departure
+04;16:45;Private Jet;CDG;IBE427;25L;43;arrival
+04;17:00;Airliner;BKK;SIA448;25R;338;departure
+04;17:30;Cargo;ORD;AFR803;25R;91;arrival
+04;17:45;Airliner;IST;IBE667;07L;212;departure
+04;18:00;Airliner;DOH;BAW649;25R;288;arrival
+04;18:15;Regional Jet;HKG;AFR171;07L;128;departure
+04;18:30;Cargo;IST;CPA904;07R;151;arrival
+04;18:45;Cargo;FRA;SIA136;25L;254;departure
+04;19:00;Cargo;AMS;SIA259;25R;198;arrival
+04;19:15;Private Jet;DOH;CPA166;07L;275;departure
+04;19:30;Cargo;HKG;CPA527;25R;228;arrival
+04;19:45;Regional Jet;BKK;CPA328;25R;98;departure
+04;20:00;Private Jet;DXB;IBE237;07R;123;arrival
+04;20:15;Military;HKG;QTR555;25L;67;departure
+04;20:45;Airliner;FRA;AAL477;07L;36;arrival
+04;21:00;Cargo;SIN;AAL175;25R;20;departure
+04;21:30;Airliner;BKK;CPA880;07R;154;arrival
+04;21:45;Military;MAD;KLM417;25L;213;departure
+04;22:15;Regional Jet;CDG;QTR292;07L;311;arrival
+04;22:45;Airliner;CDG;THY552;07R;9;departure
+04;23:00;Military;ATL;SIA770;07L;89;arrival
+04;23:15;Airliner;MAD;SIA334;25L;122;departure
+04;23:30;Regional Jet;IST;IBE604;07R;351;arrival
+04;23:45;Cargo;LHR;CPA653;07L;231;departure
+05;04:00;Military;BKK;BAW144;25R;41;arrival
+05;04:30;Military;CDG;DLH494;07R;137;departure
+05;04:45;Regional Jet;DXB;SIA746;25R;244;arrival
+05;05:00;Military;LHR;BAW780;07R;82;departure
+05;05:15;Regional Jet;ATL;THY634;25L;235;arrival
+05;05:30;Regional Jet;LHR;QTR790;25R;197;departure
+05;05:45;Regional Jet;JFK;IBE843;25R;153;arrival
+05;06:00;Airliner;AMS;THY357;07R;317;departure
+05;06:45;Military;ATL;SIA217;07L;166;arrival
+05;07:00;Private Jet;CDG;IBE288;25R;339;departure
+05;07:15;Airliner;CDG;DLH238;07R;110;arrival
+05;07:30;Regional Jet;DXB;QTR164;07R;278;departure
+05;07:45;Private Jet;HKG;BAW327;07R;231;arrival
+05;08:00;Airliner;JFK;QTR153;25R;114;departure
+05;08:15;Private Jet;SIN;SIA330;25L;185;arrival
+05;08:30;Military;JFK;AAL850;07R;262;departure
+05;08:45;Private Jet;JFK;AAL893;07R;33;arrival
+05;09:00;Airliner;LHR;THY254;25R;266;departure
+05;09:15;Regional Jet;HKG;AFR826;25L;190;arrival
+05;09:30;Airliner;SIN;QTR503;25L;81;departure
+05;09:45;Airliner;CDG;SIA146;07R;91;arrival
+05;10:00;Cargo;HKG;KLM927;25R;245;departure
+05;10:15;Private Jet;DOH;AAL398;25R;172;arrival
+05;10:45;Airliner;LAX;BAW879;07L;351;departure
+05;11:15;Military;BKK;KLM422;25L;322;arrival
+05;11:30;Airliner;HKG;QTR704;07R;188;departure
+05;11:45;Private Jet;CDG;AAL174;25L;15;arrival
+05;12:00;Military;HKG;IBE752;07R;331;departure
+05;12:30;Military;CDG;DLH119;07L;354;arrival
+05;13:15;Cargo;JFK;QTR344;25R;194;departure
+05;13:30;Private Jet;SIN;BAW291;07L;1;arrival
+05;13:45;Regional Jet;LAX;AAL234;25L;89;departure
+05;14:00;Airliner;FRA;QTR976;07R;120;arrival
+05;14:15;Military;AMS;AFR142;07L;214;departure
+05;15:00;Military;AMS;KLM655;07L;219;arrival
+05;15:15;Cargo;LHR;CPA954;25R;9;departure
+05;15:30;Regional Jet;CDG;KLM919;25L;49;arrival
+05;16:00;Military;LHR;IBE889;07L;96;departure
+05;16:15;Regional Jet;HKG;BAW942;25R;281;arrival
+05;16:30;Regional Jet;LAX;AAL108;07L;183;departure
+05;16:45;Regional Jet;IST;CPA379;25L;357;arrival
+05;17:00;Cargo;LHR;IBE740;07R;44;departure
+05;17:15;Private Jet;DXB;KLM395;25R;306;arrival
+05;17:30;Military;LAX;KLM465;25R;24;departure
+05;18:15;Cargo;DOH;THY516;07L;134;arrival
+05;18:45;Private Jet;LAX;DLH754;07R;72;departure
+05;19:00;Regional Jet;FRA;UAE932;25R;134;arrival
+05;19:30;Regional Jet;HKG;SIA939;07R;123;departure
+05;20:00;Private Jet;IST;UAE923;25L;45;arrival
+05;20:15;Private Jet;SIN;DLH965;07L;132;departure
+05;20:30;Cargo;ATL;SIA166;25R;260;arrival
+05;21:00;Airliner;LHR;UAE852;07L;310;departure
+05;21:15;Airliner;DXB;DLH570;07R;325;arrival
+05;21:45;Cargo;ATL;UAE227;25L;34;departure
+05;22:00;Military;CDG;DLH605;25L;173;arrival
+05;22:15;Military;AMS;BAW189;07L;144;departure
+05;22:30;Military;BKK;AFR519;07R;273;arrival
+05;23:00;Military;LHR;CPA445;25L;36;departure
+05;23:15;Airliner;MAD;SIA550;25R;245;arrival
+05;23:30;Military;BKK;UAE131;07L;263;departure
+06;04:00;Cargo;DXB;IBE214;07R;292;arrival
+06;04:15;Cargo;DXB;IBE608;07L;288;departure
+06;04:30;Private Jet;SIN;QTR407;07L;201;arrival
+06;05:00;Military;ATL;BAW900;07L;343;departure
+06;05:15;Airliner;LHR;AFR749;07R;301;arrival
+06;05:30;Cargo;JFK;UAE710;07R;204;departure
+06;06:15;Regional Jet;FRA;IBE969;25R;278;arrival
+06;06:45;Regional Jet;MAD;IBE928;07L;273;departure
+06;07:00;Military;LAX;QTR884;07L;189;arrival
+06;07:15;Regional Jet;DOH;DLH418;07R;43;departure
+06;07:45;Regional Jet;IST;UAE564;07R;199;arrival
+06;08:00;Airliner;IST;DLH308;07R;315;departure
+06;08:15;Regional Jet;SIN;AFR632;25R;163;arrival
+06;08:30;Airliner;MAD;KLM736;25L;99;departure
+06;08:45;Cargo;DOH;THY889;25L;239;arrival
+06;09:00;Cargo;SIN;SIA466;25R;99;departure
+06;09:30;Military;JFK;AAL892;07L;180;arrival
+06;09:45;Regional Jet;LAX;AAL484;07R;142;departure
+06;10:00;Regional Jet;ATL;DLH353;07R;79;arrival
+06;10:30;Regional Jet;CDG;AAL838;25R;68;departure
+06;10:45;Airliner;AMS;BAW688;07R;282;arrival
+06;11:00;Private Jet;LAX;BAW963;07R;304;departure
+06;11:15;Airliner;LAX;BAW533;25R;6;arrival
+06;11:30;Private Jet;FRA;SIA150;25R;66;departure
+06;11:45;Regional Jet;DOH;DLH557;07L;328;arrival
+06;12:15;Airliner;SIN;BAW433;25L;352;departure
+06;12:30;Regional Jet;SIN;AFR818;25R;273;arrival
+06;12:45;Cargo;DXB;BAW146;07L;324;departure
+06;13:00;Private Jet;LAX;AAL871;25R;321;arrival
+06;13:15;Private Jet;HKG;SIA832;07R;246;departure
+06;13:30;Cargo;JFK;BAW548;25R;52;arrival
+06;13:45;Military;ORD;KLM876;07R;10;departure
+06;14:00;Airliner;MAD;SIA215;25L;180;arrival
+06;14:45;Airliner;SIN;UAE308;25R;2;departure
+06;15:00;Military;CDG;BAW419;25R;200;arrival
+06;15:15;Airliner;CDG;THY550;25R;93;departure
+06;15:30;Cargo;HKG;KLM480;07R;256;arrival
+06;16:00;Military;HKG;SIA366;07R;195;departure
+06;16:15;Airliner;IST;KLM495;07R;289;arrival
+06;16:30;Airliner;MAD;KLM803;25L;190;departure
+06;16:45;Airliner;HKG;UAE648;25L;274;arrival
+06;17:15;Cargo;CDG;DLH698;07R;226;departure
+06;17:45;Cargo;HKG;AFR251;25R;89;arrival
+06;18:00;Private Jet;SIN;BAW798;25R;324;departure
+06;18:30;Cargo;FRA;IBE435;25R;76;arrival
+06;19:00;Regional Jet;CDG;UAE887;07R;27;departure
+06;19:15;Private Jet;IST;DLH914;25R;192;arrival
+06;19:45;Airliner;ORD;SIA649;07L;247;departure
+06;20:00;Cargo;BKK;CPA863;07L;259;arrival
+06;20:15;Cargo;MAD;KLM253;07L;323;departure
+06;20:30;Cargo;DXB;AFR740;25R;48;arrival
+06;20:45;Airliner;DXB;QTR512;25R;333;departure
+06;21:00;Private Jet;CDG;BAW686;07R;68;arrival
+06;21:45;Airliner;BKK;QTR271;07R;220;departure
+06;22:00;Cargo;ATL;DLH512;25R;27;arrival
+06;22:15;Cargo;HKG;CPA721;07L;356;departure
+06;22:30;Regional Jet;ORD;CPA460;07L;246;arrival
+06;22:45;Regional Jet;AMS;AAL503;25R;122;departure
+06;23:00;Cargo;DOH;CPA925;25L;293;arrival
+06;23:30;Private Jet;ATL;AAL967;25L;350;departure
+07;04:00;Cargo;DXB;UAE898;25R;34;arrival
+07;04:15;Private Jet;LAX;QTR923;07R;9;departure
+07;04:30;Regional Jet;LHR;BAW275;25R;123;arrival
+07;04:45;Airliner;BKK;SIA277;25L;280;departure
+07;05:00;Cargo;ORD;AAL802;25L;237;arrival
+07;05:30;Regional Jet;CDG;AAL468;07R;7;departure
+07;06:00;Private Jet;ATL;DLH176;07R;292;arrival
+07;06:15;Military;FRA;CPA327;25R;94;departure
+07;06:30;Military;LAX;DLH560;25L;210;arrival
+07;06:45;Airliner;BKK;THY625;25R;90;departure
+07;07:00;Military;JFK;THY986;07L;81;arrival
+07;07:15;Regional Jet;JFK;BAW422;07R;20;departure
+07;07:30;Military;JFK;KLM636;25L;35;arrival
+07;07:45;Regional Jet;JFK;KLM943;25R;237;departure
+07;08:00;Military;LHR;UAE386;07L;213;arrival
+07;08:15;Military;CDG;CPA618;07L;193;departure
+07;08:45;Military;ATL;THY714;07L;107;arrival
+07;09:30;Military;JFK;IBE576;07L;154;departure
+07;09:45;Regional Jet;FRA;AFR424;25R;29;arrival
+07;10:00;Military;SIN;CPA907;25L;360;departure
+07;10:30;Cargo;LAX;AFR783;07L;273;arrival
+07;10:45;Regional Jet;ORD;AAL651;25R;335;departure
+07;11:15;Cargo;BKK;BAW707;25R;4;arrival
+07;11:30;Regional Jet;DXB;THY422;25L;105;departure
+07;12:00;Cargo;LAX;THY763;25L;53;arrival
+07;12:15;Military;FRA;CPA375;07R;173;departure
+07;12:30;Cargo;LHR;SIA321;25R;241;arrival
+07;12:45;Private Jet;MAD;QTR662;25L;303;departure
+07;13:00;Military;HKG;AFR172;07L;272;arrival
+07;13:15;Military;DXB;SIA143;07R;149;departure
+07;14:00;Military;IST;SIA286;25L;196;arrival
+07;14:30;Military;HKG;CPA533;07R;38;departure
+07;14:45;Private Jet;DXB;QTR163;07R;110;arrival
+07;15:30;Military;LAX;DLH102;07L;12;departure
+07;16:00;Private Jet;AMS;IBE284;07R;168;arrival
+07;16:15;Airliner;JFK;AAL645;07L;234;departure
+07;16:30;Private Jet;SIN;KLM513;25L;218;arrival
+07;16:45;Private Jet;HKG;AAL323;07L;171;departure
+07;17:00;Military;DOH;UAE881;07R;20;arrival
+07;17:15;Military;LHR;SIA620;25L;333;departure
+07;18:00;Military;ORD;QTR996;25L;128;arrival
+07;18:30;Airliner;CDG;AAL207;25R;107;departure
+07;18:45;Military;IST;DLH151;25R;19;arrival
+07;19:15;Private Jet;AMS;IBE958;07R;239;departure
+07;19:30;Cargo;ORD;BAW606;07R;38;arrival
+07;19:45;Military;LAX;SIA923;25R;216;departure
+07;20:15;Military;BKK;DLH371;07R;201;arrival
+07;20:30;Military;LAX;AAL607;25L;297;departure
+07;20:45;Regional Jet;LAX;IBE893;25R;159;arrival
+07;21:00;Cargo;CDG;AAL704;07L;134;departure
+07;21:15;Military;FRA;THY468;25L;239;arrival
+07;21:30;Regional Jet;CDG;AFR305;07R;21;departure
+07;21:45;Military;HKG;AAL738;25L;309;arrival
+07;22:00;Military;LHR;THY994;25L;244;departure
+07;22:15;Regional Jet;AMS;BAW374;07R;55;arrival
+07;22:30;Military;LHR;QTR828;07L;303;departure
+07;22:45;Cargo;DXB;BAW488;07R;109;arrival
+07;23:00;Military;DOH;QTR164;25L;145;departure
+07;23:15;Regional Jet;MAD;AFR620;25R;169;arrival
+07;23:30;Regional Jet;AMS;AFR770;25R;77;departure
+08;04:00;Private Jet;ORD;QTR929;07R;258;arrival
+08;04:15;Regional Jet;IST;THY870;07L;158;departure
+08;04:30;Regional Jet;LAX;QTR435;25L;47;arrival
+08;04:45;Cargo;LHR;IBE247;07L;326;departure
+08;05:00;Cargo;JFK;UAE474;25L;40;arrival
+08;05:15;Private Jet;ORD;AAL555;07R;168;departure
+08;05:30;Cargo;LAX;CPA803;25L;264;arrival
+08;05:45;Cargo;LAX;KLM377;07R;155;departure
+08;06:00;Private Jet;SIN;DLH689;25R;134;arrival
+08;06:15;Cargo;IST;AAL558;07L;335;departure
+08;06:30;Private Jet;IST;QTR462;07L;322;arrival
+08;06:45;Military;ORD;SIA731;07R;34;departure
+08;07:00;Cargo;MAD;UAE681;07L;191;arrival
+08;07:15;Military;CDG;BAW789;25R;305;departure
+08;07:30;Cargo;MAD;CPA160;25L;219;arrival
+08;07:45;Regional Jet;LHR;KLM525;25R;169;departure
+08;08:00;Military;DOH;QTR784;25R;359;arrival
+08;08:15;Airliner;LAX;KLM900;07L;205;departure
+08;08:30;Cargo;JFK;QTR423;07L;339;arrival
+08;08:45;Regional Jet;LAX;AAL162;25R;237;departure
+08;09:00;Military;IST;BAW739;25L;262;arrival
+08;09:15;Cargo;CDG;KLM731;07R;14;departure
+08;09:30;Military;FRA;SIA657;07R;69;arrival
+08;09:45;Private Jet;DXB;CPA459;07R;138;departure
+08;10:00;Cargo;DXB;CPA177;25R;163;arrival
+08;10:15;Regional Jet;JFK;THY654;07R;43;departure
+08;10:30;Regional Jet;MAD;KLM929;07R;122;arrival
+08;11:00;Regional Jet;LHR;AFR401;25L;243;departure
+08;11:45;Cargo;HKG;QTR505;07L;129;arrival
+08;12:30;Airliner;JFK;CPA594;25L;84;departure
+08;13:30;Military;DXB;UAE880;07L;262;arrival
+08;13:45;Regional Jet;AMS;KLM644;25R;36;departure
+08;14:15;Regional Jet;CDG;DLH348;07L;239;arrival
+08;14:30;Cargo;LHR;KLM422;25L;265;departure
+08;14:45;Private Jet;IST;KLM345;25R;73;arrival
+08;15:15;Regional Jet;LHR;AFR361;25R;25;departure
+08;15:30;Airliner;LHR;DLH328;07R;277;arrival
+08;16:00;Private Jet;MAD;IBE789;25R;230;departure
+08;16:15;Airliner;MAD;IBE440;25R;193;arrival
+08;16:30;Regional Jet;MAD;AAL742;07R;213;departure
+08;17:00;Military;SIN;THY804;25L;35;arrival
+08;17:15;Airliner;JFK;KLM430;07R;352;departure
+08;17:30;Airliner;SIN;KLM464;25R;137;arrival
+08;18:00;Airliner;CDG;BAW541;07L;248;departure
+08;18:15;Airliner;CDG;THY300;07L;291;arrival
+08;18:30;Private Jet;IST;IBE484;25R;305;departure
+08;18:45;Private Jet;CDG;BAW787;25L;134;arrival
+08;19:00;Cargo;DOH;AFR692;25L;187;departure
+08;19:30;Regional Jet;ORD;AFR431;25L;201;arrival
+08;19:45;Regional Jet;DOH;UAE797;07L;8;departure
+08;20:00;Airliner;BKK;QTR441;25L;190;arrival
+08;20:30;Cargo;FRA;IBE714;25R;183;departure
+08;20:45;Airliner;LHR;CPA600;25R;11;arrival
+08;21:00;Cargo;DXB;UAE825;25L;308;departure
+08;21:15;Military;DXB;BAW589;25R;135;arrival
+08;21:30;Private Jet;ATL;BAW476;25R;360;departure
+08;22:15;Cargo;DXB;CPA535;25R;141;arrival
+08;22:30;Military;LAX;DLH101;07R;348;departure
+08;22:45;Private Jet;IST;BAW987;25R;65;arrival
+08;23:30;Airliner;CDG;THY175;07L;135;departure
+09;04:00;Airliner;FRA;CPA959;07L;205;arrival
+09;04:30;Military;DXB;AFR210;25R;356;departure
+09;05:15;Regional Jet;JFK;CPA966;25L;301;arrival
+09;05:30;Regional Jet;LHR;KLM708;25R;216;departure
+09;06:00;Private Jet;HKG;BAW961;07L;312;arrival
+09;06:15;Airliner;DOH;CPA834;25R;235;departure
+09;07:00;Airliner;FRA;THY523;07R;195;arrival
+09;07:15;Military;MAD;KLM676;07L;111;departure
+09;07:30;Airliner;ATL;DLH139;07R;200;arrival
+09;07:45;Private Jet;BKK;THY701;07R;144;departure
+09;08:15;Airliner;CDG;QTR196;07L;54;arrival
+09;08:30;Airliner;ORD;SIA360;07L;51;departure
+09;08:45;Private Jet;ORD;AFR516;25L;105;arrival
+09;09:00;Cargo;JFK;CPA169;07L;230;departure
+09;09:15;Regional Jet;DXB;QTR325;25L;94;arrival
+09;09:30;Regional Jet;ATL;KLM439;25L;222;departure
+09;09:45;Cargo;IST;SIA372;25L;85;arrival
+09;10:00;Airliner;SIN;DLH146;25R;263;departure
+09;10:15;Private Jet;JFK;CPA301;07L;359;arrival
+09;10:45;Airliner;CDG;UAE470;25R;231;departure
+09;11:15;Regional Jet;MAD;CPA789;07L;17;arrival
+09;11:30;Private Jet;FRA;UAE781;07R;139;departure
+09;11:45;Private Jet;CDG;SIA736;25L;201;arrival
+09;12:00;Cargo;JFK;IBE348;25R;81;departure
+09;12:15;Private Jet;JFK;QTR848;25R;217;arrival
+09;12:30;Military;LHR;IBE710;07R;218;departure
+09;12:45;Airliner;AMS;QTR632;25L;49;arrival
+09;13:00;Airliner;HKG;UAE508;07L;63;departure
+09;14:00;Regional Jet;MAD;CPA494;07R;102;arrival
+09;14:15;Military;HKG;AAL454;07L;172;departure
+09;14:30;Airliner;FRA;BAW162;07R;40;arrival
+09;14:45;Cargo;AMS;SIA453;25L;94;departure
+09;15:00;Regional Jet;SIN;SIA581;25L;58;arrival
+09;15:15;Airliner;DOH;CPA357;07R;181;departure
+09;15:45;Regional Jet;MAD;IBE558;25R;264;arrival
+09;16:30;Private Jet;DXB;CPA407;07R;328;departure
+09;16:45;Military;DXB;UAE448;07R;25;arrival
+09;17:15;Regional Jet;CDG;CPA881;25R;321;departure
+09;17:30;Airliner;LHR;UAE374;25R;291;arrival
+09;17:45;Cargo;SIN;KLM694;25L;141;departure
+09;18:15;Regional Jet;AMS;UAE519;25R;151;arrival
+09;18:30;Cargo;AMS;KLM694;07R;303;departure
+09;18:45;Private Jet;DXB;SIA928;07L;26;arrival
+09;19:00;Cargo;AMS;CPA410;07L;16;departure
+09;19:15;Private Jet;DXB;CPA453;25L;198;arrival
+09;19:30;Military;BKK;QTR184;25L;316;departure
+09;19:45;Regional Jet;ORD;DLH200;07L;1;arrival
+09;20:00;Military;LAX;IBE847;07L;54;departure
+09;20:30;Regional Jet;HKG;AFR759;07R;15;arrival
+09;20:45;Airliner;HKG;DLH910;25L;314;departure
+09;21:00;Airliner;IST;SIA731;25R;142;arrival
+09;21:30;Military;LAX;AFR561;25R;213;departure
+09;21:45;Regional Jet;LHR;QTR368;25R;58;arrival
+09;22:00;Private Jet;HKG;THY998;25R;354;departure
+09;22:15;Military;JFK;SIA355;07L;88;arrival
+09;22:30;Military;JFK;AFR370;25R;285;departure
+09;22:45;Airliner;JFK;AAL603;07R;253;arrival
+09;23:00;Military;BKK;UAE708;07R;252;departure
+09;23:15;Regional Jet;ORD;CPA220;25R;356;arrival
+09;23:45;Regional Jet;FRA;AFR795;25R;264;departure
+10;04:00;Military;LAX;IBE824;25R;293;arrival
+10;04:15;Cargo;LAX;QTR642;25L;308;departure
+10;04:30;Military;AMS;CPA665;25L;249;arrival
+10;05:00;Private Jet;SIN;BAW547;25L;281;departure
+10;05:15;Private Jet;SIN;AAL881;07R;60;arrival
+10;05:30;Military;AMS;IBE312;25R;194;departure
+10;05:45;Military;DOH;AFR373;25L;211;arrival
+10;06:15;Military;LAX;AAL552;07R;235;departure
+10;06:30;Regional Jet;LAX;CPA917;07L;11;arrival
+10;06:45;Military;HKG;DLH113;25L;36;departure
+10;07:00;Military;IST;KLM649;25L;50;arrival
+10;07:30;Military;HKG;AAL800;25R;214;departure
+10;07:45;Private Jet;JFK;SIA537;07R;142;arrival
+10;08:00;Cargo;ATL;AFR447;07R;115;departure
+10;08:15;Cargo;DOH;CPA963;25L;101;arrival
+10;08:30;Private Jet;FRA;KLM326;07R;96;departure
+10;08:45;Regional Jet;MAD;THY918;07L;78;arrival
+10;09:00;Airliner;BKK;IBE636;25L;294;departure
+10;09:15;Airliner;BKK;THY659;25L;144;arrival
+10;09:30;Regional Jet;DXB;BAW328;07R;113;departure
+10;09:45;Regional Jet;SIN;UAE449;25L;71;arrival
+10;10:00;Private Jet;ORD;AAL257;25L;96;departure
+10;10:15;Airliner;MAD;IBE535;25R;21;arrival
+10;11:15;Private Jet;AMS;BAW578;25R;169;departure
+10;11:30;Cargo;LAX;AAL902;07L;318;arrival
+10;12:15;Regional Jet;BKK;CPA410;25R;332;departure
+10;12:30;Regional Jet;JFK;THY806;25R;345;arrival
+10;12:45;Regional Jet;JFK;QTR164;07L;48;departure
+10;13:00;Private Jet;IST;AAL102;07L;129;arrival
+10;13:15;Airliner;BKK;SIA476;25R;306;departure
+10;13:30;Airliner;LAX;IBE608;25L;68;arrival
+10;13:45;Cargo;IST;KLM517;07R;75;departure
+10;14:00;Regional Jet;IST;AAL679;25L;74;arrival
+10;14:15;Private Jet;BKK;AAL148;07L;266;departure
+10;14:30;Cargo;AMS;AAL581;25R;186;arrival
+10;14:45;Regional Jet;LAX;BAW184;25L;142;departure
+10;15:15;Regional Jet;HKG;IBE876;25R;119;arrival
+10;15:30;Military;SIN;THY735;25R;275;departure
+10;16:30;Airliner;HKG;BAW384;07L;23;arrival
+10;17:30;Private Jet;IST;BAW405;25R;280;departure
+10;17:45;Cargo;JFK;THY318;25R;251;arrival
+10;18:30;Military;JFK;BAW852;25R;176;departure
+10;18:45;Military;DOH;AAL714;07R;6;arrival
+10;19:00;Cargo;IST;DLH745;07L;2;departure
+10;19:15;Airliner;ATL;UAE513;07L;323;arrival
+10;19:30;Military;DOH;DLH578;25R;104;departure
+10;19:45;Military;ORD;BAW922;25R;3;arrival
+10;20:00;Private Jet;FRA;KLM754;07L;12;departure
+10;20:15;Cargo;LAX;AFR568;25L;306;arrival
+10;20:30;Private Jet;BKK;SIA407;25L;286;departure
+10;20:45;Cargo;ORD;UAE187;07L;312;arrival
+10;21:00;Airliner;DXB;THY117;07L;304;departure
+10;21:15;Private Jet;DXB;SIA615;07R;142;arrival
+10;21:30;Regional Jet;DOH;KLM453;25L;237;departure
+10;21:45;Cargo;SIN;UAE709;25L;135;arrival
+10;22:15;Private Jet;FRA;THY365;07L;305;departure
+10;22:30;Private Jet;LHR;BAW490;25L;107;arrival
+10;23:15;Regional Jet;HKG;BAW487;07R;164;departure
+10;23:30;Regional Jet;LHR;THY600;25L;122;arrival
+10;23:45;Cargo;DOH;IBE950;07L;153;departure
+11;04:00;Military;CDG;SIA604;07R;73;arrival
+11;04:15;Regional Jet;BKK;SIA212;25R;290;departure
+11;04:30;Regional Jet;ORD;KLM665;07R;329;arrival
+11;04:45;Airliner;MAD;KLM507;25R;147;departure
+11;05:00;Military;ATL;THY621;07L;356;arrival
+11;06:15;Military;SIN;AAL645;07R;31;departure
+11;06:45;Military;FRA;AFR902;07L;38;arrival
+11;07:00;Private Jet;LHR;AFR992;07L;162;departure
+11;07:45;Regional Jet;BKK;IBE563;07R;272;arrival
+11;08:00;Airliner;HKG;AAL951;25L;243;departure
+11;08:15;Cargo;BKK;THY888;25L;198;arrival
+11;08:30;Airliner;HKG;BAW590;07L;306;departure
+11;08:45;Military;IST;QTR715;07R;23;arrival
+11;09:00;Cargo;HKG;AAL767;07R;25;departure
+11;09:15;Cargo;DOH;QTR661;25R;165;arrival
+11;09:30;Cargo;IST;IBE188;25R;112;departure
+11;10:30;Cargo;AMS;CPA552;07R;193;arrival
+11;10:45;Airliner;JFK;QTR520;07R;275;departure
+11;11:00;Cargo;DOH;QTR956;07R;350;arrival
+11;11:30;Regional Jet;JFK;UAE396;25L;232;departure
+11;12:00;Military;FRA;AAL579;07R;16;arrival
+11;12:30;Private Jet;SIN;IBE151;25L;32;departure
+11;12:45;Airliner;AMS;BAW586;07R;32;arrival
+11;13:00;Military;CDG;THY356;07R;290;departure
+11;13:15;Military;IST;QTR712;25L;181;arrival
+11;13:30;Regional Jet;DOH;CPA837;25L;194;departure
+11;13:45;Military;DXB;CPA918;25L;303;arrival
+11;14:00;Private Jet;DOH;DLH498;25L;46;departure
+11;14:30;Private Jet;AMS;BAW566;07L;285;arrival
+11;14:45;Private Jet;HKG;AAL298;25L;42;departure
+11;15:00;Private Jet;MAD;BAW587;07R;111;arrival
+11;15:15;Military;MAD;AFR969;07L;302;departure
+11;15:30;Airliner;DXB;CPA615;25R;289;arrival
+11;15:45;Regional Jet;HKG;BAW457;25L;189;departure
+11;16:00;Cargo;DXB;AAL868;07L;186;arrival
+11;16:30;Cargo;FRA;AAL731;25L;291;departure
+11;16:45;Regional Jet;HKG;CPA175;25R;193;arrival
+11;17:15;Airliner;MAD;KLM995;07R;88;departure
+11;17:30;Airliner;DOH;THY798;07L;232;arrival
+11;17:45;Regional Jet;FRA;IBE625;25L;85;departure
+11;18:00;Private Jet;FRA;IBE579;07L;139;arrival
+11;18:15;Regional Jet;IST;SIA791;07L;329;departure
+11;18:30;Regional Jet;AMS;THY380;25L;290;arrival
+11;18:45;Airliner;CDG;DLH112;07L;355;departure
+11;19:00;Military;JFK;IBE807;07R;195;arrival
+11;19:30;Cargo;LAX;THY488;07R;291;departure
+11;19:45;Regional Jet;SIN;AFR174;25L;231;arrival
+11;20:00;Regional Jet;ORD;IBE994;25L;175;departure
+11;20:15;Cargo;FRA;BAW371;07L;61;arrival
+11;20:30;Cargo;ATL;BAW597;25R;243;departure
+11;20:45;Military;LAX;AAL423;07R;194;arrival
+11;21:00;Military;ORD;UAE383;07R;246;departure
+11;21:15;Airliner;DXB;IBE347;25L;141;arrival
+11;21:30;Airliner;ORD;QTR542;25L;266;departure
+11;21:45;Regional Jet;ORD;SIA657;25L;283;arrival
+11;22:15;Private Jet;AMS;CPA968;25R;46;departure
+11;22:30;Cargo;AMS;CPA123;07R;106;arrival
+11;22:45;Regional Jet;DOH;IBE516;25R;6;departure
+11;23:00;Regional Jet;CDG;SIA299;25R;176;arrival
+11;23:30;Cargo;CDG;THY982;25R;270;departure
+12;04:00;Private Jet;CDG;QTR244;07L;190;arrival
+12;04:30;Military;BKK;KLM381;25R;315;departure
+12;04:45;Airliner;ORD;QTR669;07R;314;arrival
+12;05:15;Cargo;SIN;IBE839;07L;135;departure
+12;06:15;Regional Jet;ORD;THY882;07R;15;arrival
+12;06:30;Regional Jet;ORD;CPA778;07L;194;departure
+12;07:15;Airliner;SIN;DLH702;07L;339;arrival
+12;07:30;Cargo;ORD;KLM198;25R;147;departure
+12;07:45;Private Jet;MAD;AFR495;07R;25;arrival
+12;08:15;Regional Jet;ORD;UAE236;07L;81;departure
+12;08:30;Private Jet;JFK;AFR208;07R;211;arrival
+12;08:45;Cargo;AMS;UAE134;25R;59;departure
+12;09:00;Private Jet;LHR;BAW335;07L;153;arrival
+12;09:45;Airliner;CDG;AFR365;07R;42;departure
+12;10:00;Regional Jet;BKK;BAW507;25L;86;arrival
+12;10:30;Cargo;DOH;CPA535;07L;166;departure
+12;10:45;Regional Jet;LHR;AFR345;07R;52;arrival
+12;11:30;Cargo;ATL;SIA396;25R;319;departure
+12;11:45;Cargo;LHR;SIA795;25R;194;arrival
+12;12:15;Private Jet;HKG;AFR520;25L;295;departure
+12;12:30;Airliner;MAD;CPA609;25R;70;arrival
+12;12:45;Cargo;DXB;QTR680;07R;31;departure
+12;13:00;Private Jet;DOH;KLM516;25R;131;arrival
+12;13:15;Private Jet;ATL;AFR814;07L;297;departure
+12;13:30;Military;HKG;IBE822;25R;69;arrival
+12;13:45;Cargo;LAX;AFR286;07L;261;departure
+12;14:00;Military;SIN;BAW661;25R;59;arrival
+12;14:15;Regional Jet;AMS;IBE700;25R;321;departure
+12;14:30;Airliner;AMS;AAL620;25R;265;arrival
+12;14:45;Military;LAX;IBE558;25L;268;departure
+12;15:00;Cargo;DXB;BAW400;07L;182;arrival
+12;15:30;Regional Jet;HKG;CPA845;25R;162;departure
+12;15:45;Airliner;LHR;SIA292;25R;322;arrival
+12;16:00;Cargo;FRA;UAE247;25R;176;departure
+12;16:15;Cargo;DXB;THY166;25R;133;arrival
+12;16:30;Private Jet;BKK;THY808;25L;6;departure
+12;17:00;Cargo;LAX;QTR726;07R;157;arrival
+12;17:15;Regional Jet;AMS;DLH239;07R;306;departure
+12;17:30;Private Jet;MAD;BAW872;25L;124;arrival
+12;18:00;Cargo;FRA;BAW814;25R;332;departure
+12;18:15;Regional Jet;LAX;QTR176;07R;118;arrival
+12;18:30;Airliner;DOH;BAW742;25L;316;departure
+12;18:45;Regional Jet;FRA;AAL204;07L;272;arrival
+12;19:00;Regional Jet;MAD;IBE373;25L;146;departure
+12;19:15;Cargo;JFK;UAE150;07R;180;arrival
+12;19:30;Military;CDG;UAE573;25L;143;departure
+12;19:45;Cargo;DXB;KLM947;25R;339;arrival
+12;20:00;Airliner;ATL;AAL691;07R;346;departure
+12;20:15;Private Jet;DXB;AFR469;25R;244;arrival
+12;21:00;Private Jet;CDG;AAL837;25R;357;departure
+12;21:15;Military;HKG;BAW261;07R;197;arrival
+12;21:30;Private Jet;SIN;IBE547;25L;172;departure
+12;21:45;Cargo;SIN;AFR904;25L;195;arrival
+12;22:00;Regional Jet;DXB;DLH923;07L;205;departure
+12;22:15;Military;HKG;THY732;07R;250;arrival
+12;22:30;Airliner;SIN;THY622;25R;7;departure
+12;23:00;Cargo;DOH;AAL702;25R;260;arrival
+12;23:15;Cargo;DOH;KLM665;25R;62;departure
+12;23:30;Regional Jet;ORD;UAE423;07R;309;arrival
+12;23:45;Airliner;AMS;CPA690;25L;87;departure
+13;04:15;Military;MAD;QTR365;07L;108;arrival
+13;04:30;Military;JFK;UAE226;25L;263;departure
+13;05:00;Military;LHR;UAE825;25L;78;arrival
+13;05:30;Private Jet;LHR;BAW767;25L;236;departure
+13;05:45;Airliner;HKG;AAL498;07R;86;arrival
+13;06:00;Regional Jet;DXB;AAL177;25R;114;departure
+13;06:15;Military;CDG;SIA898;25L;173;arrival
+13;06:30;Airliner;JFK;KLM418;07R;132;departure
+13;06:45;Regional Jet;MAD;CPA288;25R;333;arrival
+13;07:00;Regional Jet;LAX;KLM263;25R;155;departure
+13;07:15;Private Jet;DOH;QTR873;25R;289;arrival
+13;07:30;Cargo;AMS;BAW382;07R;81;departure
+13;07:45;Private Jet;ATL;AAL303;07L;312;arrival
+13;08:00;Regional Jet;IST;IBE661;25R;24;departure
+13;09:00;Airliner;CDG;SIA203;25L;156;arrival
+13;09:30;Private Jet;ATL;KLM570;25R;205;departure
+13;09:45;Regional Jet;DOH;AAL976;07L;257;arrival
+13;10:00;Airliner;JFK;AAL258;25L;294;departure
+13;10:15;Military;SIN;KLM648;25L;334;arrival
+13;10:45;Military;CDG;CPA650;25L;359;departure
+13;11:00;Cargo;FRA;BAW234;07R;206;arrival
+13;11:30;Private Jet;CDG;CPA530;25R;146;departure
+13;11:45;Regional Jet;LAX;IBE117;25L;40;arrival
+13;12:00;Airliner;ATL;IBE670;07L;192;departure
+13;12:15;Airliner;AMS;DLH410;25L;58;arrival
+13;12:45;Airliner;LAX;SIA652;25R;269;departure
+13;13:15;Private Jet;LHR;AAL890;25R;205;arrival
+13;13:30;Military;FRA;KLM121;07L;284;departure
+13;13:45;Airliner;CDG;BAW157;07R;149;arrival
+13;14:00;Airliner;ATL;QTR159;07R;81;departure
+13;15:00;Cargo;BKK;SIA604;07L;18;arrival
+13;15:15;Cargo;ATL;THY223;25R;293;departure
+13;15:45;Airliner;IST;DLH528;25L;293;arrival
+13;16:00;Regional Jet;MAD;CPA228;07L;260;departure
+13;16:15;Private Jet;BKK;AAL330;07R;76;arrival
+13;16:30;Regional Jet;IST;IBE140;25L;167;departure
+13;16:45;Regional Jet;LAX;IBE837;07R;340;arrival
+13;17:00;Regional Jet;FRA;KLM954;25R;333;departure
+13;17:15;Airliner;HKG;AAL715;07R;268;arrival
+13;17:45;Military;FRA;IBE621;07L;251;departure
+13;18:00;Regional Jet;DOH;AAL781;07L;198;arrival
+13;18:15;Cargo;DOH;KLM164;25L;310;departure
+13;18:30;Cargo;ORD;IBE834;25R;136;arrival
+13;18:45;Private Jet;FRA;THY957;07R;91;departure
+13;19:00;Military;HKG;AAL707;07R;189;arrival
+13;19:30;Military;FRA;QTR154;07L;85;departure
+13;19:45;Airliner;CDG;AAL198;07L;322;arrival
+13;20:00;Airliner;MAD;BAW449;25L;141;departure
+13;20:30;Private Jet;MAD;KLM424;07R;333;arrival
+13;20:45;Cargo;FRA;THY336;25R;16;departure
+13;21:00;Airliner;HKG;IBE208;07R;180;arrival
+13;21:15;Regional Jet;ATL;AFR129;07R;152;departure
+13;21:30;Airliner;SIN;UAE211;07R;68;arrival
+13;21:45;Airliner;AMS;KLM303;07R;129;departure
+13;22:00;Regional Jet;FRA;UAE978;25L;236;arrival
+13;22:15;Cargo;DOH;AAL564;07R;155;departure
+13;22:45;Military;IST;AFR637;07L;101;arrival
+13;23:00;Regional Jet;FRA;AFR666;25L;175;departure
+13;23:15;Military;AMS;AFR407;25R;132;arrival
+13;23:30;Private Jet;CDG;CPA215;25L;102;departure
+14;04:00;Military;BKK;IBE444;25L;253;arrival
+14;04:30;Military;DXB;DLH561;07R;128;departure
+14;04:45;Regional Jet;MAD;IBE678;07R;223;arrival
+14;05:00;Military;JFK;AFR704;25R;84;departure
+14;05:15;Private Jet;ORD;AAL996;25L;129;arrival
+14;05:30;Private Jet;CDG;AAL958;07L;323;departure
+14;05:45;Airliner;AMS;DLH619;07R;356;arrival
+14;06:00;Military;LAX;IBE109;07R;115;departure
+14;06:15;Private Jet;ATL;AFR856;07L;47;arrival
+14;06:30;Regional Jet;SIN;QTR541;07R;98;departure
+14;07:00;Military;LHR;KLM171;25L;176;arrival
+14;07:15;Regional Jet;BKK;BAW867;07R;349;departure
+14;07:30;Military;HKG;DLH650;07L;259;arrival
+14;07:45;Military;AMS;AAL773;25R;290;departure
+14;08:00;Military;CDG;SIA422;07L;60;arrival
+14;08:15;Regional Jet;DXB;UAE613;25L;330;departure
+14;08:30;Airliner;JFK;CPA226;07L;128;arrival
+14;09:00;Airliner;AMS;AFR292;25L;162;departure
+14;09:15;Airliner;IST;CPA227;25L;109;arrival
+14;09:30;Private Jet;ORD;DLH119;25L;183;departure
+14;10:00;Regional Jet;LHR;QTR188;25R;238;arrival
+14;10:30;Private Jet;LAX;QTR244;25L;128;departure
+14;10:45;Military;HKG;DLH684;07R;220;arrival
+14;11:00;Airliner;AMS;UAE661;25R;313;departure
+14;11:15;Private Jet;ATL;IBE771;07L;259;arrival
+14;11:30;Regional Jet;FRA;QTR595;07R;94;departure
+14;11:45;Regional Jet;CDG;BAW544;25L;69;arrival
+14;12:00;Airliner;LHR;BAW242;07R;291;departure
+14;12:15;Regional Jet;AMS;THY932;07R;267;arrival
+14;13:00;Private Jet;ATL;CPA265;25L;340;departure
+14;13:15;Airliner;ORD;AFR445;07R;97;arrival
+14;13:30;Regional Jet;DXB;IBE420;25R;177;departure
+14;14:00;Private Jet;SIN;SIA363;25R;210;arrival
+14;14:15;Airliner;ATL;DLH174;25R;193;departure
+14;14:30;Regional Jet;ATL;QTR689;25R;243;arrival
+14;14:45;Regional Jet;DOH;DLH575;25L;128;departure
+14;15:15;Military;ATL;QTR801;07R;52;arrival
+14;16:15;Private Jet;FRA;DLH815;07L;126;departure
+14;17:00;Regional Jet;AMS;AFR230;07L;127;arrival
+14;17:15;Private Jet;IST;THY840;25L;6;departure
+14;17:30;Cargo;BKK;QTR345;07R;285;arrival
+14;17:45;Regional Jet;FRA;BAW181;07R;114;departure
+14;18:00;Airliner;ATL;THY738;25R;327;arrival
+14;18:15;Private Jet;FRA;CPA204;25R;19;departure
+14;18:30;Airliner;DOH;AAL810;07R;267;arrival
+14;18:45;Airliner;BKK;THY545;25R;282;departure
+14;19:00;Cargo;ORD;AFR162;07R;181;arrival
+14;19:30;Regional Jet;CDG;DLH252;25L;243;departure
+14;19:45;Airliner;LAX;SIA445;25L;161;arrival
+14;20:00;Regional Jet;CDG;QTR705;07L;139;departure
+14;20:15;Private Jet;AMS;AFR149;07R;161;arrival
+14;20:45;Airliner;SIN;UAE355;07L;255;departure
+14;21:15;Airliner;ORD;SIA819;25R;129;arrival
+14;21:45;Regional Jet;DOH;UAE870;25L;357;departure
+14;22:00;Cargo;ORD;QTR216;07L;33;arrival
+14;22:15;Regional Jet;HKG;DLH704;07L;245;departure
+14;22:45;Regional Jet;ORD;AAL826;25L;306;arrival
+14;23:00;Regional Jet;MAD;UAE677;25R;110;departure
+14;23:15;Regional Jet;MAD;SIA827;25L;350;arrival
+14;23:30;Cargo;SIN;AFR469;07R;123;departure
+15;04:00;Cargo;FRA;QTR756;25L;150;arrival
+15;04:15;Cargo;LAX;KLM732;07R;122;departure
+15;04:30;Airliner;DXB;DLH850;25L;177;arrival
+15;04:45;Military;CDG;SIA849;25L;55;departure
+15;05:00;Military;LAX;SIA242;25L;143;arrival
+15;05:45;Cargo;ORD;BAW628;07R;165;departure
+15;06:00;Private Jet;SIN;KLM118;07L;98;arrival
+15;06:15;Military;ATL;THY434;07L;88;departure
+15;06:30;Airliner;IST;BAW740;07L;195;arrival
+15;06:45;Military;IST;BAW638;07R;57;departure
+15;07:00;Airliner;ORD;KLM327;07R;237;arrival
+15;07:15;Regional Jet;AMS;DLH556;25R;35;departure
+15;07:30;Regional Jet;FRA;UAE616;07L;289;arrival
+15;07:45;Private Jet;CDG;AFR534;25L;233;departure
+15;08:00;Regional Jet;DXB;AFR424;25L;200;arrival
+15;08:30;Airliner;LAX;DLH470;07L;146;departure
+15;09:00;Regional Jet;ORD;IBE683;25L;5;arrival
+15;09:45;Airliner;DXB;SIA958;25L;84;departure
+15;10:00;Private Jet;HKG;QTR883;07R;311;arrival
+15;10:15;Cargo;CDG;AAL421;25L;306;departure
+15;10:45;Cargo;LHR;THY335;07R;179;arrival
+15;11:15;Private Jet;FRA;CPA803;07L;184;departure
+15;11:30;Airliner;DXB;IBE925;07R;311;arrival
+15;11:45;Airliner;CDG;DLH473;25R;247;departure
+15;12:00;Cargo;DOH;KLM761;25L;125;arrival
+15;12:15;Airliner;ATL;THY686;07L;257;departure
+15;12:45;Regional Jet;IST;AFR237;25R;132;arrival
+15;13:00;Cargo;ATL;THY848;25L;294;departure
+15;13:15;Airliner;ORD;DLH163;25R;225;arrival
+15;13:45;Airliner;AMS;SIA793;07R;88;departure
+15;14:00;Cargo;IST;THY825;07R;44;arrival
+15;14:15;Cargo;LAX;SIA290;07R;36;departure
+15;14:30;Cargo;AMS;DLH581;07R;225;arrival
+15;14:45;Military;JFK;KLM662;07L;104;departure
+15;15:15;Cargo;MAD;THY289;25R;170;arrival
+15;15:45;Regional Jet;AMS;THY394;07L;44;departure
+15;16:00;Regional Jet;ATL;THY278;25R;13;arrival
+15;16:30;Private Jet;SIN;IBE236;25R;185;departure
+15;17:00;Airliner;MAD;DLH944;25R;342;arrival
+15;17:15;Airliner;LAX;IBE768;25L;276;departure
+15;17:30;Airliner;DXB;QTR850;25R;295;arrival
+15;17:45;Military;MAD;SIA307;07L;22;departure
+15;18:00;Regional Jet;HKG;AAL723;25L;168;arrival
+15;18:15;Cargo;ATL;UAE145;07L;259;departure
+15;19:00;Private Jet;LAX;THY617;25R;236;arrival
+15;19:15;Military;LHR;BAW376;07R;311;departure
+15;19:30;Military;AMS;THY373;07L;121;arrival
+15;19:45;Regional Jet;DXB;AAL162;25R;234;departure
+15;20:00;Cargo;LAX;BAW682;25L;285;arrival
+15;20:15;Cargo;DOH;THY303;25L;205;departure
+15;20:30;Cargo;JFK;AAL927;07R;237;arrival
+15;20:45;Cargo;DOH;BAW653;25L;264;departure
+15;21:00;Cargo;IST;THY374;25L;82;arrival
+15;21:30;Cargo;DXB;KLM152;07L;139;departure
+15;21:45;Regional Jet;JFK;AFR817;07R;293;arrival
+15;22:00;Military;AMS;BAW332;25L;236;departure
+15;22:15;Private Jet;ORD;IBE940;07L;171;arrival
+15;22:30;Airliner;ORD;DLH774;07R;185;departure
+15;23:00;Cargo;JFK;AAL895;07L;209;arrival
+15;23:15;Private Jet;MAD;BAW274;07L;189;departure
+16;04:00;Military;LHR;AAL862;07L;42;arrival
+16;04:15;Regional Jet;HKG;DLH979;25R;56;departure
+16;04:45;Cargo;AMS;KLM279;07L;310;arrival
+16;05:00;Airliner;FRA;AFR889;25R;315;departure
+16;05:15;Military;CDG;SIA150;25R;153;arrival
+16;05:30;Airliner;FRA;CPA398;25L;231;departure
+16;06:00;Military;ATL;BAW489;25L;141;arrival
+16;06:15;Airliner;AMS;SIA535;07L;53;departure
+16;06:30;Regional Jet;ATL;KLM850;07L;246;arrival
+16;06:45;Regional Jet;JFK;UAE468;07R;309;departure
+16;07:00;Cargo;ATL;THY754;07R;340;arrival
+16;07:15;Military;LHR;DLH902;07L;11;departure
+16;07:30;Private Jet;IST;BAW846;25L;48;arrival
+16;07:45;Cargo;LAX;DLH488;25R;192;departure
+16;08:00;Regional Jet;IST;DLH770;07R;3;arrival
+16;08:15;Regional Jet;HKG;CPA901;07R;52;departure
+16;08:30;Private Jet;BKK;QTR414;25L;184;arrival
+16;08:45;Cargo;HKG;IBE941;25R;102;departure
+16;09:00;Military;AMS;QTR179;25R;73;arrival
+16;09:45;Military;MAD;UAE679;25R;217;departure
+16;10:15;Airliner;ORD;UAE619;25L;236;arrival
+16;10:30;Military;DXB;IBE781;25R;72;departure
+16;10:45;Private Jet;AMS;AAL530;25L;237;arrival
+16;11:00;Airliner;LHR;IBE473;25R;18;departure
+16;11:30;Regional Jet;CDG;UAE295;07R;353;arrival
+16;11:45;Regional Jet;IST;SIA988;25L;157;departure
+16;12:00;Regional Jet;DOH;KLM170;07R;209;arrival
+16;12:15;Airliner;AMS;QTR976;25L;327;departure
+16;12:30;Cargo;ORD;QTR293;25L;7;arrival
+16;12:45;Regional Jet;DXB;THY549;25L;267;departure
+16;13:00;Private Jet;DOH;THY971;25L;81;arrival
+16;13:15;Regional Jet;JFK;UAE407;25R;255;departure
+16;13:30;Private Jet;SIN;AAL987;25R;354;arrival
+16;13:45;Regional Jet;LAX;AAL147;07R;95;departure
+16;14:15;Regional Jet;FRA;BAW991;25L;284;arrival
+16;14:30;Private Jet;MAD;QTR287;25L;177;departure
+16;15:45;Regional Jet;MAD;BAW271;25R;225;arrival
+16;16:15;Private Jet;MAD;QTR449;25L;10;departure
+16;16:45;Airliner;LAX;DLH281;07L;220;arrival
+16;17:00;Private Jet;IST;BAW426;25L;321;departure
+16;17:15;Private Jet;ORD;BAW852;07R;178;arrival
+16;17:30;Private Jet;ATL;QTR152;25R;150;departure
+16;17:45;Military;DXB;SIA316;25L;232;arrival
+16;18:00;Airliner;LAX;SIA754;25R;204;departure
+16;18:15;Military;LAX;UAE118;07L;121;arrival
+16;18:30;Regional Jet;ATL;BAW954;07R;160;departure
+16;19:00;Airliner;SIN;BAW220;25L;249;arrival
+16;19:30;Cargo;LHR;DLH468;25R;21;departure
+16;20:00;Regional Jet;MAD;SIA991;07R;68;arrival
+16;20:30;Private Jet;HKG;CPA272;07R;198;departure
+16;21:00;Regional Jet;CDG;AFR886;07L;234;arrival
+16;21:15;Airliner;LAX;IBE984;25R;11;departure
+16;21:30;Cargo;CDG;AFR828;25R;118;arrival
+16;21:45;Regional Jet;ATL;IBE972;25R;175;departure
+16;22:00;Airliner;CDG;CPA569;07R;302;arrival
+16;22:15;Regional Jet;DXB;CPA667;07L;274;departure
+16;22:45;Cargo;DXB;AFR971;07R;257;arrival
+16;23:00;Private Jet;FRA;UAE272;07R;213;departure
+16;23:15;Regional Jet;ATL;SIA724;25R;305;arrival
+16;23:30;Regional Jet;SIN;QTR851;07R;200;departure
+17;04:30;Regional Jet;DXB;BAW217;25R;53;arrival
+17;04:45;Military;LAX;IBE130;07R;128;departure
+17;05:00;Airliner;BKK;DLH740;07R;93;arrival
+17;05:15;Private Jet;BKK;IBE377;25R;245;departure
+17;05:45;Cargo;HKG;KLM657;07R;302;arrival
+17;06:00;Regional Jet;AMS;AAL122;07R;164;departure
+17;06:15;Cargo;ORD;KLM129;07R;49;arrival
+17;06:45;Airliner;DXB;IBE433;07R;120;departure
+17;07:00;Airliner;AMS;UAE519;07R;157;arrival
+17;07:15;Airliner;FRA;UAE677;07L;268;departure
+17;07:30;Cargo;AMS;DLH439;07R;86;arrival
+17;08:00;Military;BKK;AFR232;25R;36;departure
+17;08:30;Cargo;LAX;UAE353;25L;327;arrival
+17;08:45;Military;HKG;THY210;25R;249;departure
+17;09:00;Cargo;DOH;SIA629;07L;148;arrival
+17;09:15;Regional Jet;JFK;QTR314;07L;251;departure
+17;09:30;Regional Jet;LHR;UAE125;25R;161;arrival
+17;09:45;Cargo;HKG;AAL485;07L;273;departure
+17;10:00;Cargo;SIN;DLH513;25R;213;arrival
+17;10:15;Cargo;DXB;KLM236;07L;11;departure
+17;10:45;Military;IST;AAL521;25R;341;arrival
+17;11:00;Cargo;MAD;SIA439;25R;29;departure
+17;11:30;Regional Jet;LHR;THY429;07R;353;arrival
+17;11:45;Regional Jet;JFK;DLH905;25L;225;departure
+17;12:15;Military;CDG;AAL848;25R;352;arrival
+17;12:45;Private Jet;CDG;QTR153;25R;54;departure
+17;13:15;Private Jet;MAD;DLH979;07R;66;arrival
+17;13:30;Regional Jet;ATL;UAE452;07L;43;departure
+17;13:45;Private Jet;CDG;IBE291;07R;299;arrival
+17;14:15;Airliner;JFK;UAE528;25L;38;departure
+17;14:30;Regional Jet;CDG;IBE406;25L;339;arrival
+17;14:45;Regional Jet;HKG;QTR633;07L;269;departure
+17;15:00;Cargo;ORD;AFR238;25L;276;arrival
+17;15:15;Regional Jet;BKK;QTR824;25L;58;departure
+17;15:30;Cargo;MAD;AFR352;07R;35;arrival
+17;15:45;Military;BKK;SIA110;25L;217;departure
+17;16:30;Military;CDG;UAE518;25R;61;arrival
+17;16:45;Airliner;ATL;IBE124;07R;201;departure
+17;17:00;Airliner;AMS;BAW951;07L;177;arrival
+17;17:15;Regional Jet;FRA;IBE479;07L;63;departure
+17;17:30;Regional Jet;JFK;UAE800;07L;129;arrival
+17;17:45;Private Jet;CDG;BAW961;07R;163;departure
+17;18:00;Private Jet;DOH;UAE319;07L;284;arrival
+17;18:15;Regional Jet;MAD;UAE335;07L;1;departure
+17;18:30;Military;CDG;IBE775;25L;347;arrival
+17;18:45;Military;BKK;SIA114;25R;215;departure
+17;19:00;Private Jet;BKK;SIA355;25R;86;arrival
+17;19:15;Private Jet;DXB;AFR295;25L;74;departure
+17;19:30;Airliner;CDG;UAE807;07L;280;arrival
+17;19:45;Airliner;CDG;THY770;07L;360;departure
+17;20:00;Cargo;HKG;SIA448;25L;158;arrival
+17;20:15;Airliner;CDG;THY596;25R;80;departure
+17;20:30;Regional Jet;MAD;KLM566;07R;283;arrival
+17;20:45;Private Jet;BKK;AAL597;25L;62;departure
+17;21:45;Cargo;BKK;QTR620;25R;68;arrival
+17;22:30;Private Jet;LHR;BAW206;07L;275;departure
+17;22:45;Private Jet;SIN;DLH371;25R;241;arrival
+17;23:00;Cargo;DXB;BAW746;25R;207;departure
+17;23:15;Private Jet;MAD;IBE358;25L;193;arrival
+17;23:30;Private Jet;BKK;BAW266;25L;108;departure
+18;04:00;Private Jet;LHR;AAL194;07R;132;arrival
+18;04:30;Airliner;DXB;AAL841;25R;140;departure
+18;05:00;Regional Jet;JFK;CPA219;25L;92;arrival
+18;05:15;Regional Jet;LHR;IBE565;25R;100;departure
+18;05:45;Private Jet;ORD;QTR699;25L;132;arrival
+18;06:00;Military;CDG;CPA527;07R;108;departure
+18;06:30;Cargo;IST;SIA965;25R;197;arrival
+18;07:15;Military;HKG;CPA222;25L;349;departure
+18;08:00;Private Jet;ATL;UAE391;07L;193;arrival
+18;08:30;Regional Jet;DXB;IBE662;07L;313;departure
+18;08:45;Airliner;JFK;SIA345;25L;283;arrival
+18;09:00;Military;HKG;BAW493;07R;338;departure
+18;09:15;Private Jet;LAX;QTR898;07L;304;arrival
+18;10:00;Regional Jet;DOH;BAW517;07L;244;departure
+18;10:15;Military;ORD;QTR728;07L;195;arrival
+18;10:30;Regional Jet;ATL;BAW284;25R;266;departure
+18;10:45;Military;LHR;CPA879;07R;6;arrival
+18;11:00;Private Jet;LAX;UAE482;25R;220;departure
+18;11:15;Airliner;CDG;BAW598;25R;52;arrival
+18;12:00;Private Jet;LHR;QTR348;07R;130;departure
+18;12:30;Private Jet;ATL;UAE515;25L;44;arrival
+18;12:45;Airliner;ATL;UAE111;25R;5;departure
+18;13:15;Military;JFK;CPA698;25L;5;arrival
+18;13:30;Regional Jet;BKK;DLH563;07R;262;departure
+18;13:45;Regional Jet;ORD;DLH838;07R;159;arrival
+18;14:00;Military;IST;DLH687;25R;314;departure
+18;14:15;Private Jet;MAD;KLM609;25L;261;arrival
+18;14:30;Regional Jet;LHR;AAL730;25L;34;departure
+18;14:45;Cargo;HKG;SIA640;25L;357;arrival
+18;15:00;Regional Jet;ATL;IBE943;25R;245;departure
+18;15:15;Private Jet;ORD;AAL781;25L;67;arrival
+18;15:30;Cargo;ORD;AAL853;25R;138;departure
+18;15:45;Airliner;AMS;IBE463;25R;323;arrival
+18;16:15;Airliner;DOH;SIA790;07R;103;departure
+18;16:30;Private Jet;AMS;KLM824;07L;11;arrival
+18;16:45;Airliner;AMS;UAE134;07L;277;departure
+18;17:00;Regional Jet;LAX;UAE833;07R;70;arrival
+18;17:15;Private Jet;BKK;AAL932;07R;207;departure
+18;17:45;Cargo;FRA;BAW920;07L;269;arrival
+18;18:00;Regional Jet;LHR;IBE534;25R;208;departure
+18;18:15;Cargo;HKG;BAW604;07L;64;arrival
+18;18:30;Regional Jet;ATL;UAE256;25L;39;departure
+18;18:45;Airliner;SIN;DLH782;07L;321;arrival
+18;19:00;Regional Jet;DXB;DLH898;25R;14;departure
+18;19:15;Military;SIN;THY425;07L;338;arrival
+18;19:30;Airliner;HKG;THY568;07L;20;departure
+18;19:45;Private Jet;BKK;AAL807;25L;112;arrival
+18;20:00;Airliner;DXB;AAL793;25R;64;departure
+18;20:15;Cargo;LHR;QTR340;25R;62;arrival
+18;20:30;Airliner;DXB;BAW868;25L;325;departure
+18;20:45;Military;JFK;CPA808;25R;121;arrival
+18;21:00;Private Jet;JFK;QTR928;25R;17;departure
+18;21:15;Private Jet;LAX;KLM816;07R;293;arrival
+18;21:30;Private Jet;ORD;AAL871;25R;261;departure
+18;21:45;Military;SIN;AAL703;25R;20;arrival
+18;22:00;Military;DXB;CPA722;07L;7;departure
+18;22:15;Private Jet;LAX;AFR990;25R;173;arrival
+18;22:30;Military;JFK;KLM695;07R;241;departure
+18;23:00;Airliner;CDG;UAE496;25R;275;arrival
+18;23:30;Regional Jet;LAX;UAE872;25L;246;departure
+19;04:30;Airliner;LAX;BAW911;07L;83;arrival
+19;04:45;Private Jet;LAX;SIA213;07R;270;departure
+19;05:00;Cargo;IST;KLM609;25R;233;arrival
+19;05:15;Airliner;FRA;AAL430;07L;352;departure
+19;05:30;Private Jet;LHR;DLH895;25R;120;arrival
+19;05:45;Cargo;MAD;CPA502;25L;40;departure
+19;06:15;Military;HKG;AFR589;07R;80;arrival
+19;06:45;Private Jet;ATL;UAE452;25L;122;departure
+19;07:00;Airliner;MAD;SIA699;07R;312;arrival
+19;07:15;Private Jet;IST;AAL344;25R;16;departure
+19;07:30;Military;CDG;DLH396;07L;270;arrival
+19;08:00;Cargo;DOH;QTR316;25R;105;departure
+19;08:15;Airliner;ORD;THY732;07R;117;arrival
+19;08:30;Private Jet;MAD;THY678;25L;272;departure
+19;09:00;Military;ORD;CPA803;07R;156;arrival
+19;09:15;Cargo;DOH;UAE125;07L;126;departure
+19;09:30;Private Jet;HKG;DLH877;07L;153;arrival
+19;09:45;Airliner;SIN;THY795;07L;102;departure
+19;10:15;Airliner;ATL;THY553;07L;238;arrival
+19;10:30;Cargo;HKG;AFR673;25R;171;departure
+19;10:45;Military;ATL;CPA834;07R;345;arrival
+19;11:00;Private Jet;DXB;IBE644;25L;253;departure
+19;11:15;Cargo;IST;QTR511;25L;230;arrival
+19;11:30;Military;BKK;AAL903;25L;213;departure
+19;11:45;Cargo;MAD;DLH950;07L;11;arrival
+19;12:00;Airliner;BKK;DLH439;07R;70;departure
+19;12:15;Military;IST;BAW229;25R;48;arrival
+19;12:30;Cargo;DOH;QTR254;25L;49;departure
+19;12:45;Regional Jet;SIN;AFR626;07R;197;arrival
+19;13:15;Regional Jet;HKG;SIA832;07L;227;departure
+19;13:30;Military;CDG;AFR824;25R;90;arrival
+19;13:45;Private Jet;JFK;DLH434;07L;21;departure
+19;14:00;Private Jet;LAX;KLM565;07R;102;arrival
+19;14:15;Military;HKG;THY840;07R;160;departure
+19;14:30;Private Jet;ORD;SIA836;07L;208;arrival
+19;14:45;Cargo;FRA;QTR475;07R;285;departure
+19;15:00;Airliner;LAX;DLH784;25L;103;arrival
+19;15:45;Military;MAD;IBE205;25L;171;departure
+19;16:00;Airliner;AMS;KLM427;25R;8;arrival
+19;17:15;Cargo;CDG;CPA178;07L;197;departure
+19;17:30;Private Jet;BKK;UAE289;07L;94;arrival
+19;18:00;Private Jet;LAX;AFR223;07R;216;departure
+19;18:15;Cargo;HKG;SIA224;25L;35;arrival
+19;18:30;Military;AMS;CPA844;07L;170;departure
+19;19:00;Airliner;BKK;DLH451;07L;79;arrival
+19;19:15;Cargo;DXB;AAL821;25L;187;departure
+19;20:15;Cargo;JFK;SIA205;25L;150;arrival
+19;20:30;Regional Jet;ORD;CPA562;07L;114;departure
+19;20:45;Airliner;CDG;IBE217;07L;150;arrival
+19;21:00;Private Jet;LHR;AAL135;07R;59;departure
+19;21:15;Airliner;ORD;AAL942;07L;301;arrival
+19;21:30;Cargo;IST;QTR310;07R;84;departure
+19;21:45;Cargo;DXB;THY875;07L;53;arrival
+19;22:15;Private Jet;DXB;DLH794;25L;308;departure
+19;22:30;Regional Jet;CDG;SIA927;25R;213;arrival
+19;22:45;Regional Jet;MAD;KLM786;07R;141;departure
+19;23:00;Airliner;SIN;THY278;07R;177;arrival
+19;23:15;Cargo;DOH;DLH795;25R;247;departure
+19;23:30;Military;SIN;AAL747;25L;263;arrival
+19;23:45;Cargo;LHR;SIA568;25L;358;departure
+20;04:00;Airliner;MAD;SIA414;25R;95;arrival
+20;04:15;Cargo;DOH;QTR481;07L;166;departure
+20;04:30;Private Jet;CDG;AFR859;07L;208;arrival
+20;04:45;Regional Jet;FRA;THY368;25R;246;departure
+20;05:00;Airliner;CDG;AFR219;07R;209;arrival
+20;05:15;Regional Jet;FRA;QTR699;07L;166;departure
+20;05:30;Private Jet;CDG;UAE654;07L;250;arrival
+20;05:45;Regional Jet;IST;CPA938;25R;188;departure
+20;06:00;Cargo;MAD;UAE936;25R;123;arrival
+20;06:15;Airliner;DXB;BAW944;07L;211;departure
+20;06:30;Cargo;ATL;KLM294;07R;20;arrival
+20;07:00;Military;IST;UAE945;07R;247;departure
+20;07:30;Cargo;LAX;UAE714;25L;69;arrival
+20;07:45;Military;FRA;BAW494;07R;238;departure
+20;08:00;Regional Jet;JFK;DLH424;25L;236;arrival
+20;08:15;Private Jet;BKK;THY657;07L;118;departure
+20;08:30;Regional Jet;LAX;AFR396;07L;335;arrival
+20;08:45;Airliner;DXB;CPA398;25L;340;departure
+20;09:00;Private Jet;AMS;SIA448;07R;241;arrival
+20;09:15;Cargo;DOH;QTR782;25L;290;departure
+20;09:45;Regional Jet;LHR;AAL384;25L;88;arrival
+20;10:00;Cargo;LHR;DLH990;07R;130;departure
+20;10:15;Military;DOH;AFR118;07L;210;arrival
+20;10:30;Private Jet;BKK;DLH574;25R;310;departure
+20;10:45;Regional Jet;CDG;QTR661;25R;23;arrival
+20;11:00;Airliner;IST;SIA934;25L;69;departure
+20;11:15;Private Jet;DOH;DLH553;07R;275;arrival
+20;11:30;Airliner;LHR;QTR986;07R;84;departure
+20;11:45;Military;JFK;AFR217;25L;8;arrival
+20;12:00;Private Jet;ATL;SIA737;07L;274;departure
+20;12:15;Regional Jet;IST;DLH377;25L;22;arrival
+20;12:30;Cargo;JFK;UAE215;25R;331;departure
+20;12:45;Cargo;SIN;DLH983;25L;234;arrival
+20;13:15;Military;HKG;KLM927;25R;176;departure
+20;13:45;Private Jet;IST;KLM801;07L;15;arrival
+20;14:00;Cargo;LHR;CPA850;07L;65;departure
+20;14:15;Cargo;DXB;IBE302;25R;61;arrival
+20;14:30;Cargo;CDG;SIA536;25R;93;departure
+20;15:00;Private Jet;ATL;THY776;25R;33;arrival
+20;15:30;Private Jet;MAD;QTR591;25R;17;departure
+20;16:15;Airliner;JFK;QTR683;25L;322;arrival
+20;17:00;Regional Jet;JFK;KLM350;07L;209;departure
+20;17:30;Private Jet;HKG;THY917;07R;336;arrival
+20;18:15;Private Jet;ORD;UAE104;25L;241;departure
+20;18:45;Airliner;SIN;DLH428;25L;317;arrival
+20;19:00;Airliner;LHR;AFR687;07R;92;departure
+20;19:30;Military;ATL;IBE853;07L;43;arrival
+20;19:45;Airliner;JFK;AFR851;07L;340;departure
+20;20:15;Regional Jet;ORD;SIA556;25L;246;arrival
+20;20:30;Cargo;DXB;CPA665;25R;60;departure
+20;20:45;Cargo;BKK;IBE297;25L;316;arrival
+20;21:00;Private Jet;MAD;THY604;25L;5;departure
+20;21:15;Regional Jet;SIN;IBE163;25L;201;arrival
+20;21:30;Airliner;FRA;SIA307;25R;244;departure
+20;22:00;Cargo;BKK;UAE158;25R;44;arrival
+20;22:30;Regional Jet;LAX;QTR531;25R;332;departure
+20;22:45;Cargo;MAD;IBE462;25R;323;arrival
+20;23:00;Cargo;DXB;CPA813;07R;27;departure
+20;23:15;Private Jet;FRA;KLM920;07R;30;arrival
+20;23:30;Private Jet;LAX;KLM853;25R;129;departure
+21;04:00;Airliner;JFK;AFR247;07L;326;arrival
+21;04:15;Private Jet;LAX;DLH259;25L;106;departure
+21;04:45;Regional Jet;FRA;DLH907;25L;212;arrival
+21;05:00;Private Jet;HKG;QTR461;25R;62;departure
+21;05:15;Military;LAX;CPA770;07R;329;arrival
+21;05:30;Regional Jet;CDG;IBE433;25L;80;departure
+21;05:45;Military;DXB;UAE206;07L;263;arrival
+21;06:15;Military;JFK;THY382;07L;15;departure
+21;06:30;Regional Jet;IST;UAE380;07R;44;arrival
+21;06:45;Regional Jet;JFK;QTR116;25L;185;departure
+21;07:00;Regional Jet;JFK;AFR282;07R;291;arrival
+21;07:30;Regional Jet;JFK;AAL272;25R;240;departure
+21;08:00;Cargo;MAD;QTR882;07R;32;arrival
+21;08:15;Military;ATL;BAW135;25L;66;departure
+21;08:30;Private Jet;DXB;AFR639;25L;14;arrival
+21;08:45;Military;ORD;CPA574;07R;264;departure
+21;09:00;Regional Jet;LHR;KLM769;07L;82;arrival
+21;09:15;Cargo;AMS;KLM591;25L;173;departure
+21;09:30;Private Jet;LHR;SIA698;25L;234;arrival
+21;09:45;Regional Jet;JFK;AFR292;25R;256;departure
+21;10:15;Regional Jet;AMS;AFR440;07R;43;arrival
+21;10:30;Cargo;HKG;KLM595;25R;118;departure
+21;11:00;Cargo;JFK;KLM227;07R;284;arrival
+21;11:30;Military;DXB;AFR315;07R;91;departure
+21;12:00;Airliner;MAD;QTR874;25R;150;arrival
+21;12:15;Private Jet;HKG;QTR922;25L;31;departure
+21;13:00;Airliner;MAD;BAW339;07R;213;arrival
+21;13:15;Airliner;MAD;AAL109;25R;268;departure
+21;13:30;Military;BKK;BAW210;07L;103;arrival
+21;14:00;Private Jet;BKK;AFR124;25R;131;departure
+21;14:30;Regional Jet;HKG;CPA195;25L;38;arrival
+21;14:45;Military;ORD;THY205;07R;9;departure
+21;15:00;Cargo;DXB;AFR322;25R;88;arrival
+21;15:15;Private Jet;LAX;BAW540;25R;187;departure
+21;15:30;Regional Jet;LHR;THY404;07L;220;arrival
+21;16:00;Cargo;AMS;KLM601;25L;244;departure
+21;16:15;Private Jet;ATL;KLM729;25L;328;arrival
+21;16:30;Regional Jet;ORD;IBE463;25L;135;departure
+21;16:45;Airliner;ORD;DLH916;07R;147;arrival
+21;17:00;Airliner;IST;QTR323;07L;269;departure
+21;17:15;Private Jet;ATL;IBE704;25R;64;arrival
+21;17:45;Military;LAX;AAL681;25R;25;departure
+21;18:15;Military;AMS;THY200;07R;136;arrival
+21;18:30;Airliner;FRA;AAL915;07R;148;departure
+21;18:45;Regional Jet;FRA;AAL565;07R;97;arrival
+21;19:15;Military;AMS;KLM682;07L;253;departure
+21;19:45;Regional Jet;DXB;THY571;07L;126;arrival
+21;20:15;Private Jet;SIN;BAW790;07L;163;departure
+21;20:30;Military;HKG;SIA466;07R;217;arrival
+21;20:45;Cargo;AMS;UAE518;07L;356;departure
+21;21:00;Regional Jet;AMS;BAW859;07L;32;arrival
+21;21:30;Regional Jet;ATL;CPA523;07R;46;departure
+21;21:45;Airliner;BKK;CPA619;07R;116;arrival
+21;22:00;Regional Jet;LHR;IBE663;07L;194;departure
+21;22:15;Airliner;SIN;AAL674;07R;151;arrival
+21;22:45;Airliner;LAX;DLH364;07R;314;departure
+21;23:00;Regional Jet;LAX;AAL768;07L;337;arrival
+21;23:15;Cargo;FRA;CPA391;25L;224;departure
+21;23:30;Airliner;SIN;CPA357;25R;340;arrival
+21;23:45;Military;FRA;SIA113;25R;209;departure
+22;04:00;Regional Jet;ORD;QTR752;07L;224;arrival
+22;04:15;Airliner;FRA;BAW749;25R;267;departure
+22;04:30;Regional Jet;LHR;AAL314;07R;243;arrival
+22;04:45;Regional Jet;ATL;CPA654;07L;306;departure
+22;05:00;Airliner;MAD;QTR870;25R;86;arrival
+22;05:15;Airliner;HKG;DLH316;07R;273;departure
+22;05:30;Military;LAX;UAE143;07R;108;arrival
+22;06:15;Military;DXB;BAW199;25L;218;departure
+22;06:30;Airliner;SIN;AFR558;25R;231;arrival
+22;07:15;Airliner;JFK;THY467;25L;303;departure
+22;07:30;Cargo;ORD;AAL450;25L;239;arrival
+22;07:45;Cargo;LHR;CPA727;07R;246;departure
+22;08:00;Airliner;DOH;CPA587;07L;337;arrival
+22;08:15;Regional Jet;SIN;AAL881;25L;174;departure
+22;08:30;Cargo;LHR;THY337;07L;194;arrival
+22;09:00;Military;LAX;KLM295;25R;105;departure
+22;09:30;Military;ORD;UAE206;07L;180;arrival
+22;10:15;Airliner;DXB;UAE383;07L;54;departure
+22;10:30;Cargo;CDG;AFR741;25L;8;arrival
+22;10:45;Cargo;LHR;SIA978;07L;184;departure
+22;11:00;Regional Jet;SIN;DLH794;07R;184;arrival
+22;11:15;Regional Jet;LHR;AFR163;07L;183;departure
+22;11:30;Regional Jet;BKK;CPA562;07L;273;arrival
+22;11:45;Regional Jet;FRA;AAL144;25R;176;departure
+22;12:00;Regional Jet;ORD;AFR423;07R;68;arrival
+22;12:45;Regional Jet;AMS;AAL628;25R;193;departure
+22;13:00;Private Jet;MAD;AFR817;25R;259;arrival
+22;13:15;Airliner;JFK;AAL847;25R;224;departure
+22;13:45;Airliner;LHR;DLH413;25R;41;arrival
+22;14:15;Military;CDG;IBE405;25R;270;departure
+22;14:30;Cargo;LHR;CPA448;25R;231;arrival
+22;14:45;Airliner;DXB;AFR381;25L;131;departure
+22;15:00;Airliner;BKK;IBE789;25L;296;arrival
+22;15:15;Regional Jet;ORD;CPA344;07L;226;departure
+22;15:30;Military;LHR;BAW672;25L;3;arrival
+22;15:45;Cargo;ORD;AFR261;25R;192;departure
+22;16:15;Cargo;JFK;BAW227;07R;78;arrival
+22;16:30;Military;CDG;AFR418;07R;222;departure
+22;16:45;Regional Jet;MAD;AFR839;25L;183;arrival
+22;17:00;Regional Jet;CDG;IBE531;25L;123;departure
+22;17:15;Airliner;DXB;THY611;25L;340;arrival
+22;18:00;Airliner;LAX;CPA499;07L;289;departure
+22;18:15;Regional Jet;CDG;IBE457;25L;121;arrival
+22;19:00;Military;LHR;SIA620;25R;341;departure
+22;19:15;Regional Jet;JFK;AFR791;07R;174;arrival
+22;19:45;Airliner;JFK;CPA810;25L;247;departure
+22;20:00;Cargo;ORD;SIA790;25L;59;arrival
+22;20:15;Military;DXB;QTR126;25L;255;departure
+22;20:45;Private Jet;JFK;THY294;25L;351;arrival
+22;21:00;Regional Jet;SIN;UAE489;07L;296;departure
+22;21:15;Regional Jet;SIN;QTR530;07L;60;arrival
+22;21:30;Cargo;AMS;SIA707;25L;154;departure
+22;22:00;Private Jet;LHR;BAW210;07R;309;arrival
+22;22:15;Regional Jet;DOH;AAL364;25R;230;departure
+22;22:30;Cargo;IST;IBE867;07R;347;arrival
+22;22:45;Airliner;JFK;AFR984;25L;275;departure
+22;23:00;Airliner;FRA;AFR181;25R;171;arrival
+22;23:15;Regional Jet;CDG;UAE615;25R;166;departure
+22;23:30;Private Jet;JFK;UAE953;25L;3;arrival
+22;23:45;Private Jet;LAX;KLM860;25L;357;departure
+23;04:30;Military;MAD;BAW343;25L;157;arrival
+23;05:00;Private Jet;CDG;IBE228;07R;198;departure
+23;05:15;Airliner;CDG;DLH170;07R;135;arrival
+23;05:30;Military;FRA;BAW558;25L;80;departure
+23;06:00;Military;DXB;DLH447;25L;301;arrival
+23;06:15;Private Jet;MAD;DLH396;25R;122;departure
+23;06:45;Airliner;CDG;DLH705;07R;99;arrival
+23;07:00;Airliner;DOH;AFR605;25R;63;departure
+23;07:30;Cargo;LHR;KLM215;25R;193;arrival
+23;08:00;Private Jet;LAX;QTR642;07L;273;departure
+23;08:15;Regional Jet;AMS;IBE349;25R;165;arrival
+23;08:30;Cargo;BKK;SIA315;07L;352;departure
+23;09:15;Cargo;BKK;BAW351;25R;187;arrival
+23;09:30;Cargo;LHR;AFR319;07L;340;departure
+23;09:45;Airliner;FRA;SIA410;25R;293;arrival
+23;10:45;Private Jet;ORD;THY732;07L;80;departure
+23;11:00;Private Jet;ATL;CPA927;07L;5;arrival
+23;11:15;Airliner;AMS;DLH941;07R;296;departure
+23;11:30;Cargo;DOH;KLM601;25R;78;arrival
+23;11:45;Airliner;AMS;QTR879;07R;61;departure
+23;12:00;Cargo;AMS;AAL781;25R;195;arrival
+23;12:15;Private Jet;AMS;QTR397;07L;158;departure
+23;12:30;Private Jet;SIN;AFR121;25R;148;arrival
+23;12:45;Airliner;FRA;UAE110;07L;319;departure
+23;13:00;Cargo;LAX;CPA758;07L;358;arrival
+23;13:15;Military;DOH;BAW393;25L;26;departure
+23;13:30;Military;MAD;CPA150;07R;319;arrival
+23;14:15;Private Jet;BKK;SIA128;07L;307;departure
+23;14:45;Military;MAD;SIA266;07R;34;arrival
+23;15:00;Cargo;SIN;CPA351;07L;81;departure
+23;15:15;Airliner;CDG;QTR807;25R;260;arrival
+23;15:30;Cargo;AMS;DLH645;07R;259;departure
+23;16:00;Airliner;LHR;QTR651;25L;175;arrival
+23;16:15;Regional Jet;FRA;AFR749;07R;94;departure
+23;16:30;Private Jet;HKG;QTR407;07L;35;arrival
+23;17:00;Airliner;JFK;AAL533;25R;177;departure
+23;17:15;Airliner;AMS;CPA198;07L;180;arrival
+23;17:30;Cargo;ATL;SIA317;07R;99;departure
+23;17:45;Cargo;SIN;DLH924;25R;324;arrival
+23;18:00;Regional Jet;DOH;BAW318;07R;2;departure
+23;18:15;Regional Jet;ORD;BAW481;25R;248;arrival
+23;18:30;Private Jet;DXB;IBE385;07L;127;departure
+23;18:45;Military;LAX;QTR391;07L;336;arrival
+23;19:15;Private Jet;HKG;SIA392;07R;147;departure
+23;19:30;Military;HKG;SIA257;07R;115;arrival
+23;19:45;Regional Jet;DOH;BAW650;07L;270;departure
+23;20:00;Regional Jet;JFK;SIA897;07L;76;arrival
+23;20:15;Military;HKG;KLM276;07R;301;departure
+23;20:30;Airliner;MAD;BAW470;07R;262;arrival
+23;20:45;Regional Jet;FRA;KLM821;07R;145;departure
+23;21:00;Military;LAX;SIA787;25R;115;arrival
+23;21:15;Regional Jet;JFK;DLH815;25R;192;departure
+23;21:30;Cargo;DOH;IBE434;25L;201;arrival
+23;22:00;Military;SIN;UAE419;25R;236;departure
+23;22:30;Cargo;IST;UAE539;07R;265;arrival
+23;22:45;Airliner;HKG;QTR291;07R;322;departure
+23;23:00;Military;ATL;QTR947;07R;167;arrival
+23;23:15;Regional Jet;HKG;QTR478;07L;193;departure
+23;23:30;Private Jet;FRA;BAW748;07L;355;arrival
+23;23:45;Private Jet;AMS;THY709;25R;156;departure
+24;04:15;Regional Jet;CDG;DLH655;07R;243;arrival
+24;04:45;Private Jet;JFK;THY110;25L;163;departure
+24;05:15;Cargo;LAX;QTR165;25L;280;arrival
+24;05:30;Cargo;IST;AAL529;07L;276;departure
+24;05:45;Private Jet;JFK;CPA527;07L;220;arrival
+24;06:30;Cargo;FRA;SIA840;25L;192;departure
+24;06:45;Regional Jet;FRA;SIA563;07R;165;arrival
+24;07:30;Airliner;LAX;QTR656;25R;261;departure
+24;08:00;Regional Jet;CDG;SIA979;25R;109;arrival
+24;08:15;Private Jet;AMS;AAL808;07R;276;departure
+24;08:30;Cargo;FRA;DLH402;25R;162;arrival
+24;08:45;Airliner;MAD;AAL671;25R;106;departure
+24;09:00;Airliner;FRA;UAE462;07L;97;arrival
+24;09:15;Regional Jet;AMS;AFR961;25L;210;departure
+24;09:30;Cargo;CDG;IBE191;25R;59;arrival
+24;09:45;Private Jet;ORD;BAW485;07L;58;departure
+24;10:15;Cargo;ORD;IBE366;07L;8;arrival
+24;10:30;Private Jet;ORD;DLH306;07R;289;departure
+24;10:45;Airliner;CDG;UAE494;25R;22;arrival
+24;11:00;Military;LHR;KLM411;25R;90;departure
+24;11:30;Private Jet;LHR;AAL781;25L;221;arrival
+24;11:45;Airliner;ORD;SIA394;07L;111;departure
+24;12:15;Airliner;ATL;THY821;07L;290;arrival
+24;12:30;Private Jet;JFK;SIA172;25L;280;departure
+24;12:45;Airliner;AMS;AAL247;25L;330;arrival
+24;13:00;Military;FRA;IBE633;07R;89;departure
+24;13:15;Private Jet;HKG;QTR734;07R;211;arrival
+24;13:30;Cargo;BKK;SIA490;25R;173;departure
+24;13:45;Cargo;BKK;UAE491;07R;79;arrival
+24;14:00;Military;AMS;CPA923;25R;295;departure
+24;14:15;Regional Jet;CDG;THY722;25R;78;arrival
+24;14:30;Cargo;LAX;SIA679;07R;19;departure
+24;14:45;Cargo;BKK;SIA896;25R;208;arrival
+24;15:00;Airliner;HKG;SIA633;25R;338;departure
+24;15:15;Cargo;HKG;THY498;07R;254;arrival
+24;15:30;Private Jet;IST;BAW578;07R;147;departure
+24;16:00;Military;AMS;BAW176;25L;211;arrival
+24;16:15;Cargo;MAD;BAW302;07L;327;departure
+24;17:00;Regional Jet;CDG;IBE817;25L;131;arrival
+24;17:15;Private Jet;JFK;THY497;07R;136;departure
+24;17:30;Cargo;LHR;AAL314;07L;310;arrival
+24;17:45;Cargo;DXB;DLH439;25L;89;departure
+24;18:00;Private Jet;DOH;UAE716;25R;280;arrival
+24;18:15;Military;ORD;BAW265;25R;130;departure
+24;18:30;Military;DXB;SIA219;25R;174;arrival
+24;18:45;Regional Jet;ORD;QTR652;25R;121;departure
+24;19:15;Airliner;DOH;IBE449;07L;34;arrival
+24;20:00;Airliner;IST;SIA750;07L;66;departure
+24;20:15;Cargo;IST;CPA794;25L;267;arrival
+24;20:30;Cargo;DOH;DLH861;07L;23;departure
+24;21:00;Regional Jet;HKG;CPA882;25R;323;arrival
+24;21:15;Regional Jet;IST;KLM360;07L;95;departure
+24;21:45;Cargo;DXB;AFR380;07R;332;arrival
+24;22:00;Cargo;DXB;KLM977;07L;83;departure
+24;22:15;Airliner;FRA;IBE977;25R;241;arrival
+24;22:30;Military;BKK;IBE344;25R;311;departure
+24;22:45;Airliner;DOH;CPA435;25L;130;arrival
+24;23:15;Airliner;LHR;QTR652;07R;299;departure
+24;23:30;Airliner;LHR;CPA149;25R;149;arrival
+24;23:45;Military;CDG;KLM944;25R;318;departure
+25;04:00;Private Jet;SIN;CPA367;07R;66;arrival
+25;04:15;Airliner;DXB;AAL327;25R;191;departure
+25;04:45;Cargo;HKG;DLH751;07R;343;arrival
+25;05:00;Private Jet;DXB;BAW895;25R;268;departure
+25;05:15;Private Jet;JFK;KLM255;25L;201;arrival
+25;05:45;Military;ORD;QTR509;07L;117;departure
+25;06:00;Private Jet;LAX;THY606;25L;180;arrival
+25;06:30;Cargo;LHR;UAE678;25R;288;departure
+25;07:00;Cargo;JFK;KLM466;07R;317;arrival
+25;07:30;Private Jet;MAD;AAL404;07R;16;departure
+25;07:45;Cargo;IST;AFR225;07L;219;arrival
+25;08:00;Airliner;IST;QTR312;07L;275;departure
+25;08:15;Regional Jet;DOH;CPA713;25R;287;arrival
+25;08:30;Cargo;SIN;IBE150;07R;225;departure
+25;08:45;Regional Jet;LAX;DLH366;07R;33;arrival
+25;09:00;Cargo;LHR;UAE287;07L;204;departure
+25;09:15;Airliner;BKK;BAW857;25R;70;arrival
+25;09:30;Military;MAD;SIA916;25L;134;departure
+25;09:45;Private Jet;JFK;AAL412;25R;354;arrival
+25;10:15;Private Jet;CDG;UAE828;25R;212;departure
+25;10:30;Airliner;BKK;DLH993;25L;282;arrival
+25;10:45;Cargo;IST;SIA675;25R;285;departure
+25;11:00;Airliner;JFK;CPA219;07L;8;arrival
+25;11:15;Cargo;MAD;BAW308;07R;298;departure
+25;11:30;Private Jet;BKK;SIA126;07R;16;arrival
+25;12:00;Airliner;HKG;DLH586;07L;309;departure
+25;12:15;Military;ORD;UAE817;07R;43;arrival
+25;12:30;Cargo;SIN;CPA926;07L;307;departure
+25;12:45;Airliner;LHR;IBE735;25R;1;arrival
+25;13:30;Cargo;ORD;IBE671;25R;205;departure
+25;13:45;Private Jet;DXB;KLM473;25L;145;arrival
+25;14:15;Regional Jet;ORD;BAW978;07R;147;departure
+25;14:45;Private Jet;ATL;QTR935;25R;33;arrival
+25;15:00;Private Jet;ORD;IBE830;07L;234;departure
+25;15:15;Private Jet;AMS;BAW783;25R;5;arrival
+25;15:30;Airliner;MAD;QTR592;25L;164;departure
+25;15:45;Airliner;DOH;CPA200;07R;303;arrival
+25;16:00;Cargo;JFK;AFR818;25R;356;departure
+25;16:30;Cargo;AMS;AFR212;07R;88;arrival
+25;16:45;Military;JFK;AFR612;25L;128;departure
+25;17:00;Cargo;AMS;AFR589;07L;327;arrival
+25;17:15;Military;JFK;DLH858;07L;44;departure
+25;17:30;Private Jet;JFK;CPA250;25R;144;arrival
+25;17:45;Regional Jet;IST;DLH797;25R;70;departure
+25;18:00;Airliner;DOH;DLH190;07R;359;arrival
+25;18:15;Military;MAD;AFR570;07R;166;departure
+25;18:45;Cargo;LHR;QTR165;25L;328;arrival
+25;19:15;Regional Jet;AMS;CPA742;07L;81;departure
+25;19:30;Airliner;LAX;THY793;07L;141;arrival
+25;19:45;Private Jet;LHR;DLH807;25R;134;departure
+25;20:30;Private Jet;LAX;BAW245;07R;116;arrival
+25;20:45;Military;FRA;AFR596;25R;284;departure
+25;21:00;Military;LAX;SIA856;25R;350;arrival
+25;21:15;Cargo;CDG;IBE496;07L;6;departure
+25;21:30;Airliner;IST;KLM889;07L;93;arrival
+25;21:45;Airliner;HKG;SIA822;25R;97;departure
+25;22:00;Private Jet;CDG;DLH588;25L;43;arrival
+25;22:30;Private Jet;DXB;SIA247;07L;239;departure
+25;23:00;Airliner;SIN;DLH243;07L;310;arrival
+25;23:15;Cargo;CDG;QTR257;25L;111;departure
+26;04:00;Military;SIN;AFR698;07R;72;arrival
+26;04:15;Regional Jet;MAD;DLH135;25L;63;departure
+26;05:15;Military;LAX;CPA451;07L;348;arrival
+26;05:30;Airliner;HKG;AAL642;07R;325;departure
+26;06:00;Military;DOH;BAW639;25R;141;arrival
+26;06:15;Airliner;HKG;QTR473;07L;323;departure
+26;06:30;Regional Jet;JFK;AFR811;07L;116;arrival
+26;06:45;Regional Jet;SIN;AFR232;07R;236;departure
+26;07:30;Military;FRA;BAW504;25R;83;arrival
+26;07:45;Regional Jet;DOH;KLM778;25L;229;departure
+26;08:00;Cargo;LHR;AFR340;07R;275;arrival
+26;08:15;Airliner;SIN;DLH170;07R;259;departure
+26;08:30;Airliner;MAD;THY984;25L;98;arrival
+26;08:45;Private Jet;MAD;UAE291;07L;52;departure
+26;09:15;Airliner;LAX;IBE874;07R;248;arrival
+26;09:30;Cargo;LAX;DLH322;25L;234;departure
+26;10:00;Private Jet;MAD;KLM268;25R;241;arrival
+26;10:30;Airliner;AMS;SIA248;07L;200;departure
+26;10:45;Military;LAX;QTR799;25L;179;arrival
+26;11:00;Airliner;LAX;THY869;07L;114;departure
+26;11:15;Private Jet;AMS;QTR218;07L;293;arrival
+26;11:30;Regional Jet;DXB;UAE658;07R;146;departure
+26;11:45;Airliner;MAD;IBE755;25R;45;arrival
+26;12:00;Military;DXB;BAW178;25L;355;departure
+26;12:15;Private Jet;LAX;CPA889;25L;353;arrival
+26;12:30;Military;CDG;THY676;25L;315;departure
+26;12:45;Private Jet;DXB;QTR940;25R;77;arrival
+26;13:15;Private Jet;HKG;IBE571;07R;188;departure
+26;13:30;Regional Jet;BKK;KLM736;25L;104;arrival
+26;13:45;Private Jet;DOH;DLH247;25R;265;departure
+26;14:00;Cargo;DXB;DLH528;07R;321;arrival
+26;14:15;Military;SIN;AFR474;07R;333;departure
+26;14:45;Private Jet;HKG;KLM264;07R;49;arrival
+26;15:00;Cargo;JFK;THY974;25L;296;departure
+26;15:15;Private Jet;BKK;UAE501;07L;349;arrival
+26;15:30;Airliner;SIN;AAL326;07L;259;departure
+26;15:45;Military;HKG;AAL232;25L;330;arrival
+26;16:00;Regional Jet;AMS;AAL136;25R;328;departure
+26;16:30;Cargo;IST;BAW994;07L;244;arrival
+26;16:45;Airliner;ORD;UAE739;07R;100;departure
+26;17:30;Private Jet;SIN;UAE890;07L;169;arrival
+26;17:45;Airliner;HKG;AAL227;25L;292;departure
+26;18:00;Cargo;IST;AFR832;07L;153;arrival
+26;18:15;Cargo;SIN;QTR142;07L;38;departure
+26;19:00;Military;BKK;QTR764;07R;340;arrival
+26;19:15;Private Jet;BKK;DLH935;25L;217;departure
+26;19:45;Regional Jet;ATL;BAW404;07R;149;arrival
+26;20:00;Military;ORD;UAE219;07L;145;departure
+26;20:15;Private Jet;AMS;AAL927;25R;173;arrival
+26;20:45;Cargo;BKK;UAE548;07L;274;departure
+26;21:00;Military;DXB;IBE557;07R;140;arrival
+26;21:15;Cargo;MAD;QTR413;07L;113;departure
+26;21:30;Airliner;MAD;QTR738;25R;68;arrival
+26;21:45;Airliner;DOH;AAL242;25L;130;departure
+26;22:00;Private Jet;LHR;AFR660;25R;279;arrival
+26;22:15;Private Jet;HKG;SIA679;07R;285;departure
+26;22:30;Cargo;ATL;AAL973;25L;64;arrival
+26;22:45;Military;CDG;IBE245;25L;14;departure
+26;23:00;Regional Jet;LHR;QTR873;25R;50;arrival
+26;23:15;Military;HKG;KLM362;25L;116;departure
+27;04:00;Regional Jet;ORD;THY197;07R;295;arrival
+27;04:15;Cargo;MAD;UAE743;25L;234;departure
+27;04:30;Regional Jet;IST;AFR131;25L;261;arrival
+27;04:45;Private Jet;CDG;AAL130;25R;139;departure
+27;05:15;Regional Jet;IST;BAW829;25R;355;arrival
+27;05:30;Airliner;FRA;KLM369;25L;195;departure
+27;05:45;Military;LHR;QTR638;07R;32;arrival
+27;06:00;Regional Jet;DOH;QTR758;07L;286;departure
+27;06:15;Military;LHR;AAL482;25R;295;arrival
+27;06:30;Airliner;ORD;QTR850;07R;169;departure
+27;06:45;Airliner;BKK;THY654;07R;70;arrival
+27;07:15;Cargo;IST;CPA228;07R;51;departure
+27;07:30;Military;AMS;THY488;25R;245;arrival
+27;07:45;Cargo;BKK;AFR674;25R;106;departure
+27;08:00;Cargo;CDG;THY581;07R;53;arrival
+27;08:15;Airliner;SIN;DLH914;25L;161;departure
+27;09:15;Military;DXB;THY607;07R;228;arrival
+27;09:30;Private Jet;JFK;UAE437;25L;211;departure
+27;09:45;Airliner;BKK;IBE109;25R;283;arrival
+27;10:15;Airliner;FRA;THY614;25L;198;departure
+27;11:15;Private Jet;DOH;UAE100;25L;7;arrival
+27;11:30;Private Jet;HKG;THY119;25L;282;departure
+27;11:45;Cargo;SIN;AAL306;25R;56;arrival
+27;12:15;Regional Jet;LHR;AFR462;25R;103;departure
+27;12:30;Regional Jet;IST;THY566;25L;317;arrival
+27;13:15;Military;CDG;AFR550;25R;70;departure
+27;13:30;Private Jet;LAX;QTR838;07R;187;arrival
+27;13:45;Airliner;LHR;AAL343;07R;87;departure
+27;14:00;Airliner;FRA;QTR495;25R;65;arrival
+27;14:30;Cargo;DOH;UAE262;25L;170;departure
+27;15:00;Cargo;DXB;IBE527;25L;181;arrival
+27;15:15;Regional Jet;HKG;IBE733;25R;21;departure
+27;15:45;Airliner;AMS;AFR314;25L;14;arrival
+27;16:00;Military;FRA;UAE775;07R;98;departure
+27;16:30;Airliner;DOH;SIA281;25L;280;arrival
+27;16:45;Airliner;LHR;CPA262;25R;158;departure
+27;17:00;Private Jet;MAD;CPA474;25L;154;arrival
+27;17:15;Airliner;DOH;QTR821;25L;53;departure
+27;17:30;Private Jet;JFK;KLM492;07L;314;arrival
+27;17:45;Cargo;AMS;IBE298;25L;233;departure
+27;18:15;Military;ORD;THY894;25R;158;arrival
+27;18:30;Airliner;IST;AAL551;25R;43;departure
+27;19:00;Military;BKK;BAW618;25L;177;arrival
+27;19:15;Airliner;IST;QTR115;25R;292;departure
+27;19:30;Cargo;DOH;BAW543;25R;43;arrival
+27;19:45;Military;ATL;SIA839;25R;78;departure
+27;20:00;Private Jet;LAX;KLM410;07R;25;arrival
+27;20:15;Private Jet;JFK;AFR820;25R;240;departure
+27;20:30;Cargo;LHR;IBE215;07R;142;arrival
+27;20:45;Airliner;IST;QTR493;07L;347;departure
+27;21:15;Military;DOH;IBE854;25L;222;arrival
+27;21:45;Cargo;IST;BAW109;07L;280;departure
+27;22:00;Private Jet;HKG;QTR298;25L;120;arrival
+27;22:15;Regional Jet;LAX;IBE221;25R;49;departure
+27;22:30;Cargo;ATL;THY843;25R;237;arrival
+27;22:45;Regional Jet;DXB;BAW513;25L;265;departure
+27;23:00;Private Jet;AMS;AFR124;25L;345;arrival
+27;23:15;Cargo;LHR;THY680;25L;134;departure
+27;23:30;Private Jet;AMS;CPA761;25L;289;arrival
+27;23:45;Military;MAD;CPA406;07L;179;departure
+28;04:15;Private Jet;HKG;KLM994;07R;360;arrival
+28;05:00;Private Jet;MAD;IBE332;25R;187;departure
+28;05:30;Airliner;DXB;UAE652;25R;255;arrival
+28;05:45;Military;DXB;CPA803;07R;280;departure
+28;06:00;Regional Jet;MAD;AAL883;07R;1;arrival
+28;06:15;Regional Jet;LAX;DLH508;07L;305;departure
+28;06:30;Military;DOH;BAW785;25R;17;arrival
+28;06:45;Cargo;JFK;UAE781;25R;309;departure
+28;07:15;Private Jet;ORD;THY717;25L;106;arrival
+28;07:45;Military;ATL;SIA105;07R;64;departure
+28;08:15;Airliner;JFK;AFR433;07R;299;arrival
+28;08:30;Military;DXB;CPA817;25L;215;departure
+28;08:45;Airliner;CDG;QTR914;25R;2;arrival
+28;09:00;Military;ORD;QTR457;25R;14;departure
+28;09:15;Regional Jet;ORD;QTR222;25L;85;arrival
+28;10:15;Cargo;ORD;QTR186;07R;227;departure
+28;10:30;Cargo;HKG;SIA197;25R;4;arrival
+28;10:45;Cargo;HKG;BAW731;25L;17;departure
+28;11:00;Regional Jet;DXB;SIA333;07L;245;arrival
+28;11:15;Cargo;DOH;AFR229;07L;1;departure
+28;11:45;Military;AMS;DLH776;25L;309;arrival
+28;12:00;Military;ATL;QTR784;07L;135;departure
+28;12:30;Regional Jet;AMS;AFR952;25R;322;arrival
+28;12:45;Cargo;MAD;BAW958;07R;113;departure
+28;13:00;Private Jet;ORD;UAE524;25R;170;arrival
+28;13:15;Regional Jet;AMS;CPA185;25L;333;departure
+28;13:45;Private Jet;AMS;AAL400;25R;333;arrival
+28;14:00;Military;DOH;AFR645;25R;291;departure
+28;14:15;Cargo;LAX;QTR587;25L;148;arrival
+28;14:45;Private Jet;JFK;QTR794;07L;24;departure
+28;15:15;Airliner;ORD;IBE706;25R;108;arrival
+28;15:30;Military;AMS;THY841;25L;71;departure
+28;15:45;Cargo;LAX;BAW295;07R;219;arrival
+28;16:15;Military;LAX;CPA184;25R;310;departure
+28;16:30;Cargo;AMS;DLH909;25R;106;arrival
+28;16:45;Regional Jet;MAD;AFR952;25R;100;departure
+28;17:00;Cargo;MAD;UAE543;07R;131;arrival
+28;17:15;Private Jet;AMS;CPA929;07L;263;departure
+28;17:30;Cargo;MAD;KLM801;07R;64;arrival
+28;18:15;Military;CDG;BAW895;07L;193;departure
+28;18:45;Regional Jet;DXB;QTR604;25L;319;arrival
+28;19:00;Military;MAD;SIA581;25L;159;departure
+28;19:15;Airliner;SIN;SIA259;07R;100;arrival
+28;19:30;Regional Jet;CDG;THY117;07R;240;departure
+28;19:45;Airliner;LHR;IBE693;07R;357;arrival
+28;20:00;Airliner;JFK;SIA947;07L;121;departure
+28;20:15;Regional Jet;SIN;KLM328;25L;189;arrival
+28;20:30;Cargo;LHR;QTR599;07L;342;departure
+28;20:45;Regional Jet;IST;UAE635;07R;237;arrival
+28;21:00;Airliner;HKG;CPA971;07R;164;departure
+28;21:30;Private Jet;CDG;IBE805;07R;173;arrival
+28;21:45;Airliner;DXB;AFR610;25R;347;departure
+28;22:00;Regional Jet;LAX;KLM637;07R;32;arrival
+28;22:15;Private Jet;IST;CPA500;25R;53;departure
+28;22:30;Regional Jet;BKK;DLH751;07R;247;arrival
+28;22:45;Military;DXB;DLH401;07R;46;departure
+28;23:00;Airliner;DOH;IBE130;25R;146;arrival
+28;23:15;Regional Jet;AMS;DLH816;25L;122;departure
+28;23:30;Cargo;DOH;AAL741;07R;37;arrival
+28;23:45;Military;IST;KLM157;07L;91;departure
+29;04:15;Private Jet;SIN;SIA876;25R;14;arrival
+29;04:30;Airliner;FRA;AAL107;07L;260;departure
+29;05:15;Cargo;ATL;IBE601;25L;297;arrival
+29;05:45;Airliner;JFK;CPA129;07R;190;departure
+29;06:00;Regional Jet;ORD;IBE830;25L;110;arrival
+29;06:15;Military;JFK;DLH100;25R;77;departure
+29;06:30;Cargo;BKK;THY956;07R;5;arrival
+29;07:00;Military;DOH;IBE662;07L;33;departure
+29;07:15;Private Jet;ATL;AAL229;25L;148;arrival
+29;07:30;Private Jet;LAX;AAL592;07L;181;departure
+29;07:45;Regional Jet;BKK;AFR609;07L;100;arrival
+29;08:15;Cargo;LAX;AAL404;25R;142;departure
+29;08:30;Private Jet;JFK;IBE947;07L;84;arrival
+29;08:45;Private Jet;JFK;THY941;25L;150;departure
+29;09:15;Military;MAD;AFR613;07L;214;arrival
+29;09:30;Cargo;MAD;KLM730;07L;160;departure
+29;09:45;Airliner;HKG;SIA587;25R;149;arrival
+29;10:00;Military;ATL;UAE737;07R;105;departure
+29;10:15;Cargo;DXB;AAL512;07L;163;arrival
+29;10:30;Cargo;JFK;KLM348;25L;23;departure
+29;10:45;Private Jet;LAX;AAL577;07R;147;arrival
+29;11:15;Regional Jet;HKG;CPA704;25L;353;departure
+29;11:30;Airliner;LHR;SIA127;25R;275;arrival
+29;11:45;Military;DXB;KLM317;07R;161;departure
+29;12:00;Cargo;DXB;CPA827;07L;131;arrival
+29;12:15;Cargo;SIN;DLH925;25L;331;departure
+29;12:45;Airliner;FRA;IBE545;07L;341;arrival
+29;13:15;Military;CDG;AFR259;07L;327;departure
+29;13:30;Airliner;MAD;UAE844;07L;229;arrival
+29;13:45;Military;ORD;KLM873;25R;350;departure
+29;14:00;Private Jet;FRA;KLM323;25R;341;arrival
+29;14:15;Private Jet;SIN;QTR438;07R;312;departure
+29;14:30;Military;JFK;IBE102;07L;352;arrival
+29;15:00;Private Jet;HKG;KLM416;07R;155;departure
+29;15:15;Military;BKK;AAL878;25L;88;arrival
+29;16:15;Private Jet;ATL;DLH234;07R;73;departure
+29;16:30;Airliner;ATL;AFR487;25L;88;arrival
+29;17:00;Private Jet;ATL;DLH901;07L;96;departure
+29;17:15;Regional Jet;ATL;THY517;07R;93;arrival
+29;17:45;Cargo;JFK;BAW242;25L;254;departure
+29;18:00;Regional Jet;DOH;DLH668;25L;72;arrival
+29;18:15;Airliner;MAD;BAW897;07L;239;departure
+29;18:30;Military;MAD;CPA198;07R;242;arrival
+29;18:45;Airliner;LAX;BAW720;25R;104;departure
+29;19:00;Cargo;ORD;QTR643;25L;54;arrival
+29;19:15;Cargo;DOH;KLM933;07L;229;departure
+29;19:30;Airliner;LHR;QTR494;07R;253;arrival
+29;19:45;Cargo;DXB;QTR887;25R;17;departure
+29;20:00;Cargo;FRA;AFR994;25L;332;arrival
+29;20:45;Private Jet;JFK;UAE411;25R;62;departure
+29;21:00;Military;HKG;BAW642;25R;129;arrival
+29;21:15;Regional Jet;LHR;DLH919;07L;30;departure
+29;21:30;Regional Jet;FRA;AFR942;07L;39;arrival
+29;22:00;Regional Jet;MAD;UAE724;07L;70;departure
+29;22:30;Private Jet;LHR;BAW538;07L;41;arrival
+29;22:45;Regional Jet;LHR;CPA573;25R;65;departure
+29;23:00;Regional Jet;CDG;QTR343;25L;234;arrival
+29;23:15;Military;SIN;KLM899;25R;118;departure
+29;23:30;Private Jet;ATL;QTR841;07R;86;arrival
+29;23:45;Military;DXB;IBE327;07L;106;departure
+30;04:00;Cargo;LHR;THY292;07L;114;arrival
+30;04:15;Regional Jet;ATL;UAE953;07R;311;departure
+30;04:30;Airliner;DXB;AAL277;25L;211;arrival
+30;04:45;Regional Jet;BKK;SIA681;07R;223;departure
+30;05:00;Airliner;LAX;UAE618;25L;202;arrival
+30;05:30;Private Jet;JFK;AFR308;07R;176;departure
+30;06:15;Cargo;DOH;SIA280;25R;351;arrival
+30;06:30;Regional Jet;BKK;AAL237;25L;263;departure
+30;07:15;Military;LHR;QTR556;07L;5;arrival
+30;07:45;Cargo;LHR;UAE665;25R;172;departure
+30;08:00;Private Jet;AMS;CPA591;25L;57;arrival
+30;08:15;Private Jet;DOH;AFR610;25L;257;departure
+30;08:30;Cargo;DOH;QTR531;25L;325;arrival
+30;08:45;Private Jet;FRA;AAL836;07L;278;departure
+30;09:00;Airliner;AMS;DLH700;07L;10;arrival
+30;09:15;Private Jet;IST;SIA413;25L;177;departure
+30;09:30;Airliner;AMS;SIA580;25R;266;arrival
+30;09:45;Cargo;LHR;CPA249;07L;166;departure
+30;10:00;Airliner;HKG;CPA895;25R;224;arrival
+30;10:15;Private Jet;SIN;THY324;25L;211;departure
+30;10:30;Airliner;FRA;DLH742;25R;177;arrival
+30;10:45;Military;DXB;QTR509;07R;181;departure
+30;11:00;Cargo;BKK;IBE753;07R;265;arrival
+30;11:15;Cargo;LHR;AFR767;07L;23;departure
+30;11:45;Regional Jet;DOH;CPA502;25L;159;arrival
+30;12:00;Cargo;HKG;BAW234;07R;149;departure
+30;12:15;Military;AMS;BAW350;25R;16;arrival
+30;12:30;Airliner;CDG;CPA546;07L;278;departure
+30;13:30;Cargo;DOH;BAW563;25L;178;arrival
+30;14:00;Regional Jet;DXB;KLM610;07R;20;departure
+30;14:30;Regional Jet;LHR;AAL588;07R;294;arrival
+30;14:45;Cargo;DXB;QTR154;07R;241;departure
+30;15:15;Private Jet;SIN;IBE917;25L;80;arrival
+30;15:30;Private Jet;HKG;BAW362;07L;119;departure
+30;15:45;Private Jet;FRA;AAL462;25R;182;arrival
+30;16:15;Airliner;SIN;BAW917;07R;358;departure
+30;16:30;Airliner;BKK;IBE261;25R;313;arrival
+30;16:45;Regional Jet;FRA;QTR460;07L;274;departure
+30;17:00;Cargo;SIN;THY944;07L;131;arrival
+30;17:15;Cargo;JFK;IBE289;25R;324;departure
+30;17:45;Military;ORD;IBE582;25R;69;arrival
+30;18:00;Cargo;LAX;KLM347;07L;359;departure
+30;18:15;Private Jet;JFK;BAW549;25R;12;arrival
+30;18:30;Airliner;FRA;DLH411;07L;208;departure
+30;18:45;Cargo;IST;AAL140;07L;170;arrival
+30;19:00;Cargo;ORD;SIA789;07R;161;departure
+30;19:15;Cargo;ATL;THY211;25R;243;arrival
+30;19:30;Military;LHR;THY808;25L;277;departure
+30;20:00;Regional Jet;MAD;AFR526;07R;206;arrival
+30;20:15;Regional Jet;SIN;UAE656;07R;177;departure
+30;20:30;Private Jet;MAD;DLH872;25L;267;arrival
+30;20:45;Private Jet;LAX;CPA800;25R;179;departure
+30;21:00;Private Jet;MAD;AFR192;07R;357;arrival
+30;21:30;Airliner;DOH;IBE619;25L;176;departure
+30;22:30;Private Jet;ORD;CPA947;25R;201;arrival
+30;22:45;Regional Jet;CDG;KLM391;07L;139;departure
+30;23:00;Cargo;MAD;KLM299;25R;53;arrival
+30;23:15;Military;DOH;KLM817;07R;51;departure
+30;23:30;Private Jet;AMS;AFR750;07R;304;arrival
+30;23:45;Airliner;IST;AAL424;07R;354;departure
