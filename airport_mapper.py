@@ -131,7 +131,7 @@ def process_runways(all_nodes, runways, thresholds, taxi_nodes):
 
     # find the thresholds of the runways
     for runway in runways.values():
-        runway['thresholds'] = runway['nodes'][::len(runway['nodes'])-1]
+        runway['thresholds'] = runway['nodes'][::max(len(runway['nodes'])-1,1)]
 
     # merge the displaced thresholds with the runway nodes
     for threshold in thresholds:
@@ -229,7 +229,7 @@ def process_gates(elements, all_nodes, aprons):
     for element in elements:
         if element['type'] == 'way' and 'aeroway' in element['tags'] and 'ref' in element['tags'] and element['tags']['aeroway'] == 'parking_position':
             ref = element['tags']['ref']
-            gate_coords = [all_nodes[n] for n in element['nodes']]
+            gate_coords = [all_nodes[n] for n in element['nodes'] if n in all_nodes]
             gate_polygon = LineString(gate_coords)
             for apron_name, apron in aprons.items():
                 if ref not in gates and gate_polygon.intersects(apron):
@@ -255,6 +255,10 @@ def find_hold_point(taxi_nodes, all_nodes, node, ref):
 
     return None
 
+def angle_difference(angle1, angle2):
+    diff = abs(angle1 - angle2) % 360
+    return min(diff, 360 - diff)
+
 def calculate_route (taxi_nodes,all_nodes, begintoestand, destination, starting_via=None, angle=None):
     q = queue.PriorityQueue()
     q.put(begintoestand)
@@ -275,15 +279,21 @@ def calculate_route (taxi_nodes,all_nodes, begintoestand, destination, starting_
         for new_node in directions:
             if state[-1]['parent'] is not None:
                 prev_node = state[-1]['parent']['node']
-                angle = abs(calculate_angle(all_nodes, prev_node, node) - calculate_angle(all_nodes, new_node, node)) % 360
-                if angle <= 10:
+                angle = angle_difference(
+                    calculate_angle(all_nodes, prev_node, node),
+                    calculate_angle(all_nodes, new_node, node)
+                )
+                if angle < 90:  # Skip if the angle is too acute
                     continue
             else:
-                if starting_via != None and starting_via not in taxi_nodes[new_node]['parents']:
+                if starting_via is not None and starting_via not in taxi_nodes[new_node]['parents']:
                     continue
                 if angle is not None:
-                    angle = abs(calculate_angle(all_nodes, node, new_node) - angle)
-                    if angle <= 90:
+                    angle = angle_difference(
+                        calculate_angle(all_nodes, node, new_node),
+                        angle
+                    )
+                    if angle < 90:  # Skip if the angle is too acute
                         continue
 
             #solution found: get path from parent nodes
