@@ -3,7 +3,7 @@ import queue
 import math
 from geopy.distance import geodesic
 from geopy import units
-from geographiclib.geodesic import Geodesic as geo
+from shapely.geometry import LineString, Polygon
 import time
 
 def calculate_initial_compass_bearing(pointA, pointB):
@@ -117,7 +117,12 @@ def map_airport(file_name, all_nodes):
                 runways[runway_name] = element
 
     network['runways'] = process_runways(all_nodes, runways, thresholds, taxi_nodes)
+    network['aprons'],apron_polygons = process_aprons(elements, all_nodes)
+    network['gates'] = process_gates(elements, all_nodes, apron_polygons)
     network['taxi_nodes'] = taxi_nodes
+
+    with open("osm_data_processed.json", "w") as f:
+        json.dump(network, f, indent=2)
     
     return network
 
@@ -205,10 +210,33 @@ def process_runways(all_nodes, runways, thresholds, taxi_nodes):
                     direction = 'right'
 
                 value['exits'][taxi_nodes[node]['parents'][0]] = {'node': node, 'TORA': TORA, 'LDA': LDA, 'direction': direction, 'angle': heading, 'holding_point': holding_point}	
-
-    with open("osm_data_processed.json", "w") as f:
-        json.dump(processed, f, indent=2)
     return processed
+
+def process_aprons(elements, all_nodes):
+    aprons = {}
+    polygons = {}
+    for element in elements:
+        if element['type'] == 'way' and 'aeroway' in element['tags'] and element['tags']['aeroway'] == 'apron':
+            apron_coords = [all_nodes[n] for n in element['nodes']]
+            apron_polygon = Polygon(apron_coords)
+            aprons[element['tags']['ref'] if 'ref' in element['tags'] else element['id']] = element['nodes']
+            polygons[element['tags']['ref'] if 'ref' in element['tags'] else element['id']] = apron_polygon
+    return aprons, polygons
+
+def process_gates(elements, all_nodes, aprons):
+    gates = {}
+    
+    for element in elements:
+        if element['type'] == 'way' and 'aeroway' in element['tags'] and 'ref' in element['tags'] and element['tags']['aeroway'] == 'parking_position':
+            ref = element['tags']['ref']
+            gate_coords = [all_nodes[n] for n in element['nodes']]
+            gate_polygon = LineString(gate_coords)
+            for apron_name, apron in aprons.items():
+                if ref not in gates and gate_polygon.intersects(apron):
+                    gates[ref] = {'nodes': element['nodes'], 'apron': apron_name}
+                    break
+
+    return gates
 
 def find_hold_point(taxi_nodes, all_nodes, node, ref):
     q = queue.Queue()
