@@ -219,8 +219,15 @@ def process_aprons(elements, all_nodes):
         if element['type'] == 'way' and 'aeroway' in element['tags'] and element['tags']['aeroway'] == 'apron':
             apron_coords = [all_nodes[n] for n in element['nodes']]
             apron_polygon = Polygon(apron_coords)
-            aprons[element['tags']['ref'] if 'ref' in element['tags'] else element['id']] = element['nodes']
-            polygons[element['tags']['ref'] if 'ref' in element['tags'] else element['id']] = apron_polygon
+
+            if 'ref' in element['tags']:
+                apron_name = element['tags']['ref']
+            elif 'name' in element['tags']:
+                apron_name = element['tags']['name']
+            else: apron_name = element['id']
+
+            aprons[apron_name] = element['nodes']
+            polygons[apron_name] = apron_polygon
     return aprons, polygons
 
 def process_gates(elements, all_nodes, aprons):
@@ -255,7 +262,9 @@ def find_hold_point(taxi_nodes, all_nodes, node, ref):
 
     return None
 
-def angle_difference(angle1, angle2):
+def angle_difference(all_nodes, node1, node2, node3=None, angle=None):
+    angle1 = calculate_angle(all_nodes, node1, node2)
+    angle2 = calculate_angle(all_nodes, node3, node2) if node3 else angle
     diff = abs(angle1 - angle2) % 360
     return min(diff, 360 - diff)
 
@@ -279,25 +288,36 @@ def calculate_route (taxi_nodes,all_nodes, begintoestand, destination, starting_
         for new_node in directions:
             if state[-1]['parent'] is not None:
                 prev_node = state[-1]['parent']['node']
-                angle = angle_difference(
-                    calculate_angle(all_nodes, prev_node, node),
-                    calculate_angle(all_nodes, new_node, node)
-                )
+                angle = angle_difference(all_nodes, prev_node, node, new_node)
                 if angle < 90:  # Skip if the angle is too acute
                     continue
             else:
                 if starting_via is not None and starting_via not in taxi_nodes[new_node]['parents']:
                     continue
                 if angle is not None:
-                    angle = angle_difference(
-                        calculate_angle(all_nodes, node, new_node),
-                        angle
-                    )
+                    angle = angle_difference(all_nodes, node, new_node, angle=angle)
                     if angle < 90:  # Skip if the angle is too acute
                         continue
 
             #solution found: get path from parent nodes
             if new_node == destination or destination in taxi_nodes[new_node]['parents']:
+                # Check if the destination is a via and if there is a next node on the same via
+                if destination in taxi_nodes[new_node]['parents']:
+                    next_nodes = [
+                        n for n in taxi_nodes[new_node]['next_moves']
+                        if destination in taxi_nodes[n]['parents']
+                    ]
+                    if not next_nodes:
+                        continue
+                    else:
+                        possible_node = False
+                        for next_node in next_nodes:
+                            if angle_difference(all_nodes, node, new_node, next_node) >= 90:
+                                possible_node = True
+                                break
+                        if not possible_node:
+                            continue
+
                 print("Oplossing gevonden! ")
                 path = [new_node]
                 while True:
@@ -307,7 +327,7 @@ def calculate_route (taxi_nodes,all_nodes, begintoestand, destination, starting_
                     state = parent
                     node = state['node']
                     parent = state['parent']
-                print(len(path),i, path)
+                print(len(path), i, path)
                 return path[::-1]
             #no solution found: add node to queue
             else: 
@@ -328,8 +348,7 @@ def calculate_via_route(taxi_nodes, all_nodes, start_node, destination, vias):
     angle = None
 
     for i, via in enumerate(vias):
-        #TODO it should not go back to the previous node after a via
-        #TODO it should pass the last angle so it can't go back on intself
+        #TODO sometimes it may be better to continue searching for more points on the via to see if another point would give a shorter overal route
         path = calculate_route(taxi_nodes, all_nodes, starting_state, via, starting_via=vias[i-1] if i > 0 else None, angle=angle if angle != None else None)
         if path == None:
             continue
