@@ -91,21 +91,6 @@ while running:
         if points:
             pygame.draw.lines(screen, (255, 0, 0), False, points, 2)
 
-    for key,exit in network['runways']['25L']['exits'].items():
-        node = exit['node']
-        points = [latlon_to_screen(all_nodes[n][0], all_nodes[n][1], min_lat, max_lat, min_lon, max_lon, WIDTH, HEIGHT, PADDING) for n in [node, exit['holding_point']] if n in all_nodes]
-        if points:
-            pygame.draw.lines(screen, (255, 0, 0), False, points, 2)
-            font = pygame.font.Font(None, 18)
-            angle_text = font.render(f"{exit['angle']}°", True, (255, 255, 255))
-            screen.blit(angle_text, points[0])
-
-    for runway in network['runways'].values():
-        n = all_nodes[runway['threshold']]
-        points = [latlon_to_screen(n[0], n[1], min_lat, max_lat, min_lon, max_lon, WIDTH, HEIGHT, PADDING), latlon_to_screen(n[0], n[1], min_lat, max_lat, min_lon, max_lon, WIDTH, HEIGHT, PADDING, runway['init_offset_from_threshold'][0], runway['init_offset_from_threshold'][1]) ]
-        if points:
-            pygame.draw.lines(screen, (0, 0, 255), False, points, 2)
-
     screen.blit(target, (WIDTH/2, HEIGHT/2))
 
     # smooth the screen, type of AA
