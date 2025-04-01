@@ -16,7 +16,7 @@
                 "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
                 "frequency": 13
             },
-            "A330":{
+            "A333":{
                 "apron": ["APRON 1 NORTH", "APRON 1 SOUTH", "APRON 2 NORTH", "APRON 2 SOUTH"],
                 "frequency": 5
             }
@@ -40,7 +40,7 @@
     "TUI Belgium":{
         "callsign_ICAO": "JAF",
         "callsign_SAY": "BEAUTY",
-        "frequency": 50,
+        "frequency": 35,
         "aircraft": {
             "B737":{
                 "apron": ["APRON 1 NORTH, APRON 1 SOUTH"],
