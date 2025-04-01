@@ -21,11 +21,13 @@ def read_performance():
 
     return performance_json
 
-def generate_flight(schedule_json: dict, all_performance: dict, type: str, active_runways: list = None):
+def generate_flight(schedule_json: dict, all_performance: dict, type: str, active_runways: list = None, network: dict = None):
     if type not in ['arrival', 'departure']:
         raise ValueError("Type must be 'arrival' or 'departure'")
     if type == 'arrival' and active_runways is None:
         raise ValueError("Runways must be specified for arrival flights")
+    if network is None:
+        raise ValueError("Network data must be provided")
 
     airlines = list(schedule_json.keys())
     weights = [value['frequency'] for value in schedule_json.values()]
@@ -42,17 +44,18 @@ def generate_flight(schedule_json: dict, all_performance: dict, type: str, activ
     
     if type == 'arrival':
         runway = random.choice(active_runways)
-        flight = Arrival(callsign, runway, performance['dist_LD'], performance['speed_Vat'])
+        flight = Arrival(callsign, runway, performance['dist_LD'], performance['speed_Vat'], network)
         
     elif type == 'departure':
         apron = aircraft_data['apron']
-        flight = Departure(callsign, apron, performance['dist_TO'], performance['speed_V2'], performance['speed_climb'], performance['rate_of_climb'])
+        flight = Departure(callsign, apron, network)
 
     return flight
 
 if __name__ == '__main__':
     schedule = read_schedule('EBBR')
     performance = read_performance()
+    from main import network
 
     for i in range(10):
-        print(generate_flight(schedule, performance, 'departure'))
+        print(generate_flight(schedule, performance, 'departure', network=network))

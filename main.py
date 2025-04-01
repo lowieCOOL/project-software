@@ -2,7 +2,7 @@ import pygame
 import json
 from scipy.ndimage import gaussian_filter
 from airport_mapper import *
-
+from aircraft_generator import generate_flight, read_schedule, read_performance
 
 json_file_name = "osm_data.json"
 # Load OSM JSON data
@@ -65,10 +65,16 @@ target = pygame.transform.smoothscale(pygame.transform.rotate(pygame.image.load(
 clock = pygame.time.Clock()
 
 network = map_airport(json_file_name, all_nodes)
-path = calculate_via_route(network['taxi_nodes'],all_nodes,5900058194, destination=2425624616, vias=['B10', 'R1', 'OUT 7','W3',  'Y'])
+path = calculate_via_route(network['taxi_nodes'],all_nodes,5900058194, destination=2425624616, vias=['OUT 2', 'R1', 'OUT 7','W3',  'Y'])
 #path = calculate_via_route(network['taxi_nodes'],all_nodes,12435822847, destination=12436227961, vias=['A'])
 
 WIDTH,HEIGHT = screen.get_size()
+
+schedule = read_schedule('EBBR')
+performance = read_performance()
+activate_runways = ['25R', '25L']
+aircraft = generate_flight(schedule, performance, 'arrival', activate_runways, network)
+print(aircraft.callsign)
 
 running = True
 while running:
