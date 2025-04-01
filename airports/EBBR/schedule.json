@@ -1,0 +1,90 @@
+{
+    "Brussels Airlines":{
+        "callsign_ICAO": "BEL",
+        "callsign_SAY": "BEELINE",
+        "frequency": 70,
+        "aircraft": {
+            "A319":{
+                "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+                "frequency": 25
+            },
+            "A320":{
+                "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+                "frequency": 25
+            },
+            "A20N":{
+                "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+                "frequency": 13
+            },
+            "A333":{
+                "apron": ["APRON 1 NORTH", "APRON 1 SOUTH", "APRON 2 NORTH", "APRON 2 SOUTH"],
+                "frequency": 5
+            }
+        }
+    },
+    "Ryanair":{
+        "callsign_ICAO": "RYR",
+        "callsign_SAY": "RYANAIR",
+        "frequency": 8,
+        "aircraft": {
+            "B738":{
+                "apron": ["APRON 1 NORTH"],
+                "frequency": 2
+            },
+            "B38M":{
+                "apron": ["APRON 1 NORTH"],
+                "frequency": 1
+            }
+        }
+    },
+    "TUI Belgium":{
+        "callsign_ICAO": "JAF",
+        "callsign_SAY": "BEAUTY",
+        "frequency": 35,
+        "aircraft": {
+            "B737":{
+                "apron": ["APRON 1 NORTH, APRON 1 SOUTH"],
+                "frequency": 2
+            },
+            "B738":{
+                "apron": ["APRON 1 NORTH, APRON 1 SOUTH"],
+                "frequency": 2
+            },
+            "B38M":{
+                "apron": ["APRON 1 NORTH, APRON 1 SOUTH"],
+                "frequency": 1
+            },
+            "B788":{
+                "apron": ["APRON 2 NORTH, APRON 2 SOUTH"],
+                "frequency": 1
+            }
+        }
+    },
+    "Lufthansa":{
+        "callsign_ICAO": "DLH",
+        "callsign_SAY": "LUFTHANSA",
+        "frequency": 6,
+        "aircraft": {
+            "A319":{
+                "apron": ["APRON 1 NORTH, APRON 1 SOUTH"],
+                "frequency": 7
+            },
+            "A320":{
+                "apron": ["APRON 1 NORTH, APRON 1 SOUTH"],
+                "frequency": 10
+            },
+            "A20N":{
+                "apron": ["APRON 1 NORTH, APRON 1 SOUTH"],
+                "frequency": 5
+            },
+            "A321":{
+                "apron": ["APRON 1 NORTH, APRON 1 SOUTH"],
+                "frequency": 5
+            },
+            "A21N":{
+                "apron": ["APRON 1 NORTH, APRON 1 SOUTH"],
+                "frequency": 1
+            }
+        }
+    }
+}
