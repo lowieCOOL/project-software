@@ -77,7 +77,7 @@ class Departure(Aircraft):
     def __init__(self, callsign, gate, network):
         # TODO: don't use the gate but apron and select a gate from the apron here
         # TODO: add performance parameters or one single parameter for the aircraft and split it in the constructor
-        super().__init__(position=gate['init_offset_from_threshold'], heading=gate['angle'], speed=0, state='gate', callsign=callsign)
+        super().__init__(position=network['gates'][gate]['nodes'][0], heading=gate, speed=0, state='gate', callsign=callsign)
         self.gate = gate
 
     def pushback(self, direction):

@@ -73,8 +73,10 @@ WIDTH,HEIGHT = screen.get_size()
 schedule = read_schedule('EBBR')
 performance = read_performance()
 activate_runways = ['25R', '25L']
-aircraft = generate_flight(schedule, performance, 'arrival', activate_runways, network)
+aircraft = generate_flight(schedule, performance, 'departure', activate_runways, network)
 print(aircraft.callsign)
+print(network['gates'][aircraft.gate])
+
 
 running = True
 while running:

@@ -118,7 +118,7 @@ def map_airport(file_name, all_nodes):
 
     network['runways'] = process_runways(all_nodes, runways, thresholds, taxi_nodes)
     network['aprons'],apron_polygons = process_aprons(elements, all_nodes)
-    network['gates'] = process_gates(elements, all_nodes, apron_polygons)
+    network['gates'] = process_gates(elements, all_nodes, apron_polygons, taxi_nodes)
     network['taxi_nodes'] = taxi_nodes
 
     with open("osm_data_processed.json", "w") as f:
@@ -219,6 +219,7 @@ def process_aprons(elements, all_nodes):
         if element['type'] == 'way' and 'aeroway' in element['tags'] and element['tags']['aeroway'] == 'apron':
             apron_coords = [all_nodes[n] for n in element['nodes']]
             apron_polygon = Polygon(apron_coords)
+            #TODO allow multiple aprons with the same name
 
             if 'ref' in element['tags']:
                 apron_name = element['tags']['ref']
@@ -230,7 +231,7 @@ def process_aprons(elements, all_nodes):
             polygons[apron_name] = apron_polygon
     return aprons, polygons
 
-def process_gates(elements, all_nodes, aprons):
+def process_gates(elements, all_nodes, aprons, taxi_nodes):
     gates = {}
     
     for element in elements:
@@ -240,7 +241,11 @@ def process_gates(elements, all_nodes, aprons):
             gate_polygon = LineString(gate_coords)
             for apron_name, apron in aprons.items():
                 if ref not in gates and gate_polygon.intersects(apron):
-                    gates[ref] = {'nodes': element['nodes'], 'apron': apron_name}
+                    if element['nodes'][0] in taxi_nodes:
+                        nodes = element['nodes'][::-1]
+                    else:
+                        nodes = element['nodes']
+                    gates[ref] = {'nodes': nodes, 'apron': apron_name, 'occupied': False}
                     break
 
     return gates

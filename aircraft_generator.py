@@ -47,8 +47,13 @@ def generate_flight(schedule_json: dict, all_performance: dict, type: str, activ
         flight = Arrival(callsign, runway, performance['dist_LD'], performance['speed_Vat'], network)
         
     elif type == 'departure':
-        apron = aircraft_data['apron']
-        flight = Departure(callsign, apron, network)
+        apron = random.choice(aircraft_data['apron'])
+        gates = [gate_number for gate_number, gate in network['gates'].items() if gate['apron'] == apron and not gate['occupied']]  # Filter gates by apron
+        if not gates:
+            raise ValueError(f"No gates available for apron {apron}")
+        gate = random.choice(gates)
+        network['gates'][gate]['occupied'] = True
+        flight = Departure(callsign, gate, network)
 
     return flight
 
