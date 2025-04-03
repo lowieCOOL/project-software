@@ -219,7 +219,6 @@ def process_aprons(elements, all_nodes):
         if element['type'] == 'way' and 'aeroway' in element['tags'] and element['tags']['aeroway'] == 'apron':
             apron_coords = [all_nodes[n] for n in element['nodes']]
             apron_polygon = Polygon(apron_coords)
-            #TODO allow multiple aprons with the same name
 
             if 'ref' in element['tags']:
                 apron_name = element['tags']['ref']
@@ -227,8 +226,14 @@ def process_aprons(elements, all_nodes):
                 apron_name = element['tags']['name']
             else: apron_name = element['id']
 
-            aprons[apron_name] = element['nodes']
-            polygons[apron_name] = apron_polygon
+            if apron_name in aprons:
+                aprons[apron_name].append(element['nodes'])
+            else:
+                aprons[apron_name] = [element['nodes']]
+            if apron_name in polygons:
+                polygons[apron_name].append(apron_polygon)
+            else:
+                polygons[apron_name] = [apron_polygon]
     return aprons, polygons
 
 def process_gates(elements, all_nodes, aprons, taxi_nodes):
@@ -240,14 +245,15 @@ def process_gates(elements, all_nodes, aprons, taxi_nodes):
             gate_coords = [all_nodes[n] for n in element['nodes'] if n in all_nodes]
             gate_polygon = LineString(gate_coords)
             for apron_name, apron in aprons.items():
-                if ref not in gates and gate_polygon.intersects(apron):
-                    if element['nodes'][0] in taxi_nodes:
-                        nodes = element['nodes'][::-1]
-                    else:
-                        nodes = element['nodes']
-                    heading = calculate_angle(all_nodes, nodes[1], nodes[0])
-                    gates[ref] = {'nodes': nodes, 'apron': apron_name, 'heading': heading, 'occupied': False}
-                    break
+                for area in apron:
+                    if ref not in gates and gate_polygon.intersects(area):
+                        if element['nodes'][0] in taxi_nodes:
+                            nodes = element['nodes'][::-1]
+                        else:
+                            nodes = element['nodes']
+                        heading = calculate_angle(all_nodes, nodes[1], nodes[0])
+                        gates[ref] = {'nodes': nodes, 'apron': apron_name, 'heading': heading, 'occupied': False}
+                        break
 
     return gates
 

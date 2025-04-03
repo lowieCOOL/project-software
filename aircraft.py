@@ -121,7 +121,6 @@ class Arrival(Aircraft):
 
 class Departure(Aircraft):
     def __init__(self, callsign, gate, network, all_nodes):
-        # TODO: don't use the gate but apron and select a gate from the apron here
         # TODO: add performance parameters or one single parameter for the aircraft and split it in the constructor
         super().__init__(position=all_nodes[network['gates'][gate]['nodes'][0]], heading=network['gates'][gate]['heading'], speed=0, state='gate', callsign=callsign)
         self.gate = gate
