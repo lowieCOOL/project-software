@@ -86,5 +86,87 @@
                 "frequency": 1
             }
         }
+    },
+    "Singapore Cargo":{
+        "callsign_ICAO": "SQC",
+        "callsign_SAY": "SING CARGO",
+        "frequency": 1,
+        "aircraft": {
+            "B744":{
+                "apron": ["APRON 9"],
+                "frequency": 1
+            }
+        }
+    },
+    "Emirates Cargo":{
+        "callsign_ICAO": "UAE",
+        "callsign_SAY": "EMIRATES",
+        "frequency": 1,
+        "aircraft": {
+            "B77L":{
+                "apron": ["APRON 9"],
+                "frequency": 1
+            }
+        }
+    },
+    "Qatar Cargo":{
+        "callsign_ICAO": "QTR",
+        "callsign_SAY": "QATAR",
+        "frequency": 1,
+        "aircraft": {
+            "B77L":{
+                "apron": ["APRON 9"],
+                "frequency": 1
+            }
+        }
+    },
+    "DHL":{
+        "callsign_ICAO": "BCS",
+        "callsign_SAY": "POSTMAN",
+        "frequency": 10,
+        "aircraft": {
+            "B734":{
+                "apron": ["APRON 9"],
+                "frequency": 10
+            },
+            "B752":{
+                "apron": ["APRON 9"],
+                "frequency": 5
+            },
+            "A306":{
+                "apron": ["APRON 9"],
+                "frequency": 3
+            },
+            "A332":{
+                "apron": ["APRON 9"],
+                "frequency": 1
+            }
+        }
+    },
+    "Air Belgium":{
+        "callsign_ICAO": "ABB",
+        "callsign_SAY": "AIR BELGIUM",
+        "frequency": 2,
+        "aircraft": {
+            "A333":{
+                "apron": ["APRON 9"],
+                "frequency": 1
+            },
+            "B748":{
+                "apron": ["APRON 9"],
+                "frequency": 1
+            }
+        }
+    },
+    "LATAM Cargo":{
+        "callsign_ICAO": "LCO",
+        "callsign_SAY": "LAN CARGO",
+        "frequency": 3,
+        "aircraft": {
+            "B763":{
+                "apron": ["APRON 9"],
+                "frequency": 1
+            }
+        }
     }
 }
