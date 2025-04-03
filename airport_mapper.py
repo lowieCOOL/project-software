@@ -245,7 +245,8 @@ def process_gates(elements, all_nodes, aprons, taxi_nodes):
                         nodes = element['nodes'][::-1]
                     else:
                         nodes = element['nodes']
-                    gates[ref] = {'nodes': nodes, 'apron': apron_name, 'occupied': False}
+                    heading = calculate_angle(all_nodes, nodes[1], nodes[0])
+                    gates[ref] = {'nodes': nodes, 'apron': apron_name, 'heading': heading, 'occupied': False}
                     break
 
     return gates

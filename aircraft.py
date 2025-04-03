@@ -20,6 +20,28 @@ for arrivals
 - parked
 
 '''
+from airport_mapper import lon2x, lat2y
+import pygame
+import math
+
+def latlon_to_screen(pos, limits, width, height, padding, offset_x=0, offset_y=0):
+    y, min_y, max_y = lat2y(pos[0]), lat2y(limits[0][0]), lat2y(limits[0][1])
+    x, min_x, max_x = lon2x(pos[1]), lon2x(limits[1][0]), lon2x(limits[1][1])
+
+    drawable_width = width - 2 * padding
+    drawable_height = height - 2 * padding
+
+    #scales the position to be fit to the screen with some padding on the side, the largest of the 2 is taken and the other is offset so it remains in the center
+    x_scale = (max_x - min_x) / drawable_width
+    y_scale = (max_y - min_y) / drawable_height
+    scale = max(x_scale, y_scale)
+
+    x_offset = (scale - x_scale)* drawable_width / scale / 2  + padding
+    y_offset = (scale - y_scale)* drawable_height / scale / 2  + padding
+
+    x = int((x + offset_x - min_x) / scale + x_offset)
+    y = int(height - (((y + offset_y - min_y) / scale) + y_offset))
+    return x, y
 
 class Aircraft():
     def __init__(self, position, heading, speed, state, callsign):
@@ -29,6 +51,30 @@ class Aircraft():
         self.state = state
         self.callsign = callsign
         self.route = []
+        self.rect = None
+
+    def blit_aircraft(self, screen, png, limits, padding):
+        WIDTH, HEIGHT = screen.get_size()
+        coords = latlon_to_screen(self.position, limits, WIDTH, HEIGHT, padding)
+
+        # Convert aviation heading to Pygame's counterclockwise system
+        pygame_angle = -self.heading
+        angle_rad = math.radians(-self.heading)
+
+        # Get original image size
+        orig_width, orig_height = png.get_size()
+        image_offset = (math.sin(angle_rad)*orig_height/2, math.cos(angle_rad)*orig_height/2)
+
+        # Rotate image
+        rotated_image = pygame.transform.rotate(png, pygame_angle)
+        new_pos = tuple(coords[i] + image_offset[i] for i in range(2))
+
+        # Get new bounding box after rotation
+        new_rect = rotated_image.get_rect(center=new_pos)
+        self.rect = new_rect
+
+        # Blit rotated image
+        screen.blit(rotated_image,new_rect.topleft)
 
     def click_handler(self):
         # when clicked on the aircraft, the info and action of the aircraft will be displayed in the sidepanel, depending on the state of the aircraft
@@ -74,11 +120,12 @@ class Arrival(Aircraft):
         pass
 
 class Departure(Aircraft):
-    def __init__(self, callsign, gate, network):
+    def __init__(self, callsign, gate, network, all_nodes):
         # TODO: don't use the gate but apron and select a gate from the apron here
         # TODO: add performance parameters or one single parameter for the aircraft and split it in the constructor
-        super().__init__(position=network['gates'][gate]['nodes'][0], heading=gate, speed=0, state='gate', callsign=callsign)
+        super().__init__(position=all_nodes[network['gates'][gate]['nodes'][0]], heading=network['gates'][gate]['heading'], speed=0, state='gate', callsign=callsign)
         self.gate = gate
+        self.all_nodes = all_nodes
 
     def pushback(self, direction):
         # pushback

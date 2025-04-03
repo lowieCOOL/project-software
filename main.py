@@ -56,6 +56,7 @@ for element in osm_data["elements"]:
         all_nodes[element["id"]] = (lat, lon)
         min_lat, max_lat = min(min_lat, lat), max(max_lat, lat)
         min_lon, max_lon = min(min_lon, lon), max(max_lon, lon)
+limits = [[min_lat, max_lat], [min_lon, max_lon]]
 
 # Initialize Pygame
 pygame.init()
@@ -65,7 +66,7 @@ target = pygame.transform.smoothscale(pygame.transform.rotate(pygame.image.load(
 clock = pygame.time.Clock()
 
 network = map_airport(json_file_name, all_nodes)
-path = calculate_via_route(network['taxi_nodes'],all_nodes,5900058194, destination=2425624616, vias=['OUT 2', 'R1', 'OUT 7','W3',  'Y'])
+path = calculate_via_route(network['taxi_nodes'],all_nodes,5900058194, destination=2425624616, vias=['OUT 2', 'R1', 'OUT 7','W3' , 'Y', 'E3'])
 #path = calculate_via_route(network['taxi_nodes'],all_nodes,12435822847, destination=12436227961, vias=['A'])
 
 WIDTH,HEIGHT = screen.get_size()
@@ -73,9 +74,7 @@ WIDTH,HEIGHT = screen.get_size()
 schedule = read_schedule('EBBR')
 performance = read_performance()
 activate_runways = ['25R', '25L']
-aircraft = generate_flight(schedule, performance, 'departure', activate_runways, network)
-print(aircraft.callsign)
-print(network['gates'][aircraft.gate])
+aircraft = [generate_flight(schedule, performance, 'departure', all_nodes, activate_runways, network) for i in range(20)]
 
 
 running = True
@@ -99,7 +98,8 @@ while running:
         if points:
             pygame.draw.lines(screen, (255, 0, 0), False, points, 2)
 
-    screen.blit(target, (WIDTH/2, HEIGHT/2))
+    for i in aircraft:
+        i.blit_aircraft(screen, target, limits, PADDING)
 
     # smooth the screen, type of AA
     smooth_screen(screen, 0.6)
