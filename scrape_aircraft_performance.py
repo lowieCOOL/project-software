@@ -48,6 +48,7 @@ def fetch_aircraft_data(icao_code):
 
 def scrape_aircrafts_to_json(icao_codes):
     """Scrape multiple aircraft and save to a single JSON."""
+    # get already fetched data to avoid hitting the server again
     try:
         with open("all_aircraft_data.json", "r") as file:
             all_aircraft_data = json.load(file)
@@ -68,5 +69,5 @@ def scrape_aircrafts_to_json(icao_codes):
     print("Data successfully written to all_aircraft_data.json")
 
 # List of ICAO codes to scrape
-icao_codes = ['A319', 'B738', 'E190', 'A320', 'A388']  # Add ICAO codes here
+icao_codes = ['A319', 'B738', 'E190', 'A320', 'A388']
 scrape_aircrafts_to_json(icao_codes)
