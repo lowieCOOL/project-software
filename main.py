@@ -5,6 +5,7 @@ from scipy.ndimage import gaussian_filter
 from airport_mapper import *
 from aircraft_generator import generate_flight, read_schedule, read_performance
 from sidebar import *
+import pygame_widgets
 
 json_file_name = "osm_data.json"
 # Load OSM JSON data
@@ -34,7 +35,7 @@ def latlon_to_screen(lat, lon, min_lat, max_lat, min_lon, max_lon, width, height
 
     x = int((lon + offset_x - min_lon) / scale + x_offset)
     y = int(height - (((lat + offset_y - min_lat) / scale) + y_offset))
-    return x, y, 
+    return x, y 
 
 def smooth_screen(screen, sigma):
     """Apply a gaussian filter to each colour plane"""
@@ -70,7 +71,6 @@ network = map_airport(json_file_name, all_nodes)
 path = calculate_via_route(network['taxi_nodes'],all_nodes,5900058194, destination=2425624616, vias=['OUT 2', 'R1', 'OUT 7','W3',  'Y'])
 #path = calculate_via_route(network['taxi_nodes'],all_nodes,12435822847, destination=12436227961, vias=['A'])
 
-WIDTH,HEIGHT = screen.get_size()
 
 schedule = read_schedule('EBBR')
 performance = read_performance()
@@ -79,6 +79,7 @@ aircraft = generate_flight(schedule, performance, 'departure', activate_runways,
 print(aircraft.callsign)
 print(network['gates'][aircraft.gate])
 
+WIDTH, HEIGHT = screen.get_size()
 
 running = True
 while running:
@@ -105,6 +106,9 @@ while running:
 
     # Draw sidebar
     sidebar(screen)
+    dropdown.draw(screen)
+    
+    
     # smooth the screen, type of AA
     smooth_screen(screen, 0.6)
 
@@ -112,7 +116,8 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
+            
+    pygame_widgets.update(pygame.event.get())
     pygame.display.flip()
 
 pygame.quit()
