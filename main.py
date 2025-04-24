@@ -1,12 +1,12 @@
 import pygame
 import json
-import math
 from scipy.ndimage import gaussian_filter
 from airport_mapper import *
 from aircraft_generator import generate_flight, read_schedule, read_performance
 from sidebar import *
 import pygame_widgets
 
+json_file_name = "osm_data.json"
 json_file_name = "osm_data.json"
 # Load OSM JSON data
 with open(json_file_name, "r") as file:
