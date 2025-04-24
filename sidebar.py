@@ -13,7 +13,9 @@ start menu:             https://www.geeksforgeeks.org/creating-start-menu-in-pyg
 pygame widgets mogen we gebreuken voor dropdown menu's, buttons, sliders, etc. : https://pygamewi pygame-widgetsdgets.readthedocs.io/en/stable/
 '''
 import pygame
-from pygame_widgets import Button, Dropdown
+import pygame_widgets
+from pygame_widgets.button import Button
+from pygame_widgets.dropdown import Dropdown
 from main import target,latlon_to_screen
 from aircraft import Aircraft, position 
 
@@ -51,6 +53,8 @@ class dropdown:
             backgroundColour=(50, 50, 50), 
             textColour=(255, 255, 255), 
             )
+    def draw(self):
+        self.dropdown(self.screen, self.aircraft_list, self.WIDTH, self.HEIGHT)
 
 
 # for this code you need to set all the aircrafts in a list
@@ -93,3 +97,7 @@ class aircraft_buton(Aircraft):
             self.WIDTH, self.HEIGHT, self.PADDING
         )
         self.button.setPosition(x, y)
+    def draw(self):
+        self.button(self.screen, self.x, self.y, self.target)
+        self.update_position()
+        self.button.draw()
