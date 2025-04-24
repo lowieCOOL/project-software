@@ -21,7 +21,7 @@ def read_performance():
 
     return performance_json
 
-def generate_flight(schedule_json: dict, all_performance: dict, type: str, active_runways: list = None, network: dict = None):
+def generate_flight(schedule_json: dict, all_performance: dict, type: str, all_nodes: dict, active_runways: list = None, network: dict = None):
     if type not in ['arrival', 'departure']:
         raise ValueError("Type must be 'arrival' or 'departure'")
     if type == 'arrival' and active_runways is None:
@@ -44,11 +44,16 @@ def generate_flight(schedule_json: dict, all_performance: dict, type: str, activ
     
     if type == 'arrival':
         runway = random.choice(active_runways)
-        flight = Arrival(callsign, runway, performance['dist_LD'], performance['speed_Vat'], network)
+        flight = Arrival(callsign, performance, runway, network)
         
     elif type == 'departure':
-        apron = aircraft_data['apron']
-        flight = Departure(callsign, apron, network)
+        apron = random.choice(aircraft_data['apron'])
+        gates = [gate_number for gate_number, gate in network['gates'].items() if gate['apron'] == apron and not gate['occupied']]  # Filter gates by apron
+        if not gates:
+            raise ValueError(f"No gates available for apron {apron}")
+        gate = random.choice(gates)
+        network['gates'][gate]['occupied'] = True
+        flight = Departure(callsign, performance, gate, network, all_nodes)
 
     return flight
 

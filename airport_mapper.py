@@ -56,6 +56,7 @@ def lat2y(lat):
 def lon2x(lon):
     return math.radians(lon) * R
 
+# gets the lat lon based on the nodes and converts to tuple of x y coords
 def node2metric(node):
     return (lon2x(node[0]), lat2y(node[1]))
 
@@ -80,13 +81,12 @@ def calculate_angle(all_nodes, node1, node2, positive=False):
 
     return angle
     
+# has the raw osm data as input and returns a dict with the aprons, gates, runways and taxi nodes
 def map_airport(file_name, all_nodes):
     elements = read_json(file_name)
     network = {}
     taxi_nodes = {}
     runways = {}
-
-    thresholds = [e for e in elements if e['type'] == 'way' and 'runway' in e['tags']]
 
     for element in elements:
         if element['type'] != 'way' or 'ref' not in element['tags']:
@@ -116,9 +116,9 @@ def map_airport(file_name, all_nodes):
             if runway_name not in runways:
                 runways[runway_name] = element
 
-    network['runways'] = process_runways(all_nodes, runways, thresholds, taxi_nodes)
-    network['aprons'],apron_polygons = process_aprons(elements, all_nodes)
-    network['gates'] = process_gates(elements, all_nodes, apron_polygons)
+    network['runways'] = process_runways(all_nodes, runways, elements, taxi_nodes)
+    network['aprons'], apron_polygons = process_aprons(elements, all_nodes)
+    network['gates'] = process_gates(elements, all_nodes, apron_polygons, taxi_nodes)
     network['taxi_nodes'] = taxi_nodes
 
     with open("osm_data_processed.json", "w") as f:
@@ -126,14 +126,15 @@ def map_airport(file_name, all_nodes):
     
     return network
 
-def process_runways(all_nodes, runways, thresholds, taxi_nodes):
+def process_runways(all_nodes, runways, elements, taxi_nodes):
     processed = {}
 
-    # find the thresholds of the runways
+    # Find thresholds of the runways
+    thresholds = [e for e in elements if e['type'] == 'way' and 'runway' in e['tags']]
     for runway in runways.values():
-        runway['thresholds'] = runway['nodes'][::max(len(runway['nodes'])-1,1)]
+        runway['thresholds'] = runway['nodes'][::max(len(runway['nodes'])-1, 1)]
 
-    # merge the displaced thresholds with the runway nodes
+    # Merge displaced thresholds with runway nodes
     for threshold in thresholds:
         threshold_nodes = threshold["nodes"]
 
@@ -161,11 +162,11 @@ def process_runways(all_nodes, runways, thresholds, taxi_nodes):
                 runway["nodes"] = merged_nodes
                 break  # Stop after merging one threshold into a runway
 
-    # split the runways for each runway direction and reformat the data
-    for key,value in runways.items():
+    # Split the runways for each direction and reformat the data
+    for key, value in runways.items():
         heading = calculate_angle(all_nodes, value['nodes'][0], value['nodes'][-1])    
         for runway in key.split('/'):
-            direction = int(runway[:2])*10
+            direction = int(runway[:2]) * 10
             processed[runway] = {'direction': direction}
             if abs(direction - heading) < 90:
                 processed[runway]['angle'] = heading
@@ -177,12 +178,12 @@ def process_runways(all_nodes, runways, thresholds, taxi_nodes):
                 processed[runway]['nodes'] = value['nodes'][::-1]
 
             initial_height = 3000
-            distance_from_threshold = units.m(feet=(initial_height-50)/math.tan(math.radians(3)))
-            angle = math.radians((90-processed[runway]['angle']-180)%360)
-            processed[runway]['init_offset_from_threshold'] = (distance_from_threshold*math.cos(angle), distance_from_threshold*math.sin(angle))
+            distance_from_threshold = units.m(feet=(initial_height - 50) / math.tan(math.radians(3)))
+            angle = math.radians((90 - processed[runway]['angle'] - 180) % 360)
+            processed[runway]['init_offset_from_threshold'] = (distance_from_threshold * math.cos(angle), distance_from_threshold * math.sin(angle))
 
-    # find the exits for each runway and calculate the direction, TORA and LDA
-    for key,value in processed.items():
+    # Find the exits for each runway and calculate the direction, TORA, and LDA
+    for key, value in processed.items():
         value['exits'] = {}
         start_node = value['nodes'][0]
         end_node = value['nodes'][-1]
@@ -193,7 +194,7 @@ def process_runways(all_nodes, runways, thresholds, taxi_nodes):
                 if exit_name in value['exits']:
                     continue
                 holding_point = find_hold_point(taxi_nodes, all_nodes, node, exit_name)
-                if holding_point == None:
+                if holding_point is None:
                     continue
 
                 LDA = calculate_distance(all_nodes, node, start_node)
@@ -212,6 +213,7 @@ def process_runways(all_nodes, runways, thresholds, taxi_nodes):
                 value['exits'][taxi_nodes[node]['parents'][0]] = {'node': node, 'TORA': TORA, 'LDA': LDA, 'direction': direction, 'angle': heading, 'holding_point': holding_point}	
     return processed
 
+# Process aprons and store them in a dictionary
 def process_aprons(elements, all_nodes):
     aprons = {}
     polygons = {}
@@ -226,11 +228,19 @@ def process_aprons(elements, all_nodes):
                 apron_name = element['tags']['name']
             else: apron_name = element['id']
 
-            aprons[apron_name] = element['nodes']
-            polygons[apron_name] = apron_polygon
+            if apron_name in aprons:
+                aprons[apron_name].append(element['nodes'])
+            else:
+                aprons[apron_name] = [element['nodes']]
+            if apron_name in polygons:
+                polygons[apron_name].append(apron_polygon)
+            else:
+                polygons[apron_name] = [apron_polygon]
     return aprons, polygons
 
-def process_gates(elements, all_nodes, aprons):
+# Process gates and assign them to aprons
+# The function checks if the gate is within the apron polygon and assigns it to the apron
+def process_gates(elements, all_nodes, aprons, taxi_nodes):
     gates = {}
     
     for element in elements:
@@ -239,13 +249,21 @@ def process_gates(elements, all_nodes, aprons):
             gate_coords = [all_nodes[n] for n in element['nodes'] if n in all_nodes]
             gate_polygon = LineString(gate_coords)
             for apron_name, apron in aprons.items():
-                if ref not in gates and gate_polygon.intersects(apron):
-                    gates[ref] = {'nodes': element['nodes'], 'apron': apron_name}
-                    break
+                for area in apron:
+                    if ref not in gates and gate_polygon.intersects(area):
+                        if element['nodes'][0] in taxi_nodes:
+                            nodes = element['nodes'][::-1]
+                        else:
+                            nodes = element['nodes']
+                        heading = calculate_angle(all_nodes, nodes[1], nodes[0])
+                        gates[ref] = {'nodes': nodes, 'apron': apron_name, 'heading': heading, 'occupied': False}
+                        break
 
     return gates
 
+# Find the node with holding point tag from runway nodes (find the exits)
 def find_hold_point(taxi_nodes, all_nodes, node, ref):
+    #TODO find all holding points so the aircraft can choose the one closest to the arrival gate
     q = queue.Queue()
     q.put(node)
     visited_nodes = []
@@ -268,6 +286,7 @@ def angle_difference(all_nodes, node1, node2, node3=None, angle=None):
     diff = abs(angle1 - angle2) % 360
     return min(diff, 360 - diff)
 
+# redundant, routing functions are now in aircraft class
 def calculate_route (taxi_nodes,all_nodes, begintoestand, destination, starting_via=None, angle=None):
     q = queue.PriorityQueue()
     q.put(begintoestand)
@@ -340,6 +359,7 @@ def calculate_route (taxi_nodes,all_nodes, begintoestand, destination, starting_
     print(f"Geen oplossing gevonden: laatse via: {starting_via}")	
     return None # geen oplossing gevonden
 
+# redundant, routing functions are now in aircraft class
 def calculate_via_route(taxi_nodes, all_nodes, start_node, destination, vias):
     start_time = time.time()
     route = [start_node]
@@ -360,7 +380,6 @@ def calculate_via_route(taxi_nodes, all_nodes, start_node, destination, vias):
     end_time = time.time()
     print(f"Time taken to run calculate_via_route: {end_time - start_time} seconds")
     return route
-
 
 if __name__ == '__main__':
     print('test')
