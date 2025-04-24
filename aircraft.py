@@ -44,7 +44,7 @@ def latlon_to_screen(pos, limits, width, height, padding, offset_x=0, offset_y=0
     return x, y
 
 class Aircraft():
-    def __init__(self, position, heading, speed, state, callsign):
+    def __init__(self, position, heading, speed, state, callsign, performance):
         self.position = position
         self.heading = heading
         self.speed = speed
@@ -52,6 +52,7 @@ class Aircraft():
         self.callsign = callsign
         self.route = []
         self.rect = None
+        self.performance = performance
 
     def blit_aircraft(self, screen, png, limits, padding):
         WIDTH, HEIGHT = screen.get_size()
@@ -105,13 +106,11 @@ class Aircraft():
         pass
 
 class Arrival(Aircraft):
-    def __init__(self, callsign, runway, LDA, Vat, network):
-        super().__init__(position=network['runways'][runway]['init_offset_from_threshold'], heading=network['runways'][runway]['angle'], speed=200, state='arrival' , callsign=callsign)
+    def __init__(self, callsign, performance, runway, network):
+        super().__init__(position=network['runways'][runway]['init_offset_from_threshold'], heading=network['runways'][runway]['angle'], speed=200, state='arrival' , callsign=callsign, performance=performance)
         self.runway  = network['runways'][runway]
-        self.exitsAvailable = {key: item for key, item in self.runway['exits'].items() if item['LDA'] > LDA}
+        self.exitsAvailable = {key: item for key, item in self.runway['exits'].items() if item['LDA'] > self.performance['LDA']}
         self.altitude = 3000
-        self.LDA = LDA
-        self.Vat = Vat
 
     def go_around(self):
         pass
@@ -120,15 +119,18 @@ class Arrival(Aircraft):
         pass
 
 class Departure(Aircraft):
-    def __init__(self, callsign, gate, network, all_nodes):
+    def __init__(self, callsign, performance, gate, network, all_nodes):
         # TODO: add performance parameters or one single parameter for the aircraft and split it in the constructor
-        super().__init__(position=all_nodes[network['gates'][gate]['nodes'][0]], heading=network['gates'][gate]['heading'], speed=0, state='gate', callsign=callsign)
+        super().__init__(position=all_nodes[network['gates'][gate]['nodes'][0]], heading=network['gates'][gate]['heading'], speed=0, state='gate', callsign=callsign, performance=performance)
         self.gate = gate
         self.all_nodes = all_nodes
 
     def pushback(self, direction):
         # pushback
         self.state = 'pushback'
+        options = ['north', 'east', 'south', 'west']
+        if direction not in options:
+            raise ValueError(f"Direction must be one of {options}")
 
         # after pushback, set state to taxi
         self.state = 'hold_pushback'
