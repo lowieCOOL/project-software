@@ -65,15 +65,15 @@ def read_json(file_name):
         return json.load(json_file)['elements']
     
 def calculate_distance(all_nodes, node1,node2):
-    node1 = all_nodes[node1]
-    node2 = all_nodes[node2]
+    node1 = all_nodes[node1] if type(node1) == int else node1
+    node2 = all_nodes[node2] if type(node2) == int else node2
 
     distance = geodesic(node1, node2).meters
     return distance
     
 def calculate_angle(all_nodes, node1, node2, positive=False):
-    node1 = (all_nodes[node1])
-    node2 = (all_nodes[node2])
+    node1 = (all_nodes[node1]) if type(node1) == int else node1 
+    node2 = (all_nodes[node2]) if type(node2) == int else node2
 
     angle = calculate_initial_compass_bearing(node1, node2)
     if positive and angle < 0:
@@ -116,6 +116,7 @@ def map_airport(file_name, all_nodes):
             if runway_name not in runways:
                 runways[runway_name] = element
 
+    network['all_nodes'] = all_nodes
     network['runways'] = process_runways(all_nodes, runways, elements, taxi_nodes)
     network['aprons'], apron_polygons = process_aprons(elements, all_nodes)
     network['gates'] = process_gates(elements, all_nodes, apron_polygons, taxi_nodes)
