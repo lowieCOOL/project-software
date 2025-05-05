@@ -45,7 +45,8 @@ text_surface5 = create_surface_with_text("FREQUENTIE (%)", 30, BLUE, "Arial") # 
 text_surface6 = create_surface_with_text("BACK", 30, BLUE, "Arial") # breedte "BACK" = 80
 
 # Initialisatie van schuifknop
-rect_schuifbar = pygame.Rect((WIDTH - 500) / 2, 800, 500, 14)
+spatie_onder = 150
+rect_schuifbar = pygame.Rect((WIDTH - 500) / 2, HEIGHT-spatie_onder-75, 500, 14)
 handle_x = rect_schuifbar.centerx  # Beginpositie van de schuifknop
 handle_bol_radius = 20  # Straal van de schuifknop
 dragging = False
@@ -123,34 +124,12 @@ WIDTH,HEIGHT = screen.get_size()
 schedule = read_schedule('EBBR')
 performance = read_performance()
 activate_runways = ['25R', '25L']
-aircraft = [generate_flight(schedule, performance, 'departure', all_nodes, activate_runways, network) for i in range(20)]
 
 # gameloop
 running = True
 while running:
     clock.tick(60)
     screen.fill(BG_COLOR)
-
-    if path != None:
-        # Draw ways (taxiways, runways, etc.)
-        for element in osm_data["elements"]:
-            if element["type"] == "way" and "nodes" in element:
-                points = [latlon_to_screen(all_nodes[n][0], all_nodes[n][1], min_lat, max_lat, min_lon, max_lon, WIDTH, HEIGHT, PADDING) for n in element["nodes"] if n in all_nodes]
-
-                if points:
-                    if element["tags"]["aeroway"] == "terminal":
-                        pygame.draw.polygon(screen, (200, 200, 200), points)
-                    else:
-                        pygame.draw.lines(screen, (200, 200, 200), False, points, 2)
-
-        # draw exemple pathfinding route
-        points = [latlon_to_screen(all_nodes[n][0], all_nodes[n][1], min_lat, max_lat, min_lon, max_lon, WIDTH, HEIGHT, PADDING) for n in path if n in all_nodes]
-        if points:
-            pygame.draw.lines(screen, (255, 0, 0), False, points, 2)
-
-    # draw all aircraft
-    for i in aircraft:
-        i.blit_aircraft(screen, target, limits, PADDING)
 
     # smooth the screen, type of AA
     smooth_screen(screen, 0.6)
@@ -171,19 +150,21 @@ while running:
                     show_buttons = False
                     show_button = True
                     print(selected_airport)
-                    break
+
 
             # Controleer of de startknop is aangeklikt
             if rect1.collidepoint(pos):
                 show_button = False
+                aircraft_list = [ generate_flight(schedule, performance, 'departure', all_nodes, activate_runways, network) for i in range(int(45 * current_freq / 100))]
 
+            #controleer of de back button wordt ingedrukt
             if rect2.collidepoint(pos):
                 show_button = False
                 show_buttons = True
 
 
             # Controleer of de schuifknop wordt aangeklikt
-            if pygame.Rect(handle_x - handle_bol_radius, 807 - handle_bol_radius, 2 * handle_bol_radius, 2 * handle_bol_radius).collidepoint(pos):
+            if pygame.Rect(handle_x - handle_bol_radius, HEIGHT-spatie_onder-68 - handle_bol_radius, 2 * handle_bol_radius, 2 * handle_bol_radius).collidepoint(pos):
                 dragging = True  # Begin met slepen van de schuifknop
 
         # Stop met slepen bij muisklik loslaten
@@ -209,33 +190,41 @@ while running:
     if show_buttons:
         airports = os.listdir("airports")
         i = 0
+        num_airports = len(airports)
+        button_width = 160
+        button_height = 80
+        spacing = 40
 
-        for airport in airports:
-            i += 1
-            j = WIDTH - len(airports) * 160 + (len(airports) - 1) * 40
-            text_surface3 = create_surface_with_text(airport, 30, BLUE, "Arial")
-            text_width = text_surface3.get_width()
-            rect = pygame.draw.rect(screen, GRAY, (j / 2 + 200 * (i - 1) - 80, 800, 160, 80))
-            screen.blit(text_surface3, (j / 2 + 200 * (i - 1) - text_width / 2, 827))
+        total_width = num_airports * button_width + (num_airports - 1) * spacing
+        start_x = (WIDTH - total_width) // 2  # centreer horizontaal
+
+        for idx, airport in enumerate(airports):
+            x = start_x + idx * (button_width + spacing)
+            rect = pygame.draw.rect(screen, GRAY, (x, HEIGHT-spatie_onder-28, button_width, button_height))
+
+            text_surface = create_surface_with_text(airport, 30, BLUE, "Arial")
+            text_width = text_surface.get_width()
+            screen.blit(text_surface, (x + button_width // 2 - text_width // 2, HEIGHT-spatie_onder))
+
             rects.append(rect)
             airport_names.append(airport)
 
     # Schuifbalk tekenen als de knoppen niet worden weergegeven
     if show_button:
         pygame.draw.rect(screen, GRAY, rect_schuifbar)  # Schuifbalk
-        pygame.draw.circle(screen, GRAY, ((WIDTH - 500) / 2 + 500, 807), 7)  # Linker rand
-        pygame.draw.circle(screen, GRAY, ((WIDTH - 500) / 2, 807), 7)  # Rechter rand
-        pygame.draw.rect(screen, GRAY, ((WIDTH - 160) / 2, 650, 160, 80))
-        pygame.draw.rect(screen, BLUE, ((WIDTH - 160) / 2, 650, 160, 80), width=5)
-        rect1 = pygame.draw.rect(screen, GRAY, ((WIDTH - 160) / 2, 850, 160, 80))
-        screen.blit(text_surface4, ((WIDTH - 97) / 2, 875))
-        rect2 = pygame.draw.rect(screen, GRAY, (100, 845, 160, 80))
-        screen.blit(text_surface6, ((100 + 40), 875))
+        pygame.draw.circle(screen, GRAY, ((WIDTH - 500) / 2 + 500, HEIGHT-spatie_onder-68), 7)  # Linker rand
+        pygame.draw.circle(screen, GRAY, ((WIDTH - 500) / 2, HEIGHT-spatie_onder-68), 7)  # Rechter rand
+        pygame.draw.rect(screen, GRAY, ((WIDTH - 160) / 2, HEIGHT-spatie_onder-225, 160, 80))
+        pygame.draw.rect(screen, BLUE, ((WIDTH - 160) / 2, HEIGHT-spatie_onder-225, 160, 80), width=5)
+        rect1 = pygame.draw.rect(screen, GRAY, ((WIDTH - 160) / 2, HEIGHT-spatie_onder-25, 160, 80))
+        screen.blit(text_surface4, ((WIDTH - 97) / 2, HEIGHT-spatie_onder))
+        rect2 = pygame.draw.rect(screen, GRAY, (100, HEIGHT-spatie_onder-30, 160, 80))
+        screen.blit(text_surface6, ((100 + 40), HEIGHT-spatie_onder))
 
         # Schuifknop tekenen
-        pygame.draw.circle(screen, BLUE, (handle_x, 807), handle_bol_radius)
-        screen.blit(create_surface_with_text(current_freq_text, 50, BLUE, "Arial Black"),((WIDTH - 63) / 2, 670))  # breedte = 144
-        screen.blit(text_surface5, ((WIDTH - 245) / 2, 620))
+        pygame.draw.circle(screen, BLUE, (handle_x, HEIGHT-spatie_onder-68), handle_bol_radius)
+        screen.blit(create_surface_with_text(current_freq_text, 50, BLUE, "Arial Black"),((WIDTH - 63) / 2, HEIGHT-spatie_onder-205))  # breedte = 144
+        screen.blit(text_surface5, ((WIDTH - 245) / 2, HEIGHT-spatie_onder-255))
 
     if not show_buttons and not show_button:
         # Draw ways (taxiways, runways, etc.)
@@ -250,6 +239,17 @@ while running:
                         pygame.draw.polygon(screen, (200, 200, 200), points)
                     else:
                         pygame.draw.lines(screen, (200, 200, 200), False, points, 2)
+
+        # draw all aircraft
+        for i in aircraft_list:
+            i.blit_aircraft(screen, target, limits, PADDING)
+
+        last_time_aircraft = time.time()
+        dt = last_time_aircraft - time.time()
+        if dt > -1.2 * current_freq + 240:
+            aircraft_list.append(generate_flight(schedule, performance, 'arrival', all_nodes, activate_runways, network) for i in range(int(45 * current_freq / 100)))
+            last_time_aircraft = time.time()
+
 
     pygame.display.flip()
 
