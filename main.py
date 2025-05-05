@@ -131,29 +131,6 @@ while running:
     clock.tick(60)
     screen.fill(BG_COLOR)
 
-    if path != None:
-        # Draw ways (taxiways, runways, etc.)
-        for element in osm_data["elements"]:
-            if element["type"] == "way" and "nodes" in element:
-                points = [latlon_to_screen(all_nodes[n][0], all_nodes[n][1], min_lat, max_lat, min_lon, max_lon, WIDTH, HEIGHT, PADDING) for n in element["nodes"] if n in all_nodes]
-
-                if points:
-                    if element["tags"]["aeroway"] == "terminal":
-                        pygame.draw.polygon(screen, (200, 200, 200), points)
-                    else:
-                        pygame.draw.lines(screen, (200, 200, 200), False, points, 2)
-
-        # draw exemple pathfinding route
-        points = [latlon_to_screen(all_nodes[n][0], all_nodes[n][1], min_lat, max_lat, min_lon, max_lon, WIDTH, HEIGHT, PADDING) for n in path if n in all_nodes]
-        if points:
-            pygame.draw.lines(screen, (255, 0, 0), False, points, 2)
-
-    # draw all aircraft
-    for i in aircraft:
-        i.blit_aircraft(screen, target, limits, PADDING)
-
-    # smooth the screen, type of AA
-    smooth_screen(screen, 0.6)
 
     # Event handling
     for event in pygame.event.get():
@@ -250,6 +227,13 @@ while running:
                         pygame.draw.polygon(screen, (200, 200, 200), points)
                     else:
                         pygame.draw.lines(screen, (200, 200, 200), False, points, 2)
+        # draw all aircraft
+        for i in aircraft:
+            i.blit_aircraft(screen, target, limits, PADDING)
+
+        # smooth the screen, type of AA
+        smooth_screen(screen, 0.6)
+
 
     pygame.display.flip()
 
