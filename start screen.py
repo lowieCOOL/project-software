@@ -11,9 +11,6 @@ pygame.display.set_caption("Pygame Text Rendering")
 
 BLUE = (60, 160, 237)
 GRAY = (169, 169, 169)
-ROOD= (255, 0, 0)
-GEEL = (255, 255, 0)
-GROEN = (0, 255, 0)
 
 image_path = "assets\\RADAR.jpg"
 background_image = pygame.image.load(image_path).convert()
@@ -127,10 +124,8 @@ while running:
         rect2 = pygame.draw.rect(screen, GRAY, (100, 845, 160, 80))
         screen.blit(text_surface6, ((100+40), 875))
 
-
         # Schuifknop tekenen
         pygame.draw.circle(screen, BLUE, (handle_x, 807), handle_bol_radius)
-
         screen.blit(create_surface_with_text(current_freq_text, 50, BLUE, "Arial Black"), ((WIDTH - 63) / 2, 670))  #breedte = 144
         screen.blit(text_surface5, ((WIDTH - 245) / 2, 620))
 
