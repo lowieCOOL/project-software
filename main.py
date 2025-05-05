@@ -1,6 +1,7 @@
 import pygame
 import json
 import math
+import random as rand
 import os
 from scipy.ndimage import gaussian_filter
 from airport_mapper import *
@@ -114,7 +115,8 @@ clock = pygame.time.Clock()
 
 # process the osm data, generate a route via a few taxiways to show pathfinding
 network = map_airport(json_file_name, all_nodes)
-path = calculate_via_route(network['taxi_nodes'],all_nodes,5900058194, destination=2425624616, vias=['OUT 2', 'R1', 'OUT 7','W3' , 'Y', 'E3'])
+path = None
+#path = calculate_via_route(network['taxi_nodes'],all_nodes,5900058194, destination=2425624616, vias=['OUT 2', 'R1', 'OUT 7','W3' , 'Y', 'E3'])
 #path = calculate_via_route(network['taxi_nodes'],all_nodes,12435822847, destination=12436227961, vias=['A'])
 
 WIDTH,HEIGHT = screen.get_size()
@@ -123,14 +125,13 @@ WIDTH,HEIGHT = screen.get_size()
 schedule = read_schedule('EBBR')
 performance = read_performance()
 activate_runways = ['25R', '25L']
-aircraft = [generate_flight(schedule, performance, 'departure', all_nodes, activate_runways, network) for i in range(20)]
+aircraft = [generate_flight(schedule, performance, 'departure', all_nodes, activate_runways, network) for i in range(2)]
 
 # gameloop
 running = True
 while running:
     clock.tick(60)
     screen.fill(BG_COLOR)
-
 
     # Event handling
     for event in pygame.event.get():
@@ -229,12 +230,32 @@ while running:
                         pygame.draw.lines(screen, (200, 200, 200), False, points, 2)
         # draw all aircraft
         for i in aircraft:
+            i.tick()
             i.blit_aircraft(screen, target, limits, PADDING)
 
         # smooth the screen, type of AA
         smooth_screen(screen, 0.6)
 
+    # Event handling
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_p:
+                selected = aircraft[rand.randint(0, len(aircraft)-1)]
+                print(selected.callsign, selected.state)
+                if selected.state == 'gate':
+                    selected.pushback('east')
+                elif selected.state == 'hold_pushback':
+                    selected.taxi(runway='25R', destination='B1')
+                elif selected.state == 'hold_runway':
+                    selected.cross_runway()
+                elif selected.state == 'ready_line_up':
+                    selected.line_up()
+                elif selected.state == 'ready_takeoff':
+                    selected.takeoff()
 
     pygame.display.flip()
 
 pygame.quit()
+
