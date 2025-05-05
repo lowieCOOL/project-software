@@ -124,6 +124,12 @@ while running:
                     selected.pushback('east')
                 elif selected.state == 'hold_pushback':
                     selected.taxi(runway='25R', destination='B1')
+                elif selected.state == 'hold_runway':
+                    selected.cross_runway()
+                elif selected.state == 'ready_line_up':
+                    selected.line_up()
+                elif selected.state == 'ready_takeoff':
+                    selected.takeoff()
 
     pygame.display.flip()
 

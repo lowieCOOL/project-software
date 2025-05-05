@@ -19,7 +19,6 @@ for departures
 - cleared_crossing
     - aircraft.hold_position()
 - crossing_runway
-    - aircraft.hold_position()
 - ready_line_up
     - aircraft.line_up()
 - line_up
@@ -70,13 +69,19 @@ class Aircraft():
     def speed(self):
         match self.state:
             case 'pushback':
-                return -5
+                return -5*5
             case 'taxi':
+                return 20*5
+            case 'crossing_runway':
+                return 20
+            case 'cleared_crossing':
                 return 20
             case 'line_up':
                 return 20
             case 'cleared_takeoff':
                 return 20
+            case 'takeoff':
+                return self.performance['speed_V2']
             case _:
                 return 0
     
@@ -137,7 +142,9 @@ class Aircraft():
             case 'hold_runway':
                 self.state = 'line_up'
             case 'line_up':
-                self.state = 'takeoff'
+                self.state = 'ready_takeoff'
+                self.heading = self.runway['angle']
+
 
     def blit_aircraft(self, screen, png, limits, padding, draw_route=False):
         WIDTH, HEIGHT = screen.get_size()
@@ -277,61 +284,67 @@ class Aircraft():
         self.distance_to_destination = total_distance
         return route, total_distance
 
-    def follow_route(self):
-        # code to have an aircraft moving along the nodes in self.route
-        pass
-
     def hold_position(self):
-        # code to have an aircraft stop at current position
-        pass
+        if self.state != 'taxi':
+            return
+        self.state = 'hold_taxi'
 
     def continue_taxi(self):
         if self.state != 'hold_taxi':
             return
 
-        # code to have an aircraft continue taxiing
-        pass
+        self.state = 'taxi'
+
+    def cross_runway(self):
+        match self.state:
+            case 'taxi':
+                self.state = 'cleared_crossing'
+            case 'hold_runway':
+                self.state = 'crossing_runway'               
 
     def tick(self):
         dt = time.time() - self.last_tick
         if dt < 1:
-            return
+            return False
         self.last_tick = time.time()
-        if self.speed == 0:
-            return
+        if self.speed == 0 or self.state == 'takeoff':
+            return dt
         distance_to_next = calculate_distance(self.network['all_nodes'], self.position, self.route[0])
         distance_to_move = abs(self.speed_meters_per_second * dt)
         if distance_to_next < 1 and len(self.route) == 1:
             self.next_state()
             self.position = self.network['all_nodes'][self.route[0]]
-            return
+            return dt
         while distance_to_next < distance_to_move:
             distance_to_move -= distance_to_next
             if len(self.route) == 1:
                 distance_to_move = 0
                 self.position = self.network['all_nodes'][self.route[0]]
                 self.next_state()
-                break
+                return dt
             node = self.route.pop(0)
             self.position = self.network['all_nodes'][node]
             distance_to_next = calculate_distance(self.network['all_nodes'], self.position, self.route[0])
 
-            if self.state == 'taxi':
-                node_information = self.network['taxi_nodes'][node]
-                if 'holding_position' in node_information: # and node_information['holding_position']:
-                    if node == self.runway_exit['holding_point']: 
-                        self.state = 'ready_line_up' 
-                    elif self.state == 'cleared_crossing':
-                        self.state = 'crossing_runway'
-                        continue
-                    elif self.state == 'crossing_runway':
-                        self.state = 'taxi'
-                        continue
-                    else:
-                        self.state = 'hold_runway'
-                    distance_to_move = 0
-                    print(f'{self.callsign} holding short of runway, state: {self.state}')
-                    break
+            if self.speed <= 0:
+                continue
+            node_information = self.network['taxi_nodes'][node]
+            if 'holding_position' in node_information: # and node_information['holding_position']:
+                if node == self.runway_exit['holding_point']: 
+                    if self.state == 'taxi':
+                        self.state = 'ready_line_up'
+                    else: continue
+                elif self.state == 'cleared_crossing':
+                    self.state = 'crossing_runway'
+                    continue
+                elif self.state == 'crossing_runway':
+                    self.state = 'taxi'
+                    continue
+                else:
+                    self.state = 'hold_runway'
+                distance_to_move = 0
+                print(f'{self.callsign} holding short of runway, state: {self.state}')
+                break
 
 
         self.heading = calculate_angle(self.network['all_nodes'], self.position, self.route[0])
@@ -341,6 +354,7 @@ class Aircraft():
 class Arrival(Aircraft):
     def __init__(self, callsign, performance, runway, network):
         super().__init__(position=network['runways'][runway]['init_offset_from_threshold'], heading=network['runways'][runway]['angle'], state='arrival' , callsign=callsign, performance=performance)
+        self.type = 'arrival'
         self.runway  = network['runways'][runway]
         self.exitsAvailable = {key: item for key, item in self.runway['exits'].items() if item['LDA'] > self.performance['LDA']}
         self.altitude = 3000
@@ -355,9 +369,12 @@ class Departure(Aircraft):
     def __init__(self, callsign, performance, gate, network, all_nodes):
         gate_nodes = network['gates'][gate]['nodes']
         super().__init__(position=all_nodes[gate_nodes[0]], heading=network['gates'][gate]['heading'], state='gate', callsign=callsign, network=network, performance=performance)
+        self.type = 'departure'
         self.gate = gate
         self.route = gate_nodes
         self.all_nodes = all_nodes
+        self.takeoff_distance_remaining = performance['dist_TO']
+        self.altitude = 0
 
     def pushback(self, direction):
         # pushback
@@ -371,6 +388,7 @@ class Departure(Aircraft):
     def taxi(self, runway, destination, vias=[]):
         #destination is a runway exit name, get the destination node from network['runways']
         print(f'calculation route for {self.callsign} to HP {destination}, runway {runway}')
+        self.runway = self.network['runways'][runway]
         self.runway_exit = self.network['runways'][runway]['exits'][destination]
         destination_node = self.runway_exit['node']
         route, distance = self.calculate_via_route(destination_node, vias)
@@ -380,24 +398,31 @@ class Departure(Aircraft):
         self.state = 'taxi'
 
     def line_up(self):
-        # line up on the runway
-        pass
+        if self.state != 'ready_line_up' and self.state != 'taxi':
+            return
+        self.state = 'line_up'
+        print(f'{self.callsign} lining up on runway ')
 
     def takeoff(self):
-        if self.state == 'taxi':
-            self.line_up()
-        
-        # takeoff
-        pass
-
+        match self.state:
+            case 'ready_takeoff':
+                self.state = 'takeoff'
+            case 'line_up':
+                self.state = 'cleared_takeoff'
+            case 'taxi':
+                self.state = 'cleared_takeoff'
+    
     def tick(self):
-        super().tick()
+        dt = super().tick()
+        if not dt:
+            return
 
         if self.state == 'pushback_complete':
             self.state = 'hold_pushback'
 
             closest_node = None
             min_angle_diff = float('inf')
+            self.network['gates'][self.gate]['occupied'] = False
             for next_node in self.network['taxi_nodes'][self.route[0]]['next_moves']:
                 angle_diff = abs(angle_difference(self.network['all_nodes'], self.route[0], next_node, angle=self.pushback_direction))
                 if angle_diff < min_angle_diff:
@@ -405,6 +430,17 @@ class Departure(Aircraft):
                     closest_node = next_node
             if closest_node:
                 self.heading = calculate_angle(self.network['all_nodes'], self.position, self.network['all_nodes'][closest_node])
+
+        elif self.state == 'takeoff':
+            self.heading = self.runway['angle']
+            distance_to_move = self.speed_meters_per_second * dt
+            self.takeoff_distance_remaining -= distance_to_move
+            new_position = distance(meters=distance_to_move*self.movement_direction).destination(self.position, self.heading)
+            self.position = (new_position.latitude, new_position.longitude)
+            if self.takeoff_distance_remaining <= 0:
+                self.altitude += self.performance['rate_of_climb'] * dt
+
+
 
 if __name__ == '__main__':
     pass
