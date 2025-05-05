@@ -65,26 +65,49 @@ def latlon_to_screen(pos, limits, width, height, padding, offset_x=0, offset_y=0
     return x, y
 
 class Aircraft():
+    def taxi_speed(self, taxi_acceleration=1.0, v_end=0):
+        WTC = self.performance["WTC"]
+
+        needed_distance = ((self._speed)**2 - (v_end)**2) / (2 * taxi_acceleration)/4
+        distance = self.distance_to_destination - self._speed * self.dt
+
+        match WTC:
+            case 'L':
+                max_taxispeed = 15
+            case 'M':
+                max_taxispeed = 30
+            case 'H':
+                max_taxispeed = 20
+
+        if distance > needed_distance and self._speed < max_taxispeed:
+            self._speed += taxi_acceleration * self.dt
+        elif distance > needed_distance and self._speed >= max_taxispeed:
+            self._speed = max_taxispeed
+        elif distance <= needed_distance:
+            self._speed -= taxi_acceleration * self.dt
+        return self._speed
+    
+    def take_off_speed(self):
+        dist_TO = self.performance["dist_TO"]
+        speed_V2 = self.performance["speed_V2"]
+
+        acceleration = speed_V2**2 / (2 * dist_TO)
+        self._speed = self._speed + acceleration * self.dt
+
+        return self._speed
+
     @property
     def speed(self):
         match self.state:
             case 'pushback':
-                return -5*5
-            case 'taxi':
-                return 20*5
-            case 'crossing_runway':
-                return 20
-            case 'cleared_crossing':
-                return 20
-            case 'line_up':
-                return 20
-            case 'cleared_takeoff':
-                return 20
+                return -5 * 5
+            case 'taxi'| 'crossing_runway'| 'cleared_crossing'| 'line_up'| 'cleared_takeoff':
+                return self._speed
             case 'takeoff':
                 return self.performance['speed_V2']
             case _:
                 return 0
-    
+
     @property
     def angle(self):
         if self.state == 'pushback':
@@ -100,6 +123,25 @@ class Aircraft():
         return 1 if self.speed >= 0 else -1
     
     @property
+    def dt(self):
+        return time.time() - self.last_tick
+    
+    @property
+    def last_tick(self):
+        return self._last_tick
+
+    @last_tick.setter
+    def last_tick(self, value):
+        # Update the speed when last_tick is updated
+        if self.state in ['taxi', 'crossing_runway', 'cleared_crossing', 'line_up', 'cleared_takeoff']:
+            self.taxi_speed()
+        elif self.state == 'takeoff':
+            self.take_off_speed()
+        
+        # Update the internal last_tick value
+        self._last_tick = value
+    
+    @property
     def heading(self):
         return self._heading
     
@@ -112,6 +154,8 @@ class Aircraft():
         self._heading = value
     
     def __init__(self, position, heading, state, callsign, network, performance):
+        self._speed = 0  # Internal speed variable
+        self._last_tick = time.time()
         self.position = position
         self.state = state
         self.heading = heading
@@ -121,7 +165,6 @@ class Aircraft():
         self.rect = None
         self.network = network
         self.performance = performance
-        self.last_tick = time.time()
 
     def next_state(self):
         match self.state:
@@ -303,7 +346,7 @@ class Aircraft():
                 self.state = 'crossing_runway'               
 
     def tick(self):
-        dt = time.time() - self.last_tick
+        dt = self.dt
         if dt < 1:
             return False
         self.last_tick = time.time()
@@ -317,6 +360,7 @@ class Aircraft():
             return dt
         while distance_to_next < distance_to_move:
             distance_to_move -= distance_to_next
+            self.distance_to_destination -= distance_to_next
             if len(self.route) == 1:
                 distance_to_move = 0
                 self.position = self.network['all_nodes'][self.route[0]]
@@ -349,6 +393,7 @@ class Aircraft():
 
         self.heading = calculate_angle(self.network['all_nodes'], self.position, self.route[0])
         new_position = distance(meters=distance_to_move*self.movement_direction).destination(self.position, self.heading)
+        self.distance_to_destination -= distance_to_move
         self.position = (new_position.latitude, new_position.longitude)
 
 class Arrival(Aircraft):
@@ -438,9 +483,7 @@ class Departure(Aircraft):
             new_position = distance(meters=distance_to_move*self.movement_direction).destination(self.position, self.heading)
             self.position = (new_position.latitude, new_position.longitude)
             if self.takeoff_distance_remaining <= 0:
-                self.altitude += self.performance['rate_of_climb'] * dt
-
-
+                self.altitude += self.performance['rate_of_climb'] * dt / 60
 
 if __name__ == '__main__':
     pass
