@@ -23,21 +23,22 @@ for arrivals
 from airport_mapper import lon2x, lat2y
 import pygame
 import math
+from pygame_widgets.button import Button
 
 def latlon_to_screen(pos, limits, width, height, padding, offset_x=0, offset_y=0):
     y, min_y, max_y = lat2y(pos[0]), lat2y(limits[0][0]), lat2y(limits[0][1])
     x, min_x, max_x = lon2x(pos[1]), lon2x(limits[1][0]), lon2x(limits[1][1])
 
-    drawable_width = width - 2 * padding
-    drawable_height = height - 2 * padding
+    drawable_width = width*(3/4) -  padding
+    drawable_height = height - 2*padding
 
-    #scales the position to be fit to the screen with some padding on the side, the largest of the 2 is taken and the other is offset so it remains in the center
+    
     x_scale = (max_x - min_x) / drawable_width
     y_scale = (max_y - min_y) / drawable_height
     scale = max(x_scale, y_scale)
 
-    x_offset = (scale - x_scale)* drawable_width / scale / 2  + padding
-    y_offset = (scale - y_scale)* drawable_height / scale / 2  + padding
+    x_offset = (scale - x_scale) * drawable_width / scale / 2 + padding + width * (1/4)
+    y_offset = (scale - y_scale) * drawable_height / scale / 2 + padding
 
     x = int((x + offset_x - min_x) / scale + x_offset)
     y = int(height - (((y + offset_y - min_y) / scale) + y_offset))
@@ -53,9 +54,8 @@ class Aircraft():
         self.route = []
         self.rect = None
         self.performance = performance
-
-    def blit_aircraft(self, screen, png, limits, padding):
-        WIDTH, HEIGHT = screen.get_size()
+        
+    def blit_aircraft(self, screen, png, WIDTH, HEIGHT, limits, padding):
         coords = latlon_to_screen(self.position, limits, WIDTH, HEIGHT, padding)
 
         # Convert aviation heading to Pygame's counterclockwise system
@@ -75,11 +75,33 @@ class Aircraft():
         self.rect = new_rect
 
         # Blit rotated image
-        screen.blit(rotated_image,new_rect.topleft)
+        self.button(screen)
+        screen.blit(rotated_image, new_rect.topleft)
+        
 
+    def button(self, screen):
+        # Check if the button already exists
+        if not hasattr(self, 'button_instance'):
+            # Create and store the button
+            self.button_instance = Button(
+                screen,
+                self.rect.centerx,  # Center X position
+                self.rect.centery,  # Center Y position
+                self.rect.width /4,       # Width
+                self.rect.height /4,      # Height
+                onClick=lambda: self.click_handler(),
+                inactiveColour=(255, 223, 63),  # Yellow color
+                pressedColour=(255, 212, 0),   # Darker yellow when pressed
+                hoverColour=(255, 212, 0),     # Darker yellow when hovered
+                radius=0  # Set radius to 0 for a plain rectangle
+            )
+        else:
+            # Update the button's position if it already exists
+            self.button_instance.setX(self.rect.centerx )
+            self.button_instance.setY(self.rect.centery )
+            
     def click_handler(self):
-        # when clicked on the aircraft, the info and action of the aircraft will be displayed in the sidepanel, depending on the state of the aircraft
-        pass
+        print('clicked on aircraft', self.callsign)
 
     def calculate_route(self):
         pass
