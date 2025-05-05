@@ -2,15 +2,31 @@
 Aircraft states:
 for departures
 - gate
+    - aircraft.pushback(direction) direction is [north, east, south, west]
 - pushback
 - pushback_complete
 - ready_taxi
+    - aircraft.taxi(runway, destination, vias=[]) destination is a runway exit name, vias is a list of taxi names to route via
 - taxi
+    - aircraft.hold_position() hold at the current position, this is used to wait for a crossing aircraft or other reason
+    - aircraft.cross_runway() preemptively give clearance to cross runway
+    - aircraft.line_up() already give lineup clearance so aircraft doesn't have to stop at the holding point
+    - aircraft.takeoff() already give takeoff clearance so aircraft doesn't have to stop at the holding point
 - hold_taxi
+    - aircraft.continue_taxi() continue taxiing after holding position
 - hold_runway
+    - aircraft.cross_runway()
+- cleared_crossing
+    - aircraft.hold_position()
+- crossing_runway
+    - aircraft.hold_position()
 - ready_line_up
+    - aircraft.line_up()
 - line_up
+    - aircraft.takeoff()
 - ready_takeoff
+    - aircraft.takeoff()
+- cleared_takeoff
 - takeoff
 
 for arrivals
@@ -52,11 +68,17 @@ def latlon_to_screen(pos, limits, width, height, padding, offset_x=0, offset_y=0
 class Aircraft():
     @property
     def speed(self):
-        if self.state == 'pushback':
-            return -5
-        if self.state == 'taxi':
-            return 20
-        return 0
+        match self.state:
+            case 'pushback':
+                return -5
+            case 'taxi':
+                return 20
+            case 'line_up':
+                return 20
+            case 'cleared_takeoff':
+                return 20
+            case _:
+                return 0
     
     @property
     def angle(self):
@@ -97,24 +119,25 @@ class Aircraft():
         self.last_tick = time.time()
 
     def next_state(self):
-        if self.state == 'gate':
-            self.state = 'pushback'
-        elif self.state == 'pushback':
-            self.state = 'pushback_complete'
-        elif self.state == 'pushback_complete':
-            print(f'{self.callsign}, gate: {self.gate}, ready for taxi')
-            self.state = 'hold_pushback'
-        elif self.state == 'hold_pushback':
-            print(f'{self.callsign}, gate: {self.gate}, speed: {self.speed}, starting taxi')
-            self.state = 'taxi'
-        elif self.state == 'taxi':
-            self.state = 'hold_runway'
-        elif self.state == 'hold_taxi':
-            self.state = 'taxi'
-        elif self.state == 'hold_runway':
-            self.state = 'line_up'
-        elif self.state == 'line_up':
-            self.state = 'takeoff'
+        match self.state:
+            case 'gate':
+                self.state = 'pushback'
+            case 'pushback':
+                self.state = 'pushback_complete'
+            case 'pushback_complete':
+                print(f'{self.callsign}, gate: {self.gate}, ready for taxi')
+                self.state = 'hold_pushback'
+            case 'hold_pushback':
+                print(f'{self.callsign}, gate: {self.gate}, speed: {self.speed}, starting taxi')
+                self.state = 'taxi'
+            case 'taxi':
+                self.state = 'hold_runway'
+            case 'hold_taxi':
+                self.state = 'taxi'
+            case 'hold_runway':
+                self.state = 'line_up'
+            case 'line_up':
+                self.state = 'takeoff'
 
     def blit_aircraft(self, screen, png, limits, padding, draw_route=False):
         WIDTH, HEIGHT = screen.get_size()
@@ -296,7 +319,16 @@ class Aircraft():
             if self.state == 'taxi':
                 node_information = self.network['taxi_nodes'][node]
                 if 'holding_position' in node_information: # and node_information['holding_position']:
-                    self.state = 'ready_line_up' if node == self.runway_exit['holding_point'] else 'hold_runway'
+                    if node == self.runway_exit['holding_point']: 
+                        self.state = 'ready_line_up' 
+                    elif self.state == 'cleared_crossing':
+                        self.state = 'crossing_runway'
+                        continue
+                    elif self.state == 'crossing_runway':
+                        self.state = 'taxi'
+                        continue
+                    else:
+                        self.state = 'hold_runway'
                     distance_to_move = 0
                     print(f'{self.callsign} holding short of runway, state: {self.state}')
                     break
