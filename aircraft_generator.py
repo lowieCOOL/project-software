@@ -15,6 +15,12 @@ def read_schedule(airport: str):
 
     return schedule_json
 
+def read_runways(airport: str):
+    with open(f"airports/{airport}/Runway_configuration.json", "r") as file:
+        runway_json = json.load(file)
+
+    return runway_json
+
 def read_performance():
     with open("all_aircraft_data.json", "r") as file:
         performance_json = json.load(file)
