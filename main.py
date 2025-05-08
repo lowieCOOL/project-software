@@ -4,6 +4,7 @@ import math
 import random as rand
 import os
 from scipy.ndimage import gaussian_filter
+from aircraft import Departure
 from airport_mapper import *
 from aircraft_generator import generate_flight, read_schedule, read_performance
 
@@ -124,8 +125,8 @@ WIDTH,HEIGHT = screen.get_size()
 # read the schedule and performance data and generate 20 departure aircraft, not yet continuous
 schedule = read_schedule('EBBR')
 performance = read_performance()
-activate_runways = ['25R', '25L']
-aircraft = [generate_flight(schedule, performance, 'departure', all_nodes, activate_runways, network) for i in range(2)]
+active_runways = ['25R', '25L']
+aircraft_list = [generate_flight(schedule, performance, 'arrival', active_runways, network)] + [generate_flight(schedule, performance, 'departure', active_runways, network) for i in range(2)]
 
 # gameloop
 running = True
@@ -229,9 +230,13 @@ while running:
                     else:
                         pygame.draw.lines(screen, (200, 200, 200), False, points, 2)
         # draw all aircraft
-        for i in aircraft:
-            i.tick()
-            i.blit_aircraft(screen, target, limits, PADDING)
+        for i, aircraft in enumerate(aircraft_list):
+            aircraft.tick()
+            if aircraft.state == 'parked':
+                aircraft_list[i] = Departure(aircraft.callsign, aircraft.performance, aircraft.gate, network)
+            elif aircraft.state == 'go_around' and aircraft.altitude > 2000:
+                aircraft_list.pop(i)
+            aircraft.blit_aircraft(screen, target, limits, PADDING, draw_route=True)
 
         # smooth the screen, type of AA
         smooth_screen(screen, 0.6)
@@ -242,7 +247,7 @@ while running:
             running = False
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_p:
-                selected = aircraft[rand.randint(0, len(aircraft)-1)]
+                selected = aircraft_list[rand.randint(0, len(aircraft_list)-1)]
                 print(selected.callsign, selected.state)
                 if selected.state == 'gate':
                     selected.pushback('east')
@@ -254,6 +259,10 @@ while running:
                     selected.line_up()
                 elif selected.state == 'ready_takeoff':
                     selected.takeoff()
+                elif selected.state == 'arrival':
+                    selected.land(list(selected.exitsAvailable)[0])
+                elif selected.state == 'ready_taxi_gate':
+                    selected.taxi()
 
     pygame.display.flip()
 
