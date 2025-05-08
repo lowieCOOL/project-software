@@ -24,6 +24,39 @@ from airport_mapper import lon2x, lat2y
 import pygame
 import math
 from pygame_widgets.button import Button
+from pygame_widgets import *
+from pygame_widgets.dropdown import Dropdown
+      
+
+def draw_sidebar(screen):
+    # Sidebar dimensions and width
+        sidebar_width = screen.get_width() *(1/4) # 1/4 of the screen width
+        sidebar_height = screen.get_height()
+        pygame.draw.rect(screen, (40,40,40), (0, 0, sidebar_width, sidebar_height)) # 30, 30, 30
+    
+def create_dropdown(screen, x,y,WIDTH, HEIGHT, Name , Choices, Colour,Direction,TextHalign ):
+        Dropdown(
+            screen,
+            x,  # Adjust position dynamically
+            y,  # Adjust position dynamically
+            WIDTH,  # Dropdown width
+            HEIGHT,  # Dropdown height
+            name= Name,
+            choices= Choices,
+            colour= Colour,
+            direction= Direction,
+            textHalign= TextHalign,
+            
+            font=pygame.font.SysFont('Arial', 20), 
+            backgroundColour=(255, 255, 255), 
+            textColour= (0, 0, 0), 
+            Oncklick=lambda: Aircraft.clickhandler()  # Callback function when an item is selected
+        )
+
+def create_surface_with_text(text, font_size, text_rgb, font):  # when branch start screen is merged, import this function from there
+    font = pygame.freetype.SysFont(font, font_size)
+    surface, _ = font.render(text=text, fgcolor=text_rgb)
+    return surface.convert_alpha()
 
 def latlon_to_screen(pos, limits, width, height, padding, offset_x=0, offset_y=0):
     y, min_y, max_y = lat2y(pos[0]), lat2y(limits[0][0]), lat2y(limits[0][1])
@@ -54,6 +87,7 @@ class Aircraft():
         self.route = []
         self.rect = None
         self.performance = performance
+        self.selected = False
         
     def blit_aircraft(self, screen, png, WIDTH, HEIGHT, limits, padding):
         coords = latlon_to_screen(self.position, limits, WIDTH, HEIGHT, padding)
@@ -85,14 +119,14 @@ class Aircraft():
             # Create and store the button
             self.button_instance = Button(
                 screen,
-                self.rect.centerx,  # Center X position
-                self.rect.centery,  # Center Y position
+                self.rect.centerx-10,  # Center X position
+                self.rect.centery-10,  # Center Y position
                 self.rect.width /4,       # Width
                 self.rect.height /4,      # Height
-                onClick=lambda: self.click_handler(),
+                onClick= lambda: self.click_handler(),  # Click event handler
                 inactiveColour=(255, 223, 63),  # Yellow color
                 pressedColour=(255, 212, 0),   # Darker yellow when pressed
-                hoverColour=(255, 212, 0),     # Darker yellow when hovered
+                hoverColour=(212, 212, 0),     # Darker yellow when hovered
                 radius=0  # Set radius to 0 for a plain rectangle
             )
         else:
@@ -101,8 +135,61 @@ class Aircraft():
             self.button_instance.setY(self.rect.centery )
             
     def click_handler(self):
-        print('clicked on aircraft', self.callsign)
+        self.selected = not self.selected
+          
+    def information(self, screen):
+        if self.selected:
+            screen.blit(create_surface_with_text(f"callsign: {self.callsign}", 26, (255, 255, 255), 'Arial'), (50, 50))
+            screen.blit(create_surface_with_text(f"state: {self.state}", 20, (255, 255, 255), 'Arial'), (50, 80))  
+            screen.blit(create_surface_with_text(f"speed: {self.speed}", 20, (255, 255, 255), 'Arial'), (50, 110))
+            screen.blit(create_surface_with_text(f"gate: {self.gate}", 20, (255, 255, 255), 'Arial'), (200, 80))
+        
+            match self.state: 
+            
+                case 'gate':
+                    screen.blit(create_surface_with_text("pushback direction: north, east, south, west", 20, (255, 255, 255), 'Arial'), (50, 140))
+                    if self.flag == False:
+                        Button(screen, 50, 170, 100, 30, text='north', onClick=lambda: self.pushback('north') and print('oo'), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 200, 100, 30, text='east', onClick=lambda: self.pushback('east'), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 230, 100, 30, text='south', onClick=lambda: self.pushback('south'), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 260, 100, 30, text='west', onClick=lambda: self.pushback('west'), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        
+                        self.flag = True
+                case 'ready_taxi':
+                    screen.blit(create_surface_with_text("Enter taxi destination and vias:", 20, (255, 255, 255), 'Arial'), (50, 170))
+                    Button(screen, 50, 200, 150, 30, text='Start Taxi', onClick=lambda: self.taxi('runway_exit_name', vias=['taxiway1', 'taxiway2']), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
 
+                case 'taxi':
+                    screen.blit(create_surface_with_text(f"taxi route: {self.route}", 20, (255, 255, 255), 'Arial'), (50, 140))
+                    Button(screen, 50, 170, 100, 30, text='Cross runway', onClick=lambda: Aircraft.cross_runway(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                    Button(screen, 50, 200, 100, 30, text='Hold Position', onClick=lambda: Aircraft.hold_position(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0) 
+                    Button(screen, 50, 230, 100, 30, text='line up', onClick=lambda: Aircraft.line_up(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)      
+                    Button(screen, 50, 200, 100, 30, text='take off', onClick=lambda: Aircraft.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                
+                case 'hold_taxi':
+                    screen.blit(create_surface_with_text("hold_taxe", 20, (255, 255, 255), 'Arial'), (50, 140))
+                    Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: Aircraft.continue_taxi(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                
+                case 'hold_runway':
+                    screen.blit(create_surface_with_text("hold runway", 20, (255, 255, 255), 'Arial'), (50, 140))  
+                    Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: Aircraft.continue_taxi(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                case 'cleared_crossing':
+                    screen.blit(create_surface_with_text("cleared crossing", 20, (255, 255, 255), 'Arial'), (50, 140))
+                    Button(screen, 50, 170, 100, 30, text='hold position', onClick=lambda: Aircraft.hold_position(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                case 'ready_line_up':
+                    screen.blit(create_surface_with_text("ready line up", 20, (255, 255, 255), 'Arial'), (50, 140))
+                    Button(screen, 50, 170, 100, 30, text='line up', onClick=lambda: Aircraft.line_up(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                case 'line_up':
+                    screen.blit(create_surface_with_text("line up", 20, (255, 255, 255), 'Arial'), (50, 140))
+                    Button(screen, 50, 170, 100, 30, text='take off', onClick=lambda: Aircraft.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                case  'ready_takeoff':
+                    screen.blit(create_surface_with_text("ready takeoff", 20, (255, 255, 255), 'Arial'), (50, 140))
+                    Button(screen, 50, 170, 100, 30, text='take off', onClick=lambda: Aircraft.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+          
+
+
+
+            
     def calculate_route(self):
         pass
 

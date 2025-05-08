@@ -3,9 +3,9 @@ import json
 from scipy.ndimage import gaussian_filter
 from airport_mapper import *
 from aircraft_generator import generate_flight, read_schedule, read_performance
-from sidebar_ import *
 import pygame_widgets
 from aircraft import *
+# from sidebar_ import *
 
 json_file_name = "osm_data.json"
 json_file_name = "osm_data.json"
@@ -88,14 +88,18 @@ while running:
         if points:
             pygame.draw.lines(screen, (255, 0, 0), False, points, 2)
 
+    # Draw sidebar
+    draw_sidebar(screen)
+    create_dropdown(screen, screen.get_width()/4, screen.get_height() / 20, screen.get_width()/4,screen.get_height() / 20, 'Arrival', aircraft_list,(150, 150, 150), 'down', 'left')
+    
     # draw all aircraft
     for i in aircraft:
         i.blit_aircraft(screen, target, WIDTH, HEIGHT, limits, PADDING)
-
-    # Draw sidebar
-    draw_sidebar(screen)
-    DropdownMenu(screen, aircraft_list).create_dropdown()
-    
+        # i.information(screen)
+        # for button in i.var1:
+        #     button
+        # if i.var1 != None:
+        #     i.var1.draw()
     # smooth the screen, type of AA
     smooth_screen(screen, 0.6)
 
