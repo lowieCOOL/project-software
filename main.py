@@ -155,6 +155,8 @@ while running:
             # Controleer of de startknop is aangeklikt
             if rect1.collidepoint(pos):
                 show_button = False
+                for aircraft in aircraft_list:
+                    aircraft.blit_aircraft(screen, target, limits, PADDING, draw_route=True)
 
             if rect2.collidepoint(pos):
                 show_button = False
@@ -231,7 +233,7 @@ while running:
                         pygame.draw.lines(screen, (200, 200, 200), False, points, 2)
         # draw all aircraft
         for i, aircraft in enumerate(aircraft_list):
-            aircraft.tick()
+            aircraft.tick(aircraft_list)
             if aircraft.state == 'parked':
                 aircraft_list[i] = Departure(aircraft.callsign, aircraft.performance, aircraft.gate, network)
             elif aircraft.state == 'go_around' and aircraft.altitude > 2000:

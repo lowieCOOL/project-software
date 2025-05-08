@@ -350,13 +350,25 @@ class Aircraft():
             case 'hold_runway':
                 self.state = 'crossing_runway'               
 
-    def tick(self):
+    def check_collision(self, aircraft_list=None):
+        if aircraft_list is None:
+            return False
+        for other_aircraft in aircraft_list:
+            if other_aircraft == self:
+                continue
+            if self.rect.colliderect(other_aircraft.rect):
+                return True
+        return False
+
+
+    def tick(self, aircraft_list=None):
         dt = self.dt
         if dt < 1:
             return False
         self.last_tick = time.time()
         if self.speed == 0 or self.state == 'takeoff' or self.state == 'go_around':
             return dt
+        previous_state = {'state': self.state, 'position': self.position, 'heading': self.heading, 'speed': self.speed, 'altitude': self.altitude, 'distance_to_destination': self.distance_to_destination, 'route': self.route}
         distance_to_next = self.distance_to_next
         distance_to_move = abs(self.speed_meters_per_second * dt)
         if distance_to_next < 1 and len(self.route) == 1:
@@ -417,7 +429,17 @@ class Aircraft():
         self.altitude += self.vspeed * dt / 60
         if self.altitude < 0:
             self.altitude = 0
-        print(self.callsign, self.state, self.speed, self.altitude, self.vspeed, self.distance_to_next)
+
+        if self.check_collision(aircraft_list):
+            self.position = previous_state['position']
+            self.heading = previous_state['heading']
+            self._speed = 0
+            self.altitude = previous_state['altitude']
+            self.distance_to_destination = previous_state['distance_to_destination']
+            self.route = previous_state['route']
+            print(f'{self.callsign} collision detected, reverting to previous state')
+        else:
+            print(self.callsign, self.state, self.speed, self.altitude, self.vspeed, self.distance_to_next)
 
 class Arrival(Aircraft):
     def landing_speed(self):
@@ -589,8 +611,8 @@ class Arrival(Aircraft):
         self.route += route[1:] + gate_nodes[1:]
         self.distance_to_destination = distance + calculate_distance(self.network['all_nodes'], self.position, start_node)
 
-    def tick(self):
-        dt = super().tick()
+    def tick(self, aircraft_list=None):
+        dt = super().tick(aircraft_list=aircraft_list)
         if not dt:
             return
         
@@ -686,8 +708,8 @@ class Departure(Aircraft):
             case 'taxi':
                 self.state = 'cleared_takeoff'
     
-    def tick(self):
-        dt = super().tick()
+    def tick(self, aircraft_list=None):
+        dt = super().tick(aircraft_list=aircraft_list)
         if not dt:
             return
 
