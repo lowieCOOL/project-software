@@ -193,7 +193,7 @@ class Aircraft():
         self.network = network
         self.performance = performance
 
-    def blit_aircraft(self, screen, png, limits, padding, draw_route=False):
+    def blit_aircraft(self, screen, png, limits, padding, draw_route=False, draw_rect=False):
         WIDTH, HEIGHT = screen.get_size()
         coords = latlon_to_screen(self.position, limits, WIDTH, HEIGHT, padding)
 
@@ -220,6 +220,7 @@ class Aircraft():
 
         # Blit rotated image
         screen.blit(rotated_image,new_rect.topleft)
+        if draw_rect: pygame.draw.rect(screen, (255, 0, 0), new_rect, 2)  # Draw the rectangle around the aircraft
 
     def click_handler(self):
         # when clicked on the aircraft, the info and action of the aircraft will be displayed in the sidepanel, depending on the state of the aircraft
@@ -356,6 +357,9 @@ class Aircraft():
         for other_aircraft in aircraft_list:
             if other_aircraft == self:
                 continue
+            angle = angle_difference(self.network['all_nodes'], self.position, other_aircraft.position, angle=self.angle)
+            if abs(angle) > 45:
+                continue
             if self.rect.colliderect(other_aircraft.rect):
                 return True
         return False
@@ -437,7 +441,7 @@ class Aircraft():
             self.altitude = previous_state['altitude']
             self.distance_to_destination = previous_state['distance_to_destination']
             self.route = previous_state['route']
-            print(f'{self.callsign} collision detected, reverting to previous state')
+            print(f'{self.callsign}, {self.state}, collision detected, reverting to previous state')
         else:
             print(self.callsign, self.state, self.speed, self.altitude, self.vspeed, self.distance_to_next)
 
@@ -526,6 +530,7 @@ class Arrival(Aircraft):
         self.exitsAvailable = {key: item for key, item in self.runway['exits'].items() if item['LDA'] > self.performance['dist_LD']}
         self.altitude = height
         self.speed_max_taxi = 20
+        self._about_to_cross = False
 
     def next_state(self):
         print('arrival, next_state')
