@@ -236,7 +236,7 @@ while running:
             aircraft.tick(aircraft_list)
             if aircraft.state == 'parked':
                 aircraft_list[i] = Departure(aircraft.callsign, aircraft.performance, aircraft.gate, network)
-            elif aircraft.state == 'go_around' and aircraft.altitude > 2000:
+            elif aircraft.altitude > 3000:
                 aircraft_list.pop(i)
             aircraft.blit_aircraft(screen, target, limits, PADDING, draw_route=True)
 
