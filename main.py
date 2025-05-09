@@ -151,6 +151,7 @@ menu_open = False
 menu_toggle_rect = pygame.Rect(WIDTH - 130, 100, 100, 50)  # Rechtsboven
 menu_rect = pygame.Rect(WIDTH - 230, 170, 200, 310)  # Menu aan rechterkant
 menu_buttons = []
+selected_runway_config = None
 
 
 
@@ -176,9 +177,11 @@ while running:
                 menu_open = not menu_open
 
             if menu_open:
-                for idx, btn in enumerate(menu_buttons):
-                    if btn.collidepoint(pos):
-                        print(f"Knop {idx + 1} geklikt")
+                for idx, (btn_rect, key) in enumerate(menu_buttons):
+                    if btn_rect.collidepoint(pos):
+                        activate_runways = key
+                        selected_runway_config = key  # sla op wat geselecteerd is
+                        print(key)
 
             # Controleer of een airportknop is aangeklikt
             for idx, rect in enumerate(rects):
@@ -187,6 +190,9 @@ while running:
                     show_button = True
                     show_buttons = False
                     print(selected_airport)
+
+
+
 
             # controleren of de zoom standaard knop is ingedrukt
             if rect3.collidepoint(pos):
@@ -355,9 +361,15 @@ while running:
                 btn_rect = pygame.Rect(menu_rect.left + 10, menu_rect.top + 10 + i * (button_height + 10),
                                        menu_rect.width - 20, button_height)
                 pygame.draw.rect(screen, (70, 130, 180), btn_rect)
+
+                #als de knop wordt ingedrukt wordt er een kader rond getekend
+                if key == selected_runway_config:
+                    pygame.draw.rect(screen, (255, 255, 0), btn_rect, width=3)  # geel kader
+
                 screen.blit(create_surface_with_text(f"{key} ", 22, (255, 255, 255), "Arial"),
                             (btn_rect.x + 10, btn_rect.y + 12))
-                menu_buttons.append(btn_rect)
+
+                menu_buttons.append((btn_rect, key))
 
 
         # draw all aircraft
