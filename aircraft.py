@@ -1,10 +1,12 @@
 '''
 Aircraft states:
 for departures
-- gate
-    - aircraft.pushback(direction) direction is [north, east, south, west]
 - pushback
 - pushback_complete
+- cleared_takeoff
+- takeoff
+- gate
+    - aircraft.pushback(direction) direction is [north, east, south, west]
 - ready_taxi
     - aircraft.taxi(runway, destination, vias=[]) destination is a runway exit name, vias is a list of taxi names to route via
 - taxi
@@ -25,14 +27,12 @@ for departures
     - aircraft.takeoff()
 - ready_takeoff
     - aircraft.takeoff()
-- cleared_takeoff
-- takeoff
 
 for arrivals
+- cleared_land
 - arrival
     - aircraft.land(exit) land on the runway and vacate at the specified exit
     - aircraft.go_around() go around, abort the landing
-- cleared_land
 - rollout
     - aircraft.taxi(vias=[]) preemtively give taxi to the gate, vias is a list of taxi names to route via
 - vacate
@@ -63,6 +63,7 @@ import queue
 from pygame_widgets.button import Button
 from pygame_widgets import *
 from pygame_widgets.dropdown import Dropdown
+
       
 
 def draw_sidebar(screen):
@@ -87,7 +88,7 @@ def create_dropdown(screen, x,y,WIDTH, HEIGHT, Name , Choices, Colour,Direction,
             font=pygame.font.SysFont('Arial', 20), 
             backgroundColour=(255, 255, 255), 
             textColour= (0, 0, 0), 
-            Oncklick=lambda: Aircraft.clickhandler()  # Callback function when an item is selected
+            Oncklick= lambda: Aircraft.click_handler()  # Callback function when an item is selected
         )
 
 def create_surface_with_text(text, font_size, text_rgb, font):  # when branch start screen is merged, import this function from there
@@ -279,9 +280,28 @@ class Aircraft():
             self.button_instance.setY(self.rect.centery )
             
     def click_handler(self):
-        self.selected = not self.selected
-          
-    def information(self, screen):
+    # Deselect all other aircraft and clear their buttons
+        for i, aircraft in enumerate(self.network['aircraft_list']):
+            if aircraft.selected:
+                aircraft.selected = False
+
+        # If this aircraft is already in the first position, just select it
+        if self == self.network['aircraft_list'][0]:
+            self.selected = True
+            return
+
+        # Swap this aircraft with the one in the first position
+        idx = self.network['aircraft_list'].index(self)
+        self.network['aircraft_list'][idx], self.network['aircraft_list'][0] = (
+            self.network['aircraft_list'][0],
+            self.network['aircraft_list'][idx],
+        )
+
+        # Set this aircraft as selected
+        self.network['aircraft_list'][0].selected = True
+
+
+    def information(self,screen):
         if self.selected:
             screen.blit(create_surface_with_text(f"callsign: {self.callsign}", 26, (255, 255, 255), 'Arial'), (50, 50))
             screen.blit(create_surface_with_text(f"state: {self.state}", 20, (255, 255, 255), 'Arial'), (50, 80))  
@@ -292,46 +312,100 @@ class Aircraft():
             
                 case 'gate':
                     screen.blit(create_surface_with_text("pushback direction: north, east, south, west", 20, (255, 255, 255), 'Arial'), (50, 140))
-                    if self.flag == False:
-                        Button(screen, 50, 170, 100, 30, text='north', onClick=lambda: self.pushback('north') and print('oo'), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
-                        Button(screen, 50, 200, 100, 30, text='east', onClick=lambda: self.pushback('east'), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
-                        Button(screen, 50, 230, 100, 30, text='south', onClick=lambda: self.pushback('south'), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                    if not hasattr(self, 'pushback_buttons'):
+                        self.pushback_buttons = [
+                        Button(screen, 50, 170, 100, 30, text='north', onClick=lambda: self.pushback('north'), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0),
+                        Button(screen, 50, 200, 100, 30, text='east', onClick=lambda: self.pushback('east') , inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0),
+                        Button(screen, 50, 230, 100, 30, text='south', onClick=lambda: self.pushback('south'), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0),
                         Button(screen, 50, 260, 100, 30, text='west', onClick=lambda: self.pushback('west'), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
-                        
-                        self.flag = True
+                        ]        
+                    
+                            
                 case 'ready_taxi':
                     screen.blit(create_surface_with_text("Enter taxi destination and vias:", 20, (255, 255, 255), 'Arial'), (50, 170))
-                    Button(screen, 50, 200, 150, 30, text='Start Taxi', onClick=lambda: self.taxi('runway_exit_name', vias=['taxiway1', 'taxiway2']), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
-
+                    if not hasattr(self, 'ready_taxi_buttons'):
+                        self.ready_taxi_buttons = [Button(screen, 50, 200, 150, 30, text='Start Taxi', onClick=lambda: self.taxi('runway_exit_name', vias=['taxiway1', 'taxiway2']), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        ]
                 case 'taxi':
+                    
                     screen.blit(create_surface_with_text(f"taxi route: {self.route}", 20, (255, 255, 255), 'Arial'), (50, 140))
-                    Button(screen, 50, 170, 100, 30, text='Cross runway', onClick=lambda: Aircraft.cross_runway(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
-                    Button(screen, 50, 200, 100, 30, text='Hold Position', onClick=lambda: Aircraft.hold_position(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0) 
-                    Button(screen, 50, 230, 100, 30, text='line up', onClick=lambda: Aircraft.line_up(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)      
-                    Button(screen, 50, 200, 100, 30, text='take off', onClick=lambda: Aircraft.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                    if not hasattr(self, 'taxi_buttons'):
+                        self.taxi_buttons = [
+                        Button(screen, 50, 170, 100, 30, text='Cross runway', onClick=lambda: Aircraft.cross_runway(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0),
+                        Button(screen, 50, 200, 100, 30, text='Hold Position', onClick=lambda: Aircraft.hold_position(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0), 
+                        Button(screen, 50, 230, 100, 30, text='line up', onClick=lambda: Aircraft.line_up(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0),      
+                        Button(screen, 50, 200, 100, 30, text='take off', onClick=lambda: Aircraft.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        ]
                 
                 case 'hold_taxi':
                     screen.blit(create_surface_with_text("hold_taxe", 20, (255, 255, 255), 'Arial'), (50, 140))
-                    Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: Aircraft.continue_taxi(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                    if not hasattr(self, 'continue_taxi_buttons'):
+                        self.continue_taxi_buttons = [Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: Aircraft.continue_taxi(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        ]
                 
                 case 'hold_runway':
-                    screen.blit(create_surface_with_text("hold runway", 20, (255, 255, 255), 'Arial'), (50, 140))  
-                    Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: Aircraft.continue_taxi(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                    screen.blit(create_surface_with_text("hold runway", 20, (255, 255, 255), 'Arial'), (50, 140)) 
+                    if not hasattr(self, 'hold_runway_buttons'):
+                        self.hold_runway_buttons = [ 
+                        Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: Aircraft.continue_taxi(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        ]
                 case 'cleared_crossing':
                     screen.blit(create_surface_with_text("cleared crossing", 20, (255, 255, 255), 'Arial'), (50, 140))
-                    Button(screen, 50, 170, 100, 30, text='hold position', onClick=lambda: Aircraft.hold_position(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                    if not hasattr(self, 'cleared_crossing_buttons'):
+                        self.cleared_crossing_buttons = [    
+                        Button(screen, 50, 170, 100, 30, text='hold position', onClick=lambda: Aircraft.hold_position(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        ]
                 case 'ready_line_up':
                     screen.blit(create_surface_with_text("ready line up", 20, (255, 255, 255), 'Arial'), (50, 140))
-                    Button(screen, 50, 170, 100, 30, text='line up', onClick=lambda: Aircraft.line_up(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                    if not hasattr(self, 'ready_line_up_buttons'):
+                        self.ready_line_up_buttons = [
+                        Button(screen, 50, 170, 100, 30, text='line up', onClick=lambda: Aircraft.line_up(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        ]
                 case 'line_up':
                     screen.blit(create_surface_with_text("line up", 20, (255, 255, 255), 'Arial'), (50, 140))
-                    Button(screen, 50, 170, 100, 30, text='take off', onClick=lambda: Aircraft.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                    if not hasattr(self, 'line_up_buttons'):
+                        self.line_up_buttons = [
+                        Button(screen, 50, 170, 100, 30, text='take off', onClick=lambda: Aircraft.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        ]
                 case  'ready_takeoff':
                     screen.blit(create_surface_with_text("ready takeoff", 20, (255, 255, 255), 'Arial'), (50, 140))
-                    Button(screen, 50, 170, 100, 30, text='take off', onClick=lambda: Aircraft.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
-          
-
-
+                    if not hasattr(self, 'ready_takeoff_buttons'):
+                        self.ready_takeoff_buttons = [
+                        Button(screen, 50, 170, 100, 30, text='take off', onClick=lambda: Aircraft.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        ]
+                case 'arrival':
+                    screen.blit(create_surface_with_text("land or abord landing:", 20, (255, 255, 255), 'Arial'), (50, 140))
+                    if not hasattr(self, 'arrival_buttons'):
+                        self.arrival_buttons = [ 
+                        Button(screen, 50, 170, 200, 30, text='land on runway', onClick=lambda: Aircraft.land(exit), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0),
+                        Button(screen, 50, 200, 200, 30, text='go_around', onClick=lambda: Aircraft.go_around(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        ]
+                case 'rollout':
+                    screen.blit(create_surface_with_text("preemtively give taxi to the gate, vias is a list of taxi names to route via- vacate", 20, (255, 255, 255), 'Arial'), (50, 170))
+                    if not hasattr(self, 'rollout_buttons'):
+                        self.rollout_buttons = [ 
+                        Button(screen, 50, 170, 100, 30, text='rollout', onClick=lambda: Aircraft.taxi(vias=[]), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        ]
+                case 'vacate':
+                    screen.blit(create_surface_with_text("vacate:", 20, (255, 255, 255), 'Arial'), (50, 170))
+                    if not hasattr(self, 'vacate_buttons'):
+                        self.vacate_buttons = [ 
+                        Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: Aircraft.taxi(vias=[]), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        ]
+                        
+                case 'vacate_continue':
+                    screen.blit(create_surface_with_text("continue taxiing:", 20, (255, 255, 255), 'Arial'), (50, 170))
+                    if not hasattr(self, 'vacate_continue_buttons'):
+                        self.vacate_buttons = [ 
+                        Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: Aircraft.taxi(vias =[]), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        ]
+                    
+                case 'ready_taxi_gate':
+                    screen.blit(create_surface_with_text(" taxi to the gate", 20, (255, 255, 255), 'Arial'), (50, 170))
+                    if not hasattr(self, 'ready_taxi_gate_buttons'):
+                        self.ready_taxi_gate_buttons = [ 
+                        Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: Aircraft.taxi(vias = []), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        ]
 
             
     def calculate_route(self):
@@ -662,8 +736,7 @@ class Departure(Aircraft):
                 self.state = 'ready_takeoff'
                 self.heading = self.runway['angle']
 
-    def pushback(self, direction):
-        # pushback
+    def pushback(self, direction):        # Change state to pushback
         self.state = 'pushback'
         options = ['north', 'east', 'south', 'west']
         if direction not in options:
@@ -724,6 +797,40 @@ class Departure(Aircraft):
             new_position = distance(meters=distance_to_move*self.movement_direction).destination(self.position, self.heading)
             self.position = (new_position.latitude, new_position.longitude)
             self.altitude += self.vspeed * dt / 60
+
+    def clear_buttons(self):
+        # Remove buttons for the current state
+        if hasattr(self, 'pushback_buttons'):
+            del self.pushback_buttons
+        if hasattr(self, 'ready_taxi_buttons'):
+            del self.ready_taxi_buttons
+        if hasattr(self, 'taxi_buttons'):
+            del self.taxi_buttons
+        # Add similar checks for other button attributes
+        if hasattr(self, 'continue_taxi_buttons'):
+            del self.continue_taxi_buttons
+        if hasattr(self, 'hold_runway_buttons'):
+            del self.hold_runway_buttons
+        if hasattr(self, 'cleared_crossing_buttons'):
+            del self.cleared_crossing_buttons
+        if hasattr(self, 'ready_line_up_buttons'):
+            del self.ready_line_up_buttons
+        if hasattr(self, 'line_up_buttons'):
+            del self.line_up_buttons
+        if hasattr(self, 'ready_takeoff_buttons'):
+            del self.ready_takeoff_buttons
+        if hasattr(self, 'arrival_buttons'):
+            del self.arrival_buttons
+        if hasattr(self, 'rollout_buttons'):
+            del self.rollout_buttons
+        if hasattr(self, 'vacate_buttons'):
+            del self.vacate_buttons
+        if hasattr(self, 'vacate_continue_buttons'):
+            del self.vacate_continue_buttons
+        if hasattr(self, 'ready_taxi_gate_buttons'):
+            del self.ready_taxi_gate_buttons
+
+
 
 if __name__ == '__main__':
     pass

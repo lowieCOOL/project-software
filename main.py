@@ -112,6 +112,9 @@ performance = read_performance()
 active_runways = ['25R', '25L']
 aircraft_list = [generate_flight(schedule, performance, 'arrival', active_runways, network)] + [generate_flight(schedule, performance, 'departure', active_runways, network) for i in range(2)]
 
+for aircraft in aircraft_list:
+    aircraft.network['aircraft_list'] = aircraft_list
+
 arrival_list = [i.callsign for i in aircraft_list if i.state == 'arrival']
 # gameloop
 running = True
@@ -227,7 +230,11 @@ while running:
             elif aircraft.state == 'go_around' and aircraft.altitude > 2000:
                 aircraft_list.pop(i)
             aircraft.blit_aircraft(screen, target, WIDTH, HEIGHT, limits, PADDING, draw_route=True)
+            aircraft.information(screen)  
+            aircraft.selected = (i==0) 
+            
 
+ # Move selected aircraft to the first position
         # smooth the screen, type of AA
         smooth_screen(screen, 0.6)
 
