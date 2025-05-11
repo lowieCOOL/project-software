@@ -173,7 +173,7 @@ minimap_limits = calculate_mini_map_limits(network, spawn_height=2000, padding=1
 for aircraft in aircraft_list:
     aircraft.network['aircraft_list'] = aircraft_list
     
-create_dropdown(screen, screen.get_width()/4, screen.get_height() / 20, screen.get_width()/4,screen.get_height() / 20, 'Arrival', [aircraft.callsign for aircraft in aircraft_list if aircraft.state == 'arrival'],(150, 150, 150), 'down', 'left',aircraft_list)
+create_dropdown(screen, screen.get_width()/4, screen.get_height() / 20, screen.get_width()/4,screen.get_height() / 20, 'Arrival', [aircraft.callsign for aircraft in aircraft_list if aircraft.type == 'arrival'],(150, 150, 150), 'down', 'left',aircraft_list)
 # gameloop
 running = True
 while running:
