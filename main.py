@@ -5,8 +5,10 @@ import random as rand
 import os
 from scipy.ndimage import gaussian_filter
 from aircraft import Departure
+import aircraft as Aircraft
 from airport_mapper import *
 from aircraft_generator import generate_flight, read_schedule, read_performance
+from geopy.distance import distance
 
 json_file_name = "osm_data.json"
 # Load OSM JSON data
@@ -61,6 +63,63 @@ airport_names = []
 
 current_freq = 50  # Startfreq
 current_freq_text = f"{str(current_freq).zfill(2)}"
+
+# Define the size and position of the miniature map
+MINI_MAP_WIDTH = 300
+MINI_MAP_HEIGHT = 200
+MINI_MAP_PADDING = 10  # Padding from the bottom-right corner
+
+def calculate_mini_map_limits(network, spawn_height=3000, padding=10):
+    distance_to_threshold = (spawn_height - 50) / math.tan(math.radians(3))
+    lats = []
+    lons = []
+    for key, runway in network['runways'].items():
+        heading = runway['angle']
+        threshold = runway['threshold']
+        pos = distance(feet=-distance_to_threshold).destination(network['all_nodes'][threshold], heading)
+        lats.append(pos.latitude)
+        lons.append(pos.longitude)
+    limits = [[min(lats), max(lats)], [min(lons), max(lons)]]
+    return limits
+
+# Function to draw the miniature map
+def draw_mini_map(screen, all_nodes, osm_data, aircraft_list, limits, padding):
+    mini_map_surface = pygame.Surface((MINI_MAP_WIDTH, MINI_MAP_HEIGHT))
+    mini_map_surface.fill((50, 50, 50))  # Background color for the mini-map
+
+    # Draw runways on the miniature map
+    for element in osm_data["elements"]:
+        if element["type"] == "way" and "nodes" in element and element["tags"].get("aeroway") == "runway":
+            points = [
+                Aircraft.latlon_to_screen(
+                    (all_nodes[n][0], all_nodes[n][1]),
+                    limits,
+                    MINI_MAP_WIDTH,
+                    MINI_MAP_HEIGHT,
+                    0
+                )
+                for n in element["nodes"] if n in all_nodes
+            ]
+
+            if points:
+                pygame.draw.lines(mini_map_surface, (200, 200, 200), False, points, 2)
+
+    # Draw aircraft on the miniature map
+    for aircraft in aircraft_list:
+        x, y = Aircraft.latlon_to_screen(
+            aircraft.position,
+            limits,
+            MINI_MAP_WIDTH,
+            MINI_MAP_HEIGHT,
+            0
+        )
+        pygame.draw.circle(mini_map_surface, (255, 0, 0), (x, y), 2)
+
+    # Blit the miniature map onto the main screen
+    screen.blit(
+        mini_map_surface,
+        (WIDTH - MINI_MAP_WIDTH - MINI_MAP_PADDING, HEIGHT - MINI_MAP_HEIGHT - MINI_MAP_PADDING)
+    )
 
 # Function to convert lat/lon to screen coordinates
 def latlon_to_screen(lat, lon, min_lat, max_lat, min_lon, max_lon, width, height, padding, offset_x=0, offset_y=0):
@@ -127,6 +186,7 @@ schedule = read_schedule('EBBR')
 performance = read_performance()
 active_runways = ['25R', '25L']
 aircraft_list = [generate_flight(schedule, performance, 'arrival', active_runways, network)] + [generate_flight(schedule, performance, 'departure', active_runways, network) for i in range(2)]
+minimap_limits = calculate_mini_map_limits(network, spawn_height=2000, padding=10)
 
 # gameloop
 running = True
@@ -239,6 +299,9 @@ while running:
             elif aircraft.altitude > 3000:
                 aircraft_list.pop(i)
             aircraft.blit_aircraft(screen, target, limits, PADDING, draw_route=True)
+
+        # Draw the miniature map
+        draw_mini_map(screen, all_nodes, osm_data, aircraft_list, minimap_limits, PADDING)
 
         # smooth the screen, type of AA
         smooth_screen(screen, 0.6)
