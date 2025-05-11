@@ -23,17 +23,17 @@ WIDTH,HEIGHT = screen.get_size()
 # Screen settings
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Pygame Text Rendering")
-PADDING = 50
+PADDING = 50 #offset boven en onder
 BG_COLOR = (30, 30, 30)  # Dark background
 BLUE = (60, 160, 237)
 GRAY = (169, 169, 169)
 
-#START SCREN BACKGROUND
+#START SCREEN BACKGROUND
 image_path = "assets\\RADAR.jpg"
 background_image = pygame.image.load(image_path).convert()
 background_image = pygame.transform.scale(background_image, (WIDTH, HEIGHT))
 
-# plane icon sizer
+# plane icon sizer als we inzoomen
 def update_plane_icon_scale():
     global target  # Zorg dat we de globale `target` variabele aanpassen
 
@@ -70,6 +70,7 @@ rect3 = pygame.Rect(0, 0, 0, 0)
 
 rects = []
 airport_names = []
+
 
 current_freq = 50  # Startfreq
 current_freq_text = f"{str(current_freq).zfill(2)}"
