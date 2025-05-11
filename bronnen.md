@@ -16,3 +16,11 @@ https://gist.github.com/jeromer/2005586
 subclasses
 
 https://stackoverflow.com/questions/9269902/is-there-a-way-to-create-subclasses-on-the-fly
+
+pygame widgets
+
+https://pygamewidgets.readthedocs.io/en/latest/
+
+tower game
+
+https://github.com/jamesg31/TowerGame/blob/master

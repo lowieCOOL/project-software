@@ -5,11 +5,14 @@ import random as rand
 import os
 from scipy.ndimage import gaussian_filter
 from aircraft import Departure
-import aircraft as Aircraft
 from airport_mapper import *
 from aircraft_generator import generate_flight, read_schedule, read_performance, read_runways
+import pygame_widgets
+from aircraft import *
+# from sidebar_ import *
 from geopy.distance import geodesic, distance
 
+json_file_name = "osm_data.json"
 json_file_name = "osm_data.json"
 # Load OSM JSON data
 with open(json_file_name, "r") as file:
@@ -115,7 +118,7 @@ def draw_mini_map(screen, all_nodes, osm_data, aircraft_list, limits, padding):
     for element in osm_data["elements"]:
         if element["type"] == "way" and "nodes" in element and element["tags"].get("aeroway") == "runway":
             points = [
-                Aircraft.latlon_to_screen(
+                latlon_to_screen(
                     (all_nodes[n][0], all_nodes[n][1]),
                     limits,
                     MINI_MAP_WIDTH,
@@ -130,7 +133,7 @@ def draw_mini_map(screen, all_nodes, osm_data, aircraft_list, limits, padding):
 
     # Draw aircraft on the miniature map
     for aircraft in aircraft_list:
-        x, y = Aircraft.latlon_to_screen(
+        x, y = latlon_to_screen(
             aircraft.position,
             limits,
             MINI_MAP_WIDTH,
@@ -181,7 +184,6 @@ clock = pygame.time.Clock()
 # process the osm data
 network = map_airport(json_file_name, all_nodes)
 
-WIDTH,HEIGHT = screen.get_size()
 
 # read the schedule and performance data
 schedule = read_schedule('EBBR')
@@ -287,7 +289,12 @@ while running:
                     ]
                     last_time_aircraft = time.time()
                     for aircraft in aircraft_list:
-                        aircraft.blit_aircraft(screen, target, limits, PADDING, draw_route=True)
+                        aircraft.blit_aircraft(screen, target, WIDTH, HEIGHT, limits, PADDING, draw_route=True)
+
+                    for aircraft in aircraft_list:
+                        aircraft.network['aircraft_list'] = aircraft_list
+                        
+                    create_dropdown(screen, screen.get_width()/4, screen.get_height() / 20, screen.get_width()/4,screen.get_height() / 20, 'Arrival', [aircraft.callsign for aircraft in aircraft_list if aircraft.type == 'arrival'],(150, 150, 150), 'down', 'left',aircraft_list)
 
                 #controleer of de back button wordt ingedrukt                
                 if rect_backbutton.collidepoint(pos):
@@ -396,7 +403,7 @@ while running:
         # Draw ways (taxiways, runways, etc.)
         for element in osm_data["elements"]:
             if element["type"] == "way" and "nodes" in element:
-                points = [Aircraft.latlon_to_screen(all_nodes[n], limits, WIDTH, HEIGHT, PADDING)
+                points = [latlon_to_screen(all_nodes[n], limits, WIDTH, HEIGHT, PADDING)
                           for n in element["nodes"] if n in all_nodes]
 
                 if points:
@@ -406,20 +413,33 @@ while running:
                         continue
                     else:
                         pygame.draw.lines(screen, (200, 200, 200), False, points, 2)
+
+        # Draw sidebar
+        draw_sidebar(screen)
+        
+
         # draw all aircraft
         for i, aircraft in enumerate(aircraft_list):
             aircraft.tick(aircraft_list)
             if aircraft.state == 'parked':
                 aircraft_list[i] = Departure(aircraft.callsign, aircraft.performance, aircraft.gate, network)
-            elif aircraft.altitude > 3000:
+            elif aircraft.state == 'go_around' and aircraft.altitude > 3000:
+                aircraft.clear_buttons_aircraft()
+                aircraft.clear_buttons()                
                 aircraft_list.pop(i)
-            aircraft.blit_aircraft(screen, target, limits, PADDING, draw_route=True)
+                
+            aircraft.blit_aircraft(screen, target, WIDTH, HEIGHT, limits, PADDING, draw_route=aircraft.selected)
+            aircraft.information(screen)  
+            aircraft.selected = (i==0) 
+            if not aircraft.selected:   
+                aircraft.clear_buttons()
 
+ # Move selected aircraft to the first position
         # Draw the miniature map
         draw_mini_map(screen, all_nodes, osm_data, aircraft_list, minimap_limits, PADDING)
 
         # smooth the screen, type of AA
-        smooth_screen(screen, 0.6)
+        # smooth_screen(screen, 0.6)
 
         screen.blit(magnifying_glass, (WIDTH-90,40))
         # Toggle rechthoek
@@ -458,6 +478,7 @@ while running:
     fps = clock.get_fps()
     fps_surface = create_surface_with_text(f"FPS: {int(fps)}", 20, (255, 255, 255), "Arial")
     screen.blit(fps_surface, (WIDTH - fps_surface.get_width() - 10, 10))
+    pygame_widgets.update(pygame.event.get())
     pygame.display.flip()
 
 pygame.quit()
