@@ -434,7 +434,7 @@ class Aircraft():
         if self.altitude < 0:
             self.altitude = 0
 
-        if self.check_collision(aircraft_list):
+        if self.state != 'pushback' and self.check_collision(aircraft_list):
             self.position = previous_state['position']
             self.heading = previous_state['heading']
             self._speed = 0
