@@ -292,7 +292,7 @@ while running:
                 aircraft.clear_buttons()                
                 aircraft_list.pop(i)
                 
-            aircraft.blit_aircraft(screen, target, WIDTH, HEIGHT, limits, PADDING, draw_route=True)
+            aircraft.blit_aircraft(screen, target, WIDTH, HEIGHT, limits, PADDING, draw_route=aircraft.selected)
             aircraft.information(screen)  
             aircraft.selected = (i==0) 
             if not aircraft.selected:   
