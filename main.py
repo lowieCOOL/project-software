@@ -223,6 +223,7 @@ running = True
 while running:
     clock.tick(60)
     screen.fill(BG_COLOR)
+    all_events = pygame.event.get()
     # als de airport of de startknop wordt geshowed wordt het beginscherm afgebeeld
     if show_select_aiport_buttons or show_start_button:
         screen.blit(background_image, (0, 0))
@@ -237,7 +238,7 @@ while running:
             screen.blit(text_surface, (rect.x + button_width // 2 - text_width // 2, HEIGHT - spatie_onder))
 
         # Event handling
-        for event in pygame.event.get():
+        for event in all_events:
             if event.type == pygame.QUIT:
                 running = False
 
@@ -254,7 +255,7 @@ while running:
                         print(selected_airport)
 
     # Schuifbalk tekenen als de knoppen niet worden weergegeven
-    if show_start_button:
+    elif show_start_button:
         pygame.draw.rect(screen, GRAY, rect_schuifbar)  # Schuifbalk
         pygame.draw.circle(screen, GRAY, ((WIDTH - 500) / 2 + 500, HEIGHT-spatie_onder-68), 7)  # Linker rand
         pygame.draw.circle(screen, GRAY, ((WIDTH - 500) / 2, HEIGHT-spatie_onder-68), 7)  # Rechter rand
@@ -270,7 +271,7 @@ while running:
         screen.blit(create_surface_with_text(current_freq_text, 50, BLUE, "Arial Black"),((WIDTH - 63) / 2, HEIGHT-spatie_onder-205))  # breedte = 144
         screen.blit(text_surface5, ((WIDTH - 245) / 2, HEIGHT-spatie_onder-255))
 
-        for event in pygame.event.get():
+        for event in all_events:
             if event.type == pygame.QUIT:
                 running = False
 
@@ -323,7 +324,7 @@ while running:
 
     # als er op de starknop wordt gedrukt begint het spel
     if not show_select_aiport_buttons and not show_start_button and game_started:
-        for event in pygame.event.get():
+        for event in all_events:
             if event.type == pygame.QUIT:
                 running = False
 
@@ -478,7 +479,7 @@ while running:
     fps = clock.get_fps()
     fps_surface = create_surface_with_text(f"FPS: {int(fps)}", 20, (255, 255, 255), "Arial")
     screen.blit(fps_surface, (WIDTH - fps_surface.get_width() - 10, 10))
-    pygame_widgets.update(pygame.event.get())
+    pygame_widgets.update(all_events)
     pygame.display.flip()
 
 pygame.quit()

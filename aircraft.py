@@ -152,7 +152,7 @@ class Aircraft():
     def speed(self):
         match self.state:
             case 'pushback':
-                return -5*10
+                return -5
             case 'taxi'| 'crossing_runway'| 'cleared_crossing'| 'line_up'| 'cleared_takeoff' | 'arrival' | 'cleared_land' | 'rollout' | 'rollout_continue':
                 return self._speed
             case 'takeoff':
