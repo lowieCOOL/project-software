@@ -52,7 +52,7 @@ def generate_flight(schedule_json: dict, all_performance: dict, type: str, activ
 
     if type == 'arrival':
         runway = random.choice(active_runways)
-        flight = Arrival(callsign, performance, runway, network, gate, height=500)
+        flight = Arrival(callsign, performance, runway, network, gate, height=2000)
         
     elif type == 'departure':
         flight = Departure(callsign, performance, gate, network)
