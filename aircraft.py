@@ -72,24 +72,34 @@ def draw_sidebar(screen):
         sidebar_height = screen.get_height()
         pygame.draw.rect(screen, (40,40,40), (0, 0, sidebar_width, sidebar_height)) # 30, 30, 30
     
-def create_dropdown(screen, x,y,WIDTH, HEIGHT, Name , Choices, Colour,Direction,TextHalign ):
-        Dropdown(
-            screen,
-            x,  # Adjust position dynamically
-            y,  # Adjust position dynamically
-            WIDTH,  # Dropdown width
-            HEIGHT,  # Dropdown height
-            name= Name,
-            choices= Choices,
-            colour= Colour,
-            direction= Direction,
-            textHalign= TextHalign,
-            
-            font=pygame.font.SysFont('Arial', 20), 
-            backgroundColour=(255, 255, 255), 
-            textColour= (0, 0, 0), 
-            Oncklick= lambda: Aircraft.click_handler()  # Callback function when an item is selected
-        )
+def create_dropdown(screen, x, y, WIDTH, HEIGHT, Name, Choices, Colour, Direction, TextHalign, aircraft_list):
+    dropdown = Dropdown(
+        screen,
+        x,
+        y,
+        WIDTH,
+        HEIGHT,
+        name=Name,
+        choices=Choices,
+        colour=Colour,
+        direction=Direction,
+        textHalign=TextHalign,
+        font=pygame.font.SysFont('Arial', 20),
+        backgroundColour=(255, 255, 255),
+        textColour=(0, 0, 0),
+        onClick= lambda: dropdown_selection_getter(dropdown.getSelected(), aircraft_list)  # ← use instance method
+    )
+
+
+def dropdown_selection_getter(selected_callsign, aircraft_list):
+    for aircraft in aircraft_list:
+        if aircraft.callsign == selected_callsign:
+            aircraft.click_handler()
+            print('Selected:', aircraft.callsign)
+            break
+    
+
+
 
 def create_surface_with_text(text, font_size, text_rgb, font):  # when branch start screen is merged, import this function from there
     font = pygame.freetype.SysFont(font, font_size)
@@ -281,8 +291,9 @@ class Aircraft():
             
     def click_handler(self):
     # Deselect all other aircraft and clear their buttons
-        for i, aircraft in enumerate(self.network['aircraft_list']):
+        for aircraft in self.network['aircraft_list']:
             if aircraft.selected:
+                aircraft.clear_buttons()  # Clear buttons for the previously selected aircraft
                 aircraft.selected = False
 
         # If this aircraft is already in the first position, just select it
@@ -406,7 +417,42 @@ class Aircraft():
                         self.ready_taxi_gate_buttons = [ 
                         Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: Aircraft.taxi(vias = []), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
-
+    
+    def clear_buttons_aircraft(self):
+        if hasattr(self, 'button_instance'):
+            del self.button_instance
+    
+    def clear_buttons(self):
+        # Remove buttons for the current state
+        if hasattr(self, 'pushback_buttons'):
+            del self.pushback_buttons
+        if hasattr(self, 'ready_taxi_buttons'):
+            del self.ready_taxi_buttons
+        if hasattr(self, 'taxi_buttons'):
+            del self.taxi_buttons
+        # Add similar checks for other button attributes
+        if hasattr(self, 'continue_taxi_buttons'):
+            del self.continue_taxi_buttons
+        if hasattr(self, 'hold_runway_buttons'):
+            del self.hold_runway_buttons
+        if hasattr(self, 'cleared_crossing_buttons'):
+            del self.cleared_crossing_buttons
+        if hasattr(self, 'ready_line_up_buttons'):
+            del self.ready_line_up_buttons
+        if hasattr(self, 'line_up_buttons'):
+            del self.line_up_buttons
+        if hasattr(self, 'ready_takeoff_buttons'):
+            del self.ready_takeoff_buttons
+        if hasattr(self, 'arrival_buttons'):
+            del self.arrival_buttons
+        if hasattr(self, 'rollout_buttons'):
+            del self.rollout_buttons
+        if hasattr(self, 'vacate_buttons'):
+            del self.vacate_buttons
+        if hasattr(self, 'vacate_continue_buttons'):
+            del self.vacate_continue_buttons
+        if hasattr(self, 'ready_taxi_gate_buttons'):
+            del self.ready_taxi_gate_buttons
             
     def calculate_route(self):
         pass
@@ -798,37 +844,6 @@ class Departure(Aircraft):
             self.position = (new_position.latitude, new_position.longitude)
             self.altitude += self.vspeed * dt / 60
 
-    def clear_buttons(self):
-        # Remove buttons for the current state
-        if hasattr(self, 'pushback_buttons'):
-            del self.pushback_buttons
-        if hasattr(self, 'ready_taxi_buttons'):
-            del self.ready_taxi_buttons
-        if hasattr(self, 'taxi_buttons'):
-            del self.taxi_buttons
-        # Add similar checks for other button attributes
-        if hasattr(self, 'continue_taxi_buttons'):
-            del self.continue_taxi_buttons
-        if hasattr(self, 'hold_runway_buttons'):
-            del self.hold_runway_buttons
-        if hasattr(self, 'cleared_crossing_buttons'):
-            del self.cleared_crossing_buttons
-        if hasattr(self, 'ready_line_up_buttons'):
-            del self.ready_line_up_buttons
-        if hasattr(self, 'line_up_buttons'):
-            del self.line_up_buttons
-        if hasattr(self, 'ready_takeoff_buttons'):
-            del self.ready_takeoff_buttons
-        if hasattr(self, 'arrival_buttons'):
-            del self.arrival_buttons
-        if hasattr(self, 'rollout_buttons'):
-            del self.rollout_buttons
-        if hasattr(self, 'vacate_buttons'):
-            del self.vacate_buttons
-        if hasattr(self, 'vacate_continue_buttons'):
-            del self.vacate_continue_buttons
-        if hasattr(self, 'ready_taxi_gate_buttons'):
-            del self.ready_taxi_gate_buttons
 
 
 

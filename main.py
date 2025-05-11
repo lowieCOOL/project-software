@@ -114,8 +114,8 @@ aircraft_list = [generate_flight(schedule, performance, 'arrival', active_runway
 
 for aircraft in aircraft_list:
     aircraft.network['aircraft_list'] = aircraft_list
-
-arrival_list = [i.callsign for i in aircraft_list if i.state == 'arrival']
+    
+create_dropdown(screen, screen.get_width()/4, screen.get_height() / 20, screen.get_width()/4,screen.get_height() / 20, 'Arrival', [aircraft.callsign for aircraft in aircraft_list if aircraft.state == 'arrival'],(150, 150, 150), 'down', 'left',aircraft_list)
 # gameloop
 running = True
 while running:
@@ -220,7 +220,7 @@ while running:
 
         # Draw sidebar
         draw_sidebar(screen)
-        create_dropdown(screen, screen.get_width()/4, screen.get_height() / 20, screen.get_width()/4,screen.get_height() / 20, 'Arrival', arrival_list,(150, 150, 150), 'down', 'left')
+        
 
         # draw all aircraft
         for i, aircraft in enumerate(aircraft_list):
@@ -228,11 +228,15 @@ while running:
             if aircraft.state == 'parked':
                 aircraft_list[i] = Departure(aircraft.callsign, aircraft.performance, aircraft.gate, network)
             elif aircraft.state == 'go_around' and aircraft.altitude > 2000:
+                aircraft.clear_buttons_aircraft()
+                aircraft.clear_buttons()                
                 aircraft_list.pop(i)
+                
             aircraft.blit_aircraft(screen, target, WIDTH, HEIGHT, limits, PADDING, draw_route=True)
             aircraft.information(screen)  
             aircraft.selected = (i==0) 
-            
+            if not aircraft.selected:   
+                aircraft.clear_buttons()
 
  # Move selected aircraft to the first position
         # smooth the screen, type of AA
