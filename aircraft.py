@@ -464,8 +464,24 @@ class Aircraft():
                     screen.blit(create_surface_with_text("preemtively give taxi to the gate, vias is a list of taxi names to route via- vacate", 20, (255, 255, 255), 'Arial'), (50, 170))
                     if not hasattr(self, 'rollout_buttons'):
                         self.rollout_buttons = [ 
-                        Button(screen, 50, 170, 100, 30, text='rollout', onClick=lambda: self.taxi(exit='default_exit', vias=[]), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 170, 200, 30, text='Vacate Runway', onClick=lambda: self.taxi(self.rollout_buttons, vias=self.vias_selected), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
+                        for i, exit_option in enumerate(self.runway['exits'].keys()):
+                            self.rollout_buttons.append(
+                                Button(
+                                    screen,
+                                    50,
+                                    210 + i * 40,  # Adjust Y position for each button
+                                    200,
+                                    30,
+                                    text=f'Exit {exit_option}',
+                                    onClick=lambda exit_option=exit_option: self.taxi(exit=exit_option, vias=self.vias_selected),  # Capture exit_option correctly
+                                    inactiveColour=(255, 223, 63),
+                                    pressedColour=(255, 212, 0),
+                                    hoverColour=(212, 212, 0),
+                                    radius=0
+                                )
+                            )
                         self.vias_selected = []  # Initialize the list to store selected vias       
                         self.via_buttons = []
                         for i, via in enumerate(self.network['vias']):
@@ -488,7 +504,7 @@ class Aircraft():
                     screen.blit(create_surface_with_text("vacate:", 20, (255, 255, 255), 'Arial'), (50, 170))
                     if not hasattr(self, 'vacate_buttons'):
                         self.vacate_buttons = [ 
-                        Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: self.taxi(vias=[]), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: self.taxi(self.vias_selected), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
                         self.vias_selected = []  # Initialize the list to store selected vias       
                         self.via_buttons = []
@@ -513,7 +529,7 @@ class Aircraft():
                     screen.blit(create_surface_with_text("continue taxiing:", 20, (255, 255, 255), 'Arial'), (50, 170))
                     if not hasattr(self, 'vacate_continue_buttons'):
                         self.vacate_continue_buttons = [ 
-                        Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: self.taxi(vias =[]), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: self.taxi(self.vias_selected), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
                         self.vias_selected = []  # Initialize the list to store selected vias       
                         self.via_buttons = []
@@ -537,7 +553,7 @@ class Aircraft():
                     screen.blit(create_surface_with_text(" taxi to the gate", 20, (255, 255, 255), 'Arial'), (50, 170))
                     if not hasattr(self, 'ready_taxi_gate_buttons'):
                         self.ready_taxi_gate_buttons = [ 
-                        Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: self.taxi(vias = []), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: self.taxi(self.vias_selected), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
                         self.vias_selected = []  # Initialize the list to store selected vias       
                         self.via_buttons = []
