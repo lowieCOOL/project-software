@@ -468,12 +468,14 @@ while running:
 
                 menu_buttons.append((btn_rect, key))
 
-        # de vleigtuigen landen afhankelijk van de gegeven frequentie
+        # Calculate spawn interval: 60s at 100%, 300s at 0%
+        spawn_interval = 300 - (current_freq / 100) * 240  # 300s - 240s = 60s at 100%
+
         dt = time.time() - last_time_aircraft
-        if dt > (-1.2 * current_freq + 240):
+        if dt > spawn_interval:
             aircraft_list.append(
                 generate_flight(schedule, performance, 'arrival', active_runways, network))
-        last_time_aircraft = time.time()
+            last_time_aircraft = time.time()
 
     #draw the fps in the topright
     fps = clock.get_fps()
