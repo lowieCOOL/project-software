@@ -1,0 +1,16 @@
+{
+  "25R/25L": {
+    "active_runways": ["25R","25L"]},
+
+    "07R": {
+    "active_runways": ["07R"]},
+
+    "07L": {
+    "active_runways": ["07L"]},
+
+    "19": {
+    "active_runways": ["19"]},
+
+    "01": {
+    "active_runways": ["01"]}
+}

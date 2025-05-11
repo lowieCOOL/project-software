@@ -355,7 +355,7 @@ class Aircraft():
         if aircraft_list is None:
             return False
         for other_aircraft in aircraft_list:
-            if other_aircraft == self:
+            if other_aircraft == self or other_aircraft.state == 'pushback' or other_aircraft.state == 'gate':
                 continue
             angle = angle_difference(self.network['all_nodes'], self.position, other_aircraft.position, angle=self.angle)
             if abs(angle) > 45:
