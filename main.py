@@ -459,7 +459,6 @@ while running:
     fps_surface = create_surface_with_text(f"FPS: {int(fps)}", 20, (255, 255, 255), "Arial")
     screen.blit(fps_surface, (WIDTH - fps_surface.get_width() - 10, 10))
     pygame.display.flip()
-    print(active_runways)
 
 pygame.quit()
 
