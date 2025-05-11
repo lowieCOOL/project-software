@@ -87,6 +87,7 @@ def map_airport(file_name, all_nodes):
     network = {}
     taxi_nodes = {}
     runways = {}
+    taxiways = set()
 
     for element in elements:
         if element['type'] != 'way' or 'ref' not in element['tags']:
@@ -94,8 +95,9 @@ def map_airport(file_name, all_nodes):
         type = element['tags']['aeroway']
 
         if type == 'taxiway':
+            parent = element['tags']['ref']
+            taxiways.add(parent)
             for i, node in enumerate(element['nodes']):
-                parent = element['tags']['ref']
                 if not node in taxi_nodes:
                     taxi_nodes[node] = {'next_moves': [], 'parents': [parent]}
                 if not parent in taxi_nodes[node]['parents']:
@@ -117,6 +119,7 @@ def map_airport(file_name, all_nodes):
             if runway_name not in runways:
                 runways[runway_name] = element
 
+    network['taxiways'] = sorted(taxiways)
     network['all_nodes'] = all_nodes
     network['runways'] = process_runways(all_nodes, runways, elements, taxi_nodes)
     network['aprons'], apron_polygons = process_aprons(elements, all_nodes)

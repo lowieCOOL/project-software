@@ -239,7 +239,7 @@ class Aircraft():
         self.performance = performance
         self.selected = False
         
-    def blit_aircraft(self, screen, png, WIDTH, HEIGHT, limits, padding, draw_route=False):
+    def blit_aircraft(self, screen, png, WIDTH, HEIGHT, limits, padding, draw_route=False, draw_rect=False):
         coords = latlon_to_screen(self.position, limits, WIDTH, HEIGHT, padding)
 
         # Convert aviation heading to Pygame's counterclockwise system
@@ -266,6 +266,7 @@ class Aircraft():
         # Blit rotated image
         self.button(screen)
         screen.blit(rotated_image, new_rect.topleft)
+        if draw_rect: pygame.draw.rect(screen, (255, 0, 0), new_rect, 2)  # Draw the rectangle around the aircraft
         
 
     def button(self, screen):
@@ -342,80 +343,80 @@ class Aircraft():
                     screen.blit(create_surface_with_text(f"taxi route: {self.route}", 20, (255, 255, 255), 'Arial'), (50, 140))
                     if not hasattr(self, 'taxi_buttons'):
                         self.taxi_buttons = [
-                        Button(screen, 50, 170, 100, 30, text='Cross runway', onClick=lambda: Aircraft.cross_runway(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0),
-                        Button(screen, 50, 200, 100, 30, text='Hold Position', onClick=lambda: Aircraft.hold_position(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0), 
-                        Button(screen, 50, 230, 100, 30, text='line up', onClick=lambda: Aircraft.line_up(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0),      
-                        Button(screen, 50, 200, 100, 30, text='take off', onClick=lambda: Aircraft.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 170, 100, 30, text='Cross runway', onClick=lambda: self.cross_runway(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0),
+                        Button(screen, 50, 200, 100, 30, text='Hold Position', onClick=lambda: self.hold_position(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0), 
+                        Button(screen, 50, 230, 100, 30, text='line up', onClick=lambda: self.line_up(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0),      
+                        Button(screen, 50, 200, 100, 30, text='take off', onClick=lambda: self.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
                 
                 case 'hold_taxi':
                     screen.blit(create_surface_with_text("hold_taxe", 20, (255, 255, 255), 'Arial'), (50, 140))
                     if not hasattr(self, 'continue_taxi_buttons'):
-                        self.continue_taxi_buttons = [Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: Aircraft.continue_taxi(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        self.continue_taxi_buttons = [Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: self.continue_taxi(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
                 
                 case 'hold_runway':
                     screen.blit(create_surface_with_text("hold runway", 20, (255, 255, 255), 'Arial'), (50, 140)) 
                     if not hasattr(self, 'hold_runway_buttons'):
                         self.hold_runway_buttons = [ 
-                        Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: Aircraft.continue_taxi(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: self.continue_taxi(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
                 case 'cleared_crossing':
                     screen.blit(create_surface_with_text("cleared crossing", 20, (255, 255, 255), 'Arial'), (50, 140))
                     if not hasattr(self, 'cleared_crossing_buttons'):
                         self.cleared_crossing_buttons = [    
-                        Button(screen, 50, 170, 100, 30, text='hold position', onClick=lambda: Aircraft.hold_position(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 170, 100, 30, text='hold position', onClick=lambda: self.hold_position(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
                 case 'ready_line_up':
                     screen.blit(create_surface_with_text("ready line up", 20, (255, 255, 255), 'Arial'), (50, 140))
                     if not hasattr(self, 'ready_line_up_buttons'):
                         self.ready_line_up_buttons = [
-                        Button(screen, 50, 170, 100, 30, text='line up', onClick=lambda: Aircraft.line_up(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 170, 100, 30, text='line up', onClick=lambda: self.line_up(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
                 case 'line_up':
                     screen.blit(create_surface_with_text("line up", 20, (255, 255, 255), 'Arial'), (50, 140))
                     if not hasattr(self, 'line_up_buttons'):
                         self.line_up_buttons = [
-                        Button(screen, 50, 170, 100, 30, text='take off', onClick=lambda: Aircraft.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 170, 100, 30, text='take off', onClick=lambda: self.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
                 case  'ready_takeoff':
                     screen.blit(create_surface_with_text("ready takeoff", 20, (255, 255, 255), 'Arial'), (50, 140))
                     if not hasattr(self, 'ready_takeoff_buttons'):
                         self.ready_takeoff_buttons = [
-                        Button(screen, 50, 170, 100, 30, text='take off', onClick=lambda: Aircraft.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 170, 100, 30, text='take off', onClick=lambda: self.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
                 case 'arrival':
                     screen.blit(create_surface_with_text("land or abord landing:", 20, (255, 255, 255), 'Arial'), (50, 140))
                     if not hasattr(self, 'arrival_buttons'):
                         self.arrival_buttons = [ 
-                        Button(screen, 50, 170, 200, 30, text='land on runway', onClick=lambda: Aircraft.land(exit), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0),
-                        Button(screen, 50, 200, 200, 30, text='go_around', onClick=lambda: Aircraft.go_around(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 170, 200, 30, text='land on runway', onClick=lambda: self.land(exit), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0),
+                        Button(screen, 50, 200, 200, 30, text='go_around', onClick=lambda: self.go_around(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
                 case 'rollout':
                     screen.blit(create_surface_with_text("preemtively give taxi to the gate, vias is a list of taxi names to route via- vacate", 20, (255, 255, 255), 'Arial'), (50, 170))
                     if not hasattr(self, 'rollout_buttons'):
                         self.rollout_buttons = [ 
-                        Button(screen, 50, 170, 100, 30, text='rollout', onClick=lambda: Aircraft.taxi(vias=[]), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 170, 100, 30, text='rollout', onClick=lambda: self.taxi(vias=[]), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
                 case 'vacate':
                     screen.blit(create_surface_with_text("vacate:", 20, (255, 255, 255), 'Arial'), (50, 170))
                     if not hasattr(self, 'vacate_buttons'):
                         self.vacate_buttons = [ 
-                        Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: Aircraft.taxi(vias=[]), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: self.taxi(vias=[]), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
                         
                 case 'vacate_continue':
                     screen.blit(create_surface_with_text("continue taxiing:", 20, (255, 255, 255), 'Arial'), (50, 170))
                     if not hasattr(self, 'vacate_continue_buttons'):
                         self.vacate_buttons = [ 
-                        Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: Aircraft.taxi(vias =[]), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: self.taxi(vias =[]), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
                     
                 case 'ready_taxi_gate':
                     screen.blit(create_surface_with_text(" taxi to the gate", 20, (255, 255, 255), 'Arial'), (50, 170))
                     if not hasattr(self, 'ready_taxi_gate_buttons'):
                         self.ready_taxi_gate_buttons = [ 
-                        Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: Aircraft.taxi(vias = []), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 170, 100, 30, text='Continue taxi', onClick=lambda: self.taxi(vias = []), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
     
     def clear_buttons_aircraft(self):
@@ -482,13 +483,28 @@ class Aircraft():
             case 'hold_runway':
                 self.state = 'crossing_runway'               
 
-    def tick(self):
+    def check_collision(self, aircraft_list=None):
+        if aircraft_list is None:
+            return False
+        for other_aircraft in aircraft_list:
+            if other_aircraft == self:
+                continue
+            angle = angle_difference(self.network['all_nodes'], self.position, other_aircraft.position, angle=self.angle)
+            if abs(angle) > 45:
+                continue
+            if self.rect.colliderect(other_aircraft.rect):
+                return True
+        return False
+
+
+    def tick(self, aircraft_list=None):
         dt = self.dt
         if dt < 1:
             return False
         self.last_tick = time.time()
         if self.speed == 0 or self.state == 'takeoff' or self.state == 'go_around':
             return dt
+        previous_state = {'state': self.state, 'position': self.position, 'heading': self.heading, 'speed': self.speed, 'altitude': self.altitude, 'distance_to_destination': self.distance_to_destination, 'route': self.route}
         distance_to_next = self.distance_to_next
         distance_to_move = abs(self.speed_meters_per_second * dt)
         if distance_to_next < 1 and len(self.route) == 1:
@@ -549,7 +565,17 @@ class Aircraft():
         self.altitude += self.vspeed * dt / 60
         if self.altitude < 0:
             self.altitude = 0
-        print(self.callsign, self.state, self.speed, self.altitude, self.vspeed, self.distance_to_next)
+
+        if self.state != 'pushback' and self.check_collision(aircraft_list):
+            self.position = previous_state['position']
+            self.heading = previous_state['heading']
+            self._speed = 0
+            self.altitude = previous_state['altitude']
+            self.distance_to_destination = previous_state['distance_to_destination']
+            self.route = previous_state['route']
+            print(f'{self.callsign}, {self.state}, collision detected, reverting to previous state')
+        else:
+            print(self.callsign, self.state, self.speed, self.altitude, self.vspeed, self.distance_to_next)
 
 class Arrival(Aircraft):
     def landing_speed(self):
@@ -636,6 +662,7 @@ class Arrival(Aircraft):
         self.exitsAvailable = {key: item for key, item in self.runway['exits'].items() if item['LDA'] > self.performance['dist_LD']}
         self.altitude = height
         self.speed_max_taxi = 20
+        self._about_to_cross = False
 
     def next_state(self):
         print('arrival, next_state')
@@ -721,8 +748,8 @@ class Arrival(Aircraft):
         self.route += route[1:] + gate_nodes[1:]
         self.distance_to_destination = distance + calculate_distance(self.network['all_nodes'], self.position, start_node)
 
-    def tick(self):
-        dt = super().tick()
+    def tick(self, aircraft_list=None):
+        dt = super().tick(aircraft_list=aircraft_list)
         if not dt:
             return
         
@@ -817,8 +844,8 @@ class Departure(Aircraft):
             case 'taxi':
                 self.state = 'cleared_takeoff'
     
-    def tick(self):
-        dt = super().tick()
+    def tick(self, aircraft_list=None):
+        dt = super().tick(aircraft_list=aircraft_list)
         if not dt:
             return
 
