@@ -4,7 +4,6 @@ import math
 import random as rand
 import os
 from scipy.ndimage import gaussian_filter
-from aircraft import Departure
 from airport_mapper import *
 from aircraft_generator import generate_flight, read_schedule, read_performance, read_runways
 import pygame_widgets
@@ -53,6 +52,26 @@ def create_surface_with_text(text, font_size, text_rgb, font):
     font = pygame.freetype.SysFont(font, font_size)
     surface, _ = font.render(text=text, fgcolor=text_rgb)
     return surface.convert_alpha()
+
+def summon_arrival():
+    aircraft_list.append(
+                generate_flight(schedule, performance, 'arrival', active_runways, network))
+    last_time_aircraft = time.time()
+            # Update the dropdown for arrivals
+    create_dropdown(
+        screen,
+        screen.get_width()/4,
+        screen.get_height() / 20,
+        screen.get_width()/4,
+        screen.get_height() / 20,
+        'Arrival',
+        [ac.callsign for ac in aircraft_list if ac.type == 'arrival'],
+        (150, 150, 150),
+        'down',
+        'left',
+        aircraft_list
+    )
+    return last_time_aircraft
 
 text_surface1 = create_surface_with_text("Air Traffic", 100, BLUE, "Arial Black")  # hoogte = 100, breedte = 546
 text_surface2 = create_surface_with_text("Control Simulator", 100, BLUE, "Arial Black")  # hoogte = 100, breedte = 960
@@ -286,7 +305,7 @@ while running:
                     game_started = True
                     aircraft_list = [
                         generate_flight(schedule, performance, 'departure', active_runways, network)
-                        for i in range(int(45 * current_freq / 100))
+                        for i in range(int(20 * current_freq / 100))
                     ]
                     last_time_aircraft = time.time()
                     for aircraft in aircraft_list:
@@ -296,6 +315,8 @@ while running:
                         aircraft.network['aircraft_list'] = aircraft_list
                         
                     create_dropdown(screen, screen.get_width()/4, screen.get_height() / 20, screen.get_width()/4,screen.get_height() / 20, 'Arrival', [aircraft.callsign for aircraft in aircraft_list if aircraft.type == 'arrival'],(150, 150, 150), 'down', 'left',aircraft_list)
+
+                    last_time_aircraft = summon_arrival()
 
                 #controleer of de back button wordt ingedrukt                
                 if rect_backbutton.collidepoint(pos):
@@ -473,15 +494,16 @@ while running:
 
         dt = time.time() - last_time_aircraft
         if dt > spawn_interval:
-            aircraft_list.append(
-                generate_flight(schedule, performance, 'arrival', active_runways, network))
-            last_time_aircraft = time.time()
+            last_time_aircraft = summon_arrival()
 
     #draw the fps in the topright
     fps = clock.get_fps()
     fps_surface = create_surface_with_text(f"FPS: {int(fps)}", 20, (255, 255, 255), "Arial")
     screen.blit(fps_surface, (WIDTH - fps_surface.get_width() - 10, 10))
-    pygame_widgets.update(all_events)
+    try:
+        pygame_widgets.update(all_events)
+    except IndexError:
+        print(IndexError)
     pygame.display.flip()
 
 pygame.quit()

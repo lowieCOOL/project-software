@@ -63,8 +63,7 @@ import queue
 from pygame_widgets.button import Button
 from pygame_widgets import *
 from pygame_widgets.dropdown import Dropdown
-
-      
+from pygame_widgets.textbox import TextBox      
 
 def draw_sidebar(screen):
     # Sidebar dimensions and width
@@ -318,39 +317,67 @@ class Aircraft():
         # Set this aircraft as selected
         self.network['aircraft_list'][0].selected = True
 
+    def update_via_filter(self):
+        self.filtered_vias = [v for v in self.network['taxiways'] if self.via_search_box.getText().lower() in v.lower()]
+        if hasattr(self, 'via_dropdown'):
+            self.via_dropdown.choices = self.filtered_vias
+            print('test', self.via_search_box.getText(), self.filtered_vias, self.via_dropdown.choices)
+            for attr in ['via_dropdown', 'add_via_button', 'reset_vias_button', 'give_route_button']:
+                if hasattr(self, attr):
+                    widget = getattr(self, attr)
+                    # If it's a list (like hold_pushback_dropdowns), hide and disable all widgets in it
+                    if isinstance(widget, list):
+                        for w in widget:
+                            try:
+                                w.hide()
+                                w.disable()
+                            except AttributeError:
+                                pass
+                    else:
+                        try:
+                            widget.hide()
+                            widget.disable()
+                        except AttributeError:
+                            pass
+                    delattr(self, attr)
+
+
     def vias_selection_ui(self, screen, y_start=180, on_give_route=None):
         """
-        Draws a dropdown, add/reset buttons, selected vias list, and a 'Give new route' button.
+        Draws a search box, dropdown, add/reset buttons, selected vias list, and a 'Give new route' button.
         The 'on_give_route' callback is called when the user clicks the button.
         """
-        # Attribute names (no prefix)
-        dropdown_attr = "via_dropdown"
-        selected_vias_attr = "selected_vias"
-        last_via_selected_attr = "last_via_selected"
-        add_via_button_attr = "add_via_button"
-        reset_vias_button_attr = "reset_vias_button"
-        give_route_button_attr = "give_route_button"
+        # --- Search box ---
+        if not hasattr(self, 'via_search_box'):
+            self.filter_text = None
+            self.selected_vias = []
+            self.last_via_selected = None
+            self.via_search_box = TextBox(
+                screen, 50, y_start-40, 200, 30, fontSize=18, borderColour=(200,200,200), textColour=(0,0,0), onTextChanged=self.update_via_filter
+            )
+            self.via_search_box.setText('OUT')
+        
+        self.filtered_vias = [v for v in self.network['taxiways'] if self.via_search_box.getText().lower() in v.lower()]
 
-        # Dropdown for vias
-        if not hasattr(self, dropdown_attr):
-            setattr(self, dropdown_attr, Dropdown(
+        # --- Dropdown and buttons ---
+        if not hasattr(self, 'via_dropdown'):
+            self.via_dropdown = Dropdown(
                 screen,
                 50,
                 y_start,
                 200,
                 30,
                 name='Via',
-                choices=self.network['taxiways'],
+                choices=self.filtered_vias,
                 colour=(200, 200, 200),
                 direction='down',
                 textHalign='left',
                 font=pygame.font.SysFont('Arial', 20),
                 backgroundColour=(255, 255, 255),
-                textColour=(0, 0, 0)
-            ))
-            setattr(self, selected_vias_attr, [])
-            setattr(self, last_via_selected_attr, None)
-            setattr(self, add_via_button_attr, Button(
+                textColour=(0, 0, 0),
+                maxChoices=8
+            )
+            self.add_via_button = Button(
                 screen,
                 260,
                 y_start,
@@ -362,8 +389,8 @@ class Aircraft():
                 pressedColour=(150, 150, 200),
                 hoverColour=(120, 120, 180),
                 radius=0
-            ))
-            setattr(self, reset_vias_button_attr, Button(
+            )
+            self.reset_vias_button = Button(
                 screen,
                 350,
                 y_start,
@@ -375,8 +402,8 @@ class Aircraft():
                 pressedColour=(200, 120, 120),
                 hoverColour=(180, 120, 120),
                 radius=0
-            ))
-            setattr(self, give_route_button_attr, Button(
+            )
+            self.give_route_button = Button(
                 screen,
                 50,
                 y_start + 80,
@@ -388,17 +415,22 @@ class Aircraft():
                 pressedColour=(255, 212, 0),
                 hoverColour=(212, 212, 0),
                 radius=0
-            ))
+            )
+        else:
+            # Always update dropdown choices to match filter
+            self.via_dropdown.choices = self.filtered_vias
 
-        dropdown = getattr(self, dropdown_attr)
-        selected_vias = getattr(self, selected_vias_attr)
         # Poll for via selection change (but don't add to list automatically)
-        current_via = dropdown.getSelected()
-        setattr(self, last_via_selected_attr, current_via)
+        current_via = self.via_dropdown.getSelected()
+        self.last_via_selected = current_via
 
         # Draw the selected vias below the dropdown
-        vias_text = ', '.join(selected_vias) if selected_vias else 'None'
+        try:
+            vias_text = ', '.join(self.selected_vias) if self.selected_vias else 'None'
+        except:
+            vias_text = ''
         screen.blit(create_surface_with_text(f"Selected vias: {vias_text}", 18, (255, 255, 255), 'Arial'), (50, y_start + 40))
+
 
     def information(self,screen):
         if self.selected:
@@ -473,7 +505,7 @@ class Aircraft():
 
                     # Only show exit/via dropdowns and button if a runway is selected
                     if self.selected_runway:
-                        if not hasattr(self, 'hold_pushback_dropdowns'):
+                        if not hasattr(self, 'exit_dropdown'):
                             exit_options = [key for key, value in self.network['runways'][self.selected_runway]['exits'].items() if value['TORA'] >= self.performance['dist_TO']]
                             self.selected_exit = None
                             self.last_exit_selected = None
@@ -492,78 +524,18 @@ class Aircraft():
                                 backgroundColour=(255, 255, 255),
                                 textColour=(0, 0, 0)
                             )
-                            via_options = self.network['taxiways']
-                            self.selected_vias = []
-                            self.last_via_selected = None
-                            self.via_dropdown = Dropdown(
-                                screen,
-                                50,
-                                290,
-                                200,
-                                30,
-                                name='Via',
-                                choices=via_options,
-                                colour=(200, 200, 200),
-                                direction='down',
-                                textHalign='left',
-                                font=pygame.font.SysFont('Arial', 20),
-                                backgroundColour=(255, 255, 255),
-                                textColour=(0, 0, 0)
-                            )
-                            # Button to add via
-                            self.add_via_button = Button(
-                                screen,
-                                260,
-                                290,
-                                80,
-                                30,
-                                text='Add',
-                                onClick=lambda: self._add_via(),
-                                inactiveColour=(180, 180, 255),
-                                pressedColour=(150, 150, 200),
-                                hoverColour=(120, 120, 180),
-                                radius=0
-                            )
-                            # Button to reset vias
-                            self.reset_vias_button = Button(
-                                screen,
-                                350,
-                                290,
-                                80,
-                                30,
-                                text='Reset',
-                                onClick=lambda: self._reset_vias(),
-                                inactiveColour=(255, 180, 180),
-                                pressedColour=(200, 120, 120),
-                                hoverColour=(180, 120, 120),
-                                radius=0
-                            )
-                            self.hold_pushback_dropdowns = [self.exit_dropdown, self.via_dropdown, self.add_via_button, self.reset_vias_button]
-                            self.start_taxi_button = Button(
-                                screen,
-                                50,
-                                370,
-                                150,
-                                30,
-                                text='Start Taxi',
-                                onClick=lambda: self.taxi(self.selected_runway, self.selected_exit, vias=self.selected_vias),
-                                inactiveColour=(255, 223, 63),
-                                pressedColour=(255, 212, 0),
-                                hoverColour=(212, 212, 0),
-                                radius=0
-                            )
                         # Poll for exit selection change
                         current_exit = self.exit_dropdown.getSelected()
                         if current_exit != self.last_exit_selected:
                             self.selected_exit = current_exit
                             self.last_exit_selected = current_exit
-                        # Poll for via selection change (but don't add to list automatically)
-                        current_via = self.via_dropdown.getSelected()
-                        self.last_via_selected = current_via
 
-                        # Draw the selected vias below the dropdown
-                        vias_text = ', '.join(self.selected_vias) if self.selected_vias else 'None'
-                        screen.blit(create_surface_with_text(f"Selected vias: {vias_text}", 18, (255, 255, 255), 'Arial'), (50, 330))
+                        # Use the vias_selection_ui for vias selection and route
+                        self.vias_selection_ui(
+                            screen,
+                            y_start=330,
+                            on_give_route=lambda vias: self.taxi(self.selected_runway, self.selected_exit, vias=vias)
+                        )
                 case 'taxi':
                     #screen.blit(create_surface_with_text(f"taxi route: {self.route}", 20, (255, 255, 255), 'Arial'), (50, 140))
                     if not hasattr(self, 'taxi_buttons'):
@@ -573,15 +545,15 @@ class Aircraft():
                         Button(screen, 50, 250, 120, 30, text='line up', onClick=lambda: self.line_up(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0),      
                         Button(screen, 50, 290, 120, 30, text='take off', onClick=lambda: self.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
-                        taxi_function = self.set_new_taxi if self.type == "departure" else self.taxi
-                        self.vias_selection_ui(screen, y_start=340, on_give_route=taxi_function)
+                    taxi_function = self.set_new_taxi if self.type == "departure" else self.taxi
+                    self.vias_selection_ui(screen, y_start=380, on_give_route=taxi_function)
                 case 'hold_taxi':
                     screen.blit(create_surface_with_text("hold_taxe", 20, (255, 255, 255), 'Arial'), (50, 140))
                     if not hasattr(self, 'continue_taxi_buttons'):
                         self.continue_taxi_buttons = [Button(screen, 50, 170, 120, 30, text='Continue taxi', onClick=lambda: self.continue_taxi(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
                     
-                        self.vias_selection_ui(screen, y_start=210, on_give_route=self.set_new_taxi)
+                    self.vias_selection_ui(screen, y_start=250, on_give_route=self.set_new_taxi)
                 case 'hold_runway':
                     screen.blit(create_surface_with_text("hold runway", 20, (255, 255, 255), 'Arial'), (50, 140)) 
                     if not hasattr(self, 'hold_runway_buttons'):
@@ -606,14 +578,14 @@ class Aircraft():
                         self.line_up_buttons = [
                         Button(screen, 50, 170, 100, 30, text='take off', onClick=lambda: self.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
-                        self.vias_selection_ui(screen, y_start=210, on_give_route=self.set_new_taxi)
+                    self.vias_selection_ui(screen, y_start=250, on_give_route=self.set_new_taxi)
                 case 'ready_takeoff':
                     screen.blit(create_surface_with_text("ready takeoff", 20, (255, 255, 255), 'Arial'), (50, 140))
                     if not hasattr(self, 'ready_takeoff_buttons'):
                         self.ready_takeoff_buttons = [
                         Button(screen, 50, 170, 100, 30, text='take off', onClick=lambda: self.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
-                        self.vias_selection_ui(screen, y_start=340, on_give_route=self.set_new_taxi)
+                    self.vias_selection_ui(screen, y_start=380, on_give_route=self.set_new_taxi)
                 case 'arrival':
                     screen.blit(create_surface_with_text("land or abord landing:", 20, (255, 255, 255), 'Arial'), (50, 140))
                     screen.blit(create_surface_with_text(f"runway: {self.runway_name}", 20, (255, 255, 255), 'Arial'), (50, 170))
@@ -638,21 +610,17 @@ class Aircraft():
                             )                      
                 case 'rollout':
                     screen.blit(create_surface_with_text("preemtively give taxi to the gate", 20, (255, 255, 255), 'Arial'), (50, 170))
-                    if not hasattr(self, 'via_dropdown'):
-                        self.vias_selection_ui(screen, y_start=210, on_give_route=self.taxi)
+                    self.vias_selection_ui(screen, y_start=250, on_give_route=self.taxi)
 
                 case 'vacate':
                     screen.blit(create_surface_with_text("vacate:", 20, (255, 255, 255), 'Arial'), (50, 170))
-                    if not hasattr(self, 'vacate_buttons'):
-                        self.vias_selection_ui(screen, y_start=210, on_give_route=self.taxi)
+                    self.vias_selection_ui(screen, y_start=250, on_give_route=self.taxi)
                 case 'vacate_continue':
                     screen.blit(create_surface_with_text("continue taxiing:", 20, (255, 255, 255), 'Arial'), (50, 170))
-                    if not hasattr(self, 'vacate_continue_buttons'):
-                        self.vias_selection_ui(screen, y_start=210, on_give_route=self.taxi)
+                    self.vias_selection_ui(screen, y_start=250, on_give_route=self.taxi)
                 case 'ready_taxi_gate':
                     screen.blit(create_surface_with_text(" taxi to the gate", 20, (255, 255, 255), 'Arial'), (50, 170))
-                    if not hasattr(self, 'ready_taxi_gate_buttons'):
-                        self.vias_selection_ui(screen, y_start=210, on_give_route=self.taxi)
+                    self.vias_selection_ui(screen, y_start=250, on_give_route=self.taxi)
     def clear_buttons_aircraft(self):
         if hasattr(self, 'button_instance'):
             del self.button_instance
@@ -662,7 +630,7 @@ class Aircraft():
         if hasattr(self, 'pushback_buttons'):
             del self.pushback_buttons
         # Remove all hold_pushback UI elements
-        for attr in ['hold_pushback_dropdowns', 'exit_dropdown', 'via_dropdown','add_via_button', 'reset_vias_button', 'start_taxi_button', 'runway_dropdown', 'give_route_button']:
+        for attr in ['hold_pushback_dropdowns', 'exit_dropdown', 'via_dropdown','add_via_button', 'reset_vias_button', 'start_taxi_button', 'runway_dropdown', 'give_route_button', 'via_search_box']:
             if hasattr(self, attr):
                 widget = getattr(self, attr)
                 # If it's a list (like hold_pushback_dropdowns), hide and disable all widgets in it
@@ -820,8 +788,7 @@ class Aircraft():
             #TODO slightly increase distance(priority) when making turns to prioritize straight routes
             calculated_route = self.calculate_route(taxi_nodes, all_nodes, starting_state, via, starting_via=vias[i-1] if i > 0 else None, angle=angle if angle != None else None)
             if calculated_route == None:
-                continue
-                return None
+                return None, None
             path, distance = calculated_route
             route.extend(path)
             total_distance += distance
@@ -1080,7 +1047,8 @@ class Arrival(Aircraft):
         gate_nodes = self.network['gates'][self.gate]['nodes'][::-1]
         route, distance = self.calculate_via_route(gate_nodes[0], starting_node=start_node, set_route=False)
         if route is None:
-            raise ValueError(f"Route to {self.gate} not found")
+            print(ValueError(f"Route to {self.gate} not found"))
+            return
         dist_rwy_to_hp = 0
         for i, node in enumerate(route):
             if 'holding_position' in self.network['taxi_nodes'][node]:
@@ -1120,6 +1088,7 @@ class Arrival(Aircraft):
         route, distance = self.calculate_via_route(gate_nodes[0], starting_node=start_node, set_route=False)
         if route is None:
             print(ValueError(f"Route to {self.gate} not found"))
+            return
         self.route = route + gate_nodes[1:]
         self.distance_to_destination = distance + calculate_distance(self.network['all_nodes'], self.position, start_node)
         self.clear_buttons()
@@ -1200,6 +1169,8 @@ class Departure(Aircraft):
     def taxi(self, runway, destination, vias=[]):
         #destination is a runway exit name, get the destination node from network['runways']
         print(f'calculation route for {self.callsign} to HP {destination}, runway {runway}')
+        if runway == None or destination == None:
+            return
         self.runway = self.network['runways'][runway]
         self.runway_name = runway
         self.runway_exit = self.network['runways'][runway]['exits'][destination]
@@ -1207,7 +1178,8 @@ class Departure(Aircraft):
         self.runway_exit_name = destination
         route, distance = self.calculate_via_route(destination_node, vias)
         if route is None:
-            raise ValueError(f"Route to {destination} not found")
+            print(ValueError(f"Route to {destination} not found"))
+            return
         self.route = route
         self.state = 'taxi'
         self.clear_buttons()
