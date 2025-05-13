@@ -8,7 +8,6 @@ from airport_mapper import *
 from aircraft_generator import generate_flight, read_schedule, read_performance, read_runways
 import pygame_widgets
 from aircraft import *
-# from sidebar_ import *
 from geopy.distance import geodesic, distance
 
 json_file_name = "osm_data.json"
@@ -53,6 +52,7 @@ def create_surface_with_text(text, font_size, text_rgb, font):
     surface, _ = font.render(text=text, fgcolor=text_rgb)
     return surface.convert_alpha()
 
+# creating new aircraft ('arrivals') and adding them do the dropdown, then updating the dropdown
 def summon_arrival():
     aircraft_list.append(
                 generate_flight(schedule, performance, 'arrival', active_runways, network))
@@ -73,6 +73,7 @@ def summon_arrival():
     )
     return last_time_aircraft
 
+#creating text
 text_surface1 = create_surface_with_text("Air Traffic", 100, BLUE, "Arial Black")  # hoogte = 100, breedte = 546
 text_surface2 = create_surface_with_text("Control Simulator", 100, BLUE, "Arial Black")  # hoogte = 100, breedte = 960
 text_surface4 = create_surface_with_text("START", 30, BLUE, "Arial") # breedte "start" = 97
@@ -81,11 +82,12 @@ text_surface6 = create_surface_with_text("BACK", 30, BLUE, "Arial") # breedte "B
 
 # Initialisatie van schuifknop
 spatie_onder = 150
-rect_schuifbar = pygame.Rect((WIDTH - 500) / 2, HEIGHT-spatie_onder-75, 500, 14)
+rect_schuifbar = pygame.Rect((WIDTH - 500) / 2, HEIGHT-spatie_onder-75, 500, 14) #grootte van de schuifbalk
 handle_x = rect_schuifbar.centerx  # Beginpositie van de schuifknop
 handle_bol_radius = 20  # Straal van de schuifknop
 dragging = False
 
+# Initialisation for the start screen buttons
 show_select_aiport_buttons = True
 show_start_button = False
 rect_startbutton = pygame.Rect(0, 0, 0, 0)
@@ -115,6 +117,7 @@ MINI_MAP_WIDTH = 300
 MINI_MAP_HEIGHT = 200
 MINI_MAP_PADDING = 10  # Padding from the bottom-right corner
 
+# Function to convert latitude and longitude to screen coordinates for the mini-map
 def calculate_mini_map_limits(network, spawn_height=3000, padding=10):
     distance_to_threshold = (spawn_height - 50) / math.tan(math.radians(3))
     lats = []
@@ -172,7 +175,7 @@ def smooth_screen(screen, sigma):
     """Apply a gaussian filter to each colour plane"""
     # Get reference pixels for each colour plane and then apply filter
     r = pygame.surfarray.pixels_red(screen)
-    gaussian_filter(r, sigma=sigma, mode="nearest", output=r)
+    gaussian_filter(r, sigma=sigma, mode="nearest", output=r) 
     g = pygame.surfarray.pixels_green(screen)
     gaussian_filter(g, sigma=sigma, mode="nearest", output=g)
     b = pygame.surfarray.pixels_blue(screen)
@@ -229,6 +232,7 @@ num_airports = len(airports)
 total_width = num_airports * button_width + (num_airports - 1) * spacing
 start_x = (WIDTH - total_width) // 2  # centreer horizontaal
 
+# Creates buttons for each airport, positions them on the screen, and stores their details.
 for idx, airport in enumerate(airports):
     x = start_x + idx * (button_width + spacing)
     rect = pygame.Rect(x, HEIGHT - spatie_onder - 28, button_width, button_height)
@@ -304,19 +308,19 @@ while running:
                     show_select_aiport_buttons = False
                     game_started = True
                     aircraft_list = [
-                        generate_flight(schedule, performance, 'departure', active_runways, network)
+                        generate_flight(schedule, performance, 'departure', active_runways, network) # gererate aircraft at the start with state 'departure' 
                         for i in range(int(20 * current_freq / 100))
                     ]
                     last_time_aircraft = time.time()
                     for aircraft in aircraft_list:
-                        aircraft.blit_aircraft(screen, target, WIDTH, HEIGHT, limits, PADDING, draw_route=True)
+                        aircraft.blit_aircraft(screen, target, WIDTH, HEIGHT, limits, PADDING, draw_route=True) # draw the aircraft at the start from the aircraft_list
 
-                    for aircraft in aircraft_list:
+                    for aircraft in aircraft_list: 
                         aircraft.network['aircraft_list'] = aircraft_list
-                        
+                    # create a dropdown button for the aircraft with state 'arrival'  
                     create_dropdown(screen, screen.get_width()/4, screen.get_height() / 20, screen.get_width()/4,screen.get_height() / 20, 'Arrival', [aircraft.callsign for aircraft in aircraft_list if aircraft.type == 'arrival'],(150, 150, 150), 'down', 'left',aircraft_list)
 
-                    last_time_aircraft = summon_arrival()
+                    last_time_aircraft = summon_arrival() # create  an new aircraft with state 'arrival' and add it to the dropdown
 
                 #controleer of de back button wordt ingedrukt                
                 if rect_backbutton.collidepoint(pos):
@@ -402,7 +406,7 @@ while running:
                 max_lon += delta_lon
 
                 limits = [[min_lat, max_lat], [min_lon, max_lon]]
-
+            
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_p:
                     selected = aircraft_list[rand.randint(0, len(aircraft_list)-1)]
@@ -441,28 +445,26 @@ while running:
         
 
         # draw all aircraft
-        for i, aircraft in enumerate(aircraft_list):
+        for i, aircraft in enumerate(aircraft_list): 
             aircraft.tick(aircraft_list)
             if aircraft.state == 'parked':
                 aircraft_list[i] = Departure(aircraft.callsign, aircraft.performance, aircraft.gate, network)
-            elif aircraft.state == 'go_around' and aircraft.altitude > 3000:
-                aircraft.clear_buttons_aircraft()
+            elif aircraft.state == 'go_around' and aircraft.altitude > 3000: # clear everyting from the airrcraft if it is 'go around' and above 3000ft and delete if from the list
+                aircraft.clear_buttons_aircraft() 
                 aircraft.clear_buttons()                
                 aircraft_list.pop(i)
                 
-            aircraft.blit_aircraft(screen, target, WIDTH, HEIGHT, limits, PADDING, draw_route=aircraft.selected)
-            aircraft.information(screen)  
+            aircraft.blit_aircraft(screen, target, WIDTH, HEIGHT, limits, PADDING, draw_route=aircraft.selected) # drow the plane
+            aircraft.information(screen)  # update the information for the buttons shown on screen
             aircraft.selected = (i==0) 
-            if not aircraft.selected:   
+            if not aircraft.selected:   # if not selected, clear the buttons in the sidebar
                 aircraft.clear_buttons()
 
  # Move selected aircraft to the first position
         # Draw the miniature map
         draw_mini_map(screen, all_nodes, osm_data, aircraft_list, minimap_limits, PADDING)
 
-        # smooth the screen, type of AA
-        # smooth_screen(screen, 0.6)
-
+        # Draw the zoom reset button
         screen.blit(magnifying_glass, (WIDTH-90,40))
         # Toggle rechthoek
         pygame.draw.rect(screen, (100, 100, 100), menu_toggle_rect)
@@ -473,7 +475,7 @@ while running:
             pygame.draw.rect(screen, (30, 30, 30), menu_rect)
             pygame.draw.rect(screen, (255, 255, 255), menu_rect, width=2)
 
-            menu_buttons.clear()
+            menu_buttons.clear() # clear the menu buttons
             button_height = 50
             for i, key in enumerate(runway_configs):
 

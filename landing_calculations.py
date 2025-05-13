@@ -1,6 +1,6 @@
 import math
 
-def landing_speed(self, dt, exit_speed):
+def landing_speed(self, dt, exit_speed): 
 
     dist_LD = self.performance ["dist_LD]"]
     speed_Vat = self.perfromance ["speed_Vat"]

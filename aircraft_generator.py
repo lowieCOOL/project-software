@@ -1,8 +1,15 @@
+'''
+This module generates flights for a given airport based on a schedule and performance data.
+It includes functions to read the schedule and performance data from JSON files,
+generate random callsigns, and create flight objects for arrivals and departures.
+'''
+
 from aircraft import Arrival, Departure
 import random
 import string
 import json
 
+#generate a random callsign for the flight form the json file
 def generate_callsign(airline_callsign: str, numbers: int, letters: int):
     numbers = ''.join(random.choices(string.digits, k=numbers))
     letters = ''.join(random.choices(string.ascii_uppercase, k=letters))
@@ -26,7 +33,7 @@ def read_performance():
         performance_json = json.load(file)
 
     return performance_json
-
+# This function generates a flight based on the provided schedule, performance data, and flight type.
 def generate_flight(schedule_json: dict, all_performance: dict, type: str, active_runways: list = None, network: dict = None):
     if type not in ['arrival', 'departure']:
         raise ValueError("Type must be 'arrival' or 'departure'")

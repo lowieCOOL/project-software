@@ -1,4 +1,6 @@
 '''
+These are the aircraft states and actions that can be performed on
+
 Aircraft states:
 for departures
 - pushback
@@ -64,13 +66,15 @@ from pygame_widgets.button import Button
 from pygame_widgets import *
 from pygame_widgets.dropdown import Dropdown
 from pygame_widgets.textbox import TextBox      
+from start_screen import create_surface_with_text
 
 def draw_sidebar(screen):
     # Sidebar dimensions and width
         sidebar_width = screen.get_width() *(1/4) # 1/4 of the screen width
         sidebar_height = screen.get_height()
         pygame.draw.rect(screen, (40,40,40), (0, 0, sidebar_width, sidebar_height)) # 30, 30, 30
-    
+
+# a function to create a dropdown buttons     
 def create_dropdown(screen, x, y, WIDTH, HEIGHT, Name, Choices, Colour, Direction, TextHalign, aircraft_list):
     dropdown = Dropdown(
         screen,
@@ -83,28 +87,21 @@ def create_dropdown(screen, x, y, WIDTH, HEIGHT, Name, Choices, Colour, Directio
         colour=Colour,
         direction=Direction,
         textHalign=TextHalign,
+        #these are the default values
         font=pygame.font.SysFont('Arial', 20),
         backgroundColour=(255, 255, 255),
         textColour=(0, 0, 0),
-        onClick= lambda: dropdown_selection_getter(dropdown.getSelected(), aircraft_list)  # ← use instance method
+        onClick= lambda: dropdown_selection_getter(dropdown.getSelected(), aircraft_list)  
     )
 
-
+# a setter function to set the selected callsign
 def dropdown_selection_getter(selected_callsign, aircraft_list):
     for aircraft in aircraft_list:
         if aircraft.callsign == selected_callsign:
             aircraft.click_handler()
             print('Selected:', aircraft.callsign)
             break
-    
-
-
-
-def create_surface_with_text(text, font_size, text_rgb, font):  # when branch start screen is merged, import this function from there
-    font = pygame.freetype.SysFont(font, font_size)
-    surface, _ = font.render(text=text, fgcolor=text_rgb)
-    return surface.convert_alpha()
-
+# function to convert latitude and longitude to screen coordinates
 def latlon_to_screen(pos, limits, width, height, padding, offset_x=0, offset_y=0):
     y, min_y, max_y = lat2y(pos[0]), lat2y(limits[0][0]), lat2y(limits[0][1])
     x, min_x, max_x = lon2x(pos[1]), lon2x(limits[1][0]), lon2x(limits[1][1])
@@ -124,7 +121,9 @@ def latlon_to_screen(pos, limits, width, height, padding, offset_x=0, offset_y=0
     y = int(height - (((y + offset_y - min_y) / scale) + y_offset))
     return x, y
 
+# class that represents an aircraft
 class Aircraft():
+    # set the taxi speed to the aircraft preformance
     def taxi_speed(self, taxi_acceleration=1.0, v_end=0):
         WTC = self.performance["WTC"]
 
@@ -138,7 +137,7 @@ class Aircraft():
                 max_taxispeed = 30
             case 'H':
                 max_taxispeed = 20
-
+        # Adjusts the aircraft's speed based on distance to the target and speed limits.
         if distance > needed_distance and self._speed < max_taxispeed:
             self._speed += taxi_acceleration * self.dt
         elif distance > needed_distance and self._speed >= max_taxispeed:
@@ -148,7 +147,7 @@ class Aircraft():
         return self._speed
 
     @property
-    def speed(self):
+    def speed(self): # dynamically determines the speed of the aircraft based on its current state
         match self.state:
             case 'pushback':
                 return -5
@@ -163,7 +162,7 @@ class Aircraft():
             case _:
                 return 0
 
-    @property
+    @property  # calculates the aircraft's movement angle relative to its heading
     def angle(self):
         if self.state == 'pushback':
             return (90 - self.heading - 180) % 360
@@ -174,25 +173,25 @@ class Aircraft():
         return self.speed * 0.514444  # Convert knots to meters per second
     
     @property
-    def movement_direction(self):
+    def movement_direction(self): # determines whether the aircraft is moving forward or backward
         return 1 if self.speed >= 0 else -1
     
     @property
-    def distance_to_next(self):
+    def distance_to_next(self): #  calculates the distance to the next waypoint in the aircraft's route
         if len(self.route) == 0:
             return 0
         distance_to_next = calculate_distance(self.network['all_nodes'], self.position, self.route[0])
         return distance_to_next
     
     @property
-    def dt(self):
+    def dt(self): # calculates the time since the last tick (update)
         return time.time() - self.last_tick
     
     @property
-    def last_tick(self):
+    def last_tick(self): # returns the last tick time
         return self._last_tick
 
-    @last_tick.setter
+    @last_tick.setter 
     def last_tick(self, value):
         # Update the speed when last_tick is updated
         match self.state:
@@ -213,10 +212,10 @@ class Aircraft():
         self._last_tick = value
     
     @property
-    def heading(self):
+    def heading(self): # epresents the aircraft's heading in degrees
         return self._heading
     
-    @heading.setter
+    @heading.setter # The setter adjusts the heading based on the state
     def heading(self, value):
         if self.state == 'pushback':
             value = (value + 180) % 360
@@ -224,7 +223,7 @@ class Aircraft():
             value = value % 360
         self._heading = value
 
-    def _add_via(self):
+    def _add_via(self): # Adds the selected via to the list of selected vias
         via = self.via_dropdown.getSelected()
         if via and via not in self.selected_vias:
             self.selected_vias.append(via)
@@ -243,9 +242,9 @@ class Aircraft():
         self.rect = None
         self.network = network
         self.performance = performance
-        self.selected = False
+        self.selected = False # Indicates if the aircraft is selected
         
-    def blit_aircraft(self, screen, png, WIDTH, HEIGHT, limits, padding, draw_route=False, draw_rect=False):
+    def blit_aircraft(self, screen, png, WIDTH, HEIGHT, limits, padding, draw_route=False, draw_rect=False): # function that draws the aircraft on the screen
         coords = latlon_to_screen(self.position, limits, WIDTH, HEIGHT, padding)
 
         # Convert aviation heading to Pygame's counterclockwise system
@@ -274,7 +273,7 @@ class Aircraft():
         screen.blit(rotated_image, new_rect.topleft)
         if draw_rect: pygame.draw.rect(screen, (255, 0, 0), new_rect, 2)  # Draw the rectangle around the aircraft
 
-    def button(self, screen):
+    def button(self, screen): # creates a button for the aircraft to interact with
         # Check if the button already exists
         if not hasattr(self, 'button_instance'):
             # Create and store the button
@@ -317,7 +316,7 @@ class Aircraft():
         # Set this aircraft as selected
         self.network['aircraft_list'][0].selected = True
 
-    def update_via_filter(self):
+    def update_via_filter(self): # Updates the via filter and hides or disables related UI elements if they exist.
         self.filtered_vias = [v for v in self.network['taxiways'] if self.via_search_box.getText().lower() in v.lower()]
         if hasattr(self, 'via_dropdown'):
             self.via_dropdown.choices = self.filtered_vias
@@ -432,17 +431,17 @@ class Aircraft():
         screen.blit(create_surface_with_text(f"Selected vias: {vias_text}", 18, (255, 255, 255), 'Arial'), (50, y_start + 40))
 
 
-    def information(self,screen):
-        if self.selected:
+    def information(self,screen): # function that displays the aircraft information on the screen
+        if self.selected: # standard information
             screen.blit(create_surface_with_text(f"callsign: {self.callsign}", 26, (255, 255, 255), 'Arial'), (50, 50))
             screen.blit(create_surface_with_text(f"state: {self.state}", 20, (255, 255, 255), 'Arial'), (50, 80))  
             screen.blit(create_surface_with_text(f"speed: {round(self.speed)} kts", 20, (255, 255, 255), 'Arial'), (50, 110))
             screen.blit(create_surface_with_text(f"gate: {self.gate}", 20, (255, 255, 255), 'Arial'), (220, 80))
             screen.blit(create_surface_with_text(f"altitude: {round(self.altitude)} ft", 20, (255, 255, 255), 'Arial'), (220, 110))
         
-            match self.state: 
+            match self.state: # for each state, display the relevant information and creates the relevant buttons
             
-                case 'gate':
+                case 'gate': 
                     screen.blit(create_surface_with_text("pushback direction: north, east, south, west", 20, (255, 255, 255), 'Arial'), (50, 140))
                     if not hasattr(self, 'pushback_buttons'):
                         self.pushback_buttons = [
@@ -621,7 +620,8 @@ class Aircraft():
                 case 'ready_taxi_gate':
                     screen.blit(create_surface_with_text(" taxi to the gate", 20, (255, 255, 255), 'Arial'), (50, 170))
                     self.vias_selection_ui(screen, y_start=250, on_give_route=self.taxi)
-    def clear_buttons_aircraft(self):
+    
+    def clear_buttons_aircraft(self): # Clears the buttons for the aircraft, for example when the aircraft is at departure or does a go around
         if hasattr(self, 'button_instance'):
             del self.button_instance
     
@@ -673,7 +673,6 @@ class Aircraft():
 
         if hasattr(self, 'taxi_buttons'):
             del self.taxi_buttons
-        # Add similar checks for other button attributes
         if hasattr(self, 'continue_taxi_buttons'):
             del self.continue_taxi_buttons
         if hasattr(self, 'hold_runway_buttons'):
@@ -696,7 +695,8 @@ class Aircraft():
             del self.vacate_continue_buttons
         if hasattr(self, 'ready_taxi_gate_buttons'):
             del self.ready_taxi_gate_buttons
-            
+    
+    # function that calculates the route from the starting point to the destination        
     def calculate_route (self, taxi_nodes,all_nodes, begintoestand, destination, starting_via=None, angle=None):
         q = queue.PriorityQueue()
         q.put(begintoestand)
@@ -770,7 +770,8 @@ class Aircraft():
                     q.put((distance, new_node, {'node': new_node, 'parent': state[-1], 'distance': real_distance}))
         print(f"Geen oplossing gevonden: laatse via: {starting_via}")	
         return None # geen oplossing gevonden
-
+    
+    # function that calculates the route from the starting point to the destination via a list of vias
     def calculate_via_route(self, destination, vias=[], starting_node=None, set_route=True):
         taxi_nodes = self.network['taxi_nodes']
         all_nodes = self.network['all_nodes']
@@ -837,7 +838,7 @@ class Aircraft():
                 return True
         return False
 
-
+    # Moves the aircraft along its route, updates its state, and handles collisions or transitions.
     def tick(self, aircraft_list=None):
         dt = self.dt
         if dt < 1:
@@ -917,9 +918,9 @@ class Aircraft():
             print(f'{self.callsign}, {self.state}, collision detected, reverting to previous state')
         else:
             print(self.callsign, self.state, self.speed, self.altitude, self.vspeed, self.distance_to_next)
-
+# class Arrival in function of the aircraft that is arriving at the airport
 class Arrival(Aircraft):
-    def landing_speed(self):
+    def landing_speed(self): # calculate landing speeds
         dist_LDA = self.runway_exit['LDA']
         speed_Vat = self.performance['speed_Vat']
         target_vacate_speed = self.target_vacate_speed
@@ -928,7 +929,7 @@ class Arrival(Aircraft):
 
         return self._speed
     
-    def approach_speed(self):
+    def approach_speed(self): # calculate approach speeds
         speed_Vat = self.performance['speed_Vat']
         descent_angle = math.radians(3)  # Standard 3-degree glide slope
         knots_to_fps = 1.68781  # Conversion factor from knots to feet per second
@@ -946,13 +947,13 @@ class Arrival(Aircraft):
 
         return self._speed
     
-    def go_around_speed(self):
+    def go_around_speed(self): # calculate go around speeds
         speed_climb = self.performance['speed_climb']
         acceleration = speed_climb / 10  # Arbitrary acceleration factor for go-around
         self._speed = min(self._speed + acceleration * self.dt, speed_climb)
         return self._speed
 
-    def vacate_speed(self):
+    def vacate_speed(self): # calculate vacate speeds
         if self.state != 'vacate':
             return self._speed
 
@@ -975,7 +976,7 @@ class Arrival(Aircraft):
         # speeds goes from target_vacate_speed to max_taxi from the runway to the hp
 
     
-    @property
+    @property # property that returns the vertical speed of the aircraft
     def vspeed(self):
         if self.altitude <= 0:
             return 0  
@@ -1005,7 +1006,7 @@ class Arrival(Aircraft):
         self.speed_max_taxi = 20
         self._about_to_cross = False
 
-    def next_state(self):
+    def next_state(self): # function that sets the next state of the aircraft
         print('arrival, next_state')
         match self.state:
             case 'arrival':
@@ -1030,13 +1031,13 @@ class Arrival(Aircraft):
             case 'hold_taxi':
                 self.state = 'taxi'
 
-    def go_around(self):
+    def go_around(self): 
         if self.state != 'arrival':
             return
         self.next_state()
         self.clear_buttons()
 
-    def land(self, exit):
+    def land(self, exit): 
         if self.state != 'arrival':
             return
         self.state = 'cleared_land'
@@ -1063,7 +1064,7 @@ class Arrival(Aircraft):
         print(f'{self.callsign} cleared to land on runway {self.runway_name}, vacate at {exit}, target vacate speed: {self.target_vacate_speed}, dist_rwy_to_hp: {self.dist_rwy_to_hp}')
         self.clear_buttons()
 
-    def taxi(self, vias=None):
+    def taxi(self, vias=None): # function that sets the taxi route for the aircraft
         match self.state:
             case 'ready_taxi_gate' | 'hold_taxi':
                 if self._about_to_cross:
@@ -1093,7 +1094,7 @@ class Arrival(Aircraft):
         self.distance_to_destination = distance + calculate_distance(self.network['all_nodes'], self.position, start_node)
         self.clear_buttons()
 
-    def tick(self, aircraft_list=None):
+    def tick(self, aircraft_list=None): # function that moves the aircraft
         dt = super().tick(aircraft_list=aircraft_list)
         if not dt:
             return
@@ -1107,8 +1108,9 @@ class Arrival(Aircraft):
         self.position = (new_position.latitude, new_position.longitude)
         self.altitude += self.vspeed * dt / 60
 
+# class Departure in function of the aircraft that is departing from the airport
 class Departure(Aircraft):
-    def take_off_speed(self):
+    def take_off_speed(self): # calculate take off speeds
         dist_TO = self.performance["dist_TO"]
         speed_V2 = self.performance["speed_V2"]
 
@@ -1117,7 +1119,7 @@ class Departure(Aircraft):
 
         return self._speed
     
-    @property
+    @property # property that returns the vertical speed of the aircraft
     def vspeed(self):
         if self.takeoff_distance_remaining <= 0:
             return self.performance['rate_of_climb']
@@ -1133,7 +1135,7 @@ class Departure(Aircraft):
         self.altitude = 0
         self.runway_name = '25R'
 
-    def next_state(self):
+    def next_state(self): # function that sets the next state of the aircraft
         match self.state:
             case 'gate':
                 self.state = 'pushback'
@@ -1194,7 +1196,7 @@ class Departure(Aircraft):
         print(f'{self.callsign} lining up on runway ')
         self.clear_buttons()
 
-    def takeoff(self):
+    def takeoff(self): # function that sets the take off state of the aircraft
         match self.state:
             case 'ready_takeoff' | 'cleared_takeoff':
                 self.state = 'takeoff'
@@ -1206,7 +1208,7 @@ class Departure(Aircraft):
                 return
         self.clear_buttons()
     
-    def tick(self, aircraft_list=None):
+    def tick(self, aircraft_list=None): 
         dt = super().tick(aircraft_list=aircraft_list)
         if not dt:
             return

@@ -9,13 +9,15 @@ WIDTH, HEIGHT = 1920, 1020
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Pygame Text Rendering")
 
-BLUE = (60, 160, 237)
+BLUE = (60, 160, 237) # define colours
 GRAY = (169, 169, 169)
 
+# Initialisation of background
 image_path = "assets\\RADAR.jpg"
 background_image = pygame.image.load(image_path).convert()
 background_image = pygame.transform.scale(background_image, (WIDTH, HEIGHT))
 
+# a simple function to create a surface with text
 def create_surface_with_text(text, font_size, text_rgb, font):
     font = pygame.freetype.SysFont(font, font_size)
     surface, _ = font.render(text=text, fgcolor=text_rgb)
@@ -92,7 +94,7 @@ while running:
                 current_freq_text = f"{str(current_freq).zfill(2)}"
 
 
-
+    
     if show_buttons or show_button:
         screen.blit(background_image, (0, 0))
         screen.blit(text_surface1, ((WIDTH - 546) / 2, 200))

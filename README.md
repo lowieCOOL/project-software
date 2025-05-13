@@ -12,6 +12,17 @@ Use a variety of commands to manage aircraft as they progress through different 
 Refer to the attached document for a detailed map of the airport, including all runway names and important notes.
 [EBBR_GMC01_v64.pdf](https://github.com/user-attachments/files/20151469/EBBR_GMC01_v64.pdf)
 
+### Libraries
+These are the libraries you need to download before you can play:
+- geopy
+- numpy
+- pygame
+- pygame-widgets
+- pyperclip
+- scipy
+- shapely
+Instal them manualy or run (pip install -r requirements.txt) to install them all at once.
+
 ### **Departure Workflow**
 
 **Aircraft States & Commands:**
