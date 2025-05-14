@@ -8,7 +8,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 6000,
         "wingspan": 17.5,
-        "length": 16.3
+        "length": 16.3,
+        "type": "A10"
     },
     "A124": {
         "WTC": "H",
@@ -19,7 +20,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 800,
         "wingspan": 73.3,
-        "length": 69.1
+        "length": 69.1,
+        "type": "A124"
     },
     "A19N": {
         "WTC": "M",
@@ -30,7 +32,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 2500,
         "wingspan": 35.8,
-        "length": 33.84
+        "length": 33.84,
+        "type": "A19N"
     },
     "A20N": {
         "WTC": "M",
@@ -41,7 +44,8 @@
         "speed_Vat": 135,
         "rate_of_climb": 2200,
         "wingspan": 35.8,
-        "length": 37.57
+        "length": 37.57,
+        "type": "A20N"
     },
     "A21N": {
         "WTC": "M",
@@ -52,7 +56,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 2000,
         "wingspan": 35.8,
-        "length": 44.51
+        "length": 44.51,
+        "type": "A21N"
     },
     "A306": {
         "WTC": "H",
@@ -63,7 +68,8 @@
         "speed_Vat": 139,
         "rate_of_climb": 3000,
         "wingspan": 44.84,
-        "length": 54.1
+        "length": 54.1,
+        "type": "A306"
     },
     "A30B": {
         "WTC": "H",
@@ -74,7 +80,8 @@
         "speed_Vat": 141,
         "rate_of_climb": 3000,
         "wingspan": 44.8,
-        "length": 53.6
+        "length": 53.6,
+        "type": "A30B"
     },
     "A310": {
         "WTC": "H",
@@ -85,7 +92,8 @@
         "speed_Vat": 139,
         "rate_of_climb": 2500,
         "wingspan": 43.9,
-        "length": 46.66
+        "length": 46.66,
+        "type": "A310"
     },
     "A318": {
         "WTC": "M",
@@ -96,7 +104,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 3000,
         "wingspan": 34.1,
-        "length": 31.45
+        "length": 31.45,
+        "type": "A318"
     },
     "A319": {
         "WTC": "M",
@@ -107,7 +116,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 2500,
         "wingspan": 34.1,
-        "length": 33.84
+        "length": 33.84,
+        "type": "A319"
     },
     "A320": {
         "WTC": "M",
@@ -118,7 +128,8 @@
         "speed_Vat": 137,
         "rate_of_climb": 2500,
         "wingspan": 34.1,
-        "length": 37.57
+        "length": 37.57,
+        "type": "A320"
     },
     "A321": {
         "WTC": "M",
@@ -129,7 +140,8 @@
         "speed_Vat": 141,
         "rate_of_climb": 2500,
         "wingspan": 34.1,
-        "length": 44.51
+        "length": 44.51,
+        "type": "A321"
     },
     "A332": {
         "WTC": "H",
@@ -140,7 +152,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 2000,
         "wingspan": 60.3,
-        "length": 58.8
+        "length": 58.8,
+        "type": "A332"
     },
     "A333": {
         "WTC": "H",
@@ -151,7 +164,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 2000,
         "wingspan": 60.3,
-        "length": 63.6
+        "length": 63.6,
+        "type": "A333"
     },
     "A338": {
         "WTC": "H",
@@ -162,7 +176,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 2000,
         "wingspan": 64.0,
-        "length": 58.82
+        "length": 58.82,
+        "type": "A338"
     },
     "A339": {
         "WTC": "H",
@@ -173,7 +188,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 2000,
         "wingspan": 64.0,
-        "length": 63.66
+        "length": 63.66,
+        "type": "A339"
     },
     "A342": {
         "WTC": "H",
@@ -184,7 +200,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 1500,
         "wingspan": 60.3,
-        "length": 59.39
+        "length": 59.39,
+        "type": "A342"
     },
     "A343": {
         "WTC": "H",
@@ -195,7 +212,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 1400,
         "wingspan": 60.3,
-        "length": 63.6
+        "length": 63.6,
+        "type": "A343"
     },
     "A345": {
         "WTC": "H",
@@ -206,7 +224,8 @@
         "speed_Vat": 155,
         "rate_of_climb": 1500,
         "wingspan": 63.45,
-        "length": 67.9
+        "length": 67.9,
+        "type": "A345"
     },
     "A346": {
         "WTC": "H",
@@ -217,7 +236,8 @@
         "speed_Vat": 155,
         "rate_of_climb": 1500,
         "wingspan": 63.45,
-        "length": 75.3
+        "length": 75.3,
+        "type": "A346"
     },
     "A359": {
         "WTC": "H",
@@ -228,7 +248,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 3000,
         "wingspan": 64.8,
-        "length": 66.9
+        "length": 66.9,
+        "type": "A359"
     },
     "A35K": {
         "WTC": "H",
@@ -239,7 +260,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 2500,
         "wingspan": 64.75,
-        "length": 73.79
+        "length": 73.79,
+        "type": "A35K"
     },
     "A388": {
         "WTC": "J",
@@ -250,7 +272,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 1500,
         "wingspan": 79.8,
-        "length": 73.0
+        "length": 73.0,
+        "type": "A388"
     },
     "A4": {
         "WTC": "M",
@@ -261,7 +284,8 @@
         "speed_Vat": 135,
         "rate_of_climb": 8500,
         "wingspan": 8.4,
-        "length": 12.2
+        "length": 12.2,
+        "type": "A4"
     },
     "A400": {
         "WTC": "H",
@@ -272,7 +296,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 2000,
         "wingspan": 42.4,
-        "length": 43.8
+        "length": 43.8,
+        "type": "A400"
     },
     "A6": {
         "WTC": "M",
@@ -283,7 +308,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 10000,
         "wingspan": 16.2,
-        "length": 18.2
+        "length": 18.2,
+        "type": "A6"
     },
     "A748": {
         "WTC": "M",
@@ -294,7 +320,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 1000,
         "wingspan": 30.0,
-        "length": 20.4
+        "length": 20.4,
+        "type": "A748"
     },
     "AC11": {
         "WTC": "L",
@@ -305,7 +332,8 @@
         "speed_Vat": 70,
         "rate_of_climb": 800,
         "wingspan": 10.0,
-        "length": 7.6
+        "length": 7.6,
+        "type": "AC11"
     },
     "AC50": {
         "WTC": "L",
@@ -316,7 +344,8 @@
         "speed_Vat": 75,
         "rate_of_climb": 1000,
         "wingspan": 14.9,
-        "length": 11.2
+        "length": 11.2,
+        "type": "AC50"
     },
     "AC56": {
         "WTC": "L",
@@ -327,7 +356,8 @@
         "speed_Vat": 75,
         "rate_of_climb": 1000,
         "wingspan": 14.9,
-        "length": 11.2
+        "length": 11.2,
+        "type": "AC56"
     },
     "AC68": {
         "WTC": "L",
@@ -338,7 +368,8 @@
         "speed_Vat": 75,
         "rate_of_climb": 1000,
         "wingspan": 13.4,
-        "length": 13.1
+        "length": 13.1,
+        "type": "AC68"
     },
     "AC6L": {
         "WTC": "L",
@@ -349,7 +380,8 @@
         "speed_Vat": 75,
         "rate_of_climb": 1000,
         "wingspan": 14.4,
-        "length": 13.5
+        "length": 13.5,
+        "type": "AC6L"
     },
     "AC95": {
         "WTC": "L",
@@ -360,7 +392,8 @@
         "speed_Vat": 100,
         "rate_of_climb": 2000,
         "wingspan": 15.9,
-        "length": 13.1
+        "length": 13.1,
+        "type": "AC95"
     },
     "AEST": {
         "WTC": "L",
@@ -371,7 +404,8 @@
         "speed_Vat": 100,
         "rate_of_climb": 1500,
         "wingspan": 11.2,
-        "length": 10.6
+        "length": 10.6,
+        "type": "AEST"
     },
     "AJET": {
         "WTC": "M",
@@ -382,7 +416,8 @@
         "speed_Vat": 92,
         "rate_of_climb": 10000,
         "wingspan": 9.1,
-        "length": 12.3
+        "length": 12.3,
+        "type": "AJET"
     },
     "AMXM": {
         "WTC": "M",
@@ -393,7 +428,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 10000,
         "wingspan": 8.9,
-        "length": 13.6
+        "length": 13.6,
+        "type": "AMXM"
     },
     "AN12": {
         "WTC": "M",
@@ -404,7 +440,8 @@
         "speed_Vat": 122,
         "rate_of_climb": 1500,
         "wingspan": 38.0,
-        "length": 33.0
+        "length": 33.0,
+        "type": "AN12"
     },
     "AN2": {
         "WTC": "L",
@@ -415,7 +452,8 @@
         "speed_Vat": 55,
         "rate_of_climb": 650,
         "wingspan": 18.2,
-        "length": 12.7
+        "length": 12.7,
+        "type": "AN2"
     },
     "AN24": {
         "WTC": "M",
@@ -426,7 +464,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 1500,
         "wingspan": 29.2,
-        "length": 23.5
+        "length": 23.5,
+        "type": "AN24"
     },
     "AN26": {
         "WTC": "M",
@@ -437,7 +476,8 @@
         "speed_Vat": 105,
         "rate_of_climb": 1500,
         "wingspan": 29.2,
-        "length": 23.8
+        "length": 23.8,
+        "type": "AN26"
     },
     "AN28": {
         "WTC": "L",
@@ -448,7 +488,8 @@
         "speed_Vat": 90,
         "rate_of_climb": 900,
         "wingspan": 22.1,
-        "length": 13.0
+        "length": 13.0,
+        "type": "AN28"
     },
     "AN30": {
         "WTC": "M",
@@ -459,7 +500,8 @@
         "speed_Vat": 95,
         "rate_of_climb": 1500,
         "wingspan": 29.2,
-        "length": 24.3
+        "length": 24.3,
+        "type": "AN30"
     },
     "AN32": {
         "WTC": "M",
@@ -470,7 +512,8 @@
         "speed_Vat": 100,
         "rate_of_climb": 1500,
         "wingspan": 29.2,
-        "length": 23.7
+        "length": 23.7,
+        "type": "AN32"
     },
     "AN38": {
         "WTC": "M",
@@ -481,7 +524,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 1000,
         "wingspan": 22.1,
-        "length": 15.5
+        "length": 15.5,
+        "type": "AN38"
     },
     "AN70": {
         "WTC": "M",
@@ -492,7 +536,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 1500,
         "wingspan": 44.1,
-        "length": 40.7
+        "length": 40.7,
+        "type": "AN70"
     },
     "AN72": {
         "WTC": "M",
@@ -503,7 +548,8 @@
         "speed_Vat": 100,
         "rate_of_climb": 2500,
         "wingspan": 31.9,
-        "length": 28.1
+        "length": 28.1,
+        "type": "AN72"
     },
     "ASTR": {
         "WTC": "M",
@@ -514,7 +560,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 3000,
         "wingspan": 16.1,
-        "length": 16.9
+        "length": 16.9,
+        "type": "ASTR"
     },
     "AT43": {
         "WTC": "M",
@@ -525,7 +572,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 1000,
         "wingspan": 24.6,
-        "length": 22.7
+        "length": 22.7,
+        "type": "AT43"
     },
     "AT44": {
         "WTC": "M",
@@ -536,7 +584,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 1900,
         "wingspan": 24.6,
-        "length": 22.7
+        "length": 22.7,
+        "type": "AT44"
     },
     "AT45": {
         "WTC": "M",
@@ -547,7 +596,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 1500,
         "wingspan": 24.6,
-        "length": 22.7
+        "length": 22.7,
+        "type": "AT45"
     },
     "AT72": {
         "WTC": "M",
@@ -558,7 +608,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 1500,
         "wingspan": 27.1,
-        "length": 27.2
+        "length": 27.2,
+        "type": "AT72"
     },
     "AT75": {
         "WTC": "M",
@@ -569,7 +620,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 1350,
         "wingspan": 27.05,
-        "length": 27.17
+        "length": 27.17,
+        "type": "AT75"
     },
     "ATLA": {
         "WTC": "M",
@@ -580,7 +632,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 2000,
         "wingspan": 36.3,
-        "length": 31.7
+        "length": 31.7,
+        "type": "ATLA"
     },
     "ATP": {
         "WTC": "M",
@@ -591,7 +644,8 @@
         "speed_Vat": 105,
         "rate_of_climb": 1000,
         "wingspan": 30.6,
-        "length": 26.0
+        "length": 26.0,
+        "type": "ATP"
     },
     "B190": {
         "WTC": "M",
@@ -602,7 +656,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 2500,
         "wingspan": 17.7,
-        "length": 17.6
+        "length": 17.6,
+        "type": "B190"
     },
     "B350": {
         "WTC": "L",
@@ -613,7 +668,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 2000,
         "wingspan": 17.7,
-        "length": 14.2
+        "length": 14.2,
+        "type": "B350"
     },
     "B37M": {
         "WTC": "M",
@@ -624,7 +680,8 @@
         "speed_Vat": 145,
         "rate_of_climb": 2800,
         "wingspan": 35.9,
-        "length": 35.56
+        "length": 35.56,
+        "type": "B37M"
     },
     "B38M": {
         "WTC": "M",
@@ -635,7 +692,8 @@
         "speed_Vat": 145,
         "rate_of_climb": 2500,
         "wingspan": 35.9,
-        "length": 39.52
+        "length": 39.52,
+        "type": "B38M"
     },
     "B39M": {
         "WTC": "M",
@@ -646,7 +704,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 2300,
         "wingspan": 35.9,
-        "length": 42.16
+        "length": 42.16,
+        "type": "B39M"
     },
     "B3XM": {
         "WTC": "M",
@@ -657,7 +716,8 @@
         "speed_Vat": 155,
         "rate_of_climb": 2000,
         "wingspan": 35.92,
-        "length": 43.8
+        "length": 43.8,
+        "type": "B3XM"
     },
     "B461": {
         "WTC": "M",
@@ -668,7 +728,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 1500,
         "wingspan": 26.21,
-        "length": 26.16
+        "length": 26.16,
+        "type": "B461"
     },
     "B462": {
         "WTC": "M",
@@ -679,7 +740,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 1500,
         "wingspan": 26.34,
-        "length": 28.55
+        "length": 28.55,
+        "type": "B462"
     },
     "B463": {
         "WTC": "M",
@@ -690,7 +752,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 1500,
         "wingspan": 26.34,
-        "length": 31.0
+        "length": 31.0,
+        "type": "B463"
     },
     "B703": {
         "WTC": "H",
@@ -701,7 +764,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 2000,
         "wingspan": 44.4,
-        "length": 46.6
+        "length": 46.6,
+        "type": "B703"
     },
     "B712": {
         "WTC": "M",
@@ -712,7 +776,8 @@
         "speed_Vat": 139,
         "rate_of_climb": 3000,
         "wingspan": 28.5,
-        "length": 37.8
+        "length": 37.8,
+        "type": "B712"
     },
     "B720": {
         "WTC": "M",
@@ -723,7 +788,8 @@
         "speed_Vat": 133,
         "rate_of_climb": 1700,
         "wingspan": 39.9,
-        "length": 41.3
+        "length": 41.3,
+        "type": "B720"
     },
     "B722": {
         "WTC": "M",
@@ -734,7 +800,8 @@
         "speed_Vat": 133,
         "rate_of_climb": 2000,
         "wingspan": 32.9,
-        "length": 46.7
+        "length": 46.7,
+        "type": "B722"
     },
     "B731": {
         "WTC": "M",
@@ -745,7 +812,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 1500,
         "wingspan": 28.3,
-        "length": 28.7
+        "length": 28.7,
+        "type": "B731"
     },
     "B732": {
         "WTC": "M",
@@ -756,7 +824,8 @@
         "speed_Vat": 131,
         "rate_of_climb": 1500,
         "wingspan": 28.3,
-        "length": 30.5
+        "length": 30.5,
+        "type": "B732"
     },
     "B733": {
         "WTC": "M",
@@ -767,7 +836,8 @@
         "speed_Vat": 132,
         "rate_of_climb": 2500,
         "wingspan": 28.9,
-        "length": 33.4
+        "length": 33.4,
+        "type": "B733"
     },
     "B734": {
         "WTC": "M",
@@ -778,7 +848,8 @@
         "speed_Vat": 139,
         "rate_of_climb": 3000,
         "wingspan": 28.9,
-        "length": 36.4
+        "length": 36.4,
+        "type": "B734"
     },
     "B735": {
         "WTC": "M",
@@ -789,7 +860,8 @@
         "speed_Vat": 128,
         "rate_of_climb": 3000,
         "wingspan": 28.9,
-        "length": 31.0
+        "length": 31.0,
+        "type": "B735"
     },
     "B736": {
         "WTC": "M",
@@ -800,7 +872,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 3000,
         "wingspan": 34.3,
-        "length": 31.2
+        "length": 31.2,
+        "type": "B736"
     },
     "B737": {
         "WTC": "M",
@@ -811,7 +884,8 @@
         "speed_Vat": 137,
         "rate_of_climb": 3000,
         "wingspan": 34.3,
-        "length": 33.6
+        "length": 33.6,
+        "type": "B737"
     },
     "B738": {
         "WTC": "M",
@@ -822,7 +896,8 @@
         "speed_Vat": 147,
         "rate_of_climb": 3000,
         "wingspan": 34.3,
-        "length": 39.2
+        "length": 39.2,
+        "type": "B738"
     },
     "B739": {
         "WTC": "M",
@@ -833,7 +908,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 3000,
         "wingspan": 34.3,
-        "length": 42.1
+        "length": 42.1,
+        "type": "B739"
     },
     "B741": {
         "WTC": "H",
@@ -844,7 +920,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 1000,
         "wingspan": 59.6,
-        "length": 70.6
+        "length": 70.6,
+        "type": "B741"
     },
     "B742": {
         "WTC": "H",
@@ -855,7 +932,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 1000,
         "wingspan": 59.6,
-        "length": 70.7
+        "length": 70.7,
+        "type": "B742"
     },
     "B743": {
         "WTC": "H",
@@ -866,7 +944,8 @@
         "speed_Vat": 160,
         "rate_of_climb": 2000,
         "wingspan": 59.6,
-        "length": 70.6
+        "length": 70.6,
+        "type": "B743"
     },
     "B744": {
         "WTC": "H",
@@ -877,7 +956,8 @@
         "speed_Vat": 152,
         "rate_of_climb": 1500,
         "wingspan": 64.8,
-        "length": 70.6
+        "length": 70.6,
+        "type": "B744"
     },
     "B748": {
         "WTC": "H",
@@ -888,7 +968,8 @@
         "speed_Vat": 145,
         "rate_of_climb": 2500,
         "wingspan": 68.5,
-        "length": 76.3
+        "length": 76.3,
+        "type": "B748"
     },
     "B74D": {
         "WTC": "H",
@@ -899,7 +980,8 @@
         "speed_Vat": 160,
         "rate_of_climb": 1500,
         "wingspan": 64.8,
-        "length": 70.6
+        "length": 70.6,
+        "type": "B74D"
     },
     "B74R": {
         "WTC": "H",
@@ -910,7 +992,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 1000,
         "wingspan": 59.6,
-        "length": 70.7
+        "length": 70.7,
+        "type": "B74R"
     },
     "B74S": {
         "WTC": "H",
@@ -921,7 +1004,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 3000,
         "wingspan": 59.6,
-        "length": 56.3
+        "length": 56.3,
+        "type": "B74S"
     },
     "B752": {
         "WTC": "M",
@@ -932,7 +1016,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 3500,
         "wingspan": 38.1,
-        "length": 47.3
+        "length": 47.3,
+        "type": "B752"
     },
     "B753": {
         "WTC": "M",
@@ -943,7 +1028,8 @@
         "speed_Vat": 143,
         "rate_of_climb": 3000,
         "wingspan": 38.1,
-        "length": 54.5
+        "length": 54.5,
+        "type": "B753"
     },
     "B762": {
         "WTC": "H",
@@ -954,7 +1040,8 @@
         "speed_Vat": 135,
         "rate_of_climb": 2000,
         "wingspan": 47.6,
-        "length": 48.5
+        "length": 48.5,
+        "type": "B762"
     },
     "B763": {
         "WTC": "H",
@@ -965,7 +1052,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 3000,
         "wingspan": 47.6,
-        "length": 54.9
+        "length": 54.9,
+        "type": "B763"
     },
     "B764": {
         "WTC": "H",
@@ -976,7 +1064,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 2500,
         "wingspan": 51.9,
-        "length": 61.4
+        "length": 61.4,
+        "type": "B764"
     },
     "B772": {
         "WTC": "H",
@@ -987,7 +1076,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 3000,
         "wingspan": 60.9,
-        "length": 63.7
+        "length": 63.7,
+        "type": "B772"
     },
     "B773": {
         "WTC": "H",
@@ -998,7 +1088,8 @@
         "speed_Vat": 149,
         "rate_of_climb": 3000,
         "wingspan": 60.9,
-        "length": 73.9
+        "length": 73.9,
+        "type": "B773"
     },
     "B77L": {
         "WTC": "H",
@@ -1009,7 +1100,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 2500,
         "wingspan": 64.8,
-        "length": 63.7
+        "length": 63.7,
+        "type": "B77L"
     },
     "B77W": {
         "WTC": "H",
@@ -1020,7 +1112,8 @@
         "speed_Vat": 149,
         "rate_of_climb": 3000,
         "wingspan": 64.8,
-        "length": 73.9
+        "length": 73.9,
+        "type": "B77W"
     },
     "B788": {
         "WTC": "H",
@@ -1031,7 +1124,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 2700,
         "wingspan": 52.0,
-        "length": 56.7
+        "length": 56.7,
+        "type": "B788"
     },
     "B789": {
         "WTC": "H",
@@ -1042,7 +1136,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 2700,
         "wingspan": 60.12,
-        "length": 62.8
+        "length": 62.8,
+        "type": "B789"
     },
     "B78X": {
         "WTC": "H",
@@ -1053,7 +1148,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 2700,
         "wingspan": 60.12,
-        "length": 68.3
+        "length": 68.3,
+        "type": "B78X"
     },
     "BA11": {
         "WTC": "M",
@@ -1064,7 +1160,8 @@
         "speed_Vat": 137,
         "rate_of_climb": 1200,
         "wingspan": 28.5,
-        "length": 32.61
+        "length": 32.61,
+        "type": "BA11"
     },
     "BCS1": {
         "WTC": "M",
@@ -1075,7 +1172,8 @@
         "speed_Vat": 135,
         "rate_of_climb": 3500,
         "wingspan": 35.1,
-        "length": 35.0
+        "length": 35.0,
+        "type": "BCS1"
     },
     "BCS3": {
         "WTC": "M",
@@ -1086,7 +1184,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 3100,
         "wingspan": 35.1,
-        "length": 38.7
+        "length": 38.7,
+        "type": "BCS3"
     },
     "BE10": {
         "WTC": "L",
@@ -1097,7 +1196,8 @@
         "speed_Vat": 100,
         "rate_of_climb": 1500,
         "wingspan": 14.0,
-        "length": 12.2
+        "length": 12.2,
+        "type": "BE10"
     },
     "BE20": {
         "WTC": "L",
@@ -1108,7 +1208,8 @@
         "speed_Vat": 100,
         "rate_of_climb": 2000,
         "wingspan": 16.6,
-        "length": 13.4
+        "length": 13.4,
+        "type": "BE20"
     },
     "BE23": {
         "WTC": "L",
@@ -1119,7 +1220,8 @@
         "speed_Vat": 70,
         "rate_of_climb": 400,
         "wingspan": 10.0,
-        "length": 7.6
+        "length": 7.6,
+        "type": "BE23"
     },
     "BE33": {
         "WTC": "L",
@@ -1130,7 +1232,8 @@
         "speed_Vat": 70,
         "rate_of_climb": 800,
         "wingspan": 10.2,
-        "length": 7.8
+        "length": 7.8,
+        "type": "BE33"
     },
     "BE36": {
         "WTC": "L",
@@ -1141,7 +1244,8 @@
         "speed_Vat": 70,
         "rate_of_climb": 500,
         "wingspan": 8.4,
-        "length": 8.1
+        "length": 8.1,
+        "type": "BE36"
     },
     "BE40": {
         "WTC": "M",
@@ -1152,7 +1256,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 3000,
         "wingspan": 13.3,
-        "length": 14.8
+        "length": 14.8,
+        "type": "BE40"
     },
     "BE50": {
         "WTC": "L",
@@ -1163,7 +1268,8 @@
         "speed_Vat": 80,
         "rate_of_climb": 1000,
         "wingspan": 14.0,
-        "length": 9.6
+        "length": 9.6,
+        "type": "BE50"
     },
     "BE55": {
         "WTC": "L",
@@ -1174,7 +1280,8 @@
         "speed_Vat": 95,
         "rate_of_climb": 1500,
         "wingspan": 11.5,
-        "length": 8.5
+        "length": 8.5,
+        "type": "BE55"
     },
     "BE58": {
         "WTC": "L",
@@ -1185,7 +1292,8 @@
         "speed_Vat": 95,
         "rate_of_climb": 1500,
         "wingspan": 11.5,
-        "length": 9.1
+        "length": 9.1,
+        "type": "BE58"
     },
     "BE60": {
         "WTC": "L",
@@ -1196,7 +1304,8 @@
         "speed_Vat": 95,
         "rate_of_climb": 1500,
         "wingspan": 12.0,
-        "length": 10.3
+        "length": 10.3,
+        "type": "BE60"
     },
     "BE76": {
         "WTC": "L",
@@ -1207,7 +1316,8 @@
         "speed_Vat": 85,
         "rate_of_climb": 1000,
         "wingspan": 11.6,
-        "length": 8.9
+        "length": 8.9,
+        "type": "BE76"
     },
     "BE80": {
         "WTC": "L",
@@ -1218,7 +1328,8 @@
         "speed_Vat": 90,
         "rate_of_climb": 1000,
         "wingspan": 15.5,
-        "length": 10.8
+        "length": 10.8,
+        "type": "BE80"
     },
     "BE99": {
         "WTC": "L",
@@ -1229,7 +1340,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 1000,
         "wingspan": 14.0,
-        "length": 13.6
+        "length": 13.6,
+        "type": "BE99"
     },
     "BE9L": {
         "WTC": "L",
@@ -1240,7 +1352,8 @@
         "speed_Vat": 105,
         "rate_of_climb": 1500,
         "wingspan": 15.3,
-        "length": 10.8
+        "length": 10.8,
+        "type": "BE9L"
     },
     "BN2T": {
         "WTC": "L",
@@ -1251,7 +1364,8 @@
         "speed_Vat": 65,
         "rate_of_climb": 800,
         "wingspan": 15.0,
-        "length": 10.9
+        "length": 10.9,
+        "type": "BN2T"
     },
     "C06T": {
         "WTC": "L",
@@ -1262,7 +1376,8 @@
         "speed_Vat": 70,
         "rate_of_climb": 800,
         "wingspan": 10.97,
-        "length": 8.61
+        "length": 8.61,
+        "type": "C06T"
     },
     "C130": {
         "WTC": "M",
@@ -1273,7 +1388,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 1500,
         "wingspan": 40.4,
-        "length": 29.8
+        "length": 29.8,
+        "type": "C130"
     },
     "C135": {
         "WTC": "H",
@@ -1284,7 +1400,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 1500,
         "wingspan": 39.9,
-        "length": 51.5
+        "length": 51.5,
+        "type": "C135"
     },
     "C141": {
         "WTC": "H",
@@ -1295,7 +1412,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 2000,
         "wingspan": 48.7,
-        "length": 51.3
+        "length": 51.3,
+        "type": "C141"
     },
     "C150": {
         "WTC": "L",
@@ -1306,7 +1424,8 @@
         "speed_Vat": 55,
         "rate_of_climb": 400,
         "wingspan": 10.2,
-        "length": 6.6
+        "length": 6.6,
+        "type": "C150"
     },
     "C152": {
         "WTC": "L",
@@ -1317,7 +1436,8 @@
         "speed_Vat": 55,
         "rate_of_climb": 500,
         "wingspan": 10.2,
-        "length": 7.3
+        "length": 7.3,
+        "type": "C152"
     },
     "C160": {
         "WTC": "M",
@@ -1328,7 +1448,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 1200,
         "wingspan": 40.0,
-        "length": 32.4
+        "length": 32.4,
+        "type": "C160"
     },
     "C17": {
         "WTC": "H",
@@ -1339,7 +1460,8 @@
         "speed_Vat": 115,
         "rate_of_climb": 2000,
         "wingspan": 51.8,
-        "length": 53.0
+        "length": 53.0,
+        "type": "C17"
     },
     "C172": {
         "WTC": "L",
@@ -1350,7 +1472,8 @@
         "speed_Vat": 65,
         "rate_of_climb": 400,
         "wingspan": 10.9,
-        "length": 8.2
+        "length": 8.2,
+        "type": "C172"
     },
     "C177": {
         "WTC": "L",
@@ -1361,7 +1484,8 @@
         "speed_Vat": 65,
         "rate_of_climb": 500,
         "wingspan": 10.8,
-        "length": 8.2
+        "length": 8.2,
+        "type": "C177"
     },
     "C182": {
         "WTC": "L",
@@ -1372,7 +1496,8 @@
         "speed_Vat": 65,
         "rate_of_climb": 500,
         "wingspan": 11.0,
-        "length": 8.6
+        "length": 8.6,
+        "type": "C182"
     },
     "C2": {
         "WTC": "M",
@@ -1383,7 +1508,8 @@
         "speed_Vat": 105,
         "rate_of_climb": 1500,
         "wingspan": 24.6,
-        "length": 17.6
+        "length": 17.6,
+        "type": "C2"
     },
     "C206": {
         "WTC": "L",
@@ -1394,7 +1520,8 @@
         "speed_Vat": 70,
         "rate_of_climb": 800,
         "wingspan": 10.9,
-        "length": 8.6
+        "length": 8.6,
+        "type": "C206"
     },
     "C207": {
         "WTC": "L",
@@ -1405,7 +1532,8 @@
         "speed_Vat": 75,
         "rate_of_climb": 500,
         "wingspan": 10.9,
-        "length": 9.8
+        "length": 9.8,
+        "type": "C207"
     },
     "C208": {
         "WTC": "L",
@@ -1416,7 +1544,8 @@
         "speed_Vat": 75,
         "rate_of_climb": 800,
         "wingspan": 15.9,
-        "length": 11.5
+        "length": 11.5,
+        "type": "C208"
     },
     "C210": {
         "WTC": "L",
@@ -1427,7 +1556,8 @@
         "speed_Vat": 75,
         "rate_of_climb": 500,
         "wingspan": 11.2,
-        "length": 8.6
+        "length": 8.6,
+        "type": "C210"
     },
     "C212": {
         "WTC": "M",
@@ -1438,7 +1568,8 @@
         "speed_Vat": 90,
         "rate_of_climb": 1000,
         "wingspan": 20.3,
-        "length": 16.2
+        "length": 16.2,
+        "type": "C212"
     },
     "C25A": {
         "WTC": "L",
@@ -1449,7 +1580,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 3500,
         "wingspan": 15.19,
-        "length": 14.53
+        "length": 14.53,
+        "type": "C25A"
     },
     "C25B": {
         "WTC": "L",
@@ -1460,7 +1592,8 @@
         "speed_Vat": 108,
         "rate_of_climb": 3500,
         "wingspan": 16.26,
-        "length": 15.59
+        "length": 15.59,
+        "type": "C25B"
     },
     "C25C": {
         "WTC": "M",
@@ -1471,7 +1604,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 3500,
         "wingspan": 15.49,
-        "length": 16.26
+        "length": 16.26,
+        "type": "C25C"
     },
     "C25M": {
         "WTC": "L",
@@ -1482,7 +1616,8 @@
         "speed_Vat": 105,
         "rate_of_climb": 3700,
         "wingspan": 14.39,
-        "length": 12.98
+        "length": 12.98,
+        "type": "C25M"
     },
     "C303": {
         "WTC": "L",
@@ -1493,7 +1628,8 @@
         "speed_Vat": 90,
         "rate_of_climb": 1000,
         "wingspan": 11.9,
-        "length": 9.3
+        "length": 9.3,
+        "type": "C303"
     },
     "C30J": {
         "WTC": "M",
@@ -1504,7 +1640,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 2000,
         "wingspan": 40.4,
-        "length": 29.8
+        "length": 29.8,
+        "type": "C30J"
     },
     "C310": {
         "WTC": "L",
@@ -1515,7 +1652,8 @@
         "speed_Vat": 94,
         "rate_of_climb": 1000,
         "wingspan": 11.3,
-        "length": 9.7
+        "length": 9.7,
+        "type": "C310"
     },
     "C337": {
         "WTC": "L",
@@ -1526,7 +1664,8 @@
         "speed_Vat": 90,
         "rate_of_climb": 800,
         "wingspan": 11.6,
-        "length": 9.1
+        "length": 9.1,
+        "type": "C337"
     },
     "C340": {
         "WTC": "L",
@@ -1537,7 +1676,8 @@
         "speed_Vat": 93,
         "rate_of_climb": 1000,
         "wingspan": 11.6,
-        "length": 10.5
+        "length": 10.5,
+        "type": "C340"
     },
     "C402": {
         "WTC": "L",
@@ -1548,7 +1688,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 1200,
         "wingspan": 13.5,
-        "length": 11.1
+        "length": 11.1,
+        "type": "C402"
     },
     "C404": {
         "WTC": "L",
@@ -1559,7 +1700,8 @@
         "speed_Vat": 100,
         "rate_of_climb": 1200,
         "wingspan": 15.1,
-        "length": 11.9
+        "length": 11.9,
+        "type": "C404"
     },
     "C414": {
         "WTC": "L",
@@ -1570,7 +1712,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 1200,
         "wingspan": 12.5,
-        "length": 10.3
+        "length": 10.3,
+        "type": "C414"
     },
     "C421": {
         "WTC": "L",
@@ -1581,7 +1724,8 @@
         "speed_Vat": 95,
         "rate_of_climb": 1500,
         "wingspan": 12.2,
-        "length": 10.3
+        "length": 10.3,
+        "type": "C421"
     },
     "C425": {
         "WTC": "L",
@@ -1592,7 +1736,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 2000,
         "wingspan": 13.5,
-        "length": 10.9
+        "length": 10.9,
+        "type": "C425"
     },
     "C441": {
         "WTC": "L",
@@ -1603,7 +1748,8 @@
         "speed_Vat": 100,
         "rate_of_climb": 2000,
         "wingspan": 15.0,
-        "length": 11.9
+        "length": 11.9,
+        "type": "C441"
     },
     "C5": {
         "WTC": "H",
@@ -1614,7 +1760,8 @@
         "speed_Vat": 135,
         "rate_of_climb": 1500,
         "wingspan": 67.9,
-        "length": 75.3
+        "length": 75.3,
+        "type": "C5"
     },
     "C525": {
         "WTC": "L",
@@ -1625,7 +1772,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 3000,
         "wingspan": 14.3,
-        "length": 13.0
+        "length": 13.0,
+        "type": "C525"
     },
     "C550": {
         "WTC": "L",
@@ -1636,7 +1784,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 2000,
         "wingspan": 15.9,
-        "length": 14.4
+        "length": 14.4,
+        "type": "C550"
     },
     "C560": {
         "WTC": "M",
@@ -1647,7 +1796,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 2500,
         "wingspan": 13.8,
-        "length": 14.9
+        "length": 14.9,
+        "type": "C560"
     },
     "C56X": {
         "WTC": "M",
@@ -1658,7 +1808,8 @@
         "speed_Vat": 117,
         "rate_of_climb": 2500,
         "wingspan": 17.0,
-        "length": 15.8
+        "length": 15.8,
+        "type": "C56X"
     },
     "C650": {
         "WTC": "M",
@@ -1669,7 +1820,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 4000,
         "wingspan": 16.31,
-        "length": 16.9
+        "length": 16.9,
+        "type": "C650"
     },
     "C680": {
         "WTC": "M",
@@ -1680,7 +1832,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 2500,
         "wingspan": 19.24,
-        "length": 19.37
+        "length": 19.37,
+        "type": "C680"
     },
     "C750": {
         "WTC": "M",
@@ -1691,7 +1844,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 3500,
         "wingspan": 19.5,
-        "length": 22.0
+        "length": 22.0,
+        "type": "C750"
     },
     "C82R": {
         "WTC": "L",
@@ -1702,7 +1856,8 @@
         "speed_Vat": 65,
         "rate_of_climb": 800,
         "wingspan": 10.9,
-        "length": 8.5
+        "length": 8.5,
+        "type": "C82R"
     },
     "CL2T": {
         "WTC": "M",
@@ -1713,7 +1868,8 @@
         "speed_Vat": 105,
         "rate_of_climb": 1500,
         "wingspan": 28.63,
-        "length": 19.82
+        "length": 19.82,
+        "type": "CL2T"
     },
     "CL30": {
         "WTC": "M",
@@ -1724,7 +1880,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 4500,
         "wingspan": 18.4,
-        "length": 20.9
+        "length": 20.9,
+        "type": "CL30"
     },
     "CL35": {
         "WTC": "M",
@@ -1735,7 +1892,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 4500,
         "wingspan": 21.0,
-        "length": 20.9
+        "length": 20.9,
+        "type": "CL35"
     },
     "CN35": {
         "WTC": "M",
@@ -1746,7 +1904,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 1500,
         "wingspan": 25.8,
-        "length": 21.4
+        "length": 21.4,
+        "type": "CN35"
     },
     "CONC": {
         "WTC": "H",
@@ -1757,7 +1916,8 @@
         "speed_Vat": 165,
         "rate_of_climb": 4000,
         "wingspan": 25.6,
-        "length": 61.66
+        "length": 61.66,
+        "type": "CONC"
     },
     "CRJ1": {
         "WTC": "M",
@@ -1768,7 +1928,8 @@
         "speed_Vat": 135,
         "rate_of_climb": 2500,
         "wingspan": 21.21,
-        "length": 26.8
+        "length": 26.8,
+        "type": "CRJ1"
     },
     "CRJ2": {
         "WTC": "M",
@@ -1779,7 +1940,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 3000,
         "wingspan": 21.21,
-        "length": 26.8
+        "length": 26.8,
+        "type": "CRJ2"
     },
     "CRJ7": {
         "WTC": "M",
@@ -1790,7 +1952,8 @@
         "speed_Vat": 135,
         "rate_of_climb": 3000,
         "wingspan": 23.24,
-        "length": 32.51
+        "length": 32.51,
+        "type": "CRJ7"
     },
     "CRJ9": {
         "WTC": "M",
@@ -1801,7 +1964,8 @@
         "speed_Vat": 135,
         "rate_of_climb": 2500,
         "wingspan": 24.9,
-        "length": 36.2
+        "length": 36.2,
+        "type": "CRJ9"
     },
     "CRJX": {
         "WTC": "M",
@@ -1812,7 +1976,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 3000,
         "wingspan": 26.18,
-        "length": 39.13
+        "length": 39.13,
+        "type": "CRJX"
     },
     "D228": {
         "WTC": "L",
@@ -1823,7 +1988,8 @@
         "speed_Vat": 85,
         "rate_of_climb": 1500,
         "wingspan": 16.97,
-        "length": 16.56
+        "length": 16.56,
+        "type": "D228"
     },
     "D328": {
         "WTC": "M",
@@ -1834,7 +2000,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 2000,
         "wingspan": 20.98,
-        "length": 21.11
+        "length": 21.11,
+        "type": "D328"
     },
     "DA40": {
         "WTC": "L",
@@ -1845,7 +2012,8 @@
         "speed_Vat": 80,
         "rate_of_climb": 700,
         "wingspan": 11.63,
-        "length": 8.06
+        "length": 8.06,
+        "type": "DA40"
     },
     "DA42": {
         "WTC": "L",
@@ -1856,7 +2024,8 @@
         "speed_Vat": 75,
         "rate_of_climb": 1700,
         "wingspan": 13.42,
-        "length": 8.56
+        "length": 8.56,
+        "type": "DA42"
     },
     "DA50": {
         "WTC": "L",
@@ -1867,7 +2036,8 @@
         "speed_Vat": 85,
         "rate_of_climb": 2000,
         "wingspan": 11.7,
-        "length": 8.8
+        "length": 8.8,
+        "type": "DA50"
     },
     "DC10": {
         "WTC": "H",
@@ -1878,7 +2048,8 @@
         "speed_Vat": 149,
         "rate_of_climb": 2000,
         "wingspan": 50.4,
-        "length": 55.0
+        "length": 55.0,
+        "type": "DC10"
     },
     "DC85": {
         "WTC": "H",
@@ -1889,7 +2060,8 @@
         "speed_Vat": 137,
         "rate_of_climb": 1300,
         "wingspan": 43.4,
-        "length": 45.9
+        "length": 45.9,
+        "type": "DC85"
     },
     "DC86": {
         "WTC": "H",
@@ -1900,7 +2072,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 2000,
         "wingspan": 43.4,
-        "length": 57.1
+        "length": 57.1,
+        "type": "DC86"
     },
     "DC87": {
         "WTC": "H",
@@ -1911,7 +2084,8 @@
         "speed_Vat": 145,
         "rate_of_climb": 2200,
         "wingspan": 45.2,
-        "length": 57.1
+        "length": 57.1,
+        "type": "DC87"
     },
     "DC91": {
         "WTC": "M",
@@ -1922,7 +2096,8 @@
         "speed_Vat": 132,
         "rate_of_climb": 2800,
         "wingspan": 27.28,
-        "length": 31.86
+        "length": 31.86,
+        "type": "DC91"
     },
     "DC92": {
         "WTC": "M",
@@ -1933,7 +2108,8 @@
         "speed_Vat": 127,
         "rate_of_climb": 2500,
         "wingspan": 28.44,
-        "length": 31.82
+        "length": 31.82,
+        "type": "DC92"
     },
     "DC93": {
         "WTC": "M",
@@ -1944,7 +2120,8 @@
         "speed_Vat": 127,
         "rate_of_climb": 2000,
         "wingspan": 27.3,
-        "length": 36.4
+        "length": 36.4,
+        "type": "DC93"
     },
     "DC95": {
         "WTC": "M",
@@ -1955,7 +2132,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 2000,
         "wingspan": 28.5,
-        "length": 40.7
+        "length": 40.7,
+        "type": "DC95"
     },
     "DH8A": {
         "WTC": "M",
@@ -1966,7 +2144,8 @@
         "speed_Vat": 100,
         "rate_of_climb": 1800,
         "wingspan": 25.9,
-        "length": 22.3
+        "length": 22.3,
+        "type": "DH8A"
     },
     "DH8C": {
         "WTC": "M",
@@ -1977,7 +2156,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 1800,
         "wingspan": 27.4,
-        "length": 25.7
+        "length": 25.7,
+        "type": "DH8C"
     },
     "DH8D": {
         "WTC": "M",
@@ -1988,7 +2168,8 @@
         "speed_Vat": 121,
         "rate_of_climb": 3500,
         "wingspan": 28.4,
-        "length": 32.8
+        "length": 32.8,
+        "type": "DH8D"
     },
     "DHC6": {
         "WTC": "L",
@@ -1999,7 +2180,8 @@
         "speed_Vat": 70,
         "rate_of_climb": 1000,
         "wingspan": 19.8,
-        "length": 15.1
+        "length": 15.1,
+        "type": "DHC6"
     },
     "DHC7": {
         "WTC": "M",
@@ -2010,7 +2192,8 @@
         "speed_Vat": 90,
         "rate_of_climb": 1000,
         "wingspan": 28.4,
-        "length": 24.6
+        "length": 24.6,
+        "type": "DHC7"
     },
     "E110": {
         "WTC": "L",
@@ -2021,7 +2204,8 @@
         "speed_Vat": 100,
         "rate_of_climb": 1000,
         "wingspan": 15.3,
-        "length": 14.2
+        "length": 14.2,
+        "type": "E110"
     },
     "E120": {
         "WTC": "M",
@@ -2032,7 +2216,8 @@
         "speed_Vat": 126,
         "rate_of_climb": 1500,
         "wingspan": 19.8,
-        "length": 20.0
+        "length": 20.0,
+        "type": "E120"
     },
     "E121": {
         "WTC": "L",
@@ -2043,7 +2228,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 1500,
         "wingspan": 14.5,
-        "length": 12.3
+        "length": 12.3,
+        "type": "E121"
     },
     "E135": {
         "WTC": "M",
@@ -2054,7 +2240,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 3500,
         "wingspan": 20.2,
-        "length": 26.3
+        "length": 26.3,
+        "type": "E135"
     },
     "E145": {
         "WTC": "M",
@@ -2065,7 +2252,8 @@
         "speed_Vat": 135,
         "rate_of_climb": 2500,
         "wingspan": 20.2,
-        "length": 29.8
+        "length": 29.8,
+        "type": "E145"
     },
     "E170": {
         "WTC": "M",
@@ -2076,7 +2264,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 3400,
         "wingspan": 26.0,
-        "length": 29.9
+        "length": 29.9,
+        "type": "E170"
     },
     "E190": {
         "WTC": "M",
@@ -2087,7 +2276,8 @@
         "speed_Vat": 131,
         "rate_of_climb": 3400,
         "wingspan": 28.7,
-        "length": 36.2
+        "length": 36.2,
+        "type": "E190"
     },
     "E195": {
         "WTC": "M",
@@ -2098,7 +2288,8 @@
         "speed_Vat": 135,
         "rate_of_climb": 3000,
         "wingspan": 28.7,
-        "length": 38.65
+        "length": 38.65,
+        "type": "E195"
     },
     "E2": {
         "WTC": "M",
@@ -2109,7 +2300,8 @@
         "speed_Vat": 105,
         "rate_of_climb": 3000,
         "wingspan": 24.6,
-        "length": 17.6
+        "length": 17.6,
+        "type": "E2"
     },
     "E3CF": {
         "WTC": "H",
@@ -2120,7 +2312,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 2200,
         "wingspan": 44.4,
-        "length": 46.6
+        "length": 46.6,
+        "type": "E3CF"
     },
     "E3TF": {
         "WTC": "H",
@@ -2131,7 +2324,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 2000,
         "wingspan": 44.4,
-        "length": 46.6
+        "length": 46.6,
+        "type": "E3TF"
     },
     "E50P": {
         "WTC": "L",
@@ -2142,7 +2336,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 3500,
         "wingspan": 12.3,
-        "length": 12.8
+        "length": 12.8,
+        "type": "E50P"
     },
     "ETAR": {
         "WTC": "M",
@@ -2153,7 +2348,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 19700,
         "wingspan": 9.6,
-        "length": 14.3
+        "length": 14.3,
+        "type": "ETAR"
     },
     "EUFI": {
         "WTC": "M",
@@ -2164,7 +2360,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 45000,
         "wingspan": 10.95,
-        "length": 15.96
+        "length": 15.96,
+        "type": "EUFI"
     },
     "F100": {
         "WTC": "M",
@@ -2175,7 +2372,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 2500,
         "wingspan": 28.1,
-        "length": 35.5
+        "length": 35.5,
+        "type": "F100"
     },
     "F117": {
         "WTC": "M",
@@ -2186,7 +2384,8 @@
         "speed_Vat": 180,
         "rate_of_climb": 10000,
         "wingspan": 13.3,
-        "length": 20.3
+        "length": 20.3,
+        "type": "F117"
     },
     "F14": {
         "WTC": "M",
@@ -2197,7 +2396,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 40000,
         "wingspan": 19.5,
-        "length": 19.1
+        "length": 19.1,
+        "type": "F14"
     },
     "F15": {
         "WTC": "M",
@@ -2208,7 +2408,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 50000,
         "wingspan": 13.0,
-        "length": 19.4
+        "length": 19.4,
+        "type": "F15"
     },
     "F16": {
         "WTC": "M",
@@ -2219,7 +2420,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 55000,
         "wingspan": 10.0,
-        "length": 15.0
+        "length": 15.0,
+        "type": "F16"
     },
     "F18": {
         "WTC": "M",
@@ -2230,7 +2432,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 30000,
         "wingspan": 12.3,
-        "length": 17.1
+        "length": 17.1,
+        "type": "F18"
     },
     "F26T": {
         "WTC": "L",
@@ -2241,7 +2444,8 @@
         "speed_Vat": 75,
         "rate_of_climb": 1500,
         "wingspan": 8.4,
-        "length": 7.1
+        "length": 7.1,
+        "type": "F26T"
     },
     "F27": {
         "WTC": "M",
@@ -2252,7 +2456,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 1000,
         "wingspan": 29.0,
-        "length": 23.1
+        "length": 23.1,
+        "type": "F27"
     },
     "F28": {
         "WTC": "M",
@@ -2263,7 +2468,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 2000,
         "wingspan": 27.07,
-        "length": 27.4
+        "length": 27.4,
+        "type": "F28"
     },
     "F2TH": {
         "WTC": "M",
@@ -2274,7 +2480,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 3000,
         "wingspan": 19.3,
-        "length": 20.2
+        "length": 20.2,
+        "type": "F2TH"
     },
     "F4": {
         "WTC": "M",
@@ -2285,7 +2492,8 @@
         "speed_Vat": 175,
         "rate_of_climb": 4000,
         "wingspan": 11.7,
-        "length": 17.8
+        "length": 17.8,
+        "type": "F4"
     },
     "F406": {
         "WTC": "L",
@@ -2296,7 +2504,8 @@
         "speed_Vat": 95,
         "rate_of_climb": 2000,
         "wingspan": 15.1,
-        "length": 11.9
+        "length": 11.9,
+        "type": "F406"
     },
     "F5": {
         "WTC": "M",
@@ -2307,7 +2516,8 @@
         "speed_Vat": 170,
         "rate_of_climb": 34000,
         "wingspan": 8.1,
-        "length": 14.5
+        "length": 14.5,
+        "type": "F5"
     },
     "F50": {
         "WTC": "M",
@@ -2318,7 +2528,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 1500,
         "wingspan": 29.0,
-        "length": 25.2
+        "length": 25.2,
+        "type": "F50"
     },
     "F70": {
         "WTC": "M",
@@ -2329,7 +2540,8 @@
         "speed_Vat": 129,
         "rate_of_climb": 3000,
         "wingspan": 29.1,
-        "length": 30.9
+        "length": 30.9,
+        "type": "F70"
     },
     "F900": {
         "WTC": "M",
@@ -2340,7 +2552,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 3000,
         "wingspan": 19.3,
-        "length": 20.2
+        "length": 20.2,
+        "type": "F900"
     },
     "FA10": {
         "WTC": "M",
@@ -2351,7 +2564,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 2300,
         "wingspan": 13.08,
-        "length": 13.86
+        "length": 13.86,
+        "type": "FA10"
     },
     "FA20": {
         "WTC": "M",
@@ -2362,7 +2576,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 3000,
         "wingspan": 16.3,
-        "length": 17.2
+        "length": 17.2,
+        "type": "FA20"
     },
     "FA50": {
         "WTC": "M",
@@ -2373,7 +2588,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 3000,
         "wingspan": 18.86,
-        "length": 18.52
+        "length": 18.52,
+        "type": "FA50"
     },
     "FA7X": {
         "WTC": "M",
@@ -2384,7 +2600,8 @@
         "speed_Vat": 104,
         "rate_of_climb": 3500,
         "wingspan": 26.21,
-        "length": 23.19
+        "length": 23.19,
+        "type": "FA7X"
     },
     "G115": {
         "WTC": "L",
@@ -2395,7 +2612,8 @@
         "speed_Vat": 60,
         "rate_of_climb": 1000,
         "wingspan": 10.0,
-        "length": 7.59
+        "length": 7.59,
+        "type": "G115"
     },
     "G150": {
         "WTC": "M",
@@ -2406,7 +2624,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 3300,
         "wingspan": 16.94,
-        "length": 17.3
+        "length": 17.3,
+        "type": "G150"
     },
     "G222": {
         "WTC": "M",
@@ -2417,7 +2636,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 1600,
         "wingspan": 28.7,
-        "length": 22.7
+        "length": 22.7,
+        "type": "G222"
     },
     "G280": {
         "WTC": "M",
@@ -2428,7 +2648,8 @@
         "speed_Vat": 134,
         "rate_of_climb": 5500,
         "wingspan": 19.2,
-        "length": 20.37
+        "length": 20.37,
+        "type": "G280"
     },
     "GALX": {
         "WTC": "M",
@@ -2439,7 +2660,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 3500,
         "wingspan": 17.7,
-        "length": 19.0
+        "length": 19.0,
+        "type": "GALX"
     },
     "GL5T": {
         "WTC": "M",
@@ -2450,7 +2672,8 @@
         "speed_Vat": 122,
         "rate_of_climb": 3000,
         "wingspan": 28.65,
-        "length": 29.5
+        "length": 29.5,
+        "type": "GL5T"
     },
     "GLEX": {
         "WTC": "M",
@@ -2461,7 +2684,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 4000,
         "wingspan": 28.6,
-        "length": 30.3
+        "length": 30.3,
+        "type": "GLEX"
     },
     "GLF3": {
         "WTC": "M",
@@ -2472,7 +2696,8 @@
         "speed_Vat": 135,
         "rate_of_climb": 4000,
         "wingspan": 23.7,
-        "length": 25.3
+        "length": 25.3,
+        "type": "GLF3"
     },
     "GLF4": {
         "WTC": "M",
@@ -2483,7 +2708,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 4000,
         "wingspan": 23.7,
-        "length": 26.9
+        "length": 26.9,
+        "type": "GLF4"
     },
     "GLF5": {
         "WTC": "M",
@@ -2494,7 +2720,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 4000,
         "wingspan": 28.5,
-        "length": 29.4
+        "length": 29.4,
+        "type": "GLF5"
     },
     "H25A": {
         "WTC": "M",
@@ -2505,7 +2732,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 3700,
         "wingspan": 14.33,
-        "length": 14.45
+        "length": 14.45,
+        "type": "H25A"
     },
     "H25B": {
         "WTC": "M",
@@ -2516,7 +2744,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 2000,
         "wingspan": 16.6,
-        "length": 15.6
+        "length": 15.6,
+        "type": "H25B"
     },
     "H25C": {
         "WTC": "M",
@@ -2527,7 +2756,8 @@
         "speed_Vat": 132,
         "rate_of_climb": 3500,
         "wingspan": 15.7,
-        "length": 16.4
+        "length": 16.4,
+        "type": "H25C"
     },
     "HAR": {
         "WTC": "M",
@@ -2538,7 +2768,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 14500,
         "wingspan": 8.3,
-        "length": 14.5
+        "length": 14.5,
+        "type": "HAR"
     },
     "HAWK": {
         "WTC": "M",
@@ -2549,7 +2780,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 9300,
         "wingspan": 9.4,
-        "length": 11.9
+        "length": 11.9,
+        "type": "HAWK"
     },
     "HDJT": {
         "WTC": "L",
@@ -2560,7 +2792,8 @@
         "speed_Vat": 112,
         "rate_of_climb": 3500,
         "wingspan": 12.15,
-        "length": 12.71
+        "length": 12.71,
+        "type": "HDJT"
     },
     "IL18": {
         "WTC": "M",
@@ -2571,7 +2804,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 1000,
         "wingspan": 37.4,
-        "length": 35.9
+        "length": 35.9,
+        "type": "IL18"
     },
     "IL62": {
         "WTC": "H",
@@ -2582,7 +2816,8 @@
         "speed_Vat": 145,
         "rate_of_climb": 1000,
         "wingspan": 43.2,
-        "length": 53.1
+        "length": 53.1,
+        "type": "IL62"
     },
     "IL76": {
         "WTC": "H",
@@ -2593,7 +2828,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 1000,
         "wingspan": 50.5,
-        "length": 46.6
+        "length": 46.6,
+        "type": "IL76"
     },
     "IL86": {
         "WTC": "H",
@@ -2604,7 +2840,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 2000,
         "wingspan": 48.1,
-        "length": 59.5
+        "length": 59.5,
+        "type": "IL86"
     },
     "IL96": {
         "WTC": "H",
@@ -2615,7 +2852,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 2000,
         "wingspan": 60.11,
-        "length": 55.3
+        "length": 55.3,
+        "type": "IL96"
     },
     "J328": {
         "WTC": "M",
@@ -2626,7 +2864,8 @@
         "speed_Vat": 115,
         "rate_of_climb": 2500,
         "wingspan": 20.98,
-        "length": 21.3
+        "length": 21.3,
+        "type": "J328"
     },
     "JAGR": {
         "WTC": "M",
@@ -2637,7 +2876,8 @@
         "speed_Vat": 148,
         "rate_of_climb": 20000,
         "wingspan": 8.7,
-        "length": 16.8
+        "length": 16.8,
+        "type": "JAGR"
     },
     "JS1": {
         "WTC": "L",
@@ -2648,7 +2888,8 @@
         "speed_Vat": 100,
         "rate_of_climb": 2100,
         "wingspan": 15.85,
-        "length": 14.37
+        "length": 14.37,
+        "type": "JS1"
     },
     "JS20": {
         "WTC": "M",
@@ -2659,7 +2900,8 @@
         "speed_Vat": 105,
         "rate_of_climb": 2500,
         "wingspan": 15.85,
-        "length": 14.37
+        "length": 14.37,
+        "type": "JS20"
     },
     "JS3": {
         "WTC": "M",
@@ -2670,7 +2912,8 @@
         "speed_Vat": 112,
         "rate_of_climb": 1500,
         "wingspan": 15.85,
-        "length": 14.37
+        "length": 14.37,
+        "type": "JS3"
     },
     "JS31": {
         "WTC": "M",
@@ -2681,7 +2924,8 @@
         "speed_Vat": 115,
         "rate_of_climb": 2000,
         "wingspan": 15.85,
-        "length": 14.37
+        "length": 14.37,
+        "type": "JS31"
     },
     "JS32": {
         "WTC": "M",
@@ -2692,7 +2936,8 @@
         "speed_Vat": 115,
         "rate_of_climb": 2000,
         "wingspan": 15.85,
-        "length": 14.36
+        "length": 14.36,
+        "type": "JS32"
     },
     "JS41": {
         "WTC": "M",
@@ -2703,7 +2948,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 2200,
         "wingspan": 18.42,
-        "length": 19.33
+        "length": 19.33,
+        "type": "JS41"
     },
     "K35E": {
         "WTC": "H",
@@ -2714,7 +2960,8 @@
         "speed_Vat": 135,
         "rate_of_climb": 1300,
         "wingspan": 39.9,
-        "length": 41.5
+        "length": 41.5,
+        "type": "K35E"
     },
     "K35R": {
         "WTC": "H",
@@ -2725,7 +2972,8 @@
         "speed_Vat": 135,
         "rate_of_climb": 2500,
         "wingspan": 39.9,
-        "length": 41.5
+        "length": 41.5,
+        "type": "K35R"
     },
     "M18": {
         "WTC": "L",
@@ -2736,7 +2984,8 @@
         "speed_Vat": 80,
         "rate_of_climb": 1000,
         "wingspan": 17.7,
-        "length": 9.5
+        "length": 9.5,
+        "type": "M18"
     },
     "PA27": {
         "WTC": "L",
@@ -2747,7 +2996,8 @@
         "speed_Vat": 70,
         "rate_of_climb": 1500,
         "wingspan": 11.4,
-        "length": 9.5
+        "length": 9.5,
+        "type": "PA27"
     },
     "RALL": {
         "WTC": "L",
@@ -2758,7 +3008,8 @@
         "speed_Vat": 60,
         "rate_of_climb": 800,
         "wingspan": 9.7,
-        "length": 7.2
+        "length": 7.2,
+        "type": "RALL"
     },
     "TB30": {
         "WTC": "L",
@@ -2769,7 +3020,8 @@
         "speed_Vat": 80,
         "rate_of_climb": 1800,
         "wingspan": 7.9,
-        "length": 7.6
+        "length": 7.6,
+        "type": "TB30"
     },
     "L101": {
         "WTC": "H",
@@ -2780,7 +3032,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 2000,
         "wingspan": 47.4,
-        "length": 54.3
+        "length": 54.3,
+        "type": "L101"
     },
     "L159": {
         "WTC": "M",
@@ -2791,7 +3044,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 10000,
         "wingspan": 9.5,
-        "length": 12.7
+        "length": 12.7,
+        "type": "L159"
     },
     "L188": {
         "WTC": "M",
@@ -2802,7 +3056,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 1500,
         "wingspan": 30.2,
-        "length": 31.8
+        "length": 31.8,
+        "type": "L188"
     },
     "L29B": {
         "WTC": "M",
@@ -2813,7 +3068,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 3500,
         "wingspan": 16.6,
-        "length": 18.4
+        "length": 18.4,
+        "type": "L29B"
     },
     "L39": {
         "WTC": "L",
@@ -2824,7 +3080,8 @@
         "speed_Vat": 135,
         "rate_of_climb": 4300,
         "wingspan": 9.5,
-        "length": 12.13
+        "length": 12.13,
+        "type": "L39"
     },
     "L410": {
         "WTC": "L",
@@ -2835,7 +3092,8 @@
         "speed_Vat": 85,
         "rate_of_climb": 1000,
         "wingspan": 20.0,
-        "length": 14.4
+        "length": 14.4,
+        "type": "L410"
     },
     "L610": {
         "WTC": "M",
@@ -2846,7 +3104,8 @@
         "speed_Vat": 100,
         "rate_of_climb": 1000,
         "wingspan": 25.6,
-        "length": 21.4
+        "length": 21.4,
+        "type": "L610"
     },
     "LJ25": {
         "WTC": "L",
@@ -2857,7 +3116,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 4000,
         "wingspan": 10.8,
-        "length": 14.5
+        "length": 14.5,
+        "type": "LJ25"
     },
     "LJ31": {
         "WTC": "M",
@@ -2868,7 +3128,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 4000,
         "wingspan": 13.3,
-        "length": 14.8
+        "length": 14.8,
+        "type": "LJ31"
     },
     "LJ35": {
         "WTC": "M",
@@ -2879,7 +3140,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 4000,
         "wingspan": 12.0,
-        "length": 14.8
+        "length": 14.8,
+        "type": "LJ35"
     },
     "LJ40": {
         "WTC": "M",
@@ -2890,7 +3152,8 @@
         "speed_Vat": 115,
         "rate_of_climb": 2900,
         "wingspan": 14.56,
-        "length": 16.93
+        "length": 16.93,
+        "type": "LJ40"
     },
     "LJ45": {
         "WTC": "M",
@@ -2901,7 +3164,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 4000,
         "wingspan": 14.6,
-        "length": 17.6
+        "length": 17.6,
+        "type": "LJ45"
     },
     "LJ55": {
         "WTC": "M",
@@ -2912,7 +3176,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 4000,
         "wingspan": 13.3,
-        "length": 16.8
+        "length": 16.8,
+        "type": "LJ55"
     },
     "LJ60": {
         "WTC": "M",
@@ -2923,7 +3188,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 4000,
         "wingspan": 13.4,
-        "length": 17.9
+        "length": 17.9,
+        "type": "LJ60"
     },
     "M20P": {
         "WTC": "L",
@@ -2934,7 +3200,8 @@
         "speed_Vat": 60,
         "rate_of_climb": 1240,
         "wingspan": 11.1,
-        "length": 8.15
+        "length": 8.15,
+        "type": "M20P"
     },
     "M20T": {
         "WTC": "L",
@@ -2945,7 +3212,8 @@
         "speed_Vat": 70,
         "rate_of_climb": 1100,
         "wingspan": 11.0,
-        "length": 8.2
+        "length": 8.2,
+        "type": "M20T"
     },
     "M339": {
         "WTC": "L",
@@ -2956,7 +3224,8 @@
         "speed_Vat": 105,
         "rate_of_climb": 6600,
         "wingspan": 11.2,
-        "length": 11.25
+        "length": 11.25,
+        "type": "M339"
     },
     "M600": {
         "WTC": "L",
@@ -2967,7 +3236,8 @@
         "speed_Vat": 85,
         "rate_of_climb": 2000,
         "wingspan": 13.1,
-        "length": 9.0
+        "length": 9.0,
+        "type": "M600"
     },
     "MD11": {
         "WTC": "H",
@@ -2978,7 +3248,8 @@
         "speed_Vat": 159,
         "rate_of_climb": 2000,
         "wingspan": 51.7,
-        "length": 61.2
+        "length": 61.2,
+        "type": "MD11"
     },
     "MD82": {
         "WTC": "M",
@@ -2989,7 +3260,8 @@
         "speed_Vat": 136,
         "rate_of_climb": 2500,
         "wingspan": 32.8,
-        "length": 45.1
+        "length": 45.1,
+        "type": "MD82"
     },
     "MD83": {
         "WTC": "M",
@@ -3000,7 +3272,8 @@
         "speed_Vat": 137,
         "rate_of_climb": 2500,
         "wingspan": 32.8,
-        "length": 45.1
+        "length": 45.1,
+        "type": "MD83"
     },
     "MD87": {
         "WTC": "M",
@@ -3011,7 +3284,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 3000,
         "wingspan": 32.9,
-        "length": 39.7
+        "length": 39.7,
+        "type": "MD87"
     },
     "MD88": {
         "WTC": "M",
@@ -3022,7 +3296,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 2700,
         "wingspan": 32.82,
-        "length": 45.01
+        "length": 45.01,
+        "type": "MD88"
     },
     "MD90": {
         "WTC": "M",
@@ -3033,7 +3308,8 @@
         "speed_Vat": 138,
         "rate_of_climb": 3200,
         "wingspan": 32.9,
-        "length": 46.5
+        "length": 46.5,
+        "type": "MD90"
     },
     "MG21": {
         "WTC": "M",
@@ -3044,7 +3320,8 @@
         "speed_Vat": 175,
         "rate_of_climb": 7000,
         "wingspan": 7.2,
-        "length": 13.9
+        "length": 13.9,
+        "type": "MG21"
     },
     "MG23": {
         "WTC": "M",
@@ -3055,7 +3332,8 @@
         "speed_Vat": 157,
         "rate_of_climb": 45000,
         "wingspan": 14.0,
-        "length": 15.7
+        "length": 15.7,
+        "type": "MG23"
     },
     "MG29": {
         "WTC": "M",
@@ -3066,7 +3344,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 65000,
         "wingspan": 11.4,
-        "length": 17.3
+        "length": 17.3,
+        "type": "MG29"
     },
     "MG31": {
         "WTC": "M",
@@ -3077,7 +3356,8 @@
         "speed_Vat": 170,
         "rate_of_climb": 10000,
         "wingspan": 13.5,
-        "length": 22.7
+        "length": 22.7,
+        "type": "MG31"
     },
     "MIR2": {
         "WTC": "M",
@@ -3088,7 +3368,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 55000,
         "wingspan": 9.1,
-        "length": 14.4
+        "length": 14.4,
+        "type": "MIR2"
     },
     "MRF1": {
         "WTC": "M",
@@ -3099,7 +3380,8 @@
         "speed_Vat": 145,
         "rate_of_climb": 40000,
         "wingspan": 8.4,
-        "length": 15.3
+        "length": 15.3,
+        "type": "MRF1"
     },
     "MU2": {
         "WTC": "L",
@@ -3110,7 +3392,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 1800,
         "wingspan": 11.9,
-        "length": 10.1
+        "length": 10.1,
+        "type": "MU2"
     },
     "N262": {
         "WTC": "M",
@@ -3121,7 +3404,8 @@
         "speed_Vat": 90,
         "rate_of_climb": 1500,
         "wingspan": 21.9,
-        "length": 19.3
+        "length": 19.3,
+        "type": "N262"
     },
     "NIM": {
         "WTC": "M",
@@ -3132,7 +3416,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 1800,
         "wingspan": 35.1,
-        "length": 38.63
+        "length": 38.63,
+        "type": "NIM"
     },
     "P180": {
         "WTC": "L",
@@ -3143,7 +3428,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 3000,
         "wingspan": 14.0,
-        "length": 14.4
+        "length": 14.4,
+        "type": "P180"
     },
     "P28A": {
         "WTC": "L",
@@ -3154,7 +3440,8 @@
         "speed_Vat": 65,
         "rate_of_climb": 700,
         "wingspan": 10.7,
-        "length": 7.2
+        "length": 7.2,
+        "type": "P28A"
     },
     "P28R": {
         "WTC": "L",
@@ -3165,7 +3452,8 @@
         "speed_Vat": 70,
         "rate_of_climb": 1000,
         "wingspan": 9.1,
-        "length": 7.4
+        "length": 7.4,
+        "type": "P28R"
     },
     "P28T": {
         "WTC": "L",
@@ -3176,7 +3464,8 @@
         "speed_Vat": 70,
         "rate_of_climb": 1100,
         "wingspan": 10.8,
-        "length": 8.3
+        "length": 8.3,
+        "type": "P28T"
     },
     "P3": {
         "WTC": "M",
@@ -3187,7 +3476,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 1500,
         "wingspan": 30.37,
-        "length": 35.61
+        "length": 35.61,
+        "type": "P3"
     },
     "P32R": {
         "WTC": "L",
@@ -3198,7 +3488,8 @@
         "speed_Vat": 75,
         "rate_of_climb": 1000,
         "wingspan": 11.0,
-        "length": 8.6
+        "length": 8.6,
+        "type": "P32R"
     },
     "P46T": {
         "WTC": "L",
@@ -3209,7 +3500,8 @@
         "speed_Vat": 75,
         "rate_of_climb": 1400,
         "wingspan": 13.1,
-        "length": 9.0
+        "length": 9.0,
+        "type": "P46T"
     },
     "P808": {
         "WTC": "M",
@@ -3220,7 +3512,8 @@
         "speed_Vat": 105,
         "rate_of_climb": 5000,
         "wingspan": 13.2,
-        "length": 12.8
+        "length": 12.8,
+        "type": "P808"
     },
     "PA18": {
         "WTC": "L",
@@ -3231,7 +3524,8 @@
         "speed_Vat": 45,
         "rate_of_climb": 1000,
         "wingspan": 10.7,
-        "length": 6.8
+        "length": 6.8,
+        "type": "PA18"
     },
     "PA23": {
         "WTC": "L",
@@ -3242,7 +3536,8 @@
         "speed_Vat": 85,
         "rate_of_climb": 2200,
         "wingspan": 11.34,
-        "length": 9.52
+        "length": 9.52,
+        "type": "PA23"
     },
     "PA31": {
         "WTC": "L",
@@ -3253,7 +3548,8 @@
         "speed_Vat": 90,
         "rate_of_climb": 1200,
         "wingspan": 12.4,
-        "length": 9.9
+        "length": 9.9,
+        "type": "PA31"
     },
     "PA32": {
         "WTC": "L",
@@ -3264,7 +3560,8 @@
         "speed_Vat": 80,
         "rate_of_climb": 1100,
         "wingspan": 10.0,
-        "length": 8.4
+        "length": 8.4,
+        "type": "PA32"
     },
     "PA34": {
         "WTC": "L",
@@ -3275,7 +3572,8 @@
         "speed_Vat": 80,
         "rate_of_climb": 1300,
         "wingspan": 11.9,
-        "length": 8.7
+        "length": 8.7,
+        "type": "PA34"
     },
     "PA38": {
         "WTC": "L",
@@ -3286,7 +3584,8 @@
         "speed_Vat": 60,
         "rate_of_climb": 600,
         "wingspan": 10.4,
-        "length": 7.0
+        "length": 7.0,
+        "type": "PA38"
     },
     "PA44": {
         "WTC": "L",
@@ -3297,7 +3596,8 @@
         "speed_Vat": 80,
         "rate_of_climb": 1300,
         "wingspan": 11.8,
-        "length": 8.4
+        "length": 8.4,
+        "type": "PA44"
     },
     "PA46": {
         "WTC": "L",
@@ -3308,7 +3608,8 @@
         "speed_Vat": 75,
         "rate_of_climb": 1600,
         "wingspan": 13.1,
-        "length": 8.7
+        "length": 8.7,
+        "type": "PA46"
     },
     "PAY2": {
         "WTC": "L",
@@ -3319,7 +3620,8 @@
         "speed_Vat": 100,
         "rate_of_climb": 2800,
         "wingspan": 13.0,
-        "length": 10.5
+        "length": 10.5,
+        "type": "PAY2"
     },
     "PAY3": {
         "WTC": "L",
@@ -3330,7 +3632,8 @@
         "speed_Vat": 105,
         "rate_of_climb": 2400,
         "wingspan": 14.5,
-        "length": 13.2
+        "length": 13.2,
+        "type": "PAY3"
     },
     "PAY4": {
         "WTC": "L",
@@ -3341,7 +3644,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 3200,
         "wingspan": 14.5,
-        "length": 13.2
+        "length": 13.2,
+        "type": "PAY4"
     },
     "PC12": {
         "WTC": "L",
@@ -3352,7 +3656,8 @@
         "speed_Vat": 85,
         "rate_of_climb": 1700,
         "wingspan": 16.2,
-        "length": 14.4
+        "length": 14.4,
+        "type": "PC12"
     },
     "PC6T": {
         "WTC": "L",
@@ -3363,7 +3668,8 @@
         "speed_Vat": 60,
         "rate_of_climb": 1200,
         "wingspan": 15.9,
-        "length": 10.9
+        "length": 10.9,
+        "type": "PC6T"
     },
     "PC7": {
         "WTC": "L",
@@ -3374,7 +3680,8 @@
         "speed_Vat": 90,
         "rate_of_climb": 2800,
         "wingspan": 10.1,
-        "length": 10.1
+        "length": 10.1,
+        "type": "PC7"
     },
     "PC9": {
         "WTC": "L",
@@ -3385,7 +3692,8 @@
         "speed_Vat": 80,
         "rate_of_climb": 4100,
         "wingspan": 10.1,
-        "length": 10.7
+        "length": 10.7,
+        "type": "PC9"
     },
     "PRM1": {
         "WTC": "L",
@@ -3396,7 +3704,8 @@
         "speed_Vat": 95,
         "rate_of_climb": 2000,
         "wingspan": 13.56,
-        "length": 14.02
+        "length": 14.02,
+        "type": "PRM1"
     },
     "PZ04": {
         "WTC": "L",
@@ -3407,7 +3716,8 @@
         "speed_Vat": 50,
         "rate_of_climb": 900,
         "wingspan": 11.1,
-        "length": 8.1
+        "length": 8.1,
+        "type": "PZ04"
     },
     "R135": {
         "WTC": "H",
@@ -3418,7 +3728,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 4800,
         "wingspan": 39.9,
-        "length": 41.5
+        "length": 41.5,
+        "type": "R135"
     },
     "RJ1H": {
         "WTC": "M",
@@ -3429,7 +3740,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 1500,
         "wingspan": 26.34,
-        "length": 31.0
+        "length": 31.0,
+        "type": "RJ1H"
     },
     "RJ70": {
         "WTC": "M",
@@ -3440,7 +3752,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 2000,
         "wingspan": 26.21,
-        "length": 26.16
+        "length": 26.16,
+        "type": "RJ70"
     },
     "RJ85": {
         "WTC": "M",
@@ -3451,7 +3764,8 @@
         "speed_Vat": 125,
         "rate_of_climb": 2200,
         "wingspan": 26.34,
-        "length": 28.55
+        "length": 28.55,
+        "type": "RJ85"
     },
     "S601": {
         "WTC": "L",
@@ -3462,7 +3776,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 2700,
         "wingspan": 12.9,
-        "length": 13.8
+        "length": 13.8,
+        "type": "S601"
     },
     "SB05": {
         "WTC": "L",
@@ -3473,7 +3788,8 @@
         "speed_Vat": 115,
         "rate_of_climb": 13000,
         "wingspan": 9.5,
-        "length": 10.8
+        "length": 10.8,
+        "type": "SB05"
     },
     "SB20": {
         "WTC": "M",
@@ -3484,7 +3800,8 @@
         "speed_Vat": 110,
         "rate_of_climb": 2300,
         "wingspan": 24.8,
-        "length": 27.3
+        "length": 27.3,
+        "type": "SB20"
     },
     "SB37": {
         "WTC": "M",
@@ -3495,7 +3812,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 40000,
         "wingspan": 10.6,
-        "length": 16.4
+        "length": 16.4,
+        "type": "SB37"
     },
     "SB39": {
         "WTC": "M",
@@ -3506,7 +3824,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 50000,
         "wingspan": 8.4,
-        "length": 14.1
+        "length": 14.1,
+        "type": "SB39"
     },
     "SBR2": {
         "WTC": "M",
@@ -3517,7 +3836,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 4700,
         "wingspan": 13.6,
-        "length": 14.3
+        "length": 14.3,
+        "type": "SBR2"
     },
     "SC7": {
         "WTC": "L",
@@ -3528,7 +3848,8 @@
         "speed_Vat": 90,
         "rate_of_climb": 1200,
         "wingspan": 19.8,
-        "length": 12.2
+        "length": 12.2,
+        "type": "SC7"
     },
     "SF34": {
         "WTC": "M",
@@ -3539,7 +3860,8 @@
         "speed_Vat": 115,
         "rate_of_climb": 1800,
         "wingspan": 21.4,
-        "length": 19.7
+        "length": 19.7,
+        "type": "SF34"
     },
     "SH33": {
         "WTC": "M",
@@ -3550,7 +3872,8 @@
         "speed_Vat": 100,
         "rate_of_climb": 1000,
         "wingspan": 22.8,
-        "length": 17.7
+        "length": 17.7,
+        "type": "SH33"
     },
     "SH36": {
         "WTC": "M",
@@ -3561,7 +3884,8 @@
         "speed_Vat": 100,
         "rate_of_climb": 1000,
         "wingspan": 22.8,
-        "length": 21.6
+        "length": 21.6,
+        "type": "SH36"
     },
     "SU17": {
         "WTC": "M",
@@ -3572,7 +3896,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 45000,
         "wingspan": 13.7,
-        "length": 19.0
+        "length": 19.0,
+        "type": "SU17"
     },
     "SU24": {
         "WTC": "M",
@@ -3583,7 +3908,8 @@
         "speed_Vat": 160,
         "rate_of_climb": 30000,
         "wingspan": 17.6,
-        "length": 22.5
+        "length": 22.5,
+        "type": "SU24"
     },
     "SU25": {
         "WTC": "M",
@@ -3594,7 +3920,8 @@
         "speed_Vat": 170,
         "rate_of_climb": 1200,
         "wingspan": 14.5,
-        "length": 15.4
+        "length": 15.4,
+        "type": "SU25"
     },
     "SU27": {
         "WTC": "M",
@@ -3605,7 +3932,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 64000,
         "wingspan": 14.7,
-        "length": 22.0
+        "length": 22.0,
+        "type": "SU27"
     },
     "SU95": {
         "WTC": "M",
@@ -3616,7 +3944,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 2500,
         "wingspan": 27.8,
-        "length": 29.94
+        "length": 29.94,
+        "type": "SU95"
     },
     "SW2": {
         "WTC": "L",
@@ -3627,7 +3956,8 @@
         "speed_Vat": 115,
         "rate_of_climb": 2400,
         "wingspan": 13.98,
-        "length": 12.22
+        "length": 12.22,
+        "type": "SW2"
     },
     "SW3": {
         "WTC": "L",
@@ -3638,7 +3968,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 2000,
         "wingspan": 14.1,
-        "length": 12.9
+        "length": 12.9,
+        "type": "SW3"
     },
     "T134": {
         "WTC": "M",
@@ -3649,7 +3980,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 2000,
         "wingspan": 29.0,
-        "length": 37.1
+        "length": 37.1,
+        "type": "T134"
     },
     "T154": {
         "WTC": "M",
@@ -3660,7 +3992,8 @@
         "speed_Vat": 130,
         "rate_of_climb": 3000,
         "wingspan": 37.5,
-        "length": 48.0
+        "length": 48.0,
+        "type": "T154"
     },
     "T204": {
         "WTC": "M",
@@ -3671,7 +4004,8 @@
         "speed_Vat": 140,
         "rate_of_climb": 3500,
         "wingspan": 42.0,
-        "length": 41.0
+        "length": 41.0,
+        "type": "T204"
     },
     "T22M": {
         "WTC": "M",
@@ -3682,7 +4016,8 @@
         "speed_Vat": 185,
         "rate_of_climb": 6000,
         "wingspan": 34.3,
-        "length": 42.5
+        "length": 42.5,
+        "type": "T22M"
     },
     "T37": {
         "WTC": "L",
@@ -3693,7 +4028,8 @@
         "speed_Vat": 95,
         "rate_of_climb": 3300,
         "wingspan": 11.7,
-        "length": 9.8
+        "length": 9.8,
+        "type": "T37"
     },
     "T38": {
         "WTC": "L",
@@ -3704,7 +4040,8 @@
         "speed_Vat": 160,
         "rate_of_climb": 33000,
         "wingspan": 7.7,
-        "length": 14.1
+        "length": 14.1,
+        "type": "T38"
     },
     "TAMP": {
         "WTC": "L",
@@ -3715,7 +4052,8 @@
         "speed_Vat": 65,
         "rate_of_climb": 600,
         "wingspan": 9.9,
-        "length": 7.7
+        "length": 7.7,
+        "type": "TAMP"
     },
     "TBM7": {
         "WTC": "L",
@@ -3726,7 +4064,8 @@
         "speed_Vat": 80,
         "rate_of_climb": 2000,
         "wingspan": 12.2,
-        "length": 10.4
+        "length": 10.4,
+        "type": "TBM7"
     },
     "TBM8": {
         "WTC": "L",
@@ -3737,7 +4076,8 @@
         "speed_Vat": 95,
         "rate_of_climb": 2400,
         "wingspan": 12.2,
-        "length": 10.4
+        "length": 10.4,
+        "type": "TBM8"
     },
     "TOBA": {
         "WTC": "L",
@@ -3748,7 +4088,8 @@
         "speed_Vat": 65,
         "rate_of_climb": 600,
         "wingspan": 9.9,
-        "length": 7.7
+        "length": 7.7,
+        "type": "TOBA"
     },
     "TOR": {
         "WTC": "M",
@@ -3759,7 +4100,8 @@
         "speed_Vat": 145,
         "rate_of_climb": 15000,
         "wingspan": 13.9,
-        "length": 18.7
+        "length": 18.7,
+        "type": "TOR"
     },
     "TRIN": {
         "WTC": "L",
@@ -3770,7 +4112,8 @@
         "speed_Vat": 70,
         "rate_of_climb": 1200,
         "wingspan": 10.0,
-        "length": 7.7
+        "length": 7.7,
+        "type": "TRIN"
     },
     "TUCA": {
         "WTC": "L",
@@ -3781,7 +4124,8 @@
         "speed_Vat": 90,
         "rate_of_climb": 2600,
         "wingspan": 11.1,
-        "length": 9.9
+        "length": 9.9,
+        "type": "TUCA"
     },
     "VC10": {
         "WTC": "H",
@@ -3792,7 +4136,8 @@
         "speed_Vat": 150,
         "rate_of_climb": 2300,
         "wingspan": 44.6,
-        "length": 52.3
+        "length": 52.3,
+        "type": "VC10"
     },
     "YK40": {
         "WTC": "M",
@@ -3803,7 +4148,8 @@
         "speed_Vat": 120,
         "rate_of_climb": 1300,
         "wingspan": 25.0,
-        "length": 20.4
+        "length": 20.4,
+        "type": "YK40"
     },
     "YK42": {
         "WTC": "M",
@@ -3814,6 +4160,7 @@
         "speed_Vat": 130,
         "rate_of_climb": 2500,
         "wingspan": 34.9,
-        "length": 36.4
+        "length": 36.4,
+        "type": "YK42"
     }
 }

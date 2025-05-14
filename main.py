@@ -25,8 +25,6 @@ clock = pygame.time.Clock()
 WIDTH,HEIGHT = screen.get_size()
 
 # Screen settings
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Pygame Text Rendering")
 PADDING = 50 #offset boven en onder
 BG_COLOR = (30, 30, 30)  # Dark background
 BLUE = (60, 160, 237)
@@ -196,13 +194,6 @@ for element in osm_data["elements"]:
 limits = [[min_lat, max_lat], [min_lon, max_lon]]
 limits_begin = [[min_lat, max_lat], [min_lon, max_lon]]
 
-# Initialize Pygame
-pygame.init()
-screen = pygame.display.set_mode((0, 0))
-pygame.display.set_caption("OSM Airport Map")
-target = pygame.transform.smoothscale(pygame.transform.rotate(pygame.image.load('target.png'),45),(20,20))
-clock = pygame.time.Clock()
-
 # process the osm data
 network = map_airport(json_file_name, all_nodes)
 
@@ -214,6 +205,7 @@ runway_configs = read_runways("EBBR")
 selected_runway_config = '25R/25L'
 active_runways = runway_configs[selected_runway_config]['active_runways']
 minimap_limits = calculate_mini_map_limits(network, spawn_height=2000, padding=10)
+update_plane_icon_scale()
 
 # active runways menu
 menu_open = False

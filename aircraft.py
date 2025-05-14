@@ -66,13 +66,18 @@ from pygame_widgets.button import Button
 from pygame_widgets import *
 from pygame_widgets.dropdown import Dropdown
 from pygame_widgets.textbox import TextBox      
-from start_screen import create_surface_with_text
 
 def draw_sidebar(screen):
     # Sidebar dimensions and width
         sidebar_width = screen.get_width() *(1/4) # 1/4 of the screen width
         sidebar_height = screen.get_height()
         pygame.draw.rect(screen, (40,40,40), (0, 0, sidebar_width, sidebar_height)) # 30, 30, 30
+
+# a simple function to create a surface with text
+def create_surface_with_text(text, font_size, text_rgb, font):
+    font = pygame.freetype.SysFont(font, font_size)
+    surface, _ = font.render(text=text, fgcolor=text_rgb)
+    return surface.convert_alpha()
 
 # a function to create a dropdown buttons     
 def create_dropdown(screen, x, y, WIDTH, HEIGHT, Name, Choices, Colour, Direction, TextHalign, aircraft_list):
@@ -144,7 +149,84 @@ class Aircraft():
             self._speed = max_taxispeed
         elif distance <= needed_distance:
             self._speed -= taxi_acceleration * self.dt
+        if self._speed < 5: 
+            self._speed = 5
         return self._speed
+    
+    def clear_buttons_aircraft(self): # Clears the buttons for the aircraft, for example when the aircraft is at departure or does a go around
+        if hasattr(self, 'button_instance'):
+            del self.button_instance
+    
+    def clear_buttons(self):
+        # Remove buttons for the current state
+        if hasattr(self, 'pushback_buttons'):
+            del self.pushback_buttons
+        # Remove all hold_pushback UI elements
+        for attr in ['hold_pushback_dropdowns', 'exit_dropdown', 'via_dropdown','add_via_button', 'reset_vias_button', 'start_taxi_button', 'runway_dropdown', 'give_route_button', 'via_search_box']:
+            if hasattr(self, attr):
+                widget = getattr(self, attr)
+                # If it's a list (like hold_pushback_dropdowns), hide and disable all widgets in it
+                if isinstance(widget, list):
+                    for w in widget:
+                        try:
+                            w.hide()
+                            w.disable()
+                        except AttributeError:
+                            pass
+                else:
+                    try:
+                        widget.hide()
+                        widget.disable()
+                    except AttributeError:
+                        pass
+                delattr(self, attr)
+        if hasattr(self, 'runway_dropdown'):
+            del self.runway_dropdown
+        if hasattr(self, 'hold_pushback_dropdowns'):
+            del self.hold_pushback_dropdowns
+        if hasattr(self, 'exit_dropdown'):
+            del self.exit_dropdown
+        if hasattr(self, 'via_dropdown'):
+            del self.via_dropdown
+        if hasattr(self, 'add_via_button'):
+            del self.add_via_button
+        if hasattr(self, 'reset_vias_button'):
+            del self.reset_vias_button
+        if hasattr(self, 'start_taxi_button'):
+            del self.start_taxi_button
+        if hasattr(self, 'selected_exit'):
+            del self.selected_exit
+        if hasattr(self, 'last_exit_selected'):
+            del self.last_exit_selected
+        if hasattr(self, 'selected_vias'):
+            del self.selected_vias
+        if hasattr(self, 'last_via_selected'):
+            del self.last_via_selected
+
+        if hasattr(self, 'taxi_buttons'):
+            del self.taxi_buttons
+        if hasattr(self, 'continue_taxi_buttons'):
+            del self.continue_taxi_buttons
+        if hasattr(self, 'hold_runway_buttons'):
+            del self.hold_runway_buttons
+        if hasattr(self, 'cleared_crossing_buttons'):
+            del self.cleared_crossing_buttons
+        if hasattr(self, 'ready_line_up_buttons'):
+            del self.ready_line_up_buttons
+        if hasattr(self, 'line_up_buttons'):
+            del self.line_up_buttons
+        if hasattr(self, 'ready_takeoff_buttons'):
+            del self.ready_takeoff_buttons
+        if hasattr(self, 'arrival_buttons'):
+            del self.arrival_buttons
+        if hasattr(self, 'rollout_buttons'):
+            del self.rollout_buttons
+        if hasattr(self, 'vacate_buttons'):
+            del self.vacate_buttons
+        if hasattr(self, 'vacate_continue_buttons'):
+            del self.vacate_continue_buttons
+        if hasattr(self, 'ready_taxi_gate_buttons'):
+            del self.ready_taxi_gate_buttons
 
     @property
     def speed(self): # dynamically determines the speed of the aircraft based on its current state
@@ -190,6 +272,15 @@ class Aircraft():
     @property
     def last_tick(self): # returns the last tick time
         return self._last_tick
+    
+    @property
+    def state(self):
+        return self._state
+    
+    @state.setter
+    def state(self, value):
+        self._state = value
+        self.clear_buttons()
 
     @last_tick.setter 
     def last_tick(self, value):
@@ -320,7 +411,6 @@ class Aircraft():
         self.filtered_vias = [v for v in self.network['taxiways'] if self.via_search_box.getText().lower() in v.lower()]
         if hasattr(self, 'via_dropdown'):
             self.via_dropdown.choices = self.filtered_vias
-            print('test', self.via_search_box.getText(), self.filtered_vias, self.via_dropdown.choices)
             for attr in ['via_dropdown', 'add_via_button', 'reset_vias_button', 'give_route_button']:
                 if hasattr(self, attr):
                     widget = getattr(self, attr)
@@ -391,8 +481,8 @@ class Aircraft():
             )
             self.reset_vias_button = Button(
                 screen,
-                350,
-                y_start,
+                260,
+                y_start - 40,
                 80,
                 30,
                 text='Reset',
@@ -433,9 +523,10 @@ class Aircraft():
 
     def information(self,screen): # function that displays the aircraft information on the screen
         if self.selected: # standard information
-            screen.blit(create_surface_with_text(f"callsign: {self.callsign}", 26, (255, 255, 255), 'Arial'), (50, 50))
+            screen.blit(create_surface_with_text(f"callsign: {self.callsign}", 24, (255, 255, 255), 'Arial'), (50, 46))
             screen.blit(create_surface_with_text(f"state: {self.state}", 20, (255, 255, 255), 'Arial'), (50, 80))  
             screen.blit(create_surface_with_text(f"speed: {round(self.speed)} kts", 20, (255, 255, 255), 'Arial'), (50, 110))
+            screen.blit(create_surface_with_text(f"aircraft: {self.performance['type']}", 20, (255, 255, 255), 'Arial'), (220, 50))
             screen.blit(create_surface_with_text(f"gate: {self.gate}", 20, (255, 255, 255), 'Arial'), (220, 80))
             screen.blit(create_surface_with_text(f"altitude: {round(self.altitude)} ft", 20, (255, 255, 255), 'Arial'), (220, 110))
         
@@ -540,12 +631,15 @@ class Aircraft():
                     if not hasattr(self, 'taxi_buttons'):
                         self.taxi_buttons = [
                         Button(screen, 50, 170, 120, 30, text='Cross runway', onClick=lambda: self.cross_runway(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0),
-                        Button(screen, 50, 210, 120, 30, text='Hold Position', onClick=lambda: self.hold_position(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0), 
-                        Button(screen, 50, 250, 120, 30, text='line up', onClick=lambda: self.line_up(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0),      
-                        Button(screen, 50, 290, 120, 30, text='take off', onClick=lambda: self.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                        Button(screen, 50, 210, 120, 30, text='Hold Position', onClick=lambda: self.hold_position(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
+                        if self.type == 'departure':
+                            self.taxi_buttons += [
+                                Button(screen, 50, 250, 120, 30, text='line up', onClick=lambda: self.line_up(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0),      
+                                Button(screen, 50, 290, 120, 30, text='take off', onClick=lambda: self.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
+                                ]
                     taxi_function = self.set_new_taxi if self.type == "departure" else self.taxi
-                    self.vias_selection_ui(screen, y_start=380, on_give_route=taxi_function)
+                    self.vias_selection_ui(screen, y_start=380 if self.type == 'departure' else 300, on_give_route=taxi_function)
                 case 'hold_taxi':
                     screen.blit(create_surface_with_text("hold_taxe", 20, (255, 255, 255), 'Arial'), (50, 140))
                     if not hasattr(self, 'continue_taxi_buttons'):
@@ -571,13 +665,13 @@ class Aircraft():
                         self.ready_line_up_buttons = [
                         Button(screen, 50, 170, 120, 30, text='line up', onClick=lambda: self.line_up(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
+                    self.vias_selection_ui(screen, y_start=250, on_give_route=self.set_new_taxi)
                 case 'line_up':
                     screen.blit(create_surface_with_text("line up", 20, (255, 255, 255), 'Arial'), (50, 140))
                     if not hasattr(self, 'line_up_buttons'):
                         self.line_up_buttons = [
                         Button(screen, 50, 170, 100, 30, text='take off', onClick=lambda: self.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
-                    self.vias_selection_ui(screen, y_start=250, on_give_route=self.set_new_taxi)
                 case 'ready_takeoff':
                     screen.blit(create_surface_with_text("ready takeoff", 20, (255, 255, 255), 'Arial'), (50, 140))
                     if not hasattr(self, 'ready_takeoff_buttons'):
@@ -585,7 +679,7 @@ class Aircraft():
                         Button(screen, 50, 170, 100, 30, text='take off', onClick=lambda: self.takeoff(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
                     self.vias_selection_ui(screen, y_start=380, on_give_route=self.set_new_taxi)
-                case 'arrival':
+                case 'arrival' | 'cleared_land':
                     screen.blit(create_surface_with_text("land or abord landing:", 20, (255, 255, 255), 'Arial'), (50, 140))
                     screen.blit(create_surface_with_text(f"runway: {self.runway_name}", 20, (255, 255, 255), 'Arial'), (50, 170))
                     if not hasattr(self, 'arrival_buttons'):
@@ -621,80 +715,7 @@ class Aircraft():
                     screen.blit(create_surface_with_text(" taxi to the gate", 20, (255, 255, 255), 'Arial'), (50, 170))
                     self.vias_selection_ui(screen, y_start=250, on_give_route=self.taxi)
     
-    def clear_buttons_aircraft(self): # Clears the buttons for the aircraft, for example when the aircraft is at departure or does a go around
-        if hasattr(self, 'button_instance'):
-            del self.button_instance
     
-    def clear_buttons(self):
-        # Remove buttons for the current state
-        if hasattr(self, 'pushback_buttons'):
-            del self.pushback_buttons
-        # Remove all hold_pushback UI elements
-        for attr in ['hold_pushback_dropdowns', 'exit_dropdown', 'via_dropdown','add_via_button', 'reset_vias_button', 'start_taxi_button', 'runway_dropdown', 'give_route_button', 'via_search_box']:
-            if hasattr(self, attr):
-                widget = getattr(self, attr)
-                # If it's a list (like hold_pushback_dropdowns), hide and disable all widgets in it
-                if isinstance(widget, list):
-                    for w in widget:
-                        try:
-                            w.hide()
-                            w.disable()
-                        except AttributeError:
-                            pass
-                else:
-                    try:
-                        widget.hide()
-                        widget.disable()
-                    except AttributeError:
-                        pass
-                delattr(self, attr)
-        if hasattr(self, 'runway_dropdown'):
-            del self.runway_dropdown
-        if hasattr(self, 'hold_pushback_dropdowns'):
-            del self.hold_pushback_dropdowns
-        if hasattr(self, 'exit_dropdown'):
-            del self.exit_dropdown
-        if hasattr(self, 'via_dropdown'):
-            del self.via_dropdown
-        if hasattr(self, 'add_via_button'):
-            del self.add_via_button
-        if hasattr(self, 'reset_vias_button'):
-            del self.reset_vias_button
-        if hasattr(self, 'start_taxi_button'):
-            del self.start_taxi_button
-        if hasattr(self, 'selected_exit'):
-            del self.selected_exit
-        if hasattr(self, 'last_exit_selected'):
-            del self.last_exit_selected
-        if hasattr(self, 'selected_vias'):
-            del self.selected_vias
-        if hasattr(self, 'last_via_selected'):
-            del self.last_via_selected
-
-        if hasattr(self, 'taxi_buttons'):
-            del self.taxi_buttons
-        if hasattr(self, 'continue_taxi_buttons'):
-            del self.continue_taxi_buttons
-        if hasattr(self, 'hold_runway_buttons'):
-            del self.hold_runway_buttons
-        if hasattr(self, 'cleared_crossing_buttons'):
-            del self.cleared_crossing_buttons
-        if hasattr(self, 'ready_line_up_buttons'):
-            del self.ready_line_up_buttons
-        if hasattr(self, 'line_up_buttons'):
-            del self.line_up_buttons
-        if hasattr(self, 'ready_takeoff_buttons'):
-            del self.ready_takeoff_buttons
-        if hasattr(self, 'arrival_buttons'):
-            del self.arrival_buttons
-        if hasattr(self, 'rollout_buttons'):
-            del self.rollout_buttons
-        if hasattr(self, 'vacate_buttons'):
-            del self.vacate_buttons
-        if hasattr(self, 'vacate_continue_buttons'):
-            del self.vacate_continue_buttons
-        if hasattr(self, 'ready_taxi_gate_buttons'):
-            del self.ready_taxi_gate_buttons
     
     # function that calculates the route from the starting point to the destination        
     def calculate_route (self, taxi_nodes,all_nodes, begintoestand, destination, starting_via=None, angle=None):
@@ -715,11 +736,13 @@ class Aircraft():
             visited_nodes.append(node)
             
             for new_node in directions:
+                distance_multiplier = 1
                 if state[-1]['parent'] is not None:
                     prev_node = state[-1]['parent']['node']
                     angle = angle_difference(all_nodes, prev_node, node, new_node)
                     if angle < 90:  # Skip if the angle is too acute
-                        continue
+                        distance_multiplier = 500
+                        #continue
                 else:
                     if starting_via is not None and starting_via not in taxi_nodes[new_node]['parents']:
                         continue
@@ -763,16 +786,18 @@ class Aircraft():
                 #no solution found: add node to queue
                 else: 
                     if starting_via != None and starting_via in taxi_nodes[new_node]['parents']:
-                        added_distance *= 0.01
+                        distance_multiplier = 0.01
 
-                    distance = state[0] + added_distance
+                    distance = state[0] + added_distance * distance_multiplier
 
                     q.put((distance, new_node, {'node': new_node, 'parent': state[-1], 'distance': real_distance}))
         print(f"Geen oplossing gevonden: laatse via: {starting_via}")	
         return None # geen oplossing gevonden
     
     # function that calculates the route from the starting point to the destination via a list of vias
-    def calculate_via_route(self, destination, vias=[], starting_node=None, set_route=True):
+    def calculate_via_route(self, destination, vias=None, starting_node=None, set_route=True):
+        vias = [] if vias is None else vias
+        print(f'destination: {destination}, vias: {vias}, startirg: {starting_node}, set_route: {set_route}')
         taxi_nodes = self.network['taxi_nodes']
         all_nodes = self.network['all_nodes']
         start_node = self.route[0] if starting_node is None else starting_node
@@ -808,22 +833,19 @@ class Aircraft():
         if self.state not in ['taxi', 'cleared_crossing']:
             return
         self.state = 'hold_taxi'
-        self.clear_buttons()
 
     def continue_taxi(self):
         if self.state != 'hold_taxi':
             return
 
         self.state = 'taxi'
-        self.clear_buttons()
 
     def cross_runway(self):
         match self.state:
             case 'taxi':
                 self.state = 'cleared_crossing'
             case 'hold_runway':
-                self.state = 'crossing_runway'          
-        self.clear_buttons()     
+                self.state = 'crossing_runway'
 
     def check_collision(self, aircraft_list=None):
         if aircraft_list is None:
@@ -1010,8 +1032,7 @@ class Arrival(Aircraft):
         print('arrival, next_state')
         match self.state:
             case 'arrival':
-                self.state = 'go_around'
-                print(f'{self.callsign} going around from runway {self.runway_name}')
+                self.go_around()
             case 'cleared_land':
                 self.state = 'rollout'
             case 'rollout':
@@ -1032,15 +1053,16 @@ class Arrival(Aircraft):
                 self.state = 'taxi'
 
     def go_around(self): 
-        if self.state != 'arrival':
+        if self.state not in ['arrival', 'cleared_land']:
             return
-        self.next_state()
-        self.clear_buttons()
+        self.state = 'go_around'
+        print(f'{self.callsign} going around from runway {self.runway_name}')
 
-    def land(self, exit): 
-        if self.state != 'arrival':
+    def land(self, exit):
+        if self.state == 'cleared_land':
+            self.route = [self.route[0]]
+        elif self.state != 'arrival':
             return
-        self.state = 'cleared_land'
 
         self.runway_exit = self.runway['exits'][exit]
         start_node = self.runway_exit['node']
@@ -1057,12 +1079,12 @@ class Arrival(Aircraft):
             if i < len(route) - 1:
                 dist_rwy_to_hp += calculate_distance(self.network['all_nodes'], node, route[i + 1])
 
+        self.state = 'cleared_land'
         self.route += route[1:] + gate_nodes[1:]
         self.dist_rwy_to_hp = dist_rwy_to_hp
         self.distance_to_destination = distance_to_exit + dist_rwy_to_hp + distance
         self.target_vacate_speed = ((180 - abs(self.runway_exit['angle']))/90)**1.5 * self.speed_max_taxi
         print(f'{self.callsign} cleared to land on runway {self.runway_name}, vacate at {exit}, target vacate speed: {self.target_vacate_speed}, dist_rwy_to_hp: {self.dist_rwy_to_hp}')
-        self.clear_buttons()
 
     def taxi(self, vias=None): # function that sets the taxi route for the aircraft
         match self.state:
@@ -1086,13 +1108,12 @@ class Arrival(Aircraft):
 
         start_node = self.route[0]
         gate_nodes = self.network['gates'][self.gate]['nodes'][::-1]
-        route, distance = self.calculate_via_route(gate_nodes[0], starting_node=start_node, set_route=False)
+        route, distance = self.calculate_via_route(gate_nodes[0], vias, starting_node=start_node, set_route=False)
         if route is None:
             print(ValueError(f"Route to {self.gate} not found"))
             return
-        self.route = route + gate_nodes[1:]
+        self.route = route[1:] + gate_nodes[1:]
         self.distance_to_destination = distance + calculate_distance(self.network['all_nodes'], self.position, start_node)
-        self.clear_buttons()
 
     def tick(self, aircraft_list=None): # function that moves the aircraft
         dt = super().tick(aircraft_list=aircraft_list)
@@ -1166,7 +1187,6 @@ class Departure(Aircraft):
             raise ValueError(f"Pushback direction must be one of {options}")
         self.pushback_direction = options.index(direction) * 90
         print(f'pushing back {self.callsign} to {self.pushback_direction} from {self.gate}')
-        self.clear_buttons()
 
     def taxi(self, runway, destination, vias=[]):
         #destination is a runway exit name, get the destination node from network['runways']
@@ -1184,7 +1204,6 @@ class Departure(Aircraft):
             return
         self.route = route
         self.state = 'taxi'
-        self.clear_buttons()
 
     def set_new_taxi(self, vias=[]):
         self.taxi(runway=self.runway_name, destination=self.runway_exit_name, vias=vias)
@@ -1194,7 +1213,6 @@ class Departure(Aircraft):
             return
         self.state = 'line_up'
         print(f'{self.callsign} lining up on runway ')
-        self.clear_buttons()
 
     def takeoff(self): # function that sets the take off state of the aircraft
         match self.state:
@@ -1206,7 +1224,6 @@ class Departure(Aircraft):
                 self.state = 'cleared_takeoff'
             case _:
                 return
-        self.clear_buttons()
     
     def tick(self, aircraft_list=None): 
         dt = super().tick(aircraft_list=aircraft_list)
