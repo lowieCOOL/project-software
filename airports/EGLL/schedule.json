@@ -1,0 +1,25 @@
+{
+    "British Airways":{
+        "callsign_ICAO": "BAW",
+        "callsign_SAY": "SPEEDBIRD",
+        "frequency": 100,
+        "aircraft": {
+            "A319":{
+                "apron": [105439666, 105439669],
+                "frequency": 25
+            },
+            "A320":{
+                "apron": [105439666, 105439669],
+                "frequency": 25
+            },
+            "A20N":{
+                "apron": [105439666, 105439669],
+                "frequency": 13
+            },
+            "B78X":{
+                "apron": [105439666, 105439669, 130147164, 105439667],
+                "frequency": 10
+            }
+        }
+    }
+}

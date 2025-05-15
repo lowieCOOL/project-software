@@ -107,7 +107,7 @@ def map_airport(file_name, all_nodes):
 
                 if 'tags' in node_osm and 'aeroway' in node_osm['tags'] and node_osm['tags']['aeroway'] == 'holding_position':
                     taxi_nodes[node]['holding_position'] = True
-                    taxi_nodes[node]['holding_direction'] = node_osm['tags']['direction']
+                    taxi_nodes[node]['holding_direction'] = node_osm['tags']['direction'] if 'direction' in node_osm['tags'] else None
 
                 if i != len(element['nodes'])-1:
                     taxi_nodes[node]['next_moves'].append(element['nodes'][i+1])

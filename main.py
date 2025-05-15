@@ -10,12 +10,6 @@ import pygame_widgets
 from aircraft import *
 from geopy.distance import geodesic, distance
 
-json_file_name = "osm_data.json"
-json_file_name = "osm_data.json"
-# Load OSM JSON data
-with open(json_file_name, "r") as file:
-    osm_data = json.load(file)
-
 # Initialize Pygame
 pygame.init()
 screen = pygame.display.set_mode((0, 0))
@@ -84,6 +78,7 @@ rect_schuifbar = pygame.Rect((WIDTH - 500) / 2, HEIGHT-spatie_onder-75, 500, 14)
 handle_x = rect_schuifbar.centerx  # Beginpositie van de schuifknop
 handle_bol_radius = 20  # Straal van de schuifknop
 dragging = False
+all_nodes = {}
 
 # Initialisation for the start screen buttons
 show_select_aiport_buttons = True
@@ -179,33 +174,35 @@ def smooth_screen(screen, sigma):
     b = pygame.surfarray.pixels_blue(screen)
     gaussian_filter(b, sigma=sigma, mode="nearest", output=b)
 
-# Extract bounding box, the max and min from the osm data
-all_nodes = {}
-min_lat, max_lat = float("inf"), float("-inf")
-min_lon, max_lon = float("inf"), float("-inf")
+def load_airport_data(airport_code):
+    global osm_data, all_nodes, limits, limits_begin, min_lat, max_lat, min_lon, max_lon, network
+    global schedule, performance, runway_configs, selected_runway_config, active_runways, minimap_limits
 
-# Collect node data and determine bounds
-for element in osm_data["elements"]:
-    if element["type"] == "node":
-        lat, lon = element["lat"], element["lon"]
-        all_nodes[element["id"]] = (lat, lon)
-        min_lat, max_lat = min(min_lat, lat), max(max_lat, lat)
-        min_lon, max_lon = min(min_lon, lon), max(max_lon, lon)
-limits = [[min_lat, max_lat], [min_lon, max_lon]]
-limits_begin = [[min_lat, max_lat], [min_lon, max_lon]]
+    json_file_name = f"airports/{airport_code}/osm_data.json"
+    with open(json_file_name, "r") as file:
+        osm_data = json.load(file)
 
-# process the osm data
-network = map_airport(json_file_name, all_nodes)
+    # Extract bounding box, the max and min from the osm data
+    all_nodes.clear()
+    min_lat, max_lat = float("inf"), float("-inf")
+    min_lon, max_lon = float("inf"), float("-inf")
+    for element in osm_data["elements"]:
+        if element["type"] == "node":
+            lat, lon = element["lat"], element["lon"]
+            all_nodes[element["id"]] = (lat, lon)
+            min_lat, max_lat = min(min_lat, lat), max(max_lat, lat)
+            min_lon, max_lon = min(min_lon, lon), max(max_lon, lon)
+    limits = [[min_lat, max_lat], [min_lon, max_lon]]
+    limits_begin = [[min_lat, max_lat], [min_lon, max_lon]]
 
-
-# read the schedule and performance data
-schedule = read_schedule('EBBR')
-performance = read_performance()
-runway_configs = read_runways("EBBR")
-selected_runway_config = '25R/25L'
-active_runways = runway_configs[selected_runway_config]['active_runways']
-minimap_limits = calculate_mini_map_limits(network, spawn_height=2000, padding=10)
-update_plane_icon_scale()
+    network = map_airport(json_file_name, all_nodes)
+    schedule = read_schedule(airport_code)
+    performance = read_performance()
+    runway_configs = read_runways(airport_code)
+    selected_runway_config = list(runway_configs.keys())[0]
+    active_runways = runway_configs[selected_runway_config]['active_runways']
+    minimap_limits = calculate_mini_map_limits(network, spawn_height=2000, padding=10)
+    update_plane_icon_scale()
 
 # active runways menu
 menu_open = False
@@ -265,6 +262,7 @@ while running:
                 for idx, rect in enumerate(rects):
                     if rect.collidepoint(pos):  # Check of er op een knop is geklikt
                         selected_airport = airport_names[idx]
+                        load_airport_data(selected_airport)
                         show_start_button = True
                         show_select_aiport_buttons = False
                         print(selected_airport)
@@ -440,8 +438,10 @@ while running:
         for i, aircraft in enumerate(aircraft_list): 
             aircraft.tick(aircraft_list)
             if aircraft.state == 'parked':
+                aircraft.clear_buttons_aircraft() 
+                aircraft.clear_buttons()                
                 aircraft_list[i] = Departure(aircraft.callsign, aircraft.performance, aircraft.gate, network)
-            elif aircraft.state == 'go_around' and aircraft.altitude > 3000: # clear everyting from the airrcraft if it is 'go around' and above 3000ft and delete if from the list
+            elif aircraft.state in ['go_around', 'takeoff'] and aircraft.altitude > 3000: # clear everyting from the airrcraft if it is 'go around' and above 3000ft and delete if from the list
                 aircraft.clear_buttons_aircraft() 
                 aircraft.clear_buttons()                
                 aircraft_list.pop(i)

@@ -1,0 +1,25 @@
+{
+    "Lufthansa":{
+        "callsign_ICAO": "DLH",
+        "callsign_SAY": "LUFTHANSA",
+        "frequency": 100,
+        "aircraft": {
+            "A319":{
+                "apron": [123874450, 34855873],
+                "frequency": 25
+            },
+            "A320":{
+                "apron": [123874450, 34855873],
+                "frequency": 25
+            },
+            "A20N":{
+                "apron": [123874450, 34855873],
+                "frequency": 13
+            },
+            "A346":{
+                "apron": [123874450, 34855873],
+                "frequency": 10
+            }
+        }
+    }
+}
