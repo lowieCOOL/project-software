@@ -2267,6 +2267,30 @@
         "length": 29.9,
         "type": "E170"
     },
+    "E75L": {
+        "WTC": "M",
+        "dist_TO": 1644,
+        "dist_LD": 1274,
+        "speed_V2": 138,
+        "speed_climb": 190,
+        "speed_Vat": 130,
+        "rate_of_climb": 3400,
+        "wingspan": 26.0,
+        "length": 29.9,
+        "type": "E75L"
+    },
+    "E75": {
+        "WTC": "M",
+        "dist_TO": 1644,
+        "dist_LD": 1274,
+        "speed_V2": 138,
+        "speed_climb": 190,
+        "speed_Vat": 130,
+        "rate_of_climb": 3400,
+        "wingspan": 26.0,
+        "length": 29.9,
+        "type": "E75S"
+    },
     "E190": {
         "WTC": "M",
         "dist_TO": 2056,

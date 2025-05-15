@@ -1,0 +1,1231 @@
+2:50 AM	SN3334	
+Hurghada (HRG)
+	Brussels Airlines 	A20N (OO-SBD) 	
+	Landed 2:25 AM
+4:13 AM	D052	
+Nottingham (EMA)
+	DHL (Official Logistics Partner of Formula 1) 	B77L (G-DHLV) 	
+	Landed 4:33 AM
+4:44 AM	QY120	
+Leipzig (LEJ)
+	DHL 	A332 (D-ALMD) 	
+	Landed 5:03 AM
+5:00 AM	SN301	
+Abidjan (ABJ)
+	Brussels Airlines 	A333 (OO-SFG) 	
+	Landed 4:59 AM
+5:10 AM	SN379	
+Yaounde (NSI)
+	Brussels Airlines 	A333 (OO-SFE) 	
+	Landed 6:14 AM
+5:20 AM	QY2219	
+London (STN)
+	DHL 	B752 (OE-LNK) 	
+	Landed 5:10 AM
+5:25 AM	SN206	
+Dakar (DSS)
+	Brussels Airlines 	A333 (OO-SFF) 	
+	Landed 5:27 AM
+5:50 AM	SN245	
+Monrovia (ROB)
+	Brussels Airlines 	A333 (OO-SFB) 	
+	Landed 6:07 AM
+6:30 AM	UC1503	
+Miami (MIA)
+	LATAM Cargo 	B763 (CC-CXE) 	
+	Landed 9:19 AM
+6:31 AM	TK3640	
+Istanbul (IST)
+	Turkish Airlines 	B39M (TC-LYA) 	
+	Landed 6:53 AM
+6:45 AM	SN465	
+Entebbe (EBB)
+	Brussels Airlines 	A333 (OO-SFH) 	
+	Landed 6:40 AM
+6:50 AM	HU491	
+Beijing (PEK)
+	Hainan Airlines 	B789 (B-7880) 	
+	Landed 6:57 AM
+6:50 AM		
+Kortrijk (KJK)
+	-	PC12 (OO-GEE) 	
+	Landed 6:45 AM
+7:06 AM	TK6375	
+Istanbul (IST)
+	ULS Airlines Cargo 	A310 (TC-SGM) 	
+	Landed 8:17 AM
+7:10 AM	ET3714	
+Addis Ababa (ADD)
+	Ethiopian Cargo 	B77L (ET-ARI) 	
+	Landed 7:44 AM
+7:15 AM	UA950	
+Washington (IAD)
+	United Airlines 	B77W (N2352U) 	
+	Landed 8:50 AM
+7:25 AM	SN516	
+Washington (IAD)
+	Brussels Airlines 	A333 (OO-SFJ) 	
+	Landed 7:58 AM
+7:30 AM	ET732	
+Addis Ababa (ADD)
+	Ethiopian Airlines 	A359 (ET-AUA) 	
+	Landed 7:32 AM
+7:30 AM	EY57	
+Abu Dhabi (AUH)
+	Etihad Airways 	B78X (A6-BMB) 	
+	Landed 7:16 AM
+7:30 AM	KL1701	
+Amsterdam (AMS)
+	KLM 	E75L (PH-EXR) 	
+	Landed 7:22 AM
+7:30 AM	HO1659	
+Shanghai (PVG)
+	Juneyao Air (Chinese Peony Livery) 	B789 (B-209R) 	
+	Landed 7:10 AM
+7:40 AM	TG934	
+Bangkok (BKK)
+	Thai Airways 	B788 (HS-TQB) 	
+	Landed 7:11 AM
+7:40 AM	SN502	
+New York (JFK)
+	Brussels Airlines 	A333 (OO-SFX) 	
+	Landed 7:36 AM
+7:45 AM	UA994	
+New York (EWR)
+	United Airlines 	B78X (N17015) 	
+	Landed 7:30 AM
+7:45 AM	LH1004	
+Frankfurt (FRA)
+	Lufthansa 	CRJ9 (D-ACNN) 	
+	Landed 7:25 AM
+7:50 AM	AC826	
+Toronto (YYZ)
+	Air Canada 	B789 (C-FGHZ) 	
+	Landed 8:20 AM
+7:51 AM	QY204	
+Dublin (DUB)
+	West Atlantic 	B738 (EC-OBN) 	
+	Landed 7:41 AM
+8:00 AM	HU759	
+Shenzhen (SZX)
+	Hainan Airlines 	B789 (B-6998) 	
+	Landed 7:05 AM
+8:05 AM	AC832	
+Montreal (YUL)
+	Air Canada 	A333 (C-GKUH) 	
+	Landed 7:54 AM
+8:10 AM	LH2282	
+Munich (MUC)
+	Lufthansa (Star Alliance Livery) 	A319 (D-AILT) 	
+	Landed 7:57 AM
+8:15 AM	SN2630	
+Hamburg (HAM)
+	Brussels Airlines 	A319 (OO-SSF) 	
+	Landed 7:57 AM
+8:20 AM	TB167	
+Willemstad (CUR)
+	TUI 	B788 (PH-TFL) 	
+	Landed 8:13 AM
+8:20 AM	SN2592	
+Berlin (BER)
+	Brussels Airlines 	A319 (OO-SSU) 	
+	Landed 7:53 AM
+8:20 AM	SN2726	
+Geneva (GVA)
+	Brussels Airlines (Star Alliance Livery) 	A320 (OO-SNP) 	
+	Landed 8:11 AM
+8:20 AM	SN2816	
+Prague (PRG)
+	Brussels Airlines 	A319 (OO-SSN) 	
+	Landed 7:50 AM
+8:25 AM	BT601	
+Riga (RIX)
+	Air Baltic 	BCS3 (YL-AAW) 	
+	Landed 8:07 AM
+8:25 AM	SN2268	
+Copenhagen (CPH)
+	Brussels Airlines 	A319 (OO-SSA) 	
+	Landed 8:02 AM
+8:25 AM	SN3604	
+Marseille (MRS)
+	Brussels Airlines 	A319 (OO-SSB) 	
+	Landed 8:54 AM
+8:30 AM	SN3594	
+Lyon (LYS)
+	Air Baltic 	BCS3 (YL-CSA) 	
+	Landed 8:14 AM
+8:35 AM	AZ148	
+Milan (LIN)
+	ITA Airways 	BCS1 (EI-MVE) 	
+	Landed 8:16 AM
+8:35 AM	SN2184	
+Manchester (MAN)
+	Brussels Airlines 	A319 (OO-SSO) 	
+	Landed 8:34 AM
+8:35 AM	SN2830	
+Budapest (BUD)
+	Brussels Airlines 	A320 (OO-TCV) 	
+	Landed 8:30 AM
+8:35 AM	SN3676	
+Toulouse (TLS)
+	Brussels Airlines (Star Alliance Livery) 	A319 (OO-SSY) 	
+	Landed 8:29 AM
+8:35 AM	
+SN3732	
+Madrid (MAD)
+	Brussels Airlines (Tintin comics Livery) 	A320 (OO-SNB) 	
+	Landed 8:33 AM
+8:35 AM	U21967	
+Milan (LIN)
+	ITA Airways 	A320 (EI-DTN) 	
+	Landed 8:24 AM
+8:40 AM	FR3082	
+Rome (FCO)
+	Ryanair 	B738 (EI-EFC) 	
+	Landed 8:18 AM
+8:40 AM	
+OU456	
+Zagreb (ZAG)
+	Croatia Airlines 	A319 (9A-CTH) 	
+	Landed 8:35 AM
+8:40 AM	
+SN2324	
+Gothenburg (GOT)
+	Brussels Airlines 	A319 (OO-SSV) 	
+	Landed 8:24 AM
+8:40 AM	
+SN3208	
+Venice (VCE)
+	Air Baltic 	BCS3 (YL-ABK) 	
+	Landed 8:03 AM
+8:45 AM	
+SN2288	
+Oslo (OSL)
+	Brussels Airlines 	A319 (OO-SSS) 	
+	Landed 8:21 AM
+8:45 AM	SN2298	
+Stockholm (ARN)
+	Brussels Airlines 	A319 (OO-SSW) 	
+	Landed 8:22 AM
+8:45 AM	VY1470	
+Bilbao (BIO)
+	Vueling 	A320 (EC-MOG) 	
+	Landed 8:27 AM
+8:50 AM	LX786	
+Zurich (ZRH)
+	Swiss 	A20N (HB-JDJ) 	
+	Landed 8:37 AM
+8:50 AM	SN2104	
+London (LHR)
+	Brussels Airlines 	A320 (OO-SNJ) 	
+	Landed 8:39 AM
+8:50 AM	U22980	
+Rome (FCO)
+	easyJet 	A319 (OE-LKL) 	
+	Landed 8:25 AM
+8:50 AM	X3830	
+Frankfurt (FRA)
+	TUI 	B38M (D-AMAD) 	
+	Landed 9:03 AM
+8:55 AM	SN2560	
+Warsaw (WAW)
+	Brussels Airlines 	A20N (OO-SBC) 	
+	Landed 8:33 AM
+9:00 AM	UA972	
+Chicago (ORD)
+	United Airlines 	B78X (N12021) 	
+	Landed 9:39 AM
+9:00 AM	FR1456	
+Dublin (DUB)
+	Ryanair 	B738 (9H-QEK) 	
+	Landed 10:25 AM
+9:05 AM	OS351	
+Vienna (VIE)
+	Austrian Airlines 	A320 (OE-LZA) 	
+	Landed 8:48 AM
+9:05 AM	SQ7364	
+Sharjah (SHJ)
+	Singapore Airlines Cargo 	B744 (9V-SFN) 	
+	Unknown
+9:14 AM		
+Newcastle (NCL)
+	iXAir 	C510 (F-HAHA) 	
+	Landed 9:51 AM
+9:15 AM	VY2150	
+Malaga (AGP)
+	Vueling 	A320 (EC-LLJ) 	
+	Landed 9:09 AM
+9:20 AM	AY1541	
+Helsinki (HEL)
+	Finnair 	A320 (OH-LXH) 	
+	Landed 9:04 AM
+9:20 AM	SQ7364	
+Sharjah (SHJ)
+	Singapore Airlines Cargo 	B744 (9V-SFN) 	
+	Landed 6:17 AM
+9:23 AM		
+Farnborough (FAB)
+	Luxaviation Belgium 	FA7X (OO-AIE) 	
+	Landed 9:48 AM
+9:25 AM	LO235	
+Warsaw (WAW)
+	LOT 	E75S (SP-LIN) 	
+	Landed 9:06 AM
+9:30 AM	SN3632	
+Paris (CDG)
+	Brussels Airlines 	A320 (OO-TCH) 	
+	Landed 9:00 AM
+9:30 AM	VS505	
+London (LHR)
+	Virgin Atlantic 	789 	
+	Unknown
+9:35 AM	FR2948	
+Madrid (MAD)
+	Ryanair 	B738 (EI-DCY) 	
+	Landed 9:15 AM
+9:35 AM	SN2712	
+Geneva (GVA)
+	Brussels Airlines 	A320 (OO-SNF) 	
+	Landed 9:21 AM
+9:40 AM	KL1703	
+Amsterdam (AMS)
+	KLM 	E295 (PH-NXV) 	
+	Landed 9:36 AM
+9:40 AM	SK593	
+Copenhagen (CPH)
+	SAS 	A20N (EI-SIA) 	
+	Landed 9:22 AM
+9:40 AM	EI630	
+Dublin (DUB)
+	Aer Lingus 	A320 (EI-DEM) 	
+	Landed 9:43 AM
+9:45 AM	FR2918	
+Barcelona (BCN)
+	Ryanair 	B738 (EI-EVH) 	
+	Landed 9:59 AM
+9:45 AM	SN2106	
+London (LHR)
+	Brussels Airlines 	A20N (OO-SBE) 	
+	Landed 9:46 AM
+9:45 AM	UX1171	
+Madrid (MAD)
+	Iberojet 	A320 (EC-LZD) 	
+	Landed 9:34 AM
+9:45 AM	VY8980	
+Barcelona (BCN)
+	Vueling 	A320 (EC-LOC) 	
+	Landed 9:32 AM
+9:50 AM	GQ850	
+Heraklion (HER)
+	SKY express 	A20N (SX-CHG) 	
+	Landed 9:42 AM
+9:55 AM	BA392	
+London (LHR)
+	British Airways 	A21N (G-NEOU) 	
+	Landed 9:37 AM
+9:55 AM	SN2580	
+Berlin (BER)
+	Brussels Airlines 	A319 (OO-SSL) 	
+	Landed 9:31 AM
+10:10 AM	SN2608	
+Frankfurt (FRA)
+	Brussels Airlines 	A320 (OO-SNE) 	
+	Landed 9:51 AM
+10:10 AM	SN3154	
+Milan (MXP)
+	Air Baltic 	BCS3 (YL-ABA) 	
+	Landed 9:44 AM
+10:10 AM	TK1937	
+Istanbul (IST)
+	Turkish Airlines 	A321 (TC-JTF) 	
+	Landed 10:16 AM
+10:15 AM	SK4743	
+Oslo (OSL)
+	SAS 	A20N (SE-RZY) 	
+	Landed 9:55 AM
+10:15 AM	SN2730	
+Zurich (ZRH)
+	Air Baltic 	BCS3 (YL-ABC) 	
+	Landed 10:06 AM
+10:20 AM	SN2642	
+Munich (MUC)
+	Brussels Airlines 	A319 (OO-SSJ) 	
+	Landed 10:27 AM
+10:20 AM	A3620	
+Athens (ATH)
+	Aegean Airlines 	A20N (SX-NEL) 	
+	Landed 10:21 AM
+10:27 AM		
+Tangier (TNG)
+	Getjet Airlines 	B738 (LY-DUE) 	
+	Landed 10:20 AM
+10:35 AM	3O133	
+Tangier (TNG)
+	Getjet Airlines 	B738 (LY-DUE) 	
+	Unknown
+10:35 AM	ME215	
+Beirut (BEY)
+	MEA 	A21N (T7-ME6) 	
+	Landed 10:33 AM
+10:40 AM	AZ156	
+Rome (FCO)
+	ITA Airways 	A21N (EI-HXC) 	
+	Landed 10:38 AM
+10:50 AM	AT353	
+Casablanca (CMN)
+	Royal Air Maroc 	76Y 	
+	Unknown
+10:55 AM	FR5236	
+Pisa (PSA)
+	Ryanair 	B738 (EI-DPJ) 	
+	Landed 10:36 AM
+10:59 AM	T2362	
+Vagar (FAE)
+	FarCargo 	B752 (SE-RLE) 	
+	Landed 11:03 AM
+11:00 AM	SN3146	
+Milan (LIN)
+	Brussels Airlines 	A319 (OO-SSX) 	
+	Landed 11:08 AM
+11:00 AM	TP640	
+Lisbon (LIS)
+	TAP Air Portugal 	A319 (CS-TTP) 	
+	Landed 10:54 AM
+11:00 AM		
+Geneva (GVA)
+	Spree Flug 	E55P (D-CLIF) 	
+	Landed 11:01 AM
+11:00 AM	SN3634	
+Paris (CDG)
+	Brussels Airlines (Amare Tomorrowland Livery) 	A20N (OO-SBB) 	
+	Landed 10:59 AM
+11:02 AM		
+Lille (LIL)
+	TUI 	B38M (OO-TMA) 	
+	Landed 10:56 AM
+11:05 AM	SN2902	
+Vienna (VIE)
+	Brussels Airlines 	A320 (OO-SNK) 	
+	Landed 10:52 AM
+11:25 AM	IB597	
+Madrid (MAD)
+	Iberia 	A20N (EC-MXU) 	
+	Landed 11:40 AM
+11:25 AM	TU954	
+Tunis (TUN)
+	Tunisair 	A320 (TS-ITD) 	
+	Landed 11:21 AM
+11:25 AM	UC3603	
+Amsterdam (AMS)
+	LATAM Cargo 	B763 (N536LA) 	
+	Landed 12:58 PM
+11:35 AM	VF65	
+Istanbul (SAW)
+	AJet 	B738 (TC-JFF) 	
+	Landed 11:50 AM
+11:45 AM	SN3772	
+Alicante (ALC)
+	Brussels Airlines (Star Alliance Livery) 	A320 (OO-SNQ) 	
+	Landed 11:41 AM
+11:50 AM	3O115	
+Nador (NDR)
+	Air Arabia 	A320 (CN-NMI) 	
+	Landed 11:35 AM
+12:05 PM	HV9010	
+Ibiza (IBZ)
+	Transavia 	A320 (LY-MLK) 	
+	Landed 11:53 AM
+12:16 PM	3U9609	
+Helsinki (HEL)
+	Sichuan Airlines 	A332 (B-308L) 	
+	Landed 12:25 PM
+12:25 PM	SN3176	
+Rome (FCO)
+	Brussels Airlines 	A319 (OO-SSR) 	
+	Landed 12:19 PM
+12:25 PM	TB1112	
+Alicante (ALC)
+	Fly2Sky 	A320 (LZ-FSG) 	
+	Landed 12:01 PM
+12:30 PM	H4245	
+Bucharest (OTP)
+	HiSky 	A320 (YR-SUN) 	
+	Landed 12:17 PM
+12:35 PM	LO237	
+Warsaw (WAW)
+	LOT 	E295 (SP-LEB) 	
+	Landed 12:33 PM
+12:45 PM	SN2714	
+Geneva (GVA)
+	Brussels Airlines 	A319 (OO-SSA) 	
+	Landed 12:38 PM
+12:50 PM	
+FI554	
+Reykjavik (KEF)
+	Icelandair 	B38M (TF-ICH) 	
+	Landed 1:00 PM
+12:50 PM	
+SN2624	
+Hamburg (HAM)
+	Brussels Airlines (Star Alliance Livery) 	A319 (OO-SSY) 	
+	Landed 12:48 PM
+12:50 PM	TB2752	
+Enfidha (NBE)
+	TUI 	B737 (OO-JAR) 	
+	Landed 12:37 PM
+12:50 PM	VY1332	
+Alicante (ALC)
+	Vueling 	A320 (EC-MBE) 	
+	Landed 12:31 PM
+12:55 PM	SN3734	
+Malaga (AGP)
+	Brussels Airlines (Red Devils & Red Flames Livery) 	A320 (OO-SNO) 	
+	Landed 12:40 PM
+1:00 PM	HV9004	
+Alicante (ALC)
+	Transavia 	A320 (LY-MLN) 	
+	Landed 1:18 PM
+1:00 PM	
+SN2644	
+Munich (MUC)
+	Brussels Airlines 	A319 (OO-SSV) 	
+	Landed 1:20 PM
+1:05 PM	GQ800	
+Athens (ATH)
+	SKY express 	A21N (SX-GRA) 	
+	Landed 1:11 PM
+1:05 PM	
+SN2582	
+Berlin (BER)
+	Air Baltic 	BCS3 (YL-AAW) 	
+	Landed 12:56 PM
+1:15 PM	
+SN2094	
+London (LHR)
+	Brussels Airlines 	A20N (OO-SBC) 	
+	Landed 1:25 PM
+1:20 PM	
+EK183	
+Dubai (DXB)
+	Emirates 	B77W (A6-EQI) 	
+	Landed 1:14 PM
+1:20 PM	
+SN2810	
+Prague (PRG)
+	Brussels Airlines 	A319 (OO-SSU) 	
+	Landed 1:13 PM
+1:20 PM	SN3140	
+Florence (FLR)
+	Brussels Airlines 	A319 (OO-SSF) 	
+	Landed 1:34 PM
+1:20 PM	TB2706	
+Djerba (DJE)
+	Fly2Sky 	A320 (LZ-FSF) 	
+	Landed 12:50 PM
+1:25 PM	
+SN2258	
+Copenhagen (CPH)
+	Brussels Airlines 	A319 (OO-SSO) 	
+	Landed 1:21 PM
+1:25 PM	
+TK1943	
+Istanbul (IST)
+	Turkish Airlines 	A321 (TC-JTD) 	
+	Landed 1:16 PM
+1:26 PM	KF871	
+Dubai (DWC)
+	Hongyuan Group 	B748 (OE-LFC) 	
+	Landed 1:45 PM
+1:30 PM	
+SN2174	
+Manchester (MAN)
+	Brussels Airlines 	A320 (OO-SNH) 	
+	Landed 1:31 PM
+1:40 PM	
+SN2612	
+Frankfurt (FRA)
+	Brussels Airlines 	A319 (OO-SSS) 	
+	Landed 1:49 PM
+1:50 PM	AH2062	
+Algiers (ALG)
+	Air Algerie 	B736 (7T-VJU) 	
+	Landed 2:24 PM
+1:50 PM	
+SN3668	
+Toulouse (TLS)
+	Brussels Airlines 	A319 (OO-SSB) 	
+	Landed 1:50 PM
+2:00 PM	SN3244	
+Kos (KGS)
+	Brussels Airlines (Atomium Brussels Livery) 	A320 (OO-SNM) 	
+	Landed 1:41 PM
+2:00 PM	SN3256	
+Heraklion (HER)
+	Brussels Airlines 	A320 (OO-TCQ) 	
+	Landed 1:54 PM
+2:05 PM	
+OS359	
+Vienna (VIE)
+	Austrian Airlines 	A320 (OE-LBT) 	
+	Landed 2:01 PM
+2:05 PM	SN3238	
+Chania (CHQ)
+	Brussels Airlines 	A20N (OO-SBD) 	
+	Landed 1:56 PM
+2:15 PM	
+LX780	
+Zurich (ZRH)
+	Swiss (Star Alliance Livery) 	A320 (HB-IJN) 	
+	Landed 2:32 PM
+2:25 PM	
+BA394	
+London (LHR)
+	British Airways 	A319 (G-EUPN) 	
+	Landed 2:22 PM
+2:25 PM	
+VY8986	
+Barcelona (BCN)
+	Vueling 	A320 (EC-KHN) 	
+	Landed 2:10 PM
+2:25 PM	XC7608	
+Antalya (AYT)
+	Corendon Airlines 	B738 (9H-TJE) 	
+	Landed 2:48 PM
+2:30 PM	SN3698	
+Barcelona (BCN)
+	Air Baltic 	BCS3 (YL-ABK) 	
+	Landed 2:30 PM
+2:35 PM	
+KL1705	
+Amsterdam (AMS)
+	KLM 	E75L (PH-EXS) 	
+	Landed 2:46 PM
+2:35 PM	
+SN3148	
+Milan (LIN)
+	Brussels Airlines 	A319 (OO-SSL) 	
+	Landed 3:24 PM
+2:35 PM	
+SN3588	
+Lyon (LYS)
+	Air Baltic 	BCS3 (YL-ABA) 	
+	Landed 2:44 PM
+2:40 PM	
+QR193	
+Doha (DOH)
+	Qatar Airways 	A359 (A7-ALG) 	
+	Landed 2:19 PM
+2:50 PM	TB2582	
+Marrakesh (RAK)
+	TUI 	B738 (OO-JEF) 	
+	Landed 2:51 PM
+2:55 PM	
+SN3722	
+Madrid (MAD)
+	Brussels Airlines 	A320 (OO-TCV) 	
+	Landed 2:56 PM
+3:00 PM	TB2502	
+Agadir (AGA)
+	Fly2Sky 	A320 (LZ-FSB) 	
+	Landed 2:50 PM
+3:00 PM	5O716	
+Athens (ATH)
+	ASL Airlines 	B738 (F-HIXD) 	
+	Landed 3:15 PM
+3:05 PM	SN2292	
+Stockholm (ARN)
+	Brussels Airlines 	A319 (OO-SSW) 	
+	Landed 2:53 PM
+3:05 PM	TP642	
+Lisbon (LIS)
+	TAP Air Portugal 	A20N (CS-TVO) 	
+	Landed 3:14 PM
+3:15 PM	SN3202	
+Venice (VCE)
+	Air Baltic 	BCS3 (YL-ABC) 	
+	Landed 3:31 PM
+3:15 PM	SN3618	
+Nice (NCE)
+	Brussels Airlines 	A320 (OO-SNE) 	
+	Landed 3:18 PM
+3:15 PM	SN3598	
+Marseille (MRS)
+	Brussels Airlines 	A319 (OO-SSJ) 	
+	Landed 3:22 PM
+3:15 PM	TK1945	
+Istanbul (IST)
+	Turkish Airlines 	A21N (TC-LTE) 	
+	Landed 2:59 PM
+3:20 PM	SK1593	
+Copenhagen (CPH)
+	Jettime 	B738 (OY-JYA) 	
+	Landed 3:25 PM
+3:20 PM	SN2064	
+Edinburgh (EDI)
+	Brussels Airlines 	A320 (OO-SNF) 	
+	Landed 3:03 PM
+3:20 PM	SN3170	
+Naples (NAP)
+	Brussels Airlines (Tintin comics Livery) 	A320 (OO-SNB) 	
+	Landed 3:11 PM
+3:40 PM	FR2922	
+Barcelona (BCN)
+	Ryanair 	B738 (EI-EVH) 	
+	Landed 4:00 PM
+3:40 PM		
+Nador (NDR)
+	Air Ocean Maroc 	LJ45 (CN-TMV) 	
+	Landed 3:54 PM
+3:45 PM	SN3816	
+Lisbon (LIS)
+	Brussels Airlines (Star Alliance Livery) 	A320 (OO-SNP) 	
+	Landed 3:39 PM
+4:00 PM	SN3802	
+Faro (FAO)
+	Brussels Airlines 	A319 (OO-SSN) 	
+	Landed 3:43 PM
+4:02 PM		
+Istanbul (ISL)
+	-	E55P (T7-EWET) 	
+	Landed 4:05 PM
+4:15 PM	HV9062	
+Tenerife (TFS)
+	Transavia 	A320 (LY-MLI) 	
+	Landed 4:03 PM
+4:15 PM	SN3812	
+Porto (OPO)
+	Brussels Airlines 	A320 (OO-SNJ) 	
+	Landed 4:08 PM
+4:15 PM	SN2646	
+Munich (MUC)
+	Brussels Airlines (Star Alliance Livery) 	A320 (OO-SNQ) 	
+	Landed 4:27 PM
+4:20 PM	U21747	
+Nice (NCE)
+	easyJet 	A320 (OE-ICB) 	
+	Landed 4:09 PM
+4:24 PM	FH8021	
+Izmir (ADB)
+	Freebird Airlines 	A320 (TC-FBO) 	
+	Landed 4:53 PM
+4:35 PM	XC7070	
+Dalaman (DLM)
+	Corendon Airlines 	B738 (9H-CXA) 	
+	Landed 4:18 PM
+4:40 PM	SN3782	
+Tenerife (TFS)
+	Brussels Airlines 	A20N (OO-SBA) 	
+	Landed 4:11 PM
+4:45 PM	OS353	
+Vienna (VIE)
+	Air Baltic 	BCS3 (YL-ABO) 	
+	Landed 4:35 PM
+4:48 PM		
+Frankfurt (FRA)
+	Luminair 	C56X (D-CPLN) 	
+	Landed 4:55 PM
+4:50 PM	XQ550	
+Antalya (AYT)
+	SunExpress 	B738 (TC-SEO) 	
+	Landed 5:04 PM
+4:50 PM	OZ588	
+New York (JFK)
+	Asiana Airlines 	74F 	
+	Unknown
+4:50 PM	OZ587	
+New York (JFK)
+	Asiana Cargo 	B744 (HL7620) 	
+	Landed 4:38 PM
+5:15 PM	SN2648	
+Munich (MUC)
+	Brussels Airlines 	A319 (OO-SSV) 	
+	Landed 5:51 PM
+5:15 PM	SN3704	
+Barcelona (BCN)
+	Brussels Airlines 	A320 (OO-SNK) 	
+	Landed 5:32 PM
+5:25 PM	VY8982	
+Barcelona (BCN)
+	Vueling 	A320 (EC-MYB) 	
+	Landed 5:00 PM
+5:30 PM	SN2614	
+Frankfurt (FRA)
+	Brussels Airlines 	A319 (OO-SSS) 	
+	Landed 5:42 PM
+5:35 PM	AT832	
+Casablanca (CMN)
+	Royal Air Maroc 	B738 (CN-RGK) 	
+	Landed 5:36 PM
+5:35 PM	NH231	
+Tokyo (NRT)
+	All Nippon Airways 	B789 (JA876A) 	
+	Landed 5:15 PM
+5:40 PM	UX1173	
+Madrid (MAD)
+	Iberojet 	A320 (EC-LZD) 	
+	Landed 5:38 PM
+5:45 PM	BA398	
+London (LHR)
+	British Airways 	A20N (G-TTNG) 	
+	Landed 5:30 PM
+5:50 PM	TK1939	
+Istanbul (IST)
+	Turkish Airlines 	A21N (TC-LSV) 	
+	Landed 5:40 PM
+6:00 PM	AZ160	
+Rome (FCO)
+	ITA Airways 	A320 (EI-DSW) 	
+	Landed 5:49 PM
+6:00 PM	SN3246	
+Athens (ATH)
+	Brussels Airlines 	A320 (OO-TCH) 	
+	Landed 6:31 PM
+6:05 PM	FR2984	
+Rome (FCO)
+	Ryanair 	B738 (9H-QDP) 	
+	Landed 5:47 PM
+6:15 PM	SN3622	
+Nice (NCE)
+	Brussels Airlines (Amare Tomorrowland Livery) 	A20N (OO-SBB) 	
+	Landed 5:54 PM
+6:20 PM	AY1545	
+Helsinki (HEL)
+	Finnair 	A321 (OH-LZK) 	
+	Landed 6:15 PM
+6:20 PM	
+BT603	
+Riga (RIX)
+	Air Baltic 	BCS3 (YL-ABH) 	
+	Landed 6:29 PM
+6:20 PM	SK1589	
+Stockholm (ARN)
+	SAS 	A20N (EI-SIY) 	
+	Landed 6:13 PM
+6:20 PM	
+SK4745	
+Oslo (OSL)
+	SAS 	A320 (OY-KAR) 	
+	Landed 6:10 PM
+6:20 PM	WB700	
+Kigali (KGL)
+	RwandAir 	A332 (9XR-WN) 	
+	Landed 6:45 PM
+6:25 PM	EK9393	
+Dubai (DWC)
+	Emirates SkyCargo 	B77L (A6-EFX) 	
+	Landed 6:08 PM
+6:25 PM	
+RO373	
+Bucharest (OTP)
+	Tarom 	B738 (YR-BGJ) 	
+	Landed 6:35 PM
+6:25 PM	
+SN3736	
+Malaga (AGP)
+	Brussels Airlines 	A20N (OO-SBE) 	
+	Landed 6:28 PM
+6:30 PM	
+SN2722	
+Geneva (GVA)
+	Brussels Airlines 	A319 (OO-SSU) 	
+	Landed 6:25 PM
+6:30 PM	
+SN3804	
+Faro (FAO)
+	Brussels Airlines 	A319 (OO-SSX) 	
+	Landed 6:51 PM
+6:30 PM	
+SK1595	
+Copenhagen (CPH)
+	SAS 	A20N (EI-SCD) 	
+	Landed 6:23 PM
+6:40 PM	LO233	
+Warsaw (WAW)
+	LOT 	B738 (SP-LWG) 	
+	Landed 6:55 PM
+6:40 PM	QR8091	
+London (STN)
+	Qatar Cargo 	B77L (A7-BFC) 	
+	Landed 6:21 PM
+6:45 PM	SN3712	
+Bilbao (BIO)
+	Brussels Airlines (Red Devils & Red Flames Livery) 	A320 (OO-SNO) 	
+	Landed 6:42 PM
+6:50 PM	SN2048	
+Birmingham (BHX)
+	Air Baltic 	BCS3 (YL-ABK) 	
+	Landed 6:40 PM
+6:55 PM	
+IB601	
+Madrid (MAD)
+	Iberia 	A321 (EC-JGS) 	
+	Landed 6:49 PM
+6:55 PM	TB1925	
+Tenerife (TFS)
+	TUI 	B38M (OO-TMT) 	
+	Landed 6:06 PM
+7:00 PM	FR2986	
+Valencia (VLC)
+	Ryanair 	B738 (9H-QEA) 	
+	Landed 6:39 PM
+7:05 PM	
+A3622	
+Athens (ATH)
+	Aegean Airlines 	A20N (SX-NEL) 	
+	Landed 6:58 PM
+7:05 PM	D0277	
+Cincinnati (CVG)
+	DHL 	B763 (G-DHLK) 	
+	Landed 7:17 PM
+7:10 PM	
+OS355	
+Vienna (VIE)
+	Austrian Airlines 	A321 (OE-LBA) 	
+	Landed 7:04 PM
+7:10 PM	QR8091	
+London (LHR)
+	Qatar Airways 	77X 	
+	Unknown
+7:14 PM	QY995	
+Tel Aviv (TLV)
+	DHL 	A306 (D-AEAF) 	
+	Landed 7:57 PM
+7:15 PM	
+LX788	
+Zurich (ZRH)
+	Swiss 	A320 (HB-JLQ) 	
+	Landed 7:14 PM
+7:15 PM	
+KM420	
+Malta (MLA)
+	KM Malta Airlines 	A20N (9H-NED) 	
+	Landed 6:56 PM
+7:20 PM	3O131	
+Nador (NDR)
+	Air Arabia 	A320 (CN-NMR) 	
+	Landed 7:19 PM
+7:20 PM	
+EK181	
+Dubai (DXB)
+	Emirates 	B77W (A6-EPI) 	
+	Landed 7:00 PM
+7:35 PM	FR2929	
+Porto (OPO)
+	Ryanair 	B738 (EI-ENI) 	
+	Landed 7:41 PM
+7:38 PM		
+Albertville (QFA)
+	-	PC12 (OO-GEE) 	
+	Landed 8:59 PM
+7:40 PM	
+SN2260	
+Copenhagen (CPH)
+	Brussels Airlines (Atomium Brussels Livery) 	A320 (OO-SNM) 	
+	Landed 8:05 PM
+7:50 PM	
+OU4456	
+Zagreb (ZAG)
+	Croatia Airlines 	DH8D (9A-CQE) 	
+	Landed 8:15 PM
+7:50 PM	SN2294	
+Stockholm (ARN)
+	Brussels Airlines 	A319 (OO-SSR) 	
+	Landed 7:28 PM
+7:55 PM	
+SN2906	
+Vienna (VIE)
+	Brussels Airlines 	A319 (OO-SSW) 	
+	Landed 7:44 PM
+7:55 PM	SN3728	
+Madrid (MAD)
+	Brussels Airlines 	A320 (OO-SNH) 	
+	Landed 7:49 PM
+8:00 PM	
+SN2096	
+London (LHR)
+	Brussels Airlines 	A20N (OO-SBC) 	
+	Landed 7:55 PM
+8:00 PM	
+SN2318	
+Gothenburg (GOT)
+	Brussels Airlines 	A320 (OO-TCV) 	
+	Landed 7:59 PM
+8:05 PM	
+SN2284	
+Oslo (OSL)
+	Brussels Airlines 	A319 (OO-SSA) 	
+	Landed 7:46 PM
+8:05 PM	SN2548	
+Krakow (KRK)
+	Brussels Airlines 	A319 (OO-SSO) 	
+	Landed 7:53 PM
+8:05 PM	
+SN2826	
+Budapest (BUD)
+	Brussels Airlines 	A319 (OO-SSF) 	
+	Landed 8:04 PM
+8:05 PM	SN3290	
+Tel Aviv (TLV)
+	Brussels Airlines 	32N 	
+	Canceled
+8:05 PM	
+TP644	
+Lisbon (LIS)
+	TAP Air Portugal 	A320 (CS-TNT) 	
+	Landed 7:47 PM
+8:05 PM	VY1334	
+Alicante (ALC)
+	Vueling 	A320 (EC-KDH) 	
+	Landed 8:06 PM
+8:10 PM	SN2556	
+Warsaw (WAW)
+	Brussels Airlines (Star Alliance Livery) 	A319 (OO-SSY) 	
+	Landed 8:08 PM
+8:10 PM	SN2588	
+Berlin (BER)
+	Brussels Airlines 	A319 (OO-SSL) 	
+	Canceled
+8:11 PM		
+Berlin (BER)
+	Fly-Coop Air Service 	BE40 (HA-YFM) 	
+	Landed 12:51 AM
+8:15 PM	
+SN2372	
+Vilnius (VNO)
+	Air Baltic 	BCS3 (YL-AAW) 	
+	Landed 7:51 PM
+8:15 PM	SN2812	
+Prague (PRG)
+	Brussels Airlines 	A319 (OO-SSJ) 	
+	Landed 8:13 PM
+8:15 PM	
+SN3126	
+Bologna (BLQ)
+	Air Baltic 	BCS3 (YL-ABC) 	
+	Landed 8:33 PM
+8:20 PM	
+SN3150	
+Milan (LIN)
+	Brussels Airlines 	A320 (OO-SNF) 	
+	Landed 8:30 PM
+8:20 PM	
+SN3182	
+Rome (FCO)
+	Brussels Airlines 	A319 (OO-SSB) 	
+	Landed 8:16 PM
+8:20 PM	SN3344	
+Ljubljana (LJU)
+	Air Baltic 	BCS3 (YL-ABA) 	
+	Landed 8:10 PM
+8:20 PM	TB1114	
+Alicante (ALC)
+	TUI 	B737 (OO-JAL) 	
+	Landed 8:39 PM
+8:20 PM	U22982	
+Rome (FCO)
+	easyJet 	A319 (OE-LKL) 	
+	Landed 8:28 PM
+8:25 PM	
+BA396	
+London (LHR)
+	British Airways 	A319 (G-EUPO) 	
+	Landed 8:12 PM
+8:25 PM	FR4421	
+Palma de Mallorca (PMI)
+	Lauda Europe 	A320 (9H-LON) 	
+	Landed 8:01 PM
+8:25 PM	
+JU272	
+Belgrade (BEG)
+	AirSERBIA 	E195 (YU-ATC) 	
+	Landed 8:18 PM
+8:35 PM	U21969	
+Milan (LIN)
+	ITA Airways 	A320 (EI-DTN) 	
+	Landed 8:24 PM
+8:40 PM	
+SN2616	
+Frankfurt (FRA)
+	Brussels Airlines (Star Alliance Livery) 	A320 (OO-SNQ) 	
+	Landed 8:22 PM
+8:40 PM	
+EI638	
+Dublin (DUB)
+	Aer Lingus 	A320 (EI-FNJ) 	
+	Landed 8:27 PM
+8:45 PM	TB2594	
+Tetuan (TTU)
+	TUI 	B737 (OO-JAR) 	
+	Landed 8:20 PM
+8:50 PM	SN3810	
+Porto (OPO)
+	Brussels Airlines 	A320 (OO-TCQ) 	
+	Landed 8:44 PM
+8:50 PM	SN1192	
+Toulon (TLN)
+	Brussels Airlines 	A320 (OO-SNE) 	
+	Landed 8:41 PM
+9:00 PM	FR657	
+Dublin (DUB)
+	Ryanair 	B738 (9H-QCA) 	
+	Landed 8:55 PM
+9:00 PM	FR5238	
+Marrakesh (RAK)
+	Ryanair 	B738 (EI-EXF) 	
+	Landed 9:09 PM
+9:00 PM	U21531	
+Geneva (GVA)
+	easyJet 	A320 (HB-JXV) 	
+	Landed 8:43 PM
+9:02 PM	ES796	
+Bahrain (BAH)
+	DHL 	B763 (A9C-DHZ) 	
+	Landed 9:24 PM
+9:03 PM	3S116	
+Leipzig (LEJ)
+	AeroLogic 	B77L (D-AALI) 	
+	Landed 9:03 PM
+9:15 PM	TB2031	
+Espargos (SID)
+	TUI 	B38M (OO-MAX) 	
+	Landed 10:54 PM
+9:15 PM	3V1804	
+Orebro (ORB)
+	ASL Airlines 	B734 (OE-IBO) 	
+	Landed 9:07 PM
+9:20 PM	TK1941	
+Istanbul (IST)
+	Turkish Airlines 	A21N (TC-LSY) 	
+	Landed 9:05 PM
+9:30 PM	SN2732	
+Zurich (ZRH)
+	Brussels Airlines 	A319 (OO-SSN) 	
+	Landed 9:22 PM
+9:32 PM	QY82	
+Lagos (LOS)
+	DHL 	A332 (D-ALMD) 	
+	Landed 9:46 PM
+9:35 PM	VY8984	
+Barcelona (BCN)
+	Vueling 	A321 (EC-NLX) 	
+	Landed 9:48 PM
+9:45 PM	D0373	
+Cincinnati (CVG)
+	DHL 	B763 (G-DHLE) 	
+	Landed 10:02 PM
+9:50 PM	HV9008	
+Faro (FAO)
+	Transavia 	A320 (LY-MLK) 	
+	Landed 9:43 PM
+9:50 PM	HV9078	
+Seville (SVQ)
+	Transavia 	A320 (LY-MLN) 	
+	Landed 10:16 PM
+10:15 PM	SN2590	
+Berlin (BER)
+	Brussels Airlines 	A319 (OO-SSV) 	
+	Landed 10:08 PM
+10:15 PM	KL1707	
+Amsterdam (AMS)
+	KLM 	E190 (PH-EZP) 	
+	Landed 10:18 PM
+10:25 PM	LO231	
+Warsaw (WAW)
+	LOT 	E195 (SP-LNP) 	
+	Landed 10:32 PM
+10:30 PM	IB603	
+Madrid (MAD)
+	Iberia 	A20N (EC-NTA) 	
+	Landed 10:34 PM
+10:30 PM	TB3408	
+Algiers (ALG)
+	TUI 	B738 (OO-JEF) 	
+	Landed 10:21 PM
+10:35 PM	SN2618	
+Frankfurt (FRA)
+	Brussels Airlines 	A319 (OO-SSU) 	
+	Landed 10:58 PM
+10:35 PM	AY1549	
+Helsinki (HEL)
+	Finnair 	E190 (OH-LKI) 	
+	Landed 9:56 PM
+10:45 PM	TB2632	
+Oujda (OUD)
+	Fly2Sky 	A320 (LZ-FSF) 	
+	Landed 10:27 PM
+10:48 PM		
+Paris (ORY)
+	TUI 	B38M (OO-TMA) 	
+	Landed 11:51 PM
+10:56 PM		
+Toulouse (TLS)
+	DHL 	B752 (OE-LNA) 	
+	Landed 11:07 PM
+11:03 PM		
+Farnborough (FAB)
+	Luxaviation Belgium 	FA7X (OO-AIE) 	
+	Landed 10:45 PM
+11:10 PM	SN2652	
+Munich (MUC)
+	Air Baltic 	BCS3 (YL-ABK) 	
+	Landed 10:57 PM
+11:10 PM	SN3184	
+Rome (FCO)
+	Brussels Airlines 	A320 (OO-SNK) 	
+	Landed 11:41 PM
+11:10 PM	SN3738	
+Malaga (AGP)
+	Brussels Airlines (Tintin comics Livery) 	A320 (OO-SNB) 	
+	Landed 11:01 PM
+11:10 PM	SN3752	
+Valencia (VLC)
+	Brussels Airlines 	A320 (OO-SNJ) 	
+	Landed 11:10 PM
+11:10 PM	SN3766	
+Palma de Mallorca (PMI)
+	Brussels Airlines 	A20N (OO-SBA) 	
+	Landed 10:49 PM
+11:15 PM	SN3160	
+Milan (MXP)
+	Brussels Airlines 	A20N (OO-SBE) 	
+	Landed 11:04 PM
+11:25 PM	SN2908	
+Vienna (VIE)
+	Brussels Airlines 	A320 (OO-TCH) 	
+	Landed 11:41 PM
+11:25 PM	SN3706	
+Barcelona (BCN)
+	Brussels Airlines 	A319 (OO-SSS) 	
+	Landed 11:30 PM
+11:35 PM	HV9032	
+Malaga (AGP)
+	Transavia 	A320 (LY-MLI) 	
+	Landed 12:02 AM
+11:40 PM	SN3820	
+Lisbon (LIS)
+	Brussels Airlines (Star Alliance Livery) 	A320 (OO-SNP) 	
+	Landed 11:35 PM
+11:41 PM	QY5301	
+Linz (LNZ)
+	DHL 	B738 (EC-NXU) 	
+	Landed 11:38 PM
+11:42 PM	QY2885	
+Dublin (DUB)
+	DHL 	B752 (D-ALER) 	
+	Landed 11:43 PM
+11:42 PM		
+Basel (BSL)
+	DHL 	B752 (OE-LNX) 	
+	Landed 11:33 PM
+11:50 PM	TB1552	
+Gran Canaria (LPA)
+	Bulgaria Air 	A320 (LZ-FBI) 	
+	Landed 11:45 PM
+11:50 PM	TB2534	
+Casablanca (CMN)
+	TUI 	B738 (OO-TUV) 	
+	Landed 12:00 AM
+11:55 PM	TP646	
+Lisbon (LIS)
+	TAP Air Portugal 	A20N (CS-TVN) 	
+	Landed 11:47 PM
