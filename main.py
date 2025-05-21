@@ -175,7 +175,7 @@ def smooth_screen(screen, sigma):
     gaussian_filter(b, sigma=sigma, mode="nearest", output=b)
 
 def load_airport_data(airport_code):
-    global osm_data, all_nodes, limits, limits_begin, min_lat, max_lat, min_lon, max_lon, network
+    global osm_data, all_nodes, limits, limits_begin, min_lat, max_lat, min_lon, max_lon, network, menu_rect
     global schedule, performance, runway_configs, selected_runway_config, active_runways, minimap_limits
 
     json_file_name = f"airports/{airport_code}/osm_data.json"
@@ -202,13 +202,8 @@ def load_airport_data(airport_code):
     selected_runway_config = list(runway_configs.keys())[0]
     active_runways = runway_configs[selected_runway_config]['active_runways']
     minimap_limits = calculate_mini_map_limits(network, spawn_height=2000, padding=10)
+    menu_rect = pygame.Rect(WIDTH - 230, 170, 200, 10 + len(runway_configs) * 60)  # Menu aan rechterkant
     update_plane_icon_scale()
-
-# active runways menu
-menu_open = False
-menu_toggle_rect = pygame.Rect(WIDTH - 130, 100, 100, 50)  # Rechtsboven
-menu_rect = pygame.Rect(WIDTH - 230, 170, 200, 310)  # Menu aan rechterkant
-menu_buttons = []
 
 # Create airport buttons before the game loop
 airport_buttons = []
@@ -220,6 +215,12 @@ spacing = 40
 num_airports = len(airports)
 total_width = num_airports * button_width + (num_airports - 1) * spacing
 start_x = (WIDTH - total_width) // 2  # centreer horizontaal
+
+# active runways menu
+menu_open = False
+menu_toggle_rect = pygame.Rect(WIDTH - 130, 100, 100, 50)  # Rechtsboven
+menu_rect = pygame.Rect(WIDTH - 230, 170, 200, 10 + num_airports * 60)  # Menu aan rechterkant
+menu_buttons = []
 
 # Creates buttons for each airport, positions them on the screen, and stores their details.
 for idx, airport in enumerate(airports):
@@ -310,6 +311,7 @@ while running:
                     # create a dropdown button for the aircraft with state 'arrival'  
                     create_dropdown(screen, screen.get_width()/4, screen.get_height() / 20, screen.get_width()/4,screen.get_height() / 20, 'Arrival', [aircraft.callsign for aircraft in aircraft_list if aircraft.type == 'arrival'],(150, 150, 150), 'down', 'left',aircraft_list)
 
+                    spawn_interval = 300 - (current_freq / 100) * 220 + rand.uniform(-20, 20) # 300s - 220s = 80s at 100%
                     last_time_aircraft = summon_arrival() # create  an new aircraft with state 'arrival' and add it to the dropdown
 
                 #controleer of de back button wordt ingedrukt                
@@ -484,10 +486,10 @@ while running:
                 menu_buttons.append((btn_rect, key))
 
         # Calculate spawn interval: 60s at 100%, 300s at 0%
-        spawn_interval = 300 - (current_freq / 100) * 240  # 300s - 240s = 60s at 100%
 
         dt = time.time() - last_time_aircraft
         if dt > spawn_interval:
+            spawn_interval = 300 - (current_freq / 100) * 220 + rand.uniform(-20, 20) # 300s - 240s = 60s at 100%
             last_time_aircraft = summon_arrival()
 
     #draw the fps in the topright

@@ -623,6 +623,18 @@
         "length": 27.17,
         "type": "AT75"
     },
+    "AT76": {
+        "WTC": "M",
+        "dist_TO": 1367,
+        "dist_LD": 1100,
+        "speed_V2": 110,
+        "speed_climb": 140,
+        "speed_Vat": 120,
+        "rate_of_climb": 1350,
+        "wingspan": 27.05,
+        "length": 27.17,
+        "type": "AT75"
+    },
     "ATLA": {
         "WTC": "M",
         "dist_TO": 1500,
@@ -2279,7 +2291,7 @@
         "length": 29.9,
         "type": "E75L"
     },
-    "E75": {
+    "E75S": {
         "WTC": "M",
         "dist_TO": 1644,
         "dist_LD": 1274,
@@ -2303,7 +2315,31 @@
         "length": 36.2,
         "type": "E190"
     },
+    "E290": {
+        "WTC": "M",
+        "dist_TO": 2056,
+        "dist_LD": 1323,
+        "speed_V2": 138,
+        "speed_climb": 190,
+        "speed_Vat": 131,
+        "rate_of_climb": 3400,
+        "wingspan": 28.7,
+        "length": 36.2,
+        "type": "E190"
+    },
     "E195": {
+        "WTC": "M",
+        "dist_TO": 1432,
+        "dist_LD": 1275,
+        "speed_V2": 140,
+        "speed_climb": 190,
+        "speed_Vat": 135,
+        "rate_of_climb": 3000,
+        "wingspan": 28.7,
+        "length": 38.65,
+        "type": "E195"
+    },
+    "E295": {
         "WTC": "M",
         "dist_TO": 1432,
         "dist_LD": 1275,

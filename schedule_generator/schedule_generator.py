@@ -1,18 +1,19 @@
 import re
 import json
+import csv
+import difflib
 
-# --- Load airline callsign data by IATA code ---
+# --- Load airline callsign data by airline name (case-insensitive) ---
 callsign_lookup = {}
-with open('schedule_generator/airlines.dat', encoding='utf-8') as f:
-    for line in f:
-        parts = line.strip().split(',')
-        if len(parts) > 5:
-            iata = parts[3].strip('"').upper()
-            icao = parts[4].strip('"')
-            name = parts[1].strip('"')
-            callsign = parts[5].strip('"')
-            if iata:
-                callsign_lookup[iata] = {'icao': icao, 'name': name, 'callsign': callsign}
+with open('schedule_generator/airlines.csv', encoding='utf-8') as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        name = row['Name'].strip().lower()
+        callsign_lookup[name] = {
+            'icao': row['Airline'].strip(),
+            'callsign': row['Callsign'].strip(),
+            'country': row['Country code'].strip()
+        }
 
 flights = []
 with open('schedule_generator/raw_schedule.txt', encoding='utf-8') as f:
@@ -23,7 +24,6 @@ while i < len(lines):
     # Case 1: time and flight number on the same line
     if re.match(r'^\d{1,2}:\d{2} [AP]M\s+\w+', lines[i]):
         block_start = i
-        # Extract flight number (e.g., BA16)
         flight_match = re.match(r'^\d{1,2}:\d{2} [AP]M\s+(\w+\d+)', lines[i])
         flight_number = flight_match.group(1) if flight_match else ''
         i += 1
@@ -62,39 +62,46 @@ while i < len(lines):
         else:
             atype = aircraft_info
             reg = ''
-        # Extract IATA code from flight number (first 2 or 3 uppercase letters)
-        iata_match = re.match(r'^([A-Z0-9]{2})', flight_number)
-        iata = iata_match.group(1) if iata_match else ''
-        flights.append((airline, atype, reg, iata))
+        flights.append((airline, atype, reg))
 
     # Move to next block: find the next line that looks like a time
     while i < len(lines) and not re.match(r'^\d{1,2}:\d{2} [AP]M', lines[i]):
         i += 1
 
 schedule = {}
-for airline, atype, reg, iata in flights:
+for airline, atype, reg in flights:
+    key = airline.lower()
     icao = ''
     callsign = ''
-    airline_name = iata  # fallback if not found
-    if iata in callsign_lookup:
-        icao = callsign_lookup[iata]['icao']
-        callsign = callsign_lookup[iata]['callsign']
-        airline_name = callsign_lookup[iata]['name']
+    country = ''
+    # Try exact match first
+    if key in callsign_lookup:
+        icao = callsign_lookup[key]['icao']
+        callsign = callsign_lookup[key]['callsign']
+        country = callsign_lookup[key]['country']
+    else:
+        # Fuzzy match: find the closest airline name in the lookup
+        close = difflib.get_close_matches(key, callsign_lookup.keys(), n=1, cutoff=0.8)
+        if close:
+            match_key = close[0]
+            icao = callsign_lookup[match_key]['icao']
+            callsign = callsign_lookup[match_key]['callsign']
+            country = callsign_lookup[match_key]['country']
 
-    if airline_name not in schedule:
-        schedule[airline_name] = {
+    if airline not in schedule:
+        schedule[airline] = {
             'callsign_ICAO': icao,
             'callsign_SAY': callsign,
             'frequency': 0,
             'aircraft': {}
         }
-    if atype not in schedule[airline_name]['aircraft']:
-        schedule[airline_name]['aircraft'][atype] = {
+    if atype not in schedule[airline]['aircraft']:
+        schedule[airline]['aircraft'][atype] = {
             'apron': [],
             'frequency': 0,
         }
-    schedule[airline_name]['frequency'] += 1
-    schedule[airline_name]['aircraft'][atype]['frequency'] += 1
+    schedule[airline]['frequency'] += 1
+    schedule[airline]['aircraft'][atype]['frequency'] += 1
 
 print('total flights:', len(flights))
 

@@ -1,172 +1,829 @@
 {
-    "Brussels Airlines":{
-        "callsign_ICAO": "BEL",
-        "callsign_SAY": "BEELINE",
-        "frequency": 70,
-        "aircraft": {
-            "A319":{
-                "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
-                "frequency": 25
-            },
-            "A320":{
-                "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
-                "frequency": 25
-            },
-            "A20N":{
-                "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
-                "frequency": 13
-            },
-            "A333":{
-                "apron": ["APRON 1 NORTH", "APRON 1 SOUTH", "APRON 2 NORTH", "APRON 2 SOUTH"],
-                "frequency": 5
-            }
-        }
-    },
-    "Ryanair":{
-        "callsign_ICAO": "RYR",
-        "callsign_SAY": "RYANAIR",
-        "frequency": 8,
-        "aircraft": {
-            "B738":{
-                "apron": ["APRON 1 NORTH"],
-                "frequency": 2
-            },
-            "B38M":{
-                "apron": ["APRON 1 NORTH"],
-                "frequency": 1
-            }
-        }
-    },
-    "TUI Belgium":{
-        "callsign_ICAO": "JAF",
-        "callsign_SAY": "BEAUTY",
-        "frequency": 35,
-        "aircraft": {
-            "B737":{
-                "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
-                "frequency": 2
-            },
-            "B738":{
-                "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
-                "frequency": 2
-            },
-            "B38M":{
-                "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
-                "frequency": 1
-            },
-            "B788":{
-                "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
-                "frequency": 1
-            }
-        }
-    },
-    "Lufthansa":{
-        "callsign_ICAO": "DLH",
-        "callsign_SAY": "LUFTHANSA",
-        "frequency": 6,
-        "aircraft": {
-            "A319":{
-                "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
-                "frequency": 7
-            },
-            "A320":{
-                "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
-                "frequency": 10
-            },
-            "A20N":{
-                "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
-                "frequency": 5
-            },
-            "A321":{
-                "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
-                "frequency": 5
-            },
-            "A21N":{
-                "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
-                "frequency": 1
-            }
-        }
-    },
-    "Singapore Cargo":{
-        "callsign_ICAO": "SQC",
-        "callsign_SAY": "SING CARGO",
-        "frequency": 1,
-        "aircraft": {
-            "B744":{
-                "apron": ["APRON 9"],
-                "frequency": 1
-            }
-        }
-    },
-    "Emirates Cargo":{
-        "callsign_ICAO": "UAE",
-        "callsign_SAY": "EMIRATES",
-        "frequency": 1,
-        "aircraft": {
-            "B77L":{
-                "apron": ["APRON 9"],
-                "frequency": 1
-            }
-        }
-    },
-    "Qatar Cargo":{
-        "callsign_ICAO": "QTR",
-        "callsign_SAY": "QATAR",
-        "frequency": 1,
-        "aircraft": {
-            "B77L":{
-                "apron": ["APRON 9"],
-                "frequency": 1
-            }
-        }
-    },
-    "DHL":{
-        "callsign_ICAO": "BCS",
-        "callsign_SAY": "POSTMAN",
-        "frequency": 10,
-        "aircraft": {
-            "B734":{
-                "apron": ["APRON 9"],
-                "frequency": 10
-            },
-            "B752":{
-                "apron": ["APRON 9"],
-                "frequency": 5
-            },
-            "A306":{
-                "apron": ["APRON 9"],
-                "frequency": 3
-            },
-            "A332":{
-                "apron": ["APRON 9"],
-                "frequency": 1
-            }
-        }
-    },
-    "Air Belgium":{
-        "callsign_ICAO": "ABB",
-        "callsign_SAY": "AIR BELGIUM",
-        "frequency": 2,
-        "aircraft": {
-            "A333":{
-                "apron": ["APRON 9"],
-                "frequency": 1
-            },
-            "B748":{
-                "apron": ["APRON 9"],
-                "frequency": 1
-            }
-        }
-    },
-    "LATAM Cargo":{
-        "callsign_ICAO": "LCO",
-        "callsign_SAY": "LAN CARGO",
-        "frequency": 3,
-        "aircraft": {
-            "B763":{
-                "apron": ["APRON 9"],
-                "frequency": 1
-            }
-        }
+  "Brussels Airlines": {
+    "callsign_ICAO": "BEL",
+    "callsign_SAY": "BEELINE",
+    "frequency": 110,
+    "aircraft": {
+      "A20N": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 12
+      },
+      "A333": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 7
+      },
+      "A319": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 43
+      },
+      "A320": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 35
+      },
+      "BCS3": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 13
+      }
     }
+  },
+  "Turkish Airlines": {
+    "callsign_ICAO": "THY",
+    "callsign_SAY": "TURKAIR",
+    "frequency": 7,
+    "aircraft": {
+      "B39M": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      },
+      "A310": {
+        "apron": ["APRON 9"],
+        "frequency": 1
+      },
+      "A321": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 2
+      },
+      "A21N": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 3
+      }
+    }
+  },
+  "Hainan Airlines": {
+    "callsign_ICAO": "CHH",
+    "callsign_SAY": "HAINAN",
+    "frequency": 2,
+    "aircraft": {
+      "B789": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 2
+      }
+    }
+  },
+  "Ethiopian Airlines": {
+    "callsign_ICAO": "ETH",
+    "callsign_SAY": "ETHIOPIAN",
+    "frequency": 2,
+    "aircraft": {
+      "B77L": {
+        "apron": ["APRON 9"],
+        "frequency": 1
+      },
+      "A359": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "United Airlines": {
+    "callsign_ICAO": "UAL",
+    "callsign_SAY": "UNITED",
+    "frequency": 3,
+    "aircraft": {
+      "B77W": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      },
+      "B78X": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 2
+      }
+    }
+  },
+  "Etihad Airways": {
+    "callsign_ICAO": "ETD",
+    "callsign_SAY": "ETIHAD",
+    "frequency": 1,
+    "aircraft": {
+      "B78X": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "KLM Royal Dutch Airlines": {
+    "callsign_ICAO": "KLM",
+    "callsign_SAY": "KLM",
+    "frequency": 4,
+    "aircraft": {
+      "E75L": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 2
+      },
+      "E295": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      },
+      "E190": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Juneyao Airlines": {
+    "callsign_ICAO": "DKH",
+    "callsign_SAY": "JUNEYAO AIRLINES",
+    "frequency": 1,
+    "aircraft": {
+      "B789": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Thai Airways International": {
+    "callsign_ICAO": "THA",
+    "callsign_SAY": "THAI",
+    "frequency": 1,
+    "aircraft": {
+      "B788": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Lufthansa": {
+    "callsign_ICAO": "DLH",
+    "callsign_SAY": "LUFTHANSA",
+    "frequency": 2,
+    "aircraft": {
+      "CRJ9": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      },
+      "A319": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Air Canada": {
+    "callsign_ICAO": "ACA",
+    "callsign_SAY": "AIR CANADA",
+    "frequency": 2,
+    "aircraft": {
+      "B789": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      },
+      "A333": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "TUI": {
+    "callsign_ICAO": "JAF",
+    "callsign_SAY": "BEAUTY",
+    "frequency": 14,
+    "aircraft": {
+      "B788": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      },
+      "A320": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 5
+      },
+      "B737": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 3
+      },
+      "B738": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 3
+      },
+      "B38M": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 2
+      }
+    }
+  },
+  "Air Baltic": {
+    "callsign_ICAO": "BTI",
+    "callsign_SAY": "AIRBALTIC",
+    "frequency": 2,
+    "aircraft": {
+      "BCS3": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 2
+      }
+    }
+  },
+  "ITA Airways": {
+    "callsign_ICAO": "ITY",
+    "callsign_SAY": "ITARROW",
+    "frequency": 3,
+    "aircraft": {
+      "BCS1": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      },
+      "A21N": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      },
+      "A320": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "EasyJet": {
+    "callsign_ICAO": "EZY",
+    "callsign_SAY": "EASY",
+    "frequency": 6,
+    "aircraft": {
+      "A320": {
+        "apron": ["APRON 1 NORTH"],
+        "frequency": 4
+      },
+      "A319": {
+        "apron": ["APRON 1 NORTH"],
+        "frequency": 2
+      }
+    }
+  },
+  "Ryanair": {
+    "callsign_ICAO": "RYR",
+    "callsign_SAY": "RYANAIR",
+    "frequency": 12,
+    "aircraft": {
+      "B738": {
+        "apron": ["APRON 1 NORTH"],
+        "frequency": 11
+      },
+      "A320": {
+        "apron": ["APRON 1 NORTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Croatia Airlines": {
+    "callsign_ICAO": "CTN",
+    "callsign_SAY": "CROATIA",
+    "frequency": 2,
+    "aircraft": {
+      "A319": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      },
+      "DH8D": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Vueling Airlines": {
+    "callsign_ICAO": "VLG",
+    "callsign_SAY": "VUELING",
+    "frequency": 8,
+    "aircraft": {
+      "A320": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 7
+      },
+      "A321": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Swiss International Air Lines": {
+    "callsign_ICAO": "SWR",
+    "callsign_SAY": "SWISS",
+    "frequency": 3,
+    "aircraft": {
+      "A20N": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      },
+      "A320": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 2
+      }
+    }
+  },
+  "TUIfly": {
+    "callsign_ICAO": "HLX",
+    "callsign_SAY": "YELLOW CAB",
+    "frequency": 1,
+    "aircraft": {
+      "B38M": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Austrian Airlines": {
+    "callsign_ICAO": "AUA",
+    "callsign_SAY": "AUSTRIAN",
+    "frequency": 4,
+    "aircraft": {
+      "A320": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 2
+      },
+      "BCS3": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      },
+      "A321": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Singapore Airlines Cargo": {
+    "callsign_ICAO": "SQC",
+    "callsign_SAY": "SINGCARGO",
+    "frequency": 2,
+    "aircraft": {
+      "B744": {
+        "apron": ["APRON 9"],
+        "frequency": 2
+      }
+    }
+  },
+  "Finnair": {
+    "callsign_ICAO": "FIN",
+    "callsign_SAY": "FINNAIR",
+    "frequency": 3,
+    "aircraft": {
+      "A320": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      },
+      "A321": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      },
+      "E190": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "LOT Polish Airlines": {
+    "callsign_ICAO": "LOT",
+    "callsign_SAY": "POLLOT",
+    "frequency": 4,
+    "aircraft": {
+      "E75S": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      },
+      "E295": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      },
+      "B738": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      },
+      "E195": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Scandinavian Airlines System": {
+    "callsign_ICAO": "SAS",
+    "callsign_SAY": "SCANDINAVIAN",
+    "frequency": 6,
+    "aircraft": {
+      "A20N": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 4
+      },
+      "B738": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      },
+      "A320": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Aer Lingus": {
+    "callsign_ICAO": "EIN",
+    "callsign_SAY": "SHAMROCK",
+    "frequency": 2,
+    "aircraft": {
+      "A320": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 2
+      }
+    }
+  },
+  "Air Europa": {
+    "callsign_ICAO": "AEA",
+    "callsign_SAY": "EUROPA",
+    "frequency": 2,
+    "aircraft": {
+      "A320": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 2
+      }
+    }
+  },
+  "Sky Express": {
+    "callsign_ICAO": "SEH",
+    "callsign_SAY": "AIR CRETE",
+    "frequency": 2,
+    "aircraft": {
+      "A20N": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      },
+      "A21N": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "British Airways": {
+    "callsign_ICAO": "BAW",
+    "callsign_SAY": "SPEEDBIRD",
+    "frequency": 4,
+    "aircraft": {
+      "A21N": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      },
+      "A319": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 2
+      },
+      "A20N": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Aegean Airlines": {
+    "callsign_ICAO": "AEE",
+    "callsign_SAY": "AEGEAN",
+    "frequency": 2,
+    "aircraft": {
+      "A20N": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 2
+      }
+    }
+  },
+  "Air Arabia Maroc": {
+    "callsign_ICAO": "\\N",
+    "callsign_SAY": "Air Arabia",
+    "frequency": 3,
+    "aircraft": {
+      "B738": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      },
+      "A320": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 2
+      }
+    }
+  },
+  "Middle East Airlines": {
+    "callsign_ICAO": "MEA",
+    "callsign_SAY": "CEDAR JET",
+    "frequency": 1,
+    "aircraft": {
+      "A21N": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "FarCargo": {
+    "callsign_ICAO": "SWN",
+    "callsign_SAY": "FAR CARGO",
+    "frequency": 1,
+    "aircraft": {
+      "B752": {
+        "apron": ["APRON 9"],
+        "frequency": 1
+      }
+    }
+  },
+  "TAP Portugal": {
+    "callsign_ICAO": "TAP",
+    "callsign_SAY": "AIR PORTUGAL",
+    "frequency": 4,
+    "aircraft": {
+      "A319": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      },
+      "A20N": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 2
+      },
+      "A320": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Iberia Airlines": {
+    "callsign_ICAO": "IBE",
+    "callsign_SAY": "IBERIA",
+    "frequency": 3,
+    "aircraft": {
+      "A20N": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 2
+      },
+      "A321": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Tunisair": {
+    "callsign_ICAO": "TAR",
+    "callsign_SAY": "TUNAIR",
+    "frequency": 1,
+    "aircraft": {
+      "A320": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Ajet": {
+    "callsign_ICAO": "TKJ",
+    "callsign_SAY": "ANATOLIA",
+    "frequency": 1,
+    "aircraft": {
+      "B738": {
+        "apron": [],
+        "frequency": 1
+      }
+    }
+  },
+  "Transavia Holland": {
+    "callsign_ICAO": "TRA",
+    "callsign_SAY": "TRANSAVIA",
+    "frequency": 6,
+    "aircraft": {
+      "A320": {
+        "apron": ["APRON 1 NORTH"],
+        "frequency": 6
+      }
+    }
+  },
+  "Sichuan Airlines": {
+    "callsign_ICAO": "CSC",
+    "callsign_SAY": "SI CHUAN",
+    "frequency": 1,
+    "aircraft": {
+      "A332": {
+        "apron": ["APRON 9"],
+        "frequency": 1
+      }
+    }
+  },
+  "HiSky Europe": {
+    "callsign_ICAO": "HYS",
+    "callsign_SAY": "SKY EUROPE",
+    "frequency": 1,
+    "aircraft": {
+      "A320": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Icelandair": {
+    "callsign_ICAO": "ICE",
+    "callsign_SAY": "ICEAIR",
+    "frequency": 1,
+    "aircraft": {
+      "B38M": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Emirates": {
+    "callsign_ICAO": "UAE",
+    "callsign_SAY": "EMIRATES",
+    "frequency": 3,
+    "aircraft": {
+      "B77W": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 2
+      },
+      "B77L": {
+        "apron": ["APRON 9"],
+        "frequency": 1
+      }
+    }
+  },
+  "Air Belgium": {
+    "callsign_ICAO": "ABB",
+    "callsign_SAY": "AIR BELGIUM",
+    "frequency": 1,
+    "aircraft": {
+      "B748": {
+        "apron": ["APRON 9"],
+        "frequency": 1
+      }
+    }
+  },
+  "Air Algerie": {
+    "callsign_ICAO": "DAH",
+    "callsign_SAY": "AIR ALGERIE",
+    "frequency": 1,
+    "aircraft": {
+      "B736": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Corendon": {
+    "callsign_ICAO": "XCI",
+    "callsign_SAY": "CORENDON",
+    "frequency": 2,
+    "aircraft": {
+      "B738": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 2
+      }
+    }
+  },
+  "Qatar Airways": {
+    "callsign_ICAO": "QTR",
+    "callsign_SAY": "QATARI",
+    "frequency": 2,
+    "aircraft": {
+      "A359": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      },
+      "B77L": {
+        "apron": ["APRON 9"],
+        "frequency": 1
+      }
+    }
+  },
+  "Freebird Airlines": {
+    "callsign_ICAO": "FHY",
+    "callsign_SAY": "FREEBIRD",
+    "frequency": 1,
+    "aircraft": {
+      "A320": {
+        "apron": [],
+        "frequency": 1
+      }
+    }
+  },
+  "SunExpress": {
+    "callsign_ICAO": "SXS",
+    "callsign_SAY": "SUNEXPRESS",
+    "frequency": 1,
+    "aircraft": {
+      "B738": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Ozark Air Lines": {
+    "callsign_ICAO": "OZR",
+    "callsign_SAY": "OZARK",
+    "frequency": 1,
+    "aircraft": {
+      "B744": {
+        "apron": ["APRON 9"],
+        "frequency": 1
+      }
+    }
+  },
+  "Royal Air Maroc": {
+    "callsign_ICAO": "RAM",
+    "callsign_SAY": "ROYALAIR MAROC",
+    "frequency": 1,
+    "aircraft": {
+      "B738": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "All Nippon Airways": {
+    "callsign_ICAO": "ANA",
+    "callsign_SAY": "ALL NIPPON",
+    "frequency": 1,
+    "aircraft": {
+      "B789": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Rwandair": {
+    "callsign_ICAO": "RWD",
+    "callsign_SAY": "RWANDAIR",
+    "frequency": 1,
+    "aircraft": {
+      "A332": {
+        "apron": ["APRON 2 NORTH", "APRON 2 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Tarom": {
+    "callsign_ICAO": "ROT",
+    "callsign_SAY": "TAROM",
+    "frequency": 1,
+    "aircraft": {
+      "B738": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Air Malta": {
+    "callsign_ICAO": "AMC",
+    "callsign_SAY": "AIR MALTA",
+    "frequency": 1,
+    "aircraft": {
+      "A20N": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "Air Serbia": {
+    "callsign_ICAO": "ASL",
+    "callsign_SAY": "AIR SERBIA",
+    "frequency": 1,
+    "aircraft": {
+      "E195": {
+        "apron": ["APRON 1 NORTH", "APRON 1 SOUTH"],
+        "frequency": 1
+      }
+    }
+  },
+  "ASL Airlines Belgium": {
+    "callsign_ICAO": "TAY",
+    "callsign_SAY": "QUALITY",
+    "frequency": 1,
+    "aircraft": {
+      "B734": {
+        "apron": [],
+        "frequency": 1
+      }
+    }
+  },
+  "DHL": {
+    "callsign_ICAO": "DHL",
+    "callsign_SAY": "DHL",
+    "frequency": 12,
+    "aircraft": {
+      "B77L": {
+        "apron": ["APRON 9"],
+        "frequency": 2
+      },
+      "B763": {
+        "apron": ["APRON 9"],
+        "frequency": 3
+      },
+      "A332": {
+        "apron": ["APRON 9"],
+        "frequency": 2
+      },
+      "B752": {
+        "apron": ["APRON 9"],
+        "frequency": 2
+      },
+      "B738": {
+        "apron": ["APRON 9"],
+        "frequency": 2
+      },
+      "A306": {
+        "apron": ["APRON 9"],
+        "frequency": 1
+      }
+    }
+  },
+  "LATAM Cargo":{
+    "callsign_ICAO": "LCO",
+    "callsign_SAY": "LAN CARGO",
+    "frequency": 3,
+    "aircraft": {
+      "B763":{
+        "apron": ["APRON 9"],
+        "frequency": 1
+      }
+    }
+  }
+
 }

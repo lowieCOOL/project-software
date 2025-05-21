@@ -1,6 +1,6 @@
 {
   "Qantas": {
-    "callsign_ICAO": "QAF",
+    "callsign_ICAO": "QFA",
     "callsign_SAY": "QANTAS",
     "frequency": 2,
     "aircraft": {
@@ -16,51 +16,51 @@
   },
   "British Airways": {
     "callsign_ICAO": "BAW",
-    "callsign_SAY": "SPEED BIRD",
+    "callsign_SAY": "SPEEDBIRD",
     "frequency": 349,
     "aircraft": {
       "B789": {
-        "apron": [105439666, 105439669, 130147164, 105439667],
+        "apron": [],
         "frequency": 10
       },
       "B78X": {
-        "apron": [105439666, 105439669, 130147164, 105439667],
+        "apron": [],
         "frequency": 9
       },
       "B772": {
-        "apron": [105439666, 105439669, 130147164, 105439667],
+        "apron": [],
         "frequency": 28
       },
       "B77W": {
-        "apron": [105439666, 105439669, 130147164, 105439667],
+        "apron": [],
         "frequency": 14
       },
       "A35K": {
-        "apron": [105439666, 105439669, 130147164, 105439667],
+        "apron": [],
         "frequency": 12
       },
       "A388": {
-        "apron": [105439666, 105439669, 130147164, 105439667],
+        "apron": [],
         "frequency": 8
       },
       "B788": {
-        "apron": [105439666, 105439669, 130147164, 105439667],
+        "apron": [],
         "frequency": 8
       },
       "A320": {
-        "apron": [105439666, 105439669, 130147164, 105439667],
+        "apron": [],
         "frequency": 105
       },
       "A21N": {
-        "apron": [105439666, 105439669, 130147164, 105439667],
+        "apron": [],
         "frequency": 30
       },
       "A20N": {
-        "apron": [105439666, 105439669, 130147164, 105439667],
+        "apron": [],
         "frequency": 72
       },
       "A319": {
-        "apron": [105439666, 105439669, 130147164, 105439667],
+        "apron": [],
         "frequency": 53
       }
     }
@@ -105,7 +105,7 @@
   },
   "Malaysia Airlines": {
     "callsign_ICAO": "MAS",
-    "callsign_SAY": "MALASIAN",
+    "callsign_SAY": "MALAYSIAN",
     "frequency": 2,
     "aircraft": {
       "A359": {
@@ -115,8 +115,8 @@
     }
   },
   "Singapore Airlines": {
-    "callsign_ICAO": "SIA",
-    "callsign_SAY": "SINGAPORE",
+    "callsign_ICAO": "SQC",
+    "callsign_SAY": "SINGCARGO",
     "frequency": 4,
     "aircraft": {
       "A388": {
@@ -180,7 +180,7 @@
   },
   "Japan Airlines": {
     "callsign_ICAO": "JAL",
-    "callsign_SAY": "JAPAN AIR",
+    "callsign_SAY": "J-BIRD",
     "frequency": 2,
     "aircraft": {
       "B788": {
@@ -266,8 +266,8 @@
     }
   },
   "Gulf Air": {
-    "callsign_ICAO": "GFA",
-    "callsign_SAY": "GULF AIR",
+    "callsign_ICAO": "GBA",
+    "callsign_SAY": "GULF BAHRAIN",
     "frequency": 2,
     "aircraft": {
       "B789": {
@@ -326,7 +326,7 @@
   },
   "Eurowings": {
     "callsign_ICAO": "EWG",
-    "callsign_SAY": "EURO WINGS",
+    "callsign_SAY": "EUROWINGS",
     "frequency": 13,
     "aircraft": {
       "A20N": {
@@ -356,7 +356,7 @@
   },
   "Air India": {
     "callsign_ICAO": "AIC",
-    "callsign_SAY": "AIR INDIA",
+    "callsign_SAY": "AIRINDIA",
     "frequency": 6,
     "aircraft": {
       "A359": {
@@ -378,8 +378,8 @@
     }
   },
   "Lufthansa": {
-    "callsign_ICAO": "DLH",
-    "callsign_SAY": "LUFTHANSA",
+    "callsign_ICAO": "GEC",
+    "callsign_SAY": "LUFTHANSA CARGO",
     "frequency": 20,
     "aircraft": {
       "A20N": {
@@ -409,7 +409,7 @@
   },
   "Air France": {
     "callsign_ICAO": "AFR",
-    "callsign_SAY": "AIR FRANCE",
+    "callsign_SAY": "AIRFRANS",
     "frequency": 7,
     "aircraft": {
       "A320": {
@@ -457,8 +457,8 @@
     }
   },
   "Loganair": {
-    "callsign_ICAO": "LOG",
-    "callsign_SAY": "LOGAN",
+    "callsign_ICAO": "LVG",
+    "callsign_SAY": "LIVINGSTON",
     "frequency": 6,
     "aircraft": {
       "E145": {
@@ -517,8 +517,8 @@
     }
   },
   "Air Baltic": {
-    "callsign_ICAO": "BTI",
-    "callsign_SAY": "AIR BALTIC",
+    "callsign_ICAO": "AUA",
+    "callsign_SAY": "AUSTRIAN",
     "frequency": 2,
     "aircraft": {
       "BCS3": {
@@ -544,7 +544,7 @@
   },
   "Finnair": {
     "callsign_ICAO": "FIN",
-    "callsign_SAY": "FIN AIR",
+    "callsign_SAY": "FINNAIR",
     "frequency": 6,
     "aircraft": {
       "A359": {
@@ -574,7 +574,7 @@
   },
   "LOT": {
     "callsign_ICAO": "LOT",
-    "callsign_SAY": "LOT",
+    "callsign_SAY": "POLLOT",
     "frequency": 3,
     "aircraft": {
       "B38M": {
@@ -584,8 +584,8 @@
     }
   },
   "KM Malta Airlines": {
-    "callsign_ICAO": "KMM",
-    "callsign_SAY": "SKY NIGHT",
+    "callsign_ICAO": "AMC",
+    "callsign_SAY": "AIR MALTA",
     "frequency": 2,
     "aircraft": {
       "A20N": {
@@ -596,7 +596,7 @@
   },
   "Turkish Airlines": {
     "callsign_ICAO": "THY",
-    "callsign_SAY": "TURKISH",
+    "callsign_SAY": "TURKAIR",
     "frequency": 6,
     "aircraft": {
       "B77W": {
@@ -625,8 +625,8 @@
     }
   },
   "Brussels Airlines": {
-    "callsign_ICAO": "BEL",
-    "callsign_SAY": "BEE LINE",
+    "callsign_ICAO": "DAT",
+    "callsign_SAY": "BEE-LINE",
     "frequency": 4,
     "aircraft": {
       "A20N": {
@@ -686,7 +686,7 @@
   },
   "Icelandair": {
     "callsign_ICAO": "ICE",
-    "callsign_SAY": "ICE AIR",
+    "callsign_SAY": "ICEAIR",
     "frequency": 2,
     "aircraft": {
       "B763": {
@@ -701,7 +701,7 @@
   },
   "WestJet": {
     "callsign_ICAO": "WJA",
-    "callsign_SAY": "WEST JET",
+    "callsign_SAY": "WESTJET",
     "frequency": 1,
     "aircraft": {
       "B789": {
@@ -711,8 +711,8 @@
     }
   },
   "GetJet Airlines": {
-    "callsign_ICAO": "GJT",
-    "callsign_SAY": "GETJET",
+    "callsign_ICAO": "ASL",
+    "callsign_SAY": "AIR SERBIA",
     "frequency": 1,
     "aircraft": {
       "A320": {
@@ -723,7 +723,7 @@
   },
   "Egyptair": {
     "callsign_ICAO": "MSR",
-    "callsign_SAY": "EGYPT AIR",
+    "callsign_SAY": "EGYPTAIR",
     "frequency": 2,
     "aircraft": {
       "B77W": {
@@ -738,7 +738,7 @@
   },
   "El Al": {
     "callsign_ICAO": "ELY",
-    "callsign_SAY": "EL AL",
+    "callsign_SAY": "ELAL",
     "frequency": 2,
     "aircraft": {
       "B789": {
@@ -752,8 +752,8 @@
     }
   },
   "LATAM Airlines": {
-    "callsign_ICAO": "TAM",
-    "callsign_SAY": "LATAM",
+    "callsign_ICAO": "LAN",
+    "callsign_SAY": "LAN",
     "frequency": 1,
     "aircraft": {
       "B77W": {
@@ -775,7 +775,7 @@
   },
   "Avianca": {
     "callsign_ICAO": "AVA",
-    "callsign_SAY": "AVIANCA",
+    "callsign_SAY": " S.A.",
     "frequency": 1,
     "aircraft": {
       "B788": {
@@ -878,7 +878,7 @@
   },
   "Royal Air Maroc": {
     "callsign_ICAO": "RAM",
-    "callsign_SAY": "ROYAL AIR MAROC",
+    "callsign_SAY": "ROYALAIR MAROC",
     "frequency": 1,
     "aircraft": {
       "B38M": {
@@ -900,7 +900,7 @@
   },
   "Korean Air": {
     "callsign_ICAO": "KAL",
-    "callsign_SAY": "KOREAN AIR",
+    "callsign_SAY": "KOREANAIR",
     "frequency": 1,
     "aircraft": {
       "B77W": {
@@ -932,8 +932,8 @@
     }
   },
   "Asiana Airlines": {
-    "callsign_ICAO": "AAR",
-    "callsign_SAY": "ASIANA",
+    "callsign_ICAO": "OZR",
+    "callsign_SAY": "OZARK",
     "frequency": 1,
     "aircraft": {
       "A359": {
@@ -976,8 +976,8 @@
     }
   },
   "Tianjin Airlines": {
-    "callsign_ICAO": "GCR",
-    "callsign_SAY": "BOHAI",
+    "callsign_ICAO": "GUN",
+    "callsign_SAY": "HOOT",
     "frequency": 1,
     "aircraft": {
       "A332": {
@@ -997,9 +997,9 @@
       }
     }
   },
-  "DHL UK": {
-    "callsign_ICAO": "DHK",
-    "callsign_SAY": "WORLDEXPRESS",
+  "DHL": {
+    "callsign_ICAO": "\\N",
+    "callsign_SAY": "",
     "frequency": 1,
     "aircraft": {
       "A306": {

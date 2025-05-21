@@ -162,7 +162,7 @@ class Aircraft():
         if hasattr(self, 'pushback_buttons'):
             del self.pushback_buttons
         # Remove all hold_pushback UI elements
-        for attr in ['hold_pushback_dropdowns', 'exit_dropdown', 'via_dropdown','add_via_button', 'reset_vias_button', 'start_taxi_button', 'runway_dropdown', 'give_route_button', 'via_search_box']:
+        for attr in ['hold_pushback_dropdowns', 'exit_dropdown', 'via_dropdown','add_via_button', 'reset_vias_button', 'start_taxi_button', 'runway_dropdown', 'give_route_button', 'via_search_box', 'via_dropdown', 'exit_dropdown', 'runway_dropdown', 'hold_pushback_dropdowns']:
             if hasattr(self, attr):
                 widget = getattr(self, attr)
                 # If it's a list (like hold_pushback_dropdowns), hide and disable all widgets in it
@@ -180,14 +180,6 @@ class Aircraft():
                     except AttributeError:
                         pass
                 delattr(self, attr)
-        if hasattr(self, 'runway_dropdown'):
-            del self.runway_dropdown
-        if hasattr(self, 'hold_pushback_dropdowns'):
-            del self.hold_pushback_dropdowns
-        if hasattr(self, 'exit_dropdown'):
-            del self.exit_dropdown
-        if hasattr(self, 'via_dropdown'):
-            del self.via_dropdown
         if hasattr(self, 'add_via_button'):
             del self.add_via_button
         if hasattr(self, 'reset_vias_button'):
@@ -198,11 +190,8 @@ class Aircraft():
             del self.selected_exit
         if hasattr(self, 'last_exit_selected'):
             del self.last_exit_selected
-        if hasattr(self, 'selected_vias'):
-            del self.selected_vias
         if hasattr(self, 'last_via_selected'):
             del self.last_via_selected
-
         if hasattr(self, 'taxi_buttons'):
             del self.taxi_buttons
         if hasattr(self, 'continue_taxi_buttons'):
@@ -334,6 +323,10 @@ class Aircraft():
         self.network = network
         self.performance = performance
         self.selected = False # Indicates if the aircraft is selected
+        self.selected_vias = []
+        self.last_via_selected = None
+        self.selected_exit = None
+        self.last_exit_selected = None
         
     def blit_aircraft(self, screen, png, WIDTH, HEIGHT, limits, padding, draw_route=False, draw_rect=False): # function that draws the aircraft on the screen
         coords = latlon_to_screen(self.position, limits, WIDTH, HEIGHT, padding)
@@ -408,7 +401,8 @@ class Aircraft():
         self.network['aircraft_list'][0].selected = True
 
     def update_via_filter(self): # Updates the via filter and hides or disables related UI elements if they exist.
-        self.filtered_vias = [v for v in self.network['taxiways'] if self.via_search_box.getText().lower() in v.lower()]
+        self.filter_via_text = self.via_search_box.getText()
+        self.filtered_vias = [v for v in self.network['taxiways'] if self.filter_via_text.lower() in v.lower()]
         if hasattr(self, 'via_dropdown'):
             self.via_dropdown.choices = self.filtered_vias
             for attr in ['via_dropdown', 'add_via_button', 'reset_vias_button', 'give_route_button']:
@@ -444,7 +438,7 @@ class Aircraft():
             self.via_search_box = TextBox(
                 screen, 50, y_start-40, 200, 30, fontSize=18, borderColour=(200,200,200), textColour=(0,0,0), onTextChanged=self.update_via_filter
             )
-            self.via_search_box.setText('OUT')
+            self.via_search_box.setText(self.via_search_box.getText() if hasattr(self, 'via_search_box') else 'OUT')
         
         self.filtered_vias = [v for v in self.network['taxiways'] if self.via_search_box.getText().lower() in v.lower()]
 
@@ -589,9 +583,9 @@ class Aircraft():
                         if hasattr(self, 'last_exit_selected'):
                             del self.last_exit_selected
                         if hasattr(self, 'selected_vias'):
-                            del self.selected_vias
+                            self.selected_vias.clear()
                         if hasattr(self, 'last_via_selected'):
-                            del self.last_via_selected
+                            self.last_via_selected = None
 
                     # Only show exit/via dropdowns and button if a runway is selected
                     if self.selected_runway:
@@ -646,7 +640,7 @@ class Aircraft():
                         self.continue_taxi_buttons = [Button(screen, 50, 170, 120, 30, text='Continue taxi', onClick=lambda: self.continue_taxi(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
                     
-                    self.vias_selection_ui(screen, y_start=250, on_give_route=self.set_new_taxi)
+                    self.vias_selection_ui(screen, y_start=250, on_give_route=self.set_new_taxi if self.type == 'departure' else self.taxi)
                 case 'hold_runway':
                     screen.blit(create_surface_with_text("hold runway", 20, (255, 255, 255), 'Arial'), (50, 140)) 
                     if not hasattr(self, 'hold_runway_buttons'):
@@ -665,6 +659,7 @@ class Aircraft():
                         self.ready_line_up_buttons = [
                         Button(screen, 50, 170, 120, 30, text='line up', onClick=lambda: self.line_up(), inactiveColour=(255, 223, 63), pressedColour=(255, 212, 0), hoverColour=(212, 212, 0), radius=0)
                         ]
+                case 'cleared_lineup':
                     self.vias_selection_ui(screen, y_start=250, on_give_route=self.set_new_taxi)
                 case 'line_up':
                     screen.blit(create_surface_with_text("line up", 20, (255, 255, 255), 'Arial'), (50, 140))
@@ -900,6 +895,8 @@ class Aircraft():
                     if self.type == 'departure' and node == self.runway_exit['holding_point']: 
                         if self.state == 'taxi':
                             self.state = 'ready_line_up'
+                        elif self.state == 'cleared_line_up':
+                            self.state = 'line_up'
                         else: continue
                     elif self.state == 'cleared_crossing':
                         self.state = 'crossing_runway'
@@ -1209,9 +1206,13 @@ class Departure(Aircraft):
         self.taxi(runway=self.runway_name, destination=self.runway_exit_name, vias=vias)
 
     def line_up(self):
-        if self.state != 'ready_line_up' and self.state != 'taxi':
-            return
-        self.state = 'line_up'
+        match self.state:
+            case 'ready_line_up':
+                self.state = 'line_up'
+            case 'taxi':
+                self.state = 'cleared_line_up'
+            case _:
+                return
         print(f'{self.callsign} lining up on runway ')
 
     def takeoff(self): # function that sets the take off state of the aircraft

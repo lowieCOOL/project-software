@@ -55,10 +55,18 @@ def generate_flight(schedule_json: dict, all_performance: dict, type: str, activ
     callsign = generate_callsign(airline_data['callsign_ICAO'], 1, 2)
     performance = all_performance[aircraft]
     
-    apron = random.choice(aircraft_data['apron'])
-    gates = [gate_number for gate_number, gate in network['gates'].items() if gate['apron'] == apron and not gate['occupied']]  # Filter gates by apron
+    aprons = aircraft_data['apron']
+    # If apron list is empty, consider all gates
+    if not aprons:
+        gates = [gate_number for gate_number, gate in network['gates'].items() if not gate['occupied']]
+    else:
+        gates = [gate_number for gate_number, gate in network['gates'].items() if gate['apron'] in aprons and not gate['occupied']]
+        # If no gates available in the specified aprons, pick any unoccupied gate
+        if not gates:
+            gates = [gate_number for gate_number, gate in network['gates'].items() if not gate['occupied']]
+
     if not gates:
-        print(ValueError(f"No gates available for apron {apron}"))
+        print(ValueError("No gates available in the network"))
         return None
     gate = random.choice(gates)
     network['gates'][gate]['occupied'] = True
